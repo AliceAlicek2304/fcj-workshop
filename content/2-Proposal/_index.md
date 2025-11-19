@@ -55,7 +55,7 @@ Admins can efficiently control content with **CRUD operations and clear access p
 - **Admin Dashboard:** Full CRUD, role-based access control  
 - **Security:** Spring Security, CORS, AWS WAF 
 
-![IoT Weather Station Architecture](/images/2-Proposal/GameTracker.jpg)
+![IoT Weather Station Architecture](/images/2-Proposal/GameTracker1.jpg)
 
 **AWS Services Used**  
 - AWS S3: store static files and media  

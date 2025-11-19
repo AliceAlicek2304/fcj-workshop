@@ -53,7 +53,7 @@ Admin có thể kiểm soát nội dung với **CRUD và phân quyền rõ ràng
 - **Admin Dashboard:** CRUD, phân quyền  
 - **Bảo mật:** Spring Security, CORS, AWS WAF  
 
-![IoT Weather Station Architecture](/images/2-Proposal/GameTracker.jpg)
+![IoT Weather Station Architecture](/images/2-Proposal/GameTracker1.jpg)
 
 **Dịch vụ AWS sử dụng**  
 - AWS S3: lưu trữ file tĩnh và media  
