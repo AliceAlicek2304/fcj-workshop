@@ -140,15 +140,4 @@ Admin có thể kiểm soát nội dung với **CRUD và phân quyền rõ ràng
 
 ---
 
-### 9. Tính năng trong tương lai
-
-- 📊 Quản lý tài nguyên thời gian thực - Theo dõi materials, mora, exp books
-- 🔍 Tra cứu thông tin theo UID - Tìm kiếm player profile và stats
-- 🐧 Hỗ trợ Linux - PowerShell script cho Linux shell (bash/zsh)
-- 📱 Mobile App - Ứng dụng di động iOS/Android
-- 🔔 Thông báo banner mới - Push notification khi có banner mới
-- 📈 Thống kê nâng cao - Deeper analytics cho gacha history
-
----
-
 <h3 style="font-size: 1.3em;">🔗 Website dự án: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>
