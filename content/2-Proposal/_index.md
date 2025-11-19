@@ -143,4 +143,15 @@ Admins can efficiently control content with **CRUD operations and clear access p
 
 ---
 
+### 9. Future Features
+
+- 📊 Real-time resource management - Track materials, mora, exp books
+- 🔍 UID-based information lookup - Search player profiles and stats
+- 🐧 Linux support - PowerShell script for Linux shell (bash/zsh)
+- 📱 Mobile App - iOS/Android application
+- 🔔 New banner notifications - Push notifications for new banners
+- 📈 Advanced analytics - Deeper insights for gacha history
+
+---
+
 <h3 style="font-size: 1.3em;">🔗 Project Website: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>
