@@ -101,15 +101,16 @@ Admin có thể kiểm soát nội dung với **CRUD và phân quyền rõ ràng
 
 ### 6. Ước tính ngân sách
 
-- AWS Lambda — Memory: 3008 MB ~ $5/tháng.
-- S3 Standard — 10 GB lưu trữ ~ $0.23/tháng.
-- CloudFront — 100 GB egress ~ $8.50/tháng.
-- RDS (SQL Server, production) ~ $60+/tháng.
-- SES — Giá tham khảo: ~ $0.01/tháng.
-- CloudWatch — Logs/metrics (10 GB logs) ~ $5/tháng.
-- AWS WAF — Web ACL + 1M requests ~ $10/tháng.
-- Route53 — 1 hosted zone + 1M queries ~ $0.90/tháng.
-- Tổng = $89.64/tháng
+- AWS Lambda — Memory: 3008 MB, ~12,000 invocations/tháng (8,640 warmer + user traffic) ~ $5-7/tháng
+- S3 Standard — 10 GB lưu trữ ~ $0.23/tháng
+- CloudFront — 100 GB egress ~ $8.50/tháng
+- RDS (SQL Server, production) ~ $60+/tháng
+- SES — Giá tham khảo: ~ $0.01/tháng
+- CloudWatch — Logs/metrics (10 GB logs) ~ $5/tháng
+- AWS WAF — Web ACL + 1M requests ~ $10/tháng
+- Route53 — 1 hosted zone + 1M queries ~ $0.90/tháng
+- NAT Gateway — ~$32/tháng (data processing $0.045/GB)
+- Tổng ≈ $121-123/tháng
 
 ---
 

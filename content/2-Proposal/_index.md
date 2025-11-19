@@ -103,15 +103,16 @@ Admins can efficiently control content with **CRUD operations and clear access p
 
 ### 6. Budget Estimation (summary)
 
-- AWS Lambda — Memory: 3008 MB ~ $5/month.
-- S3 Standard — 10 GB storage ~ $0.23/month.
-- CloudFront — 100 GB egress ~ $8.50/month.
-- RDS (SQL Server, production) ~ $60+/month.
-- SES — Approx: ~ $0.01/month.
-- CloudWatch — Logs/metrics (10 GB logs) ~ $5/month.
-- AWS WAF — Web ACL + 1M requests ~ $10/month.
-- Route53 — 1 hosted zone + 1M queries ~ $0.90/month.
-- Total = $89.64/month
+- AWS Lambda — Memory: 3008 MB, ~12,000 invocations/month (8,640 warmer + user traffic) ~ $5-7/month
+- S3 Standard — 10 GB storage ~ $0.23/month
+- CloudFront — 100 GB egress ~ $8.50/month
+- RDS (SQL Server, production) ~ $60+/month
+- SES — Approx: ~ $0.01/month
+- CloudWatch — Logs/metrics (10 GB logs) ~ $5/month
+- AWS WAF — Web ACL + 1M requests ~ $10/month
+- Route53 — 1 hosted zone + 1M queries ~ $0.90/month
+- NAT Gateway — ~$32/month (data processing $0.045/GB)
+- Total ≈ $121-123/month
 
 ---
 
