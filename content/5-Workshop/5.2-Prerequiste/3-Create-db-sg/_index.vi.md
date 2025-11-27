@@ -8,7 +8,7 @@ pre : " <b> 5.2.3 </b> "
 
 #### Táº¡o Security Group cho Amazon RDS
 
-\*\*ℹ️\ Information\*\*: Security Group cho Amazon RDS hoáº¡t Ä‘á»™ng nhÆ° tÆ°á»ng lá»­a áº£o Ä‘á»ƒ kiá»ƒm soÃ¡t lÆ°u lÆ°á»£ng máº¡ng Ä‘áº¿n vÃ  Ä‘i tá»« cÆ¡ sá»Ÿ dá»¯ liá»‡u cá»§a báº¡n. Viá»‡c cáº¥u hÃ¬nh Ä‘Ãºng Security Group lÃ  bÆ°á»›c quan trá»ng Ä‘á»ƒ báº£o vá»‡ dá»¯ liá»‡u cá»§a báº¡n trong AWS.
+\*\*ℹ️ Information\*\*: Security Group cho Amazon RDS hoáº¡t Ä‘á»™ng nhÆ° tÆ°á»ng lá»­a áº£o Ä‘á»ƒ kiá»ƒm soÃ¡t lÆ°u lÆ°á»£ng máº¡ng Ä‘áº¿n vÃ  Ä‘i tá»« cÆ¡ sá»Ÿ dá»¯ liá»‡u cá»§a báº¡n. Viá»‡c cáº¥u hÃ¬nh Ä‘Ãºng Security Group lÃ  bÆ°á»›c quan trá»ng Ä‘á»ƒ báº£o vá»‡ dá»¯ liá»‡u cá»§a báº¡n trong AWS.
 
 #### CÃ¡c bÆ°á»›c táº¡o Security Group cho RDS
 
@@ -32,7 +32,7 @@ pre : " <b> 5.2.3 </b> "
    - Cá»•ng **3306** sáº½ Ä‘Æ°á»£c tá»± Ä‘á»™ng Ä‘iá»n
    - Äá»‘i vá»›i **Source**, chá»n Security Group cá»§a EC2 instance mÃ  báº¡n Ä‘Ã£ táº¡o trÆ°á»›c Ä‘Ã³
 
-**ðŸ”’ Security Note**: Chá»‰ cho phÃ©p káº¿t ná»‘i tá»« cÃ¡c nguá»“n cá»¥ thá»ƒ thay vÃ¬ má»Ÿ cá»•ng cÆ¡ sá»Ÿ dá»¯ liá»‡u cho táº¥t cáº£ Ä‘á»‹a chá»‰ IP (0.0.0.0/0). Äiá»u nÃ y tuÃ¢n theo nguyÃªn táº¯c Ä‘áº·c quyá»n tá»‘i thiá»ƒu vÃ  tÄƒng cÆ°á»ng báº£o máº­t.
+**🔒 Security Note**: Chá»‰ cho phÃ©p káº¿t ná»‘i tá»« cÃ¡c nguá»“n cá»¥ thá»ƒ thay vÃ¬ má»Ÿ cá»•ng cÆ¡ sá»Ÿ dá»¯ liá»‡u cho táº¥t cáº£ Ä‘á»‹a chá»‰ IP (0.0.0.0/0). Äiá»u nÃ y tuÃ¢n theo nguyÃªn táº¯c Ä‘áº·c quyá»n tá»‘i thiá»ƒu vÃ  tÄƒng cÆ°á»ng báº£o máº­t.
 
 ![Configure Inbound Rules](/images/2/0002.png?featherlight=false&width=90pc)
 
@@ -44,9 +44,9 @@ pre : " <b> 5.2.3 </b> "
 
 9. Security Group má»›i Ä‘Ã£ Ä‘Æ°á»£c táº¡o vÃ  sáºµn sÃ ng Ä‘á»ƒ gÃ¡n cho DB instance RDS cá»§a báº¡n.
 
-\*\*⚠️\ Warning\*\*: KhÃ´ng nÃªn sá»­ dá»¥ng cÃ¹ng má»™t Security Group cho cáº£ EC2 vÃ  RDS. Viá»‡c tÃ¡ch biá»‡t Security Group giÃºp quáº£n lÃ½ quyá»n truy cáº­p chÃ­nh xÃ¡c hÆ¡n vÃ  tuÃ¢n thá»§ cÃ¡c nguyÃªn táº¯c báº£o máº­t tá»‘t nháº¥t.
+\*\*⚠️ Warning\*\*: KhÃ´ng nÃªn sá»­ dá»¥ng cÃ¹ng má»™t Security Group cho cáº£ EC2 vÃ  RDS. Viá»‡c tÃ¡ch biá»‡t Security Group giÃºp quáº£n lÃ½ quyá»n truy cáº­p chÃ­nh xÃ¡c hÆ¡n vÃ  tuÃ¢n thá»§ cÃ¡c nguyÃªn táº¯c báº£o máº­t tá»‘t nháº¥t.
 
 ![Security Group Created](/images/2/0004.png?featherlight=false&width=90pc)
 
-**ðŸ’¡ Pro Tip**: Báº¡n cÃ³ thá»ƒ chá»‰nh sá»­a quy táº¯c Security Group báº¥t ká»³ lÃºc nÃ o vÃ  cÃ¡c thay Ä‘á»•i sáº½ Ä‘Æ°á»£c Ã¡p dá»¥ng ngay láº­p tá»©c cho táº¥t cáº£ cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t vá»›i Security Group Ä‘Ã³.
+**💡 Pro Tip**: Báº¡n cÃ³ thá»ƒ chá»‰nh sá»­a quy táº¯c Security Group báº¥t ká»³ lÃºc nÃ o vÃ  cÃ¡c thay Ä‘á»•i sáº½ Ä‘Æ°á»£c Ã¡p dá»¥ng ngay láº­p tá»©c cho táº¥t cáº£ cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t vá»›i Security Group Ä‘Ã³.
 

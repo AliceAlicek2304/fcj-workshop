@@ -8,7 +8,7 @@ pre : " <b> 5.2.1 </b> "
 
 #### Creating a VPC with Subnets and Associated Resources
 
-\*\*ℹ️\ Information\*\*: Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined. This virtual network closely resembles a traditional network in your own data center, with the benefits of using the scalable infrastructure of AWS.
+\*\*ℹ️ Information\*\*: Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined. This virtual network closely resembles a traditional network in your own data center, with the benefits of using the scalable infrastructure of AWS.
 
 Follow these steps to create a VPC with all necessary components for your Amazon RDS deployment:
 
@@ -32,7 +32,7 @@ Follow these steps to create a VPC with all necessary components for your Amazon
    - **Default**: EC2 instances use the tenancy attribute specified during launch
    - **Dedicated**: All EC2 instances run on hardware dedicated to your account
 
-   **ðŸ’¡ Pro Tip**: Most workloads should use Default tenancy for cost efficiency. Only select Dedicated when you have specific compliance or licensing requirements.
+   **💡 Pro Tip**: Most workloads should use Default tenancy for cost efficiency. Only select Dedicated when you have specific compliance or licensing requirements.
 
 8. For **Number of Availability Zones (AZs)**, select at least two AZs for high availability.
 
@@ -40,11 +40,11 @@ Follow these steps to create a VPC with all necessary components for your Amazon
 
 9. Configure your **Number of public subnets** and **Number of private subnets**. For Amazon RDS deployments, you'll typically need private subnets for your database instances and public subnets for resources that need internet access.
 
-   **ðŸ”’ Security Note**: Place your RDS instances in private subnets to enhance security by preventing direct internet access to your databases.
+   **🔒 Security Note**: Place your RDS instances in private subnets to enhance security by preventing direct internet access to your databases.
 
 10. (Optional) If resources in private subnets need internet access, configure **NAT gateways** in each AZ where you have resources requiring outbound connectivity.
 
-    **ðŸ’¡ Pro Tip**: For production environments, deploy NAT gateways in each AZ to eliminate cross-AZ dependencies and improve fault tolerance.
+    **💡 Pro Tip**: For production environments, deploy NAT gateways in each AZ to eliminate cross-AZ dependencies and improve fault tolerance.
 
 11. (Optional) For IPv6 outbound connectivity from private subnets, select **Yes** for **Egress-only Internet Gateway**.
 
@@ -64,7 +64,7 @@ Follow these steps to create a VPC with all necessary components for your Amazon
 
 #### Configuring Public IP Address Assignment for Subnets
 
-\*\*ℹ️\ Information\*\*: The auto-assign public IPv4 address setting determines whether instances launched in a subnet automatically receive public IP addresses. For RDS deployments, your database subnets should typically have this setting disabled.
+\*\*ℹ️ Information\*\*: The auto-assign public IPv4 address setting determines whether instances launched in a subnet automatically receive public IP addresses. For RDS deployments, your database subnets should typically have this setting disabled.
 
 To modify the public IP address assignment behavior for a subnet:
 
@@ -82,11 +82,11 @@ To modify the public IP address assignment behavior for a subnet:
    - **Checked**: Instances launched in this subnet automatically receive a public IPv4 address
    - **Unchecked**: Instances launched in this subnet do not receive a public IPv4 address unless specifically requested during launch
 
-   **ðŸ”’ Security Note**: For subnets that will host your RDS instances, ensure this setting is unchecked to prevent accidental public IP assignment.
+   **🔒 Security Note**: For subnets that will host your RDS instances, ensure this setting is unchecked to prevent accidental public IP assignment.
 
 5. Choose **Save** to apply your changes.
 
 ![Create a VPC](/images/1/0008.png?featherlight=false&width=90pc)
 
-\*\*⚠️\ Warning\*\*: Default subnets have auto-assign public IPv4 addresses enabled by default. Always verify this setting when using default subnets for database deployments.
+\*\*⚠️ Warning\*\*: Default subnets have auto-assign public IPv4 addresses enabled by default. Always verify this setting when using default subnets for database deployments.
 

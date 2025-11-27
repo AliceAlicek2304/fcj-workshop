@@ -7,7 +7,7 @@ pre : " <b> 5.1 </b> "
 ---
 #### Amazon Relational Database Service (Amazon RDS)
 
-\*\*ℹ️\ Information\*\*: Amazon Relational Database Service (Amazon RDS) lÃ  dá»‹ch vá»¥ quáº£n lÃ½ cho phÃ©p báº¡n triá»ƒn khai vÃ  quáº£n lÃ½ cÆ¡ sá»Ÿ dá»¯ liá»‡u quan há»‡ trÃªn AWS. Amazon RDS Ä‘Æ°á»£c thiáº¿t káº¿ cho xá»­ lÃ½ giao dá»‹ch trá»±c tuyáº¿n (OLTP) vÃ  phÃ¹ há»£p nháº¥t vá»›i cÃ¡c yÃªu cáº§u lÆ°u trá»¯ dá»¯ liá»‡u cÃ³ cáº¥u trÃºc vÃ  quan há»‡.
+\*\*ℹ️ Information\*\*: Amazon Relational Database Service (Amazon RDS) lÃ  dá»‹ch vá»¥ quáº£n lÃ½ cho phÃ©p báº¡n triá»ƒn khai vÃ  quáº£n lÃ½ cÆ¡ sá»Ÿ dá»¯ liá»‡u quan há»‡ trÃªn AWS. Amazon RDS Ä‘Æ°á»£c thiáº¿t káº¿ cho xá»­ lÃ½ giao dá»‹ch trá»±c tuyáº¿n (OLTP) vÃ  phÃ¹ há»£p nháº¥t vá»›i cÃ¡c yÃªu cáº§u lÆ°u trá»¯ dá»¯ liá»‡u cÃ³ cáº¥u trÃºc vÃ  quan há»‡.
 
 Amazon RDS cung cáº¥p cÃ¡c lá»£i Ã­ch chÃ­nh:
 - Thay tháº¿ dá»… dÃ ng cho cÃ¡c instance cÆ¡ sá»Ÿ dá»¯ liá»‡u truyá»n thá»‘ng
@@ -26,7 +26,7 @@ Amazon RDS há»— trá»£ cÃ¡c há»‡ thá»‘ng cÆ¡ sá»Ÿ dá»¯ l
 - SQL Server
 - PostgreSQL
 
-\*\*⚠️\ Warning\*\*: RDS lÃ  dá»‹ch vá»¥ Ä‘Æ°á»£c quáº£n lÃ½ vÃ  báº¡n khÃ´ng cÃ³ quyá»n truy cáº­p vÃ o mÃ¡y chá»§ EC2 cÆ¡ báº£n (khÃ´ng cÃ³ quyá»n truy cáº­p root). Ngoáº¡i lá»‡ lÃ  **Amazon RDS Custom**, cho phÃ©p truy cáº­p vÃ o há»‡ Ä‘iá»u hÃ nh cÆ¡ báº£n, nhÆ°ng chá»‰ cÃ³ sáºµn cho má»™t sá»‘ DB Engine giá»›i háº¡n.
+\*\*⚠️ Warning\*\*: RDS lÃ  dá»‹ch vá»¥ Ä‘Æ°á»£c quáº£n lÃ½ vÃ  báº¡n khÃ´ng cÃ³ quyá»n truy cáº­p vÃ o mÃ¡y chá»§ EC2 cÆ¡ báº£n (khÃ´ng cÃ³ quyá»n truy cáº­p root). Ngoáº¡i lá»‡ lÃ  **Amazon RDS Custom**, cho phÃ©p truy cáº­p vÃ o há»‡ Ä‘iá»u hÃ nh cÆ¡ báº£n, nhÆ°ng chá»‰ cÃ³ sáºµn cho má»™t sá»‘ DB Engine giá»›i háº¡n.
 
 #### TÃ­nh nÄƒng quáº£n lÃ½ cá»§a Amazon RDS
 
@@ -39,15 +39,15 @@ Dá»‹ch vá»¥ quáº£n lÃ½ Amazon RDS bao gá»“m:
 - Tá»± Ä‘á»™ng chuyá»ƒn giao cho tÃ¹y chá»n Multi-AZ
 - TÃ¹y chá»n Read Replicas cho táº£i cÃ´ng viá»‡c náº·ng vá» Ä‘á»c
 
-\*\*ℹ️\ Information\*\*: DB instance lÃ  mÃ´i trÆ°á»ng cÆ¡ sá»Ÿ dá»¯ liá»‡u trong Ä‘Ã¡m mÃ¢y vá»›i tÃ i nguyÃªn tÃ­nh toÃ¡n vÃ  lÆ°u trá»¯ mÃ  báº¡n chá»‰ Ä‘á»‹nh. DB instances Ä‘Æ°á»£c truy cáº­p thÃ´ng qua cÃ¡c Ä‘iá»ƒm cuá»‘i (endpoints) cÃ³ thá»ƒ Ä‘Æ°á»£c truy xuáº¥t tá»« AWS Management Console, API DescribeDBInstances hoáº·c lá»‡nh describe-db-instances.
+\*\*ℹ️ Information\*\*: DB instance lÃ  mÃ´i trÆ°á»ng cÆ¡ sá»Ÿ dá»¯ liá»‡u trong Ä‘Ã¡m mÃ¢y vá»›i tÃ i nguyÃªn tÃ­nh toÃ¡n vÃ  lÆ°u trá»¯ mÃ  báº¡n chá»‰ Ä‘á»‹nh. DB instances Ä‘Æ°á»£c truy cáº­p thÃ´ng qua cÃ¡c Ä‘iá»ƒm cuá»‘i (endpoints) cÃ³ thá»ƒ Ä‘Æ°á»£c truy xuáº¥t tá»« AWS Management Console, API DescribeDBInstances hoáº·c lá»‡nh describe-db-instances.
 
-**ðŸ’¡ Pro Tip**: Máº·c Ä‘á»‹nh, khÃ¡ch hÃ ng Ä‘Æ°á»£c phÃ©p cÃ³ tá»‘i Ä‘a 40 DB instances Amazon RDS (chá»‰ cÃ³ 10 trong sá»‘ nÃ y cÃ³ thá»ƒ lÃ  Oracle hoáº·c SQL Server trá»« khi báº¡n cÃ³ giáº¥y phÃ©p riÃªng).
+**💡 Pro Tip**: Máº·c Ä‘á»‹nh, khÃ¡ch hÃ ng Ä‘Æ°á»£c phÃ©p cÃ³ tá»‘i Ä‘a 40 DB instances Amazon RDS (chá»‰ cÃ³ 10 trong sá»‘ nÃ y cÃ³ thá»ƒ lÃ  Oracle hoáº·c SQL Server trá»« khi báº¡n cÃ³ giáº¥y phÃ©p riÃªng).
 
 #### Cá»­a sá»• báº£o trÃ¬ vÃ  sá»± kiá»‡n
 
 Cá»­a sá»• báº£o trÃ¬ Ä‘Æ°á»£c cáº¥u hÃ¬nh Ä‘á»ƒ cho phÃ©p thá»±c hiá»‡n cÃ¡c sá»­a Ä‘á»•i DB instances nhÆ° má»Ÿ rá»™ng vÃ  cÃ i Ä‘áº·t pháº§n má»m vÃ¡. Báº¡n cÃ³ thá»ƒ xÃ¡c Ä‘á»‹nh cá»­a sá»• báº£o trÃ¬ hoáº·c AWS sáº½ lÃªn lá»‹ch cho má»™t cá»­a sá»• 30 phÃºt.
 
-\*\*ℹ️\ Information\*\*: XÃ¡c thá»±c tÃ­ch há»£p vá»›i Windows chá»‰ hoáº¡t Ä‘á»™ng vá»›i SQL Server khi sá»­ dá»¥ng cÃ¡c miá»n Ä‘Æ°á»£c táº¡o báº±ng AWS Directory Service - cáº§n thiáº¿t láº­p má»‘i tin tÆ°á»Ÿng vá»›i thÆ° má»¥c AD trÃªn mÃ´i trÆ°á»ng truyá»n thá»‘ng.
+\*\*ℹ️ Information\*\*: XÃ¡c thá»±c tÃ­ch há»£p vá»›i Windows chá»‰ hoáº¡t Ä‘á»™ng vá»›i SQL Server khi sá»­ dá»¥ng cÃ¡c miá»n Ä‘Æ°á»£c táº¡o báº±ng AWS Directory Service - cáº§n thiáº¿t láº­p má»‘i tin tÆ°á»Ÿng vá»›i thÆ° má»¥c AD trÃªn mÃ´i trÆ°á»ng truyá»n thá»‘ng.
 
 #### Sá»± kiá»‡n vÃ  ThÃ´ng bÃ¡o
 
@@ -68,11 +68,11 @@ Cá»­a sá»• báº£o trÃ¬ Ä‘Æ°á»£c cáº¥u hÃ¬nh Ä‘á»ƒ 
 | Amazon ElastiCache | LÆ°u trá»¯ táº¡m thá»i nhanh cho lÆ°á»£ng dá»¯ liá»‡u nhá», dá»¯ liá»‡u biáº¿n Ä‘á»™ng cao |
 | Amazon S3 | Äá»‘i tÆ°á»£ng nhá»‹ phÃ¢n lá»›n (BLOBs), cÃ¡c trang web tÄ©nh |
 
-**ðŸ’¡ Pro Tip**: Náº¿u trÆ°á»ng há»£p sá»­ dá»¥ng cá»§a báº¡n khÃ´ng Ä‘Æ°á»£c há»— trá»£ trÃªn RDS, báº¡n cÃ³ thá»ƒ cháº¡y cÆ¡ sá»Ÿ dá»¯ liá»‡u trÃªn Amazon EC2 vá»›i kiá»ƒm soÃ¡t Ä‘áº§y Ä‘á»§ vÃ  tÃ­nh linh hoáº¡t tá»‘i Ä‘a, nhÆ°ng pháº£i tá»± quáº£n lÃ½ má»i thá»© nhÆ° sao lÆ°u, dá»± phÃ²ng, cáº­p nháº­t vÃ  má»Ÿ rá»™ng.
+**💡 Pro Tip**: Náº¿u trÆ°á»ng há»£p sá»­ dá»¥ng cá»§a báº¡n khÃ´ng Ä‘Æ°á»£c há»— trá»£ trÃªn RDS, báº¡n cÃ³ thá»ƒ cháº¡y cÆ¡ sá»Ÿ dá»¯ liá»‡u trÃªn Amazon EC2 vá»›i kiá»ƒm soÃ¡t Ä‘áº§y Ä‘á»§ vÃ  tÃ­nh linh hoáº¡t tá»‘i Ä‘a, nhÆ°ng pháº£i tá»± quáº£n lÃ½ má»i thá»© nhÆ° sao lÆ°u, dá»± phÃ²ng, cáº­p nháº­t vÃ  má»Ÿ rá»™ng.
 
 #### MÃ£ hÃ³a vÃ  báº£o máº­t
 
-**ðŸ”’ Security Note**: Báº¡n cÃ³ thá»ƒ mÃ£ hÃ³a cÃ¡c DB instances vÃ  báº£n snapshot Amazon RDS khi nghá»‰ báº±ng cÃ¡ch báº­t tÃ¹y chá»n mÃ£ hÃ³a. MÃ£ hÃ³a khi nghá»‰ Ä‘Æ°á»£c há»— trá»£ cho táº¥t cáº£ cÃ¡c loáº¡i DB vÃ  sá»­ dá»¥ng AWS KMS.
+**🔒 Security Note**: Báº¡n cÃ³ thá»ƒ mÃ£ hÃ³a cÃ¡c DB instances vÃ  báº£n snapshot Amazon RDS khi nghá»‰ báº±ng cÃ¡ch báº­t tÃ¹y chá»n mÃ£ hÃ³a. MÃ£ hÃ³a khi nghá»‰ Ä‘Æ°á»£c há»— trá»£ cho táº¥t cáº£ cÃ¡c loáº¡i DB vÃ  sá»­ dá»¥ng AWS KMS.
 
 Khi sá»­ dá»¥ng mÃ£ hÃ³a khi nghá»‰, cÃ¡c yáº¿u tá»‘ sau cÅ©ng Ä‘Æ°á»£c mÃ£ hÃ³a:
 - Táº¥t cáº£ báº£n snapshot DB
@@ -80,13 +80,13 @@ Khi sá»­ dá»¥ng mÃ£ hÃ³a khi nghá»‰, cÃ¡c yáº¿u tá»‘ sau 
 - LÆ°u trá»¯ instance DB
 - Read Replicas
 
-\*\*⚠️\ Warning\*\*: Báº¡n khÃ´ng thá»ƒ mÃ£ hÃ³a má»™t DB hiá»‡n cÃ³, báº¡n cáº§n táº¡o má»™t báº£n snapshot, sao chÃ©p nÃ³, mÃ£ hÃ³a báº£n sao, sau Ä‘Ã³ xÃ¢y dá»±ng má»™t DB Ä‘Ã£ Ä‘Æ°á»£c mÃ£ hÃ³a tá»« báº£n snapshot.
+\*\*⚠️ Warning\*\*: Báº¡n khÃ´ng thá»ƒ mÃ£ hÃ³a má»™t DB hiá»‡n cÃ³, báº¡n cáº§n táº¡o má»™t báº£n snapshot, sao chÃ©p nÃ³, mÃ£ hÃ³a báº£n sao, sau Ä‘Ã³ xÃ¢y dá»±ng má»™t DB Ä‘Ã£ Ä‘Æ°á»£c mÃ£ hÃ³a tá»« báº£n snapshot.
 
 RDS há»— trá»£ mÃ£ hÃ³a SSL giá»¯a cÃ¡c á»©ng dá»¥ng vÃ  instance DB RDS, vá»›i RDS tá»± Ä‘á»™ng táº¡o chá»©ng chá»‰ cho instance.
 
 #### NhÃ³m DB Subnet
 
-\*\*ℹ️\ Information\*\*: NhÃ³m DB Subnet lÃ  má»™t táº­p há»£p cÃ¡c subnet (thÆ°á»ng lÃ  riÃªng tÆ°) mÃ  báº¡n táº¡o trong má»™t VPC vÃ  sau Ä‘Ã³ chá»‰ Ä‘á»‹nh cho cÃ¡c DB instances.
+\*\*ℹ️ Information\*\*: NhÃ³m DB Subnet lÃ  má»™t táº­p há»£p cÃ¡c subnet (thÆ°á»ng lÃ  riÃªng tÆ°) mÃ  báº¡n táº¡o trong má»™t VPC vÃ  sau Ä‘Ã³ chá»‰ Ä‘á»‹nh cho cÃ¡c DB instances.
 
 - Má»—i nhÃ³m DB Subnet nÃªn cÃ³ cÃ¡c subnet trong Ã­t nháº¥t hai Availability Zone
 - Khuyáº¿n nghá»‹ cáº¥u hÃ¬nh má»™t nhÃ³m subnet vá»›i cÃ¡c subnet trong má»—i AZ (tháº­m chÃ­ cho cÃ¡c instance Ä‘á»™c láº­p)
@@ -102,25 +102,25 @@ AWS tÃ­nh phÃ­ cho:
 - Truyá»n dá»¯ liá»‡u ra ngoÃ i
 - LÆ°u trá»¯ sao lÆ°u (sao lÆ°u DB vÃ  báº£n snapshot thá»§ cÃ´ng)
 
-\*\*ℹ️\ Information\*\*: LÆ°u trá»¯ sao lÆ°u cho sao lÆ°u tá»± Ä‘á»™ng RDS lÃ  miá»…n phÃ­ cho Ä‘áº¿n kÃ­ch thÆ°á»›c á»• EBS Ä‘Ã£ Ä‘Æ°á»£c cung cáº¥p. Tuy nhiÃªn, AWS sao chÃ©p dá»¯ liá»‡u qua nhiá»u AZ vÃ  do Ä‘Ã³ báº¡n pháº£i tráº£ tiá»n cho khÃ´ng gian lÆ°u trá»¯ thÃªm trÃªn S3.
+\*\*ℹ️ Information\*\*: LÆ°u trá»¯ sao lÆ°u cho sao lÆ°u tá»± Ä‘á»™ng RDS lÃ  miá»…n phÃ­ cho Ä‘áº¿n kÃ­ch thÆ°á»›c á»• EBS Ä‘Ã£ Ä‘Æ°á»£c cung cáº¥p. Tuy nhiÃªn, AWS sao chÃ©p dá»¯ liá»‡u qua nhiá»u AZ vÃ  do Ä‘Ã³ báº¡n pháº£i tráº£ tiá»n cho khÃ´ng gian lÆ°u trá»¯ thÃªm trÃªn S3.
 
 Äá»‘i vá»›i Multi-AZ, báº¡n pháº£i tráº£ tiá»n cho:
 - Giá» DB Multi-AZ
 - LÆ°u trá»¯ Ä‘Æ°á»£c cung cáº¥p
 - Ghi I/O hai láº§n
 
-**ðŸ’¡ Pro Tip**: Äá»‘i vá»›i Multi-AZ, báº¡n khÃ´ng pháº£i tráº£ phÃ­ cho truyá»n dá»¯ liá»‡u DB trong quÃ¡ trÃ¬nh sao chÃ©p tá»« instance chÃ­nh sang instance dá»± phÃ²ng.
+**💡 Pro Tip**: Äá»‘i vá»›i Multi-AZ, báº¡n khÃ´ng pháº£i tráº£ phÃ­ cho truyá»n dá»¯ liá»‡u DB trong quÃ¡ trÃ¬nh sao chÃ©p tá»« instance chÃ­nh sang instance dá»± phÃ²ng.
 
 #### Kháº£ nÄƒng má»Ÿ rá»™ng
 
-\*\*ℹ️\ Information\*\*: Báº¡n chá»‰ cÃ³ thá»ƒ má»Ÿ rá»™ng RDS lÃªn (tÃ­nh toÃ¡n vÃ  lÆ°u trá»¯). Báº¡n khÃ´ng thá»ƒ giáº£m lÆ°u trá»¯ Ä‘Ã£ cáº¥p phÃ¡t cho instance RDS.
+\*\*ℹ️ Information\*\*: Báº¡n chá»‰ cÃ³ thá»ƒ má»Ÿ rá»™ng RDS lÃªn (tÃ­nh toÃ¡n vÃ  lÆ°u trá»¯). Báº¡n khÃ´ng thá»ƒ giáº£m lÆ°u trá»¯ Ä‘Ã£ cáº¥p phÃ¡t cho instance RDS.
 
 - Báº¡n cÃ³ thá»ƒ má»Ÿ rá»™ng lÆ°u trá»¯ vÃ  thay Ä‘á»•i loáº¡i lÆ°u trá»¯ cho táº¥t cáº£ cÃ¡c DB engine ngoáº¡i trá»« SQL Server
 - Äá»‘i vá»›i SQL Server, giáº£i phÃ¡p táº¡m thá»i lÃ  táº¡o má»™t instance má»›i tá»« má»™t báº£n snapshot vá»›i cáº¥u hÃ¬nh má»›i
 - Viá»‡c má»Ÿ rá»™ng lÆ°u trá»¯ cÃ³ thá»ƒ xáº£y ra trong khi instance RDS Ä‘ang cháº¡y mÃ  khÃ´ng gÃ¢y ra sá»± cá»‘, tuy nhiÃªn cÃ³ thá»ƒ cÃ³ sá»± suy giáº£m hiá»‡u suáº¥t
 - Viá»‡c má»Ÿ rá»™ng tÃ­nh toÃ¡n sáº½ gÃ¢y ra thá»i gian ngá»«ng hoáº¡t Ä‘á»™ng
 
-\*\*⚠️\ Warning\*\*: Táº¥t cáº£ cÃ¡c loáº¡i DB RDS há»— trá»£ kÃ­ch thÆ°á»›c DB tá»‘i Ä‘a lÃ  64 TiB ngoáº¡i trá»« Microsoft SQL Server (16 TiB).
+\*\*⚠️ Warning\*\*: Táº¥t cáº£ cÃ¡c loáº¡i DB RDS há»— trá»£ kÃ­ch thÆ°á»›c DB tá»‘i Ä‘a lÃ  64 TiB ngoáº¡i trá»« Microsoft SQL Server (16 TiB).
 
 #### Hiá»‡u nÄƒng
 
@@ -157,7 +157,7 @@ Multi-AZ vÃ  Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng Ä‘á»ƒ Ä�
 
 #### Multi-AZ
 
-\*\*ℹ️\ Information\*\*: Multi-AZ RDS táº¡o má»™t báº£n sao á»Ÿ Availability Zone khÃ¡c vÃ  sao chÃ©p Ä‘á»“ng bá»™ Ä‘áº¿n Ä‘Ã³ (chá»‰ dÃ nh cho DR).
+\*\*ℹ️ Information\*\*: Multi-AZ RDS táº¡o má»™t báº£n sao á»Ÿ Availability Zone khÃ¡c vÃ  sao chÃ©p Ä‘á»“ng bá»™ Ä‘áº¿n Ä‘Ã³ (chá»‰ dÃ nh cho DR).
 
 - AWS khuyÃªn nÃªn sá»­ dá»¥ng lÆ°u trá»¯ provisioned IOPS cho cÃ¡c instance DB RDS Multi-AZ
 - Má»—i AZ cháº¡y trÃªn cÆ¡ sá»Ÿ háº¡ táº§ng riÃªng biá»‡t, Ä‘á»™c láº­p vá» váº­t lÃ½
@@ -165,13 +165,13 @@ Multi-AZ vÃ  Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng Ä‘á»ƒ Ä�
 - Trong quÃ¡ trÃ¬nh failover, RDS tá»± Ä‘á»™ng cáº­p nháº­t cáº¥u hÃ¬nh (bao gá»“m Ä‘iá»ƒm cuá»‘i DNS) Ä‘á»ƒ sá»­ dá»¥ng nÃºt thá»© hai
 - TÃ¹y thuá»™c vÃ o lá»›p instance, cÃ³ thá»ƒ máº¥t tá»« 1 Ä‘áº¿n vÃ i phÃºt Ä‘á»ƒ failover Ä‘áº¿n báº£n sao DB dá»± phÃ²ng
 
-**ðŸ’¡ Pro Tip**: Triá»ƒn khai viá»‡c thá»­ láº¡i káº¿t ná»‘i DB trong á»©ng dá»¥ng cá»§a báº¡n vÃ  sá»­ dá»¥ng Ä‘iá»ƒm cuá»‘i thay vÃ¬ Ä‘á»‹a chá»‰ IP Ä‘á»ƒ chá»‰ Ä‘á»‹nh á»©ng dá»¥ng Ä‘áº¿n DB RDS.
+**💡 Pro Tip**: Triá»ƒn khai viá»‡c thá»­ láº¡i káº¿t ná»‘i DB trong á»©ng dá»¥ng cá»§a báº¡n vÃ  sá»­ dá»¥ng Ä‘iá»ƒm cuá»‘i thay vÃ¬ Ä‘á»‹a chá»‰ IP Ä‘á»ƒ chá»‰ Ä‘á»‹nh á»©ng dá»¥ng Ä‘áº¿n DB RDS.
 
-\*\*⚠️\ Warning\*\*: Báº£n sao DB thá»© cáº¥p trong cáº¥u hÃ¬nh Multi-AZ khÃ´ng thá»ƒ Ä‘Æ°á»£c sá»­ dá»¥ng nhÆ° má»™t nÃºt Ä‘á»c Ä‘á»™c láº­p.
+\*\*⚠️ Warning\*\*: Báº£n sao DB thá»© cáº¥p trong cáº¥u hÃ¬nh Multi-AZ khÃ´ng thá»ƒ Ä‘Æ°á»£c sá»­ dá»¥ng nhÆ° má»™t nÃºt Ä‘á»c Ä‘á»™c láº­p.
 
 #### Read Replicas
 
-\*\*ℹ️\ Information\*\*: Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng cho cÃ¡c cÆ¡ sá»Ÿ dá»¯ liá»‡u cÃ³ táº£i Ä‘á»c nhiá»u vÃ  sao chÃ©p lÃ  khÃ´ng Ä‘á»“ng bá»™.
+\*\*ℹ️ Information\*\*: Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng cho cÃ¡c cÆ¡ sá»Ÿ dá»¯ liá»‡u cÃ³ táº£i Ä‘á»c nhiá»u vÃ  sao chÃ©p lÃ  khÃ´ng Ä‘á»“ng bá»™.
 
 - Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng Ä‘á»ƒ chia sáº» vÃ  giáº£m táº£i cÃ´ng viá»‡c Ä‘á»c
 - Pháº£i báº­t tÃ­nh nÄƒng sao lÆ°u tá»± Ä‘á»™ng trÃªn instance chÃ­nh (thá»i gian lÆ°u trá»¯ > 0)
@@ -182,11 +182,11 @@ Multi-AZ vÃ  Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng Ä‘á»ƒ Ä�
 - Má»—i Read Replica cÃ³ má»™t Ä‘iá»ƒm cuá»‘i DNS riÃªng
 - Read Replicas cÃ³ thá»ƒ Ä‘Æ°á»£c báº­t Ä‘a khu vá»±c vÃ  báº¡n cÃ³ thá»ƒ táº¡o Read Replicas tá»« cÃ¡c cÆ¡ sá»Ÿ dá»¯ liá»‡u nguá»“n Ä‘a khu vá»±c
 
-**ðŸ’¡ Pro Tip**: Báº¡n cÃ³ thá»ƒ thÄƒng cáº¥p má»™t Read Replica thÃ nh instance chÃ­nh. Viá»‡c thÄƒng cáº¥p Read Replica máº¥t vÃ i phÃºt vÃ  giá»¯ láº¡i thá»i gian lÆ°u trá»¯ sao lÆ°u, cá»­a sá»• sao lÆ°u, vÃ  nhÃ³m tham sá»‘ cÆ¡ sá»Ÿ dá»¯ liá»‡u.
+**💡 Pro Tip**: Báº¡n cÃ³ thá»ƒ thÄƒng cáº¥p má»™t Read Replica thÃ nh instance chÃ­nh. Viá»‡c thÄƒng cáº¥p Read Replica máº¥t vÃ i phÃºt vÃ  giá»¯ láº¡i thá»i gian lÆ°u trá»¯ sao lÆ°u, cá»­a sá»• sao lÆ°u, vÃ  nhÃ³m tham sá»‘ cÆ¡ sá»Ÿ dá»¯ liá»‡u.
 
 #### DB Snapshots
 
-\*\*ℹ️\ Information\*\*: DB Snapshots lÃ  cÃ¡c tÃ¬nh huá»‘ng do ngÆ°á»i dÃ¹ng khá»Ÿi táº¡o vÃ  cho phÃ©p báº¡n sao lÆ°u DB instance cá»§a báº¡n á»Ÿ trong má»™t tráº¡ng thÃ¡i xÃ¡c Ä‘á»‹nh.
+\*\*ℹ️ Information\*\*: DB Snapshots lÃ  cÃ¡c tÃ¬nh huá»‘ng do ngÆ°á»i dÃ¹ng khá»Ÿi táº¡o vÃ  cho phÃ©p báº¡n sao lÆ°u DB instance cá»§a báº¡n á»Ÿ trong má»™t tráº¡ng thÃ¡i xÃ¡c Ä‘á»‹nh.
 
 - Snapshot Ä‘Æ°á»£c lÆ°u trá»¯ trÃªn S3 vÃ  tá»“n táº¡i cho Ä‘áº¿n khi bá»‹ xÃ³a thá»§ cÃ´ng
 - I/O táº¡m ngá»«ng trong thá»i gian sao lÆ°u vÃ  cÃ³ thá»ƒ lÃ m tÄƒng Ä‘á»™ trá»… (Ã¡p dá»¥ng cho RDS chá»‰ cÃ³ má»™t vÃ¹ng khu vá»±c)
@@ -194,7 +194,7 @@ Multi-AZ vÃ  Read Replicas Ä‘Æ°á»£c sá»­ dá»¥ng Ä‘á»ƒ Ä�
 - DB Ä‘Æ°á»£c khÃ´i phá»¥c sáº½ luÃ´n lÃ  má»™t DB instance RDS má»›i vá»›i má»™t Ä‘iá»ƒm cuá»‘i DNS má»›i
 - CÃ³ thá»ƒ khÃ´i phá»¥c lÃªn Ä‘áº¿n 5 phÃºt trÆ°á»›c
 
-**ðŸ’¡ Pro Tip**: NÃªn chá»¥p má»™t Snapshot cuá»‘i cÃ¹ng trÆ°á»›c khi xÃ³a má»™t DB instance RDS. Snapshot cÃ³ thá»ƒ chia sáº» vá»›i cÃ¡c tÃ i khoáº£n AWS khÃ¡c.
+**💡 Pro Tip**: NÃªn chá»¥p má»™t Snapshot cuá»‘i cÃ¹ng trÆ°á»›c khi xÃ³a má»™t DB instance RDS. Snapshot cÃ³ thá»ƒ chia sáº» vá»›i cÃ¡c tÃ i khoáº£n AWS khÃ¡c.
 
 #### Theo dÃµi, Ghi log vÃ  BÃ¡o cÃ¡o
 
@@ -211,5 +211,5 @@ Amazon RDS tÃ­ch há»£p vá»›i:
 - **Amazon EventBridge**: Tá»± Ä‘á»™ng hÃ³a pháº£n á»©ng vá»›i cÃ¡c sá»± kiá»‡n há»‡ thá»‘ng
 - **AWS CloudTrail**: Ghi láº¡i táº¥t cáº£ cÃ¡c cuá»™c gá»i API cho Amazon RDS
 
-**ðŸ’¡ Pro Tip**: Sá»­ dá»¥ng káº¿t há»£p cÃ¡c cÃ´ng cá»¥ theo dÃµi nÃ y Ä‘á»ƒ cÃ³ cÃ¡i nhÃ¬n toÃ n diá»‡n vá» hiá»‡u suáº¥t vÃ  sá»©c khá»e cá»§a cÆ¡ sá»Ÿ dá»¯ liá»‡u RDS cá»§a báº¡n.
+**💡 Pro Tip**: Sá»­ dá»¥ng káº¿t há»£p cÃ¡c cÃ´ng cá»¥ theo dÃµi nÃ y Ä‘á»ƒ cÃ³ cÃ¡i nhÃ¬n toÃ n diá»‡n vá» hiá»‡u suáº¥t vÃ  sá»©c khá»e cá»§a cÆ¡ sá»Ÿ dá»¯ liá»‡u RDS cá»§a báº¡n.
 

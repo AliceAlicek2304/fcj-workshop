@@ -9,7 +9,7 @@ pre: " <b> 5. </b> "
 
 #### Tổng quan về Amazon RDS
 
-\*\*ℹ️\ Information\*\*: Amazon Relational Database Service (Amazon RDS) là dịch vụ quản lý cho phép bạn triển khai và quản lý cơ sở dữ liệu quan hệ trên AWS. Amazon RDS được thiết kế cho xử lý giao dịch trực tuyến (OLTP) và phù hợp nhất với các yêu cầu lưu trữ dữ liệu có cấu trúc và quan hệ.
+\*\*ℹ️ Information\*\*: Amazon Relational Database Service (Amazon RDS) là dịch vụ quản lý cho phép bạn triển khai và quản lý cơ sở dữ liệu quan hệ trên AWS. Amazon RDS được thiết kế cho xử lý giao dịch trực tuyến (OLTP) và phù hợp nhất với các yêu cầu lưu trữ dữ liệu có cấu trúc và quan hệ.
 
 Amazon RDS cung cấp các lợi ích chính:
 - Thay thế dễ dàng cho các instance cơ sở dữ liệu truyền thống
@@ -28,7 +28,7 @@ Amazon RDS hỗ trợ các hệ thống cơ sở dữ liệu sau:
 - SQL Server
 - PostgreSQL
 
-\*\*⚠️\ Warning\*\*: RDS là dịch vụ được quản lý và bạn không có quyền truy cập vào máy chủ EC2 cơ bản (không có quyền truy cập root). Ngoại lệ là **Amazon RDS Custom**, cho phép truy cập vào hệ điều hành cơ bản, nhưng chỉ có sẵn cho một số DB Engine giới hạn.
+\*\*⚠️ Warning\*\*: RDS là dịch vụ được quản lý và bạn không có quyền truy cập vào máy chủ EC2 cơ bản (không có quyền truy cập root). Ngoại lệ là **Amazon RDS Custom**, cho phép truy cập vào hệ điều hành cơ bản, nhưng chỉ có sẵn cho một số DB Engine giới hạn.
 
 #### Tính năng quản lý của Amazon RDS
 
@@ -41,7 +41,7 @@ Dịch vụ quản lý Amazon RDS bao gồm:
 - Tự động chuyển giao cho tùy chọn Multi-AZ
 - Tùy chọn Read Replicas cho tải công việc nặng về đọc
 
-\*\*ℹ️\ Information\*\*: DB instance là môi trường cơ sở dữ liệu trong đám mây với tài nguyên tính toán và lưu trữ mà bạn chỉ định. DB instances được truy cập thông qua các điểm cuối (endpoints) có thể được truy xuất từ AWS Management Console, API DescribeDBInstances hoặc lệnh describe-db-instances.
+\*\*ℹ️ Information\*\*: DB instance là môi trường cơ sở dữ liệu trong đám mây với tài nguyên tính toán và lưu trữ mà bạn chỉ định. DB instances được truy cập thông qua các điểm cuối (endpoints) có thể được truy xuất từ AWS Management Console, API DescribeDBInstances hoặc lệnh describe-db-instances.
 
 **💡 Pro Tip**: Mặc định, khách hàng được phép có tối đa 40 DB instances Amazon RDS (chỉ có 10 trong số này có thể là Oracle hoặc MS SQL trừ khi bạn có giấy phép riêng).
 
@@ -49,7 +49,7 @@ Dịch vụ quản lý Amazon RDS bao gồm:
 
 Cửa sổ bảo trì được cấu hình để cho phép thực hiện các sửa đổi DB instances như mở rộng và cài đặt phần mềm vá. Bạn có thể xác định cửa sổ bảo trì hoặc AWS sẽ lên lịch cho một cửa sổ 30 phút.
 
-\*\*ℹ️\ Information\*\*: Xác thực tích hợp với Windows chỉ hoạt động với SQL khi sử dụng các miền được tạo bằng AWS Directory Service - cần thiết lập mối tin tưởng với thư mục AD trên nơi làm việc truyền thống.
+\*\*ℹ️ Information\*\*: Xác thực tích hợp với Windows chỉ hoạt động với SQL khi sử dụng các miền được tạo bằng AWS Directory Service - cần thiết lập mối tin tưởng với thư mục AD trên nơi làm việc truyền thống.
 
 #### Sự kiện và Thông báo
 
@@ -93,9 +93,9 @@ Khi sử dụng mã hóa khi nghỉ, các yếu tố sau cũng được mã hóa
 - Lưu trữ instance DB
 - Read Replicas
 
-\*\*⚠️\ Warning\*\*: Bạn không thể mã hóa một DB hiện có. Bạn cần tạo một bản chụp, sao chép nó, mã hóa bản sao, sau đó xây dựng một DB đã được mã hóa từ bản chụp.
+\*\*⚠️ Warning\*\*: Bạn không thể mã hóa một DB hiện có. Bạn cần tạo một bản chụp, sao chép nó, mã hóa bản sao, sau đó xây dựng một DB đã được mã hóa từ bản chụp.
 
-\*\*ℹ️\ Information\*\*: RDS hỗ trợ mã hóa SSL giữa các ứng dụng và DB instances RDS. RDS tạo chứng chỉ cho instance.
+\*\*ℹ️ Information\*\*: RDS hỗ trợ mã hóa SSL giữa các ứng dụng và DB instances RDS. RDS tạo chứng chỉ cho instance.
 
 #### Nhóm DB Subnet
 
@@ -115,7 +115,7 @@ AWS tính phí cho:
 - Truyền dữ liệu ra ngoài
 - Lưu trữ sao lưu (sao lưu DB và bản chụp thủ công)
 
-\*\*ℹ️\ Information\*\*: Lưu trữ sao lưu cho sao lưu tự động RDS miễn phí đến kích thước ổ EBS đã cung cấp. Tuy nhiên, AWS sao chép dữ liệu qua nhiều AZ nên bạn phải trả tiền cho không gian lưu trữ thêm trên S3.
+\*\*ℹ️ Information\*\*: Lưu trữ sao lưu cho sao lưu tự động RDS miễn phí đến kích thước ổ EBS đã cung cấp. Tuy nhiên, AWS sao chép dữ liệu qua nhiều AZ nên bạn phải trả tiền cho không gian lưu trữ thêm trên S3.
 
 Đối với Multi-AZ, bạn phải trả tiền cho:
 - Giờ DB Multi-AZ
@@ -128,11 +128,11 @@ Giấy phép Oracle và Microsoft SQL được bao gồm, hoặc bạn có thể
 
 #### Khả năng mở rộng
 
-\*\*⚠️\ Warning\*\*: Bạn chỉ có thể mở rộng RDS lên (tính toán và lưu trữ). Bạn không thể giảm lưu trữ đã cấp cho instance RDS.
+\*\*⚠️ Warning\*\*: Bạn chỉ có thể mở rộng RDS lên (tính toán và lưu trữ). Bạn không thể giảm lưu trữ đã cấp cho instance RDS.
 
 Bạn có thể mở rộng lưu trữ và thay đổi loại lưu trữ cho tất cả các DB engine ngoại trừ MS SQL. Đối với MS SQL, giải pháp tạm thời là tạo instance mới từ bản chụp với cấu hình mới.
 
-\*\*ℹ️\ Information\*\*: Việc mở rộng lưu trữ có thể xảy ra trong khi instance RDS đang chạy mà không gây sự cố, tuy nhiên có thể có sự suy giảm hiệu suất. Việc mở rộng tính toán sẽ gây thời gian ngừng hoạt động.
+\*\*ℹ️ Information\*\*: Việc mở rộng lưu trữ có thể xảy ra trong khi instance RDS đang chạy mà không gây sự cố, tuy nhiên có thể có sự suy giảm hiệu suất. Việc mở rộng tính toán sẽ gây thời gian ngừng hoạt động.
 
 Tất cả các loại DB RDS hỗ trợ kích thước DB tối đa là 64 TiB ngoại trừ Microsoft SQL Server (16 TiB).
 
@@ -181,7 +181,7 @@ Multi-AZ và Read Replicas được sử dụng để đảm bảo tính sẵn c
 
 #### Multi-AZ
 
-\*\*ℹ️\ Information\*\*: Multi-AZ RDS tạo bản sao ở AZ khác và sao chép đồng bộ đến đó (chỉ dành cho DR). AWS khuyên sử dụng lưu trữ provisioned IOPS cho DB instances RDS Multi-AZ.
+\*\*ℹ️ Information\*\*: Multi-AZ RDS tạo bản sao ở AZ khác và sao chép đồng bộ đến đó (chỉ dành cho DR). AWS khuyên sử dụng lưu trữ provisioned IOPS cho DB instances RDS Multi-AZ.
 
 Mỗi AZ chạy trên cơ sở hạ tầng riêng biệt, độc lập về vật lý và được thiết kế để đảm bảo tính tin cậy cao. Bạn không thể chọn AZ nào sẽ được chọn cho bản sao DB dự phòng.
 
@@ -196,13 +196,13 @@ Failover có thể được kích hoạt trong các trường hợp:
 
 **💡 Pro Tip**: Trong quá trình failover, RDS tự động cập nhật cấu hình (bao gồm điểm cuối DNS) để sử dụng nút thứ hai. Tùy thuộc vào lớp instance, có thể mất từ 1 đến vài phút để failover. Nên triển khai việc thử lại kết nối DB trong ứng dụng và sử dụng điểm cuối thay vì địa chỉ IP.
 
-\*\*⚠️\ Warning\*\*: Bản sao DB thứ cấp trong cấu hình Multi-AZ không thể được sử dụng như nút đọc độc lập. Không tính phí cho việc truyền dữ liệu giữa các instance RDS chính và dự phòng.
+\*\*⚠️ Warning\*\*: Bản sao DB thứ cấp trong cấu hình Multi-AZ không thể được sử dụng như nút đọc độc lập. Không tính phí cho việc truyền dữ liệu giữa các instance RDS chính và dự phòng.
 
 Các nâng cấp hệ thống (cập nhật hệ điều hành, thay đổi kích thước DB Instance) được áp dụng trước tiên trên replicas trước khi failover và sửa đổi DB Instance khác. Trong cấu hình Multi-AZ, các bản snapshot và sao lưu tự động được thực hiện trên replicas để tránh tạm dừng I/O trên DB instance chính.
 
 #### Hỗ trợ Read Replicas cho Multi-AZ
 
-\*\*ℹ️\ Information\*\*: Amazon RDS Read Replicas cho MySQL, MariaDB, PostgreSQL và Oracle hỗ trợ triển khai Multi-AZ. Kết hợp Read Replicas với Multi-AZ cho phép xây dựng chiến lược phục hồi thảm họa chắc chắn và đơn giản hóa quá trình nâng cấp DB engine.
+\*\*ℹ️ Information\*\*: Amazon RDS Read Replicas cho MySQL, MariaDB, PostgreSQL và Oracle hỗ trợ triển khai Multi-AZ. Kết hợp Read Replicas với Multi-AZ cho phép xây dựng chiến lược phục hồi thảm họa chắc chắn và đơn giản hóa quá trình nâng cấp DB engine.
 
 Read snapshot ở AZ khác so với DB nguồn có thể được sử dụng như DB dự phòng và được thúc đẩy trở thành DB sản xuất mới khi có sự cố vùng. Điều này cho phép mở rộng khả năng đọc đồng thời cũng như có Multi-AZ cho DR.
 
@@ -212,13 +212,13 @@ Read snapshot ở AZ khác so với DB nguồn có thể được sử dụng nh
 2. Thúc đẩy replicas trở thành primary
 3. Thực hiện các hoạt động trên replicas mới (primary bị hạ cấp)
 
-\*\*ℹ️\ Information\*\*: Bạn có thể nâng cấp thủ công DB instance lên phiên bản DB engine mới từ AWS Console. Mặc định, nâng cấp có hiệu lực trong cửa sổ bảo trì tiếp theo, nhưng có thể buộc nâng cấp ngay lập tức.
+\*\*ℹ️ Information\*\*: Bạn có thể nâng cấp thủ công DB instance lên phiên bản DB engine mới từ AWS Console. Mặc định, nâng cấp có hiệu lực trong cửa sổ bảo trì tiếp theo, nhưng có thể buộc nâng cấp ngay lập tức.
 
-\*\*⚠️\ Warning\*\*: Trong triển khai Multi-AZ, nâng cấp phiên bản được thực hiện trên cả primary và replicas cùng lúc, gây sự cố cho cả hai DB Instance. Đảm bảo SG và NACL cho phép máy chủ ứng dụng giao tiếp với cả primary và replicas.
+\*\*⚠️ Warning\*\*: Trong triển khai Multi-AZ, nâng cấp phiên bản được thực hiện trên cả primary và replicas cùng lúc, gây sự cố cho cả hai DB Instance. Đảm bảo SG và NACL cho phép máy chủ ứng dụng giao tiếp với cả primary và replicas.
 
 #### Read Replicas
 
-\*\*ℹ️\ Information\*\*: Read Replicas được sử dụng cho DB có tải đọc nhiều và sao chép không đồng bộ. Chúng giúp chia sẻ và giảm tải công việc, cung cấp khả năng khôi phục dữ liệu ở chế độ chỉ đọc.
+\*\*ℹ️ Information\*\*: Read Replicas được sử dụng cho DB có tải đọc nhiều và sao chép không đồng bộ. Chúng giúp chia sẻ và giảm tải công việc, cung cấp khả năng khôi phục dữ liệu ở chế độ chỉ đọc.
 
 Read Replicas được tạo từ snapshot của bản chính. Phải bật tính năng sao lưu tự động trên bản chính (thời gian lưu trữ > 0). Chỉ được hỗ trợ cho các DB engine lưu trữ giao dịch (InnoDB).
 
@@ -228,7 +228,7 @@ Read Replicas có sẵn cho MySQL, PostgreSQL, MariaDB, Oracle, Aurora và SQL S
 
 Cấu hình Read Replicas có thể thiết lập từ Giao diện AWS hoặc API. Bạn có thể chỉ định region của Read Replicas. Loại lưu trữ và lớp bản chính có thể khác với nguồn, nhưng tính toán phải ít nhất bằng hiệu suất của nguồn.
 
-\*\*⚠️\ Warning\*\*: Trong trường hợp mất kết nối đa region, các Read Replicas được chuyển sang bản chính mới. Read Replicas phải được xóa một cách tường tận. Nếu bản chính bị xóa mà không xóa các bản sao, mỗi bản sao trở thành bản chính độc lập tại một region.
+\*\*⚠️ Warning\*\*: Trong trường hợp mất kết nối đa region, các Read Replicas được chuyển sang bản chính mới. Read Replicas phải được xóa một cách tường tận. Nếu bản chính bị xóa mà không xóa các bản sao, mỗi bản sao trở thành bản chính độc lập tại một region.
 
 Bạn có thể thăng cấp Read Replicas thành bản chính (mất vài phút). Read Replicas được thăng cấp giữ lại thời gian lưu trữ sao lưu, cửa sổ sao lưu, nhóm tham số DB, và các Read Replicas hiện có vẫn hoạt động bình thường.
 
@@ -236,13 +236,13 @@ Mỗi Read Replica có điểm cuối DNS riêng. Read Replicas có thể bật 
 
 #### DB Snapshots
 
-\*\*ℹ️\ Information\*\*: DB Snapshots là tình huống do người dùng khởi tạo, cho phép sao lưu DB instance ở trạng thái xác định và khôi phục về trạng thái đó. Không thể dùng để khôi phục tại điểm thời gian cụ thể.
+\*\*ℹ️ Information\*\*: DB Snapshots là tình huống do người dùng khởi tạo, cho phép sao lưu DB instance ở trạng thái xác định và khôi phục về trạng thái đó. Không thể dùng để khôi phục tại điểm thời gian cụ thể.
 
 Snapshots được lưu trữ trên S3 và tồn tại cho đến khi bị xóa thủ công. Sao lưu được thực hiện trong khoảng thời gian đã định. I/O tạm ngừng trong thời gian sao lưu và có thể tăng độ trễ (áp dụng cho RDS chỉ có một vùng).
 
 **💡 Pro Tip**: DB Snapshots thủ công được lưu trữ ngay cả sau khi DB instance RDS bị xóa. DB được khôi phục luôn là DB instance RDS mới với điểm cuối DNS mới. Có thể khôi phục lên đến 5 phút trước.
 
-\*\*⚠️\ Warning\*\*: Chỉ có tham số DB mặc định và nhóm bảo mật được khôi phục - phải liên kết tham số DB và SG khác thủ công. Nên chụp Snapshot cuối cùng trước khi xóa DB instance RDS.
+\*\*⚠️ Warning\*\*: Chỉ có tham số DB mặc định và nhóm bảo mật được khôi phục - phải liên kết tham số DB và SG khác thủ công. Nên chụp Snapshot cuối cùng trước khi xóa DB instance RDS.
 
 Snapshot có thể chia sẻ với các tài khoản AWS khác.
 
@@ -255,11 +255,11 @@ Snapshot có thể chia sẻ với các tài khoản AWS khác.
 
 Sao lưu RDS thường xuyên bảo vệ trước sự hỏng dữ liệu và không ảnh hưởng hiệu suất triển khai Multi-AZ. Sao lưu dự phòng region cũng là lựa chọn nhưng không đảm bảo nhất quán mạnh mẽ.
 
-\*\*⚠️\ Warning\*\*: Nếu cơ sở dữ liệu chạy trên EC2, bạn phải tự thiết kế tính sẵn có.
+\*\*⚠️ Warning\*\*: Nếu cơ sở dữ liệu chạy trên EC2, bạn phải tự thiết kế tính sẵn có.
 
 #### Di chuyển dữ liệu
 
-\*\*ℹ️\ Information\*\*: AWS Database Migration Service (DMS) giúp di chuyển cơ sở dữ liệu vào AWS nhanh chóng và an toàn. Sử dụng kèm với Schema Conversion Tool (SCT) để di chuyển cơ sở dữ liệu vào RDS hoặc cơ sở dữ liệu dựa trên EC2.
+\*\*ℹ️ Information\*\*: AWS Database Migration Service (DMS) giúp di chuyển cơ sở dữ liệu vào AWS nhanh chóng và an toàn. Sử dụng kèm với Schema Conversion Tool (SCT) để di chuyển cơ sở dữ liệu vào RDS hoặc cơ sở dữ liệu dựa trên EC2.
 
 Cơ sở dữ liệu nguồn vẫn hoạt động trong quá trình di chuyển, giảm thiểu thời gian chết cho ứng dụng. DMS có thể di chuyển dữ liệu tới và từ hầu hết cơ sở dữ liệu thương mại và nguồn mở phổ biến.
 

@@ -8,7 +8,7 @@ pre : " <b> 5.3 </b> "
 
 #### Tạo Amazon EC2 Instance
 
-\*\*ℹ️\ Information\*\*: Amazon Elastic Compute Cloud (EC2) cung cấp khả năng tính toán có thể điều chỉnh quy mô trong đám mây AWS. Sử dụng EC2 cho phép bạn triển khai các máy chủ ảo mà không cần đầu tư vào phần cứng vật lý, giúp bạn phát triển và triển khai ứng dụng nhanh hơn.
+\*\*ℹ️ Information\*\*: Amazon Elastic Compute Cloud (EC2) cung cấp khả năng tính toán có thể điều chỉnh quy mô trong đám mây AWS. Sử dụng EC2 cho phép bạn triển khai các máy chủ ảo mà không cần đầu tư vào phần cứng vật lý, giúp bạn phát triển và triển khai ứng dụng nhanh hơn.
 
 #### Các bước tạo EC2 Instance
 
@@ -42,7 +42,7 @@ pre : " <b> 5.3 </b> "
 
    - Dưới phần **Instance type**, chọn loại instance **t2.micro** hoặc **t3.micro** (trong các khu vực không có t2.micro).
    
-   \*\*ℹ️\ Information\*\*: Loại instance t2.micro và t3.micro đủ điều kiện sử dụng trong AWS Free Tier, phù hợp cho các ứng dụng có yêu cầu tài nguyên thấp hoặc môi trường phát triển.
+   \*\*ℹ️ Information\*\*: Loại instance t2.micro và t3.micro đủ điều kiện sử dụng trong AWS Free Tier, phù hợp cho các ứng dụng có yêu cầu tài nguyên thấp hoặc môi trường phát triển.
 
    ![Chọn loại instance](/images/3/0004.png?featherlight=false&width=90pc)
 
@@ -50,7 +50,7 @@ pre : " <b> 5.3 </b> "
 
    - Dưới phần **Key pair (login)**, chọn key pair mà bạn đã tạo trước đó.
    
-   \*\*⚠️\ Warning\*\*: Không nên chọn **Proceed without a key pair**. Nếu không có key pair, bạn sẽ không thể kết nối SSH vào instance sau khi khởi tạo.
+   \*\*⚠️ Warning\*\*: Không nên chọn **Proceed without a key pair**. Nếu không có key pair, bạn sẽ không thể kết nối SSH vào instance sau khi khởi tạo.
 
    ![Chọn key pair](/images/3/0005.png?featherlight=false&width=90pc)
 
@@ -87,7 +87,7 @@ pre : " <b> 5.3 </b> "
 
 #### Kết nối vào EC2 Instance bằng SSH sử dụng MobaXterm
 
-\*\*ℹ️\ Information\*\*: MobaXterm là một ứng dụng đa năng cho Windows cung cấp nhiều công cụ mạng trong một giao diện duy nhất, bao gồm SSH client, SFTP, X11 server và nhiều tính năng khác.
+\*\*ℹ️ Information\*\*: MobaXterm là một ứng dụng đa năng cho Windows cung cấp nhiều công cụ mạng trong một giao diện duy nhất, bao gồm SSH client, SFTP, X11 server và nhiều tính năng khác.
 
 1. **Tải và cài đặt MobaXterm**
 

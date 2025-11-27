@@ -8,7 +8,7 @@ pre : " <b> 5.7 </b> "
 
 #### Resource Cleanup
 
-ℹ️ \*\*ℹ️\ Information\*\*: After completing your lab, it's important to clean up all AWS resources to avoid ongoing charges. Follow these steps to properly remove all resources created during this workshop.
+ℹ️ \*\*ℹ️ Information\*\*: After completing your lab, it's important to clean up all AWS resources to avoid ongoing charges. Follow these steps to properly remove all resources created during this workshop.
 
 #### Delete Database Resources
 
@@ -69,7 +69,7 @@ pre : " <b> 5.7 </b> "
    - Click **Instance state**, then **Terminate instance**
    - Confirm by clicking **Terminate**
 
-⚠️ \*\*⚠️\ Warning\*\*: Terminating resources is permanent and cannot be undone. Ensure you have backed up any important data before proceeding with cleanup.
+⚠️ \*\*⚠️ Warning\*\*: Terminating resources is permanent and cannot be undone. Ensure you have backed up any important data before proceeding with cleanup.
 
 💡 **Pro Tip**: To verify all resources have been properly deleted, check your AWS Billing dashboard or use AWS Cost Explorer to ensure no unexpected charges appear after cleanup.
 

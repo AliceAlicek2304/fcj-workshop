@@ -8,7 +8,7 @@ pre : " <b> 5.7 </b> "
 
 #### Dọn dẹp tài nguyên AWS
 
-\*\*ℹ️\ Information\*\*: Sau khi hoàn thành bài lab, việc dọn dẹp tài nguyên AWS là bước quan trọng để tránh phát sinh chi phí không mong muốn. Hãy làm theo các bước dưới đây để xóa tất cả tài nguyên đã tạo.
+\*\*ℹ️ Information\*\*: Sau khi hoàn thành bài lab, việc dọn dẹp tài nguyên AWS là bước quan trọng để tránh phát sinh chi phí không mong muốn. Hãy làm theo các bước dưới đây để xóa tất cả tài nguyên đã tạo.
 
 #### 1. Xóa RDS Database và Snapshots
 
@@ -21,7 +21,7 @@ pre : " <b> 5.7 </b> "
    - Nhập `delete me` vào ô xác nhận
    - Nhấp vào **Delete**
 
-   \*\*⚠️\ Warning\*\*: Việc xóa DB Instance là không thể hoàn tác. Đảm bảo bạn đã sao lưu dữ liệu quan trọng trước khi thực hiện bước này.
+   \*\*⚠️ Warning\*\*: Việc xóa DB Instance là không thể hoàn tác. Đảm bảo bạn đã sao lưu dữ liệu quan trọng trước khi thực hiện bước này.
 
 2. Xóa DB Snapshots:
    - Truy cập **RDS Management Console**
@@ -74,7 +74,7 @@ pre : " <b> 5.7 </b> "
    - Nhấp vào **Actions**, chọn **Delete NAT gateway**
    - Xác nhận xóa và nhấp vào **Delete**
 
-   \*\*ℹ️\ Information\*\*: Việc xóa NAT Gateway không tự động giải phóng Elastic IP được liên kết với nó. Hãy đảm bảo bạn đã giải phóng Elastic IP ở bước trước.
+   \*\*ℹ️ Information\*\*: Việc xóa NAT Gateway không tự động giải phóng Elastic IP được liên kết với nó. Hãy đảm bảo bạn đã giải phóng Elastic IP ở bước trước.
 
 3. Xóa VPC:
    - Mở **Amazon VPC Console**

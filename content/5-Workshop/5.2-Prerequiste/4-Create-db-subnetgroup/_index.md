@@ -8,7 +8,7 @@ pre : " <b> 5.2.4 </b> "
 
 #### Creating a DB Subnet Group for Amazon RDS
 
-\*\*ℹ️\ Information\*\*: A DB subnet group is a collection of subnets that you designate for your Amazon RDS database instances within a VPC. DB subnet groups enable you to specify particular subnets and IP ranges where Amazon RDS can deploy database instances, ensuring proper network isolation and availability.
+\*\*ℹ️ Information\*\*: A DB subnet group is a collection of subnets that you designate for your Amazon RDS database instances within a VPC. DB subnet groups enable you to specify particular subnets and IP ranges where Amazon RDS can deploy database instances, ensuring proper network isolation and availability.
 
 Follow these steps to create a DB subnet group:
 
@@ -33,15 +33,15 @@ Follow these steps to create a DB subnet group:
    - Select at least two different **Availability Zones** to enable Multi-AZ deployments
    - Choose the appropriate **Subnets** from each Availability Zone (typically private subnets for production databases)
 
-   **ðŸ”’ Security Note**: For enhanced security, place your RDS instances in private subnets that don't have direct internet access.
+   **🔒 Security Note**: For enhanced security, place your RDS instances in private subnets that don't have direct internet access.
 
 7. Click **Create** to create your DB subnet group.
 
 ![Add Subnets to DB Subnet Group](/images/2/0007.png?featherlight=false&width=90pc)
 
-\*\*⚠️\ Warning\*\*: A DB subnet group must include subnets in at least two different Availability Zones to support Multi-AZ deployments. Without this configuration, you won't be able to enable the Multi-AZ feature for your RDS instances.
+\*\*⚠️ Warning\*\*: A DB subnet group must include subnets in at least two different Availability Zones to support Multi-AZ deployments. Without this configuration, you won't be able to enable the Multi-AZ feature for your RDS instances.
 
-**ðŸ’¡ Pro Tip**: If you've enabled AWS Local Zones in your account, you can also select an Availability Zone group on the Create DB Subnet Group page. In this case, select the Availability Zone group, the corresponding Availability Zones, and appropriate subnets.
+**💡 Pro Tip**: If you've enabled AWS Local Zones in your account, you can also select an Availability Zone group on the Create DB Subnet Group page. In this case, select the Availability Zone group, the corresponding Availability Zones, and appropriate subnets.
 
 After creation, your new DB subnet group will appear in the list of DB subnet groups in the RDS console. You can select it to view detailed information, including all associated subnets, in the details panel at the bottom of the window.
 

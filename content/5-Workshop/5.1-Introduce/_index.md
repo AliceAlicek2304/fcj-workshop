@@ -8,7 +8,7 @@ pre : " <b> 5.1 </b> "
 
 #### Amazon Relational Database Service (Amazon RDS)
 
-\*\*ℹ️\ Information\*\*: Amazon Relational Database Service (Amazon RDS) is a managed service that you can use to launch and manage relational databases on AWS.
+\*\*ℹ️ Information\*\*: Amazon Relational Database Service (Amazon RDS) is a managed service that you can use to launch and manage relational databases on AWS.
 
 ![Create a VPC](/images/1/0001.png?featherlight=false&width=90pc)
 
@@ -42,7 +42,7 @@ Amazon RDS supports the following database engines:
 
 #### Managed Service
 
-\*\*ℹ️\ Information\*\*: RDS is a managed service, and you do not have access to the underlying EC2 instance (no root access).
+\*\*ℹ️ Information\*\*: RDS is a managed service, and you do not have access to the underlying EC2 instance (no root access).
 
 **💡 Pro Tip**: The exception to the above rule is Amazon RDS Custom, which allows access to the underlying operating system. This is available for Oracle and SQL Server database engines.
 
@@ -68,7 +68,7 @@ Database instances are accessed via endpoints. Endpoints can be retrieved via th
 
 #### Instance Limits
 
-\*\*⚠️\ Warning\*\*: By default, customers are allowed to have up to a total of 40 Amazon RDS DB instances (only 10 of these can be Oracle or MS SQL unless you have your own licenses).
+\*\*⚠️ Warning\*\*: By default, customers are allowed to have up to a total of 40 Amazon RDS DB instances (only 10 of these can be Oracle or MS SQL unless you have your own licenses).
 
 #### Maintenance Windows
 
@@ -144,7 +144,7 @@ When using encryption at rest, the following elements are also encrypted:
 - DB instance storage.
 - Read Replicas.
 
-\*\*⚠️\ Warning\*\*: You cannot encrypt an existing DB; you need to create a snapshot, copy it, encrypt the copy, then build an encrypted DB from the snapshot.
+\*\*⚠️ Warning\*\*: You cannot encrypt an existing DB; you need to create a snapshot, copy it, encrypt the copy, then build an encrypted DB from the snapshot.
 
 Data that is encrypted at rest includes the underlying storage for a DB instance, its automated backups, Read Replicas, and snapshots.
 
@@ -152,7 +152,7 @@ A Read Replica of an Amazon RDS encrypted instance is also encrypted using the s
 
 If the master and Read Replica are in different regions, you encrypt using the encryption key for that region.
 
-\*\*⚠️\ Warning\*\*: You can't have an encrypted Read Replica of an unencrypted DB instance or an unencrypted Read Replica of an encrypted DB instance.
+\*\*⚠️ Warning\*\*: You can't have an encrypted Read Replica of an unencrypted DB instance or an unencrypted Read Replica of an encrypted DB instance.
 
 Encryption/decryption is handled transparently.
 

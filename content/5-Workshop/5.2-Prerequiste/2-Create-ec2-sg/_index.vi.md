@@ -8,7 +8,7 @@ pre : " <b> 5.2.2 </b> "
 
 #### Táº¡o Security Group cho Amazon EC2
 
-\*\*ℹ️\ Information\*\*: Security Group hoáº¡t Ä‘á»™ng nhÆ° tÆ°á»ng lá»­a áº£o Ä‘á»ƒ kiá»ƒm soÃ¡t lÆ°u lÆ°á»£ng truy cáº­p vÃ o vÃ  ra khá»i cÃ¡c tÃ i nguyÃªn AWS cá»§a báº¡n. Má»—i Security Group chá»©a má»™t táº­p há»£p cÃ¡c quy táº¯c cho phÃ©p lÆ°u lÆ°á»£ng máº¡ng Ä‘áº¿n cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t.
+\*\*ℹ️ Information\*\*: Security Group hoáº¡t Ä‘á»™ng nhÆ° tÆ°á»ng lá»­a áº£o Ä‘á»ƒ kiá»ƒm soÃ¡t lÆ°u lÆ°á»£ng truy cáº­p vÃ o vÃ  ra khá»i cÃ¡c tÃ i nguyÃªn AWS cá»§a báº¡n. Má»—i Security Group chá»©a má»™t táº­p há»£p cÃ¡c quy táº¯c cho phÃ©p lÆ°u lÆ°á»£ng máº¡ng Ä‘áº¿n cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t.
 
 #### CÃ¡c bÆ°á»›c táº¡o Security Group cho EC2
 
@@ -35,7 +35,7 @@ pre : " <b> 5.2.2 </b> "
    - **Custom TCP (5000)**: Cho phÃ©p lÆ°u lÆ°á»£ng Ä‘áº¿n cá»•ng á»©ng dá»¥ng 5000
    - **SSH (22)**: Cho phÃ©p káº¿t ná»‘i SSH Ä‘á»ƒ quáº£n trá»‹ mÃ¡y chá»§
 
-**ðŸ”’ Security Note**: Äá»‘i vá»›i mÃ´i trÆ°á»ng sáº£n xuáº¥t, nÃªn giá»›i háº¡n quyá»n truy cáº­p SSH chá»‰ tá»« cÃ¡c Ä‘á»‹a chá»‰ IP Ä‘Ã¡ng tin cáº­y thay vÃ¬ má»Ÿ cho táº¥t cáº£ (0.0.0.0/0).
+**🔒 Security Note**: Äá»‘i vá»›i mÃ´i trÆ°á»ng sáº£n xuáº¥t, nÃªn giá»›i háº¡n quyá»n truy cáº­p SSH chá»‰ tá»« cÃ¡c Ä‘á»‹a chá»‰ IP Ä‘Ã¡ng tin cáº­y thay vÃ¬ má»Ÿ cho táº¥t cáº£ (0.0.0.0/0).
 
 ![Configure Inbound Rules](/images/1/00011.png?featherlight=false&width=90pc)
 
@@ -51,5 +51,5 @@ pre : " <b> 5.2.2 </b> "
 
 ![Security Group Created](/images/1/00013.png?featherlight=false&width=90pc)
 
-**ðŸ’¡ Pro Tip**: Báº¡n cÃ³ thá»ƒ chá»‰nh sá»­a quy táº¯c Security Group báº¥t ká»³ lÃºc nÃ o vÃ  cÃ¡c thay Ä‘á»•i sáº½ Ä‘Æ°á»£c Ã¡p dá»¥ng ngay láº­p tá»©c cho táº¥t cáº£ cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t vá»›i Security Group Ä‘Ã³.
+**💡 Pro Tip**: Báº¡n cÃ³ thá»ƒ chá»‰nh sá»­a quy táº¯c Security Group báº¥t ká»³ lÃºc nÃ o vÃ  cÃ¡c thay Ä‘á»•i sáº½ Ä‘Æ°á»£c Ã¡p dá»¥ng ngay láº­p tá»©c cho táº¥t cáº£ cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t vá»›i Security Group Ä‘Ã³.
 

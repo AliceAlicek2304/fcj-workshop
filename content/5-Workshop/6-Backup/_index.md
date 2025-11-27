@@ -8,7 +8,7 @@ pre : " <b> 5.6 </b> "
 
 #### Understanding Amazon RDS Backup and Restore
 
-ℹ️ \*\*ℹ️\ Information\*\*: Amazon RDS provides automated backups and allows manual snapshots to ensure your database data is protected and can be recovered when needed. These capabilities are essential for disaster recovery planning and maintaining business continuity.
+ℹ️ \*\*ℹ️ Information\*\*: Amazon RDS provides automated backups and allows manual snapshots to ensure your database data is protected and can be recovered when needed. These capabilities are essential for disaster recovery planning and maintaining business continuity.
 
 #### Monitoring Backup Status in Amazon RDS
 
@@ -69,7 +69,7 @@ pre : " <b> 5.6 </b> "
    - Review your configuration settings
    - Click **Restore DB instance** to begin the process
 
-   ⚠️ \*\*⚠️\ Warning\*\*: The restore process creates a completely new database instance with its own endpoint. You will need to update your application connection strings to point to this new instance if you intend to use it for production.
+   ⚠️ \*\*⚠️ Warning\*\*: The restore process creates a completely new database instance with its own endpoint. You will need to update your application connection strings to point to this new instance if you intend to use it for production.
 
    ![Restore Complete](/images/5/00027.png?featherlight=false&width=90pc)
 

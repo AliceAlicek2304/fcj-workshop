@@ -8,7 +8,7 @@ pre : " <b> 5.2.3 </b> "
 
 #### Creating a Security Group for Amazon RDS
 
-\*\*ℹ️\ Information\*\*: Security groups act as virtual firewalls for your Amazon RDS instances, controlling inbound and outbound traffic at the instance level. Each security group contains a set of rules that filter traffic based on protocol, port, and source or destination.
+\*\*ℹ️ Information\*\*: Security groups act as virtual firewalls for your Amazon RDS instances, controlling inbound and outbound traffic at the instance level. Each security group contains a set of rules that filter traffic based on protocol, port, and source or destination.
 
 Follow these steps to create a dedicated security group for your Amazon RDS database instance:
 
@@ -29,7 +29,7 @@ Follow these steps to create a dedicated security group for your Amazon RDS data
    - Select **MySQL/Aurora** from the Type dropdown (automatically sets port 3306)
    - For **Source**, select the security group ID of your EC2 instances that need to connect to the database
    
-   **ðŸ”’ Security Note**: Specifying the EC2 security group as the source rather than an IP range ensures only instances with that security group can connect to your database, enhancing security.
+   **🔒 Security Note**: Specifying the EC2 security group as the source rather than an IP range ensures only instances with that security group can connect to your database, enhancing security.
 
 ![Configure Inbound Rules](/images/2/0002.png?featherlight=false&width=90pc)
 
@@ -37,9 +37,9 @@ Follow these steps to create a dedicated security group for your Amazon RDS data
 
 ![Create the Security Group](/images/2/0003.png?featherlight=false&width=90pc)
 
-**ðŸ’¡ Pro Tip**: You can modify security group rules at any time, and the changes take effect immediately. This allows you to adjust access controls as your application requirements evolve.
+**💡 Pro Tip**: You can modify security group rules at any time, and the changes take effect immediately. This allows you to adjust access controls as your application requirements evolve.
 
-\*\*⚠️\ Warning\*\*: It is a best practice to use separate security groups for your RDS instances and EC2 instances. This separation provides better security isolation and makes it easier to manage permissions for each resource type independently.
+\*\*⚠️ Warning\*\*: It is a best practice to use separate security groups for your RDS instances and EC2 instances. This separation provides better security isolation and makes it easier to manage permissions for each resource type independently.
 
 ![Security Group Created](/images/2/0004.png?featherlight=false&width=90pc)
 

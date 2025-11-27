@@ -8,7 +8,7 @@ pre : " <b> 5.6 </b> "
 
 #### Backup và Restore trong Amazon RDS
 
-\*\*ℹ️\ Information\*\*: Amazon RDS cung cấp các tính năng backup tự động và thủ công, cho phép bạn khôi phục cơ sở dữ liệu về một thời điểm cụ thể hoặc từ một snapshot. Việc này giúp bảo vệ dữ liệu của bạn khỏi mất mát và đảm bảo tính liên tục của ứng dụng.
+\*\*ℹ️ Information\*\*: Amazon RDS cung cấp các tính năng backup tự động và thủ công, cho phép bạn khôi phục cơ sở dữ liệu về một thời điểm cụ thể hoặc từ một snapshot. Việc này giúp bảo vệ dữ liệu của bạn khỏi mất mát và đảm bảo tính liên tục của ứng dụng.
 
 #### Giám sát Amazon RDS
 
@@ -38,7 +38,7 @@ pre : " <b> 5.6 </b> "
 
    ![Cấu hình backup RDS](/images/5/00019.png?featherlight=false&width=90pc)
 
-   \*\*ℹ️\ Information\*\*: Amazon RDS tự động tạo và lưu trữ backup hàng ngày trong khoảng thời gian lưu giữ bạn đã cấu hình (1-35 ngày). Bạn cũng có thể tạo snapshot thủ công bất kỳ lúc nào.
+   \*\*ℹ️ Information\*\*: Amazon RDS tự động tạo và lưu trữ backup hàng ngày trong khoảng thời gian lưu giữ bạn đã cấu hình (1-35 ngày). Bạn cũng có thể tạo snapshot thủ công bất kỳ lúc nào.
 
 3. Xem danh sách DB snapshots:
 
@@ -68,7 +68,7 @@ pre : " <b> 5.6 </b> "
    ![Cấu hình connectivity](/images/5/00025.png?featherlight=false&width=90pc)
    ![Xác nhận restore](/images/5/00026.png?featherlight=false&width=90pc)
 
-   \*\*⚠️\ Warning\*\*: Khi khôi phục từ snapshot, DB instance mới sẽ có tên khác với instance gốc. Đảm bảo cập nhật chuỗi kết nối trong ứng dụng của bạn để trỏ đến endpoint mới.
+   \*\*⚠️ Warning\*\*: Khi khôi phục từ snapshot, DB instance mới sẽ có tên khác với instance gốc. Đảm bảo cập nhật chuỗi kết nối trong ứng dụng của bạn để trỏ đến endpoint mới.
 
 6. Xác nhận quá trình khôi phục đã bắt đầu:
 

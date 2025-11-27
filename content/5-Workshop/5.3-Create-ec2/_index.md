@@ -8,7 +8,7 @@ pre : " <b> 5.3 </b> "
 
 #### Creating an EC2 Instance
 
-â„¹ï¸ \*\*ℹ️\ Information\*\*: Amazon EC2 (Elastic Compute Cloud) provides scalable computing capacity in the AWS Cloud, eliminating the need to invest in hardware upfront.
+ℹ️ \*\*ℹ️ Information\*\*: Amazon EC2 (Elastic Compute Cloud) provides scalable computing capacity in the AWS Cloud, eliminating the need to invest in hardware upfront.
 
 To create a Linux EC2 instance using the AWS Management Console, follow these instructions. This guide helps you quickly launch your first instance with essential configurations. For advanced options, refer to the [Launch Instance documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html).
 
@@ -32,19 +32,19 @@ To create a Linux EC2 instance using the AWS Management Console, follow these in
    - Select **Quick Start**, then choose **Amazon Linux**
    - From the **Amazon Machine Image (AMI)** options, select an HVM version of **Amazon Linux 2023**
    
-   ðŸ’¡ **Pro Tip**: Look for AMIs marked as **Free tier eligible** to avoid unexpected charges if you're using the AWS Free Tier.
+   💡 **Pro Tip**: Look for AMIs marked as **Free tier eligible** to avoid unexpected charges if you're using the AWS Free Tier.
 
    ![Create a VPC](/images/3/0003.png?featherlight=false&width=90pc)
 
 3. Under **Instance type**, select **t2.micro** (pre-selected by default).
    
-   â„¹ï¸ \*\*ℹ️\ Information\*\*: The **t2.micro** instance type qualifies for the AWS Free Tier. In regions where **t2.micro** isn't available, you can use **t3.micro** under the Free Tier. For more details, see [AWS Free Tier](https://aws.amazon.com/free/).
+   ℹ️ \*\*ℹ️ Information\*\*: The **t2.micro** instance type qualifies for the AWS Free Tier. In regions where **t2.micro** isn't available, you can use **t3.micro** under the Free Tier. For more details, see [AWS Free Tier](https://aws.amazon.com/free/).
 
    ![Create a VPC](/images/3/0004.png?featherlight=false&width=90pc)
 
 4. Under **Key pair (login)**, select the key pair you created during your AWS setup.
 
-   âš ï¸ \*\*⚠️\ Warning\*\*: Do not select **Proceed without a key pair (Not recommended)**. Without a key pair, you won't be able to connect to your instance.
+   ⚠️ \*\*⚠️ Warning\*\*: Do not select **Proceed without a key pair (Not recommended)**. Without a key pair, you won't be able to connect to your instance.
 
    ![Create a VPC](/images/3/0005.png?featherlight=false&width=90pc)
 
@@ -52,7 +52,7 @@ To create a Linux EC2 instance using the AWS Management Console, follow these in
    - You can use the auto-created security group, or
    - Select **Select existing security group** and choose a security group you created previously
 
-   ðŸ”’ **Security Note**: Security groups act as virtual firewalls that control inbound and outbound traffic to your instance. Ensure your security group allows SSH access (port 22) from your IP address only.
+   🔒 **Security Note**: Security groups act as virtual firewalls that control inbound and outbound traffic to your instance. Ensure your security group allows SSH access (port 22) from your IP address only.
 
    ![Create a VPC](/images/3/0006.png?featherlight=false&width=90pc)
 
@@ -70,7 +70,7 @@ To create a Linux EC2 instance using the AWS Management Console, follow these in
    - Initial state: **pending**
    - Running state: **running** (with assigned public DNS name)
    
-   ðŸ’¡ **Pro Tip**: If the **Public IPv4 DNS** column is hidden, click the gear icon (Settings) in the upper right corner, enable **Public IPv4 DNS**, and click **Confirm**.
+   💡 **Pro Tip**: If the **Public IPv4 DNS** column is hidden, click the gear icon (Settings) in the upper right corner, enable **Public IPv4 DNS**, and click **Confirm**.
 
 5. Wait for the instance to pass all status checks before attempting to connect.
 
@@ -80,7 +80,7 @@ To create a Linux EC2 instance using the AWS Management Console, follow these in
 
 #### Connecting to Your EC2 Instance via SSH Using MobaXterm
 
-â„¹ï¸ \*\*ℹ️\ Information\*\*: MobaXterm is an enhanced terminal for Windows with an X11 server, tabbed SSH client, and various network tools.
+ℹ️ \*\*ℹ️ Information\*\*: MobaXterm is an enhanced terminal for Windows with an X11 server, tabbed SSH client, and various network tools.
 
 Follow these steps to connect to your EC2 instance using MobaXterm:
 
@@ -106,7 +106,7 @@ Follow these steps to connect to your EC2 instance using MobaXterm:
 1. Click **OK** to save the configuration
 2. Click the connect icon to establish an SSH connection
 
-ðŸ”’ **Security Note**: Ensure your private key file (.pem) has restricted permissions. On Windows, verify the file is not accessible to other users.
+🔒 **Security Note**: Ensure your private key file (.pem) has restricted permissions. On Windows, verify the file is not accessible to other users.
 
 #### Successful Connection
 

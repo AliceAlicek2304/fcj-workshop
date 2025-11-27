@@ -8,7 +8,7 @@ pre : " <b> 5.2.1 </b> "
 
 #### Táº¡o VPC vÃ  cÃ¡c tÃ i nguyÃªn máº¡ng
 
-\*\*ℹ️\ Information\*\*: Amazon Virtual Private Cloud (VPC) cho phÃ©p báº¡n khá»Ÿi cháº¡y tÃ i nguyÃªn AWS trong má»™t máº¡ng áº£o Ä‘Æ°á»£c Ä‘á»‹nh nghÄ©a. MÃ´i trÆ°á»ng nÃ y cung cáº¥p kiá»ƒm soÃ¡t Ä‘áº§y Ä‘á»§ vá» cáº¥u hÃ¬nh máº¡ng, bao gá»“m dáº£i Ä‘á»‹a chá»‰ IP, subnet, báº£ng Ä‘á»‹nh tuyáº¿n vÃ  gateway.
+\*\*ℹ️ Information\*\*: Amazon Virtual Private Cloud (VPC) cho phÃ©p báº¡n khá»Ÿi cháº¡y tÃ i nguyÃªn AWS trong má»™t máº¡ng áº£o Ä‘Æ°á»£c Ä‘á»‹nh nghÄ©a. MÃ´i trÆ°á»ng nÃ y cung cáº¥p kiá»ƒm soÃ¡t Ä‘áº§y Ä‘á»§ vá» cáº¥u hÃ¬nh máº¡ng, bao gá»“m dáº£i Ä‘á»‹a chá»‰ IP, subnet, báº£ng Ä‘á»‹nh tuyáº¿n vÃ  gateway.
 
 #### Táº¡o VPC sá»­ dá»¥ng AWS Management Console
 
@@ -42,7 +42,7 @@ pre : " <b> 5.2.1 </b> "
    - Äá»‘i vá»›i **NAT gateways**, chá»n sá»‘ lÆ°á»£ng AZs cáº§n triá»ƒn khai NAT gateway.
    - Äá»‘i vá»›i káº¿t ná»‘i IPv6, chá»n **Egress only internet gateway** náº¿u cáº§n thiáº¿t.
 
-**ðŸ’¡ Pro Tip**: Trong mÃ´i trÆ°á»ng sáº£n xuáº¥t, nÃªn triá»ƒn khai NAT gateway trong má»—i AZ cÃ³ chá»©a tÃ i nguyÃªn cáº§n truy cáº­p internet. LÆ°u Ã½ ráº±ng NAT gateway cÃ³ chi phÃ­ sá»­ dá»¥ng.
+**💡 Pro Tip**: Trong mÃ´i trÆ°á»ng sáº£n xuáº¥t, nÃªn triá»ƒn khai NAT gateway trong má»—i AZ cÃ³ chá»©a tÃ i nguyÃªn cáº§n truy cáº­p internet. LÆ°u Ã½ ráº±ng NAT gateway cÃ³ chi phÃ­ sá»­ dá»¥ng.
 
 8. (TÃ¹y chá»n) Äá»ƒ truy cáº­p Amazon S3 trá»±c tiáº¿p tá»« VPC, chá»n **VPC endpoints, S3 Gateway**.
 
@@ -62,7 +62,7 @@ pre : " <b> 5.2.1 </b> "
 
 #### Cáº¥u hÃ¬nh Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai cho subnet
 
-\*\*ℹ️\ Information\*\*: Máº·c Ä‘á»‹nh, subnet khÃ´ng máº·c Ä‘á»‹nh cÃ³ thuá»™c tÃ­nh tá»± Ä‘á»™ng gÃ¡n Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai Ä‘Æ°á»£c Ä‘áº·t thÃ nh "false", trong khi subnet máº·c Ä‘á»‹nh cÃ³ thuá»™c tÃ­nh nÃ y Ä‘Æ°á»£c Ä‘áº·t thÃ nh "true". Subnet khÃ´ng máº·c Ä‘á»‹nh Ä‘Æ°á»£c táº¡o qua trÃ¬nh táº¡o EC2 instance sáº½ cÃ³ thuá»™c tÃ­nh nÃ y Ä‘Æ°á»£c Ä‘áº·t thÃ nh "true".
+\*\*ℹ️ Information\*\*: Máº·c Ä‘á»‹nh, subnet khÃ´ng máº·c Ä‘á»‹nh cÃ³ thuá»™c tÃ­nh tá»± Ä‘á»™ng gÃ¡n Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai Ä‘Æ°á»£c Ä‘áº·t thÃ nh "false", trong khi subnet máº·c Ä‘á»‹nh cÃ³ thuá»™c tÃ­nh nÃ y Ä‘Æ°á»£c Ä‘áº·t thÃ nh "true". Subnet khÃ´ng máº·c Ä‘á»‹nh Ä‘Æ°á»£c táº¡o qua trÃ¬nh táº¡o EC2 instance sáº½ cÃ³ thuá»™c tÃ­nh nÃ y Ä‘Æ°á»£c Ä‘áº·t thÃ nh "true".
 
 **Äá»ƒ thay Ä‘á»•i cÃ i Ä‘áº·t Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai cá»§a subnet:**
 
@@ -80,5 +80,5 @@ pre : " <b> 5.2.1 </b> "
 
 ![Create a VPC](/images/1/0008.png?featherlight=false&width=90pc)
 
-\*\*⚠️\ Warning\*\*: Viá»‡c thay Ä‘á»•i cÃ i Ä‘áº·t nÃ y chá»‰ áº£nh hÆ°á»Ÿng Ä‘áº¿n cÃ¡c instance má»›i Ä‘Æ°á»£c khá»Ÿi cháº¡y trong subnet. CÃ¡c instance hiá»‡n cÃ³ sáº½ khÃ´ng bá»‹ áº£nh hÆ°á»Ÿng.
+\*\*⚠️ Warning\*\*: Viá»‡c thay Ä‘á»•i cÃ i Ä‘áº·t nÃ y chá»‰ áº£nh hÆ°á»Ÿng Ä‘áº¿n cÃ¡c instance má»›i Ä‘Æ°á»£c khá»Ÿi cháº¡y trong subnet. CÃ¡c instance hiá»‡n cÃ³ sáº½ khÃ´ng bá»‹ áº£nh hÆ°á»Ÿng.
 

@@ -8,7 +8,7 @@ pre : " <b> 5.2.2 </b> "
 
 #### Creating a Security Group for EC2 Instances
 
-\*\*ℹ️\ Information\*\*: Security groups act as virtual firewalls for your Amazon EC2 instances to control inbound and outbound traffic. For our RDS deployment, we need to create a security group for EC2 instances that will connect to our database.
+\*\*ℹ️ Information\*\*: Security groups act as virtual firewalls for your Amazon EC2 instances to control inbound and outbound traffic. For our RDS deployment, we need to create a security group for EC2 instances that will connect to our database.
 
 Follow these steps to create a security group with the necessary ports:
 
@@ -35,7 +35,7 @@ Follow these steps to create a security group with the necessary ports:
    - **Custom TCP (5000)**: Select "Custom TCP" and enter "5000" in the Port range field
    - **SSH (22)**: Select "SSH" from the Type dropdown (automatically sets port 22)
 
-   **ðŸ”’ Security Note**: For production environments, restrict the source IP addresses for SSH access to only trusted IP ranges rather than allowing access from anywhere (0.0.0.0/0).
+   **🔒 Security Note**: For production environments, restrict the source IP addresses for SSH access to only trusted IP ranges rather than allowing access from anywhere (0.0.0.0/0).
 
 ![Configure Inbound Rules](/images/1/00011.png?featherlight=false&width=90pc)
 
@@ -47,7 +47,7 @@ Follow these steps to create a security group with the necessary ports:
 
 ![Security Group Created](/images/1/00013.png?featherlight=false&width=90pc)
 
-**ðŸ’¡ Pro Tip**: You can modify security group rules at any time, and the changes take effect immediately. This allows you to adjust access controls as your application requirements evolve.
+**💡 Pro Tip**: You can modify security group rules at any time, and the changes take effect immediately. This allows you to adjust access controls as your application requirements evolve.
 
-\*\*⚠️\ Warning\*\*: Security groups are stateful â€” if you allow inbound traffic on a specific port, the corresponding outbound response traffic is automatically allowed, regardless of outbound rules.
+\*\*⚠️ Warning\*\*: Security groups are stateful — if you allow inbound traffic on a specific port, the corresponding outbound response traffic is automatically allowed, regardless of outbound rules.
 
