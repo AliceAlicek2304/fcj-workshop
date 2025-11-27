@@ -1,52 +1,46 @@
 ﻿---
-title : "Táº¡o RDS Security Group"
+title : "Tạo RDS Security Group"
 date : "2025-10-27"
 weight : 3
 chapter : false
 pre : " <b> 5.2.3 </b> "
 ---
 
-#### Táº¡o Security Group cho Amazon RDS
+#### Tạo Security Group cho Amazon RDS
 
-\*\*ℹ️ Information\*\*: Security Group cho Amazon RDS hoáº¡t Ä‘á»™ng nhÆ° tÆ°á»ng lá»­a áº£o Ä‘á»ƒ kiá»ƒm soÃ¡t lÆ°u lÆ°á»£ng máº¡ng Ä‘áº¿n vÃ  Ä‘i tá»« cÆ¡ sá»Ÿ dá»¯ liá»‡u cá»§a báº¡n. Viá»‡c cáº¥u hÃ¬nh Ä‘Ãºng Security Group lÃ  bÆ°á»›c quan trá»ng Ä‘á»ƒ báº£o vá»‡ dá»¯ liá»‡u cá»§a báº¡n trong AWS.
+**ℹ️ Information**: Giống như EC2 instance, cơ sở dữ liệu RDS của chúng ta cũng cần một Security Group để kiểm soát lưu lượng truy cập. Security group này sẽ hoạt động như một bức tường lửa, **chỉ** cho phép truy cập từ các máy chủ ứng dụng của chúng ta.
 
-#### CÃ¡c bÆ°á»›c táº¡o Security Group cho RDS
+#### Hướng dẫn từng bước
 
-1. ÄÄƒng nháº­p vÃ o AWS Management Console.
+1.  Trong **VPC Dashboard**, chọn **Security Groups** từ thanh điều hướng bên trái.
 
-2. Trong menu dá»‹ch vá»¥, chá»n **VPC** trong pháº§n **Networking & Content Delivery**.
+2.  Nhấn **Create security group**.
 
-3. Trong thanh Ä‘iá»u hÆ°á»›ng bÃªn trÃ¡i, dÆ°á»›i má»¥c **Security**, chá»n **Security Groups**.
+    ![Create a Security Group](/images/2/0001.png?featherlight=false&width=90pc)
 
-4. Nháº¥p vÃ o nÃºt **Create security group** Ä‘á»ƒ báº¯t Ä‘áº§u quÃ¡ trÃ¬nh táº¡o.
+3.  **Basic details**:
+    - **Security group name**: Nhập tên mô tả (ví dụ: `RDS-MySQL-SG`).
+    - **Description**: Nhập mô tả (ví dụ: `Allow MySQL access from EC2`).
+    - **VPC**: Chọn VPC tương tự như bước trước.
 
-![Create a Security Group](/images/2/0001.png?featherlight=false&width=90pc)
+4.  **Inbound rules**: Nhấn **Add rule** để cho phép kết nối cơ sở dữ liệu:
 
-5. Trong pháº§n **Basic details**, nháº­p thÃ´ng tin cÆ¡ báº£n:
-   - **Security group name**: Nháº­p tÃªn mÃ´ táº£ cho Security Group
-   - **Description**: ThÃªm mÃ´ táº£ chi tiáº¿t vá» má»¥c Ä‘Ã­ch cá»§a Security Group
-   - **VPC**: Chá»n VPC nÆ¡i báº¡n sáº½ triá»ƒn khai cÆ¡ sá»Ÿ dá»¯ liá»‡u RDS
+    | Loại | Giao thức | Dải cổng | Nguồn | Mô tả |
+    | :--- | :--- | :--- | :--- | :--- |
+    | **MySQL/Aurora** | TCP | 3306 | **sg-xxxxxxxx** (EC2-Web-SG) | Cho phép truy cập MySQL từ EC2 SG |
 
-6. Trong pháº§n **Inbound rules**, thÃªm quy táº¯c Ä‘á»ƒ cho phÃ©p lÆ°u lÆ°á»£ng truy cáº­p Ä‘áº¿n cÆ¡ sá»Ÿ dá»¯ liá»‡u:
-   - Chá»n **MySQL/Aurora** tá»« danh sÃ¡ch loáº¡i (Type)
-   - Cá»•ng **3306** sáº½ Ä‘Æ°á»£c tá»± Ä‘á»™ng Ä‘iá»n
-   - Äá»‘i vá»›i **Source**, chá»n Security Group cá»§a EC2 instance mÃ  báº¡n Ä‘Ã£ táº¡o trÆ°á»›c Ä‘Ã³
+    **🔒 Security Note**: Thay vì nhập địa chỉ IP (như `0.0.0.0/0`), hãy chọn **Security Group ID** của EC2 Security Group mà bạn đã tạo ở bước trước. Điều này đảm bảo rằng **chỉ** các instance thuộc về security group cụ thể đó mới có thể kết nối với cơ sở dữ liệu của bạn. Đây là một thực hành tốt nhất về bảo mật.
 
-**🔒 Security Note**: Chá»‰ cho phÃ©p káº¿t ná»‘i tá»« cÃ¡c nguá»“n cá»¥ thá»ƒ thay vÃ¬ má»Ÿ cá»•ng cÆ¡ sá»Ÿ dá»¯ liá»‡u cho táº¥t cáº£ Ä‘á»‹a chá»‰ IP (0.0.0.0/0). Äiá»u nÃ y tuÃ¢n theo nguyÃªn táº¯c Ä‘áº·c quyá»n tá»‘i thiá»ƒu vÃ  tÄƒng cÆ°á»ng báº£o máº­t.
+    ![Configure Inbound Rules](/images/2/0002.png?featherlight=false&width=90pc)
 
-![Configure Inbound Rules](/images/2/0002.png?featherlight=false&width=90pc)
+5.  **Outbound rules**: Giữ nguyên quy tắc mặc định (Cho phép tất cả lưu lượng).
 
-7. (TÃ¹y chá»n) Cáº¥u hÃ¬nh **Outbound rules** náº¿u báº¡n cáº§n giá»›i háº¡n lÆ°u lÆ°á»£ng Ä‘i ra. Máº·c Ä‘á»‹nh, táº¥t cáº£ lÆ°u lÆ°á»£ng Ä‘i ra Ä‘á»u Ä‘Æ°á»£c cho phÃ©p.
+6.  Nhấn **Create security group**.
 
-8. Sau khi hoÃ n táº¥t cáº¥u hÃ¬nh, nháº¥p vÃ o nÃºt **Create security group**.
+    ![Create the Security Group](/images/2/0003.png?featherlight=false&width=90pc)
 
-![Create Security Group](/images/2/0003.png?featherlight=false&width=90pc)
+7.  Bây giờ bạn đã có một security group dành riêng cho lớp cơ sở dữ liệu của mình.
 
-9. Security Group má»›i Ä‘Ã£ Ä‘Æ°á»£c táº¡o vÃ  sáºµn sÃ ng Ä‘á»ƒ gÃ¡n cho DB instance RDS cá»§a báº¡n.
+    ![Security Group Created](/images/2/0004.png?featherlight=false&width=90pc)
 
-\*\*⚠️ Warning\*\*: KhÃ´ng nÃªn sá»­ dá»¥ng cÃ¹ng má»™t Security Group cho cáº£ EC2 vÃ  RDS. Viá»‡c tÃ¡ch biá»‡t Security Group giÃºp quáº£n lÃ½ quyá»n truy cáº­p chÃ­nh xÃ¡c hÆ¡n vÃ  tuÃ¢n thá»§ cÃ¡c nguyÃªn táº¯c báº£o máº­t tá»‘t nháº¥t.
-
-![Security Group Created](/images/2/0004.png?featherlight=false&width=90pc)
-
-**💡 Pro Tip**: Báº¡n cÃ³ thá»ƒ chá»‰nh sá»­a quy táº¯c Security Group báº¥t ká»³ lÃºc nÃ o vÃ  cÃ¡c thay Ä‘á»•i sáº½ Ä‘Æ°á»£c Ã¡p dá»¥ng ngay láº­p tá»©c cho táº¥t cáº£ cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t vá»›i Security Group Ä‘Ã³.
-
+**⚠️ Warning**: Không bao giờ sử dụng cùng một Security Group cho cả EC2 instance và RDS instance của bạn. Việc phân tách nhiệm vụ là chìa khóa cho một kiến trúc an toàn.

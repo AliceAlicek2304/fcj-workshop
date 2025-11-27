@@ -1,84 +1,73 @@
 ﻿---
-title : "Táº¡o VPC"
+title : "Tạo VPC"
 date : "2025-10-27"
 weight : 1
 chapter : false
 pre : " <b> 5.2.1 </b> "
 ---
 
-#### Táº¡o VPC vÃ  cÃ¡c tÃ i nguyÃªn máº¡ng
+#### Tạo VPC với Subnets và các tài nguyên liên quan
 
-\*\*ℹ️ Information\*\*: Amazon Virtual Private Cloud (VPC) cho phÃ©p báº¡n khá»Ÿi cháº¡y tÃ i nguyÃªn AWS trong má»™t máº¡ng áº£o Ä‘Æ°á»£c Ä‘á»‹nh nghÄ©a. MÃ´i trÆ°á»ng nÃ y cung cáº¥p kiá»ƒm soÃ¡t Ä‘áº§y Ä‘á»§ vá» cáº¥u hÃ¬nh máº¡ng, bao gá»“m dáº£i Ä‘á»‹a chá»‰ IP, subnet, báº£ng Ä‘á»‹nh tuyáº¿n vÃ  gateway.
+**ℹ️ Information**: Amazon Virtual Private Cloud (Amazon VPC) là mạng riêng của bạn trên đám mây. Nó cho phép bạn khởi chạy các tài nguyên AWS vào một mạng ảo do bạn định nghĩa, mang lại cho bạn quyền kiểm soát hoàn toàn đối với môi trường mạng của mình.
 
-#### Táº¡o VPC sá»­ dá»¥ng AWS Management Console
+Chúng ta sẽ sử dụng trình hướng dẫn **VPC and more** để tạo VPC, subnets, bảng định tuyến (route tables) và cổng internet (internet gateway) trong một quy trình duy nhất.
 
-1. Má»Ÿ giao diá»‡n Ä‘iá»u khiá»ƒn Amazon VPC táº¡i [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
+#### Hướng dẫn từng bước
 
-![Create a VPC](/images/1/0001.png?featherlight=false&width=90pc)
+1.  Mở bảng điều khiển Amazon VPC tại [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
-2. TrÃªn báº£ng Ä‘iá»u khiá»ƒn VPC, chá»n **Create VPC**.
+    ![Create a VPC](/images/1/0001.png?featherlight=false&width=90pc)
 
-3. Trong pháº§n **Resources to create**, chá»n **VPC and more** Ä‘á»ƒ táº¡o VPC cÃ¹ng vá»›i cÃ¡c tÃ i nguyÃªn liÃªn quan.
+2.  Trên bảng điều khiển VPC, chọn **Create VPC**.
 
-![Create a VPC](/images/1/0002.png?featherlight=false&width=90pc)
+3.  Trong phần **Resources to create**, chọn **VPC and more**. Tùy chọn này sẽ tự động cung cấp các tài nguyên liên quan như subnet và bảng định tuyến.
 
-4. Cáº¥u hÃ¬nh cÃ¡c tÃ¹y chá»n cÆ¡ báº£n:
-   - Giá»¯ nguyÃªn tÃ¹y chá»n **Name tag auto-generation** Ä‘á»ƒ tá»± Ä‘á»™ng táº¡o nhÃ£n cho cÃ¡c tÃ i nguyÃªn, hoáº·c bá» chá»n Ä‘á»ƒ tá»± Ä‘áº·t tÃªn.
-   - Nháº­p dáº£i Ä‘á»‹a chá»‰ IPv4 CIDR cho VPC (báº¯t buá»™c).
-   - (TÃ¹y chá»n) Äá»ƒ há»— trá»£ IPv6, chá»n **IPv6 CIDR block, Amazon-provided IPv6 CIDR block**.
-   - Chá»n tÃ¹y chá»n **Tenancy** phÃ¹ há»£p vá»›i nhu cáº§u cá»§a báº¡n.
+    ![Create a VPC](/images/1/0002.png?featherlight=false&width=90pc)
 
-5. Cáº¥u hÃ¬nh Availability Zones (AZs):
-   - Äá»‘i vá»›i **Number of Availability Zones**, chá»n Ã­t nháº¥t hai AZs cho mÃ´i trÆ°á»ng sáº£n xuáº¥t.
-   - Äá»ƒ chá»‰ Ä‘á»‹nh AZs cá»¥ thá»ƒ, má»Ÿ rá»™ng **Customize AZs**.
+4.  **Name tag auto-generation**: Nhập tên cho dự án của bạn (ví dụ: `workshop-vpc`). Tên này sẽ được sử dụng làm tiền tố cho tất cả các tài nguyên được tạo.
 
-![Create a VPC](/images/1/0003.png?featherlight=false&width=90pc)
+5.  **IPv4 CIDR block**: Giữ nguyên mặc định (ví dụ: `10.0.0.0/16`) hoặc nhập dải IP bạn muốn.
 
-6. Cáº¥u hÃ¬nh subnet:
-   - Chá»n sá»‘ lÆ°á»£ng subnet cÃ´ng khai vÃ  riÃªng tÆ° cáº§n thiáº¿t.
-   - Äá»ƒ tÃ¹y chá»‰nh dáº£i CIDR cho cÃ¡c subnet, má»Ÿ rá»™ng **Customize subnets CIDR blocks**.
+6.  **Availability Zones (AZs)**: Chọn **2**. Điều này rất quan trọng cho Tính sẵn sàng cao (High Availability) và triển khai Multi-AZ.
 
-7. Cáº¥u hÃ¬nh káº¿t ná»‘i internet:
-   - Äá»‘i vá»›i **NAT gateways**, chá»n sá»‘ lÆ°á»£ng AZs cáº§n triá»ƒn khai NAT gateway.
-   - Äá»‘i vá»›i káº¿t ná»‘i IPv6, chá»n **Egress only internet gateway** náº¿u cáº§n thiáº¿t.
+    ![Create a VPC](/images/1/0003.png?featherlight=false&width=90pc)
 
-**💡 Pro Tip**: Trong mÃ´i trÆ°á»ng sáº£n xuáº¥t, nÃªn triá»ƒn khai NAT gateway trong má»—i AZ cÃ³ chá»©a tÃ i nguyÃªn cáº§n truy cáº­p internet. LÆ°u Ã½ ráº±ng NAT gateway cÃ³ chi phÃ­ sá»­ dá»¥ng.
+7.  **Number of public subnets**: Chọn **2**. Các subnet này sẽ chứa các tài nguyên cần truy cập internet trực tiếp (như bastion host hoặc load balancer).
 
-8. (TÃ¹y chá»n) Äá»ƒ truy cáº­p Amazon S3 trá»±c tiáº¿p tá»« VPC, chá»n **VPC endpoints, S3 Gateway**.
+8.  **Number of private subnets**: Chọn **2**. Các subnet này sẽ chứa các instance cơ sở dữ liệu RDS của bạn, giữ chúng an toàn khỏi internet công cộng.
 
-9. Äá»‘i vá»›i tÃ¹y chá»n DNS, máº·c Ä‘á»‹nh cáº£ hai tÃ¹y chá»n vá» giáº£i quyáº¿t tÃªn miá»n Ä‘á»u Ä‘Æ°á»£c kÃ­ch hoáº¡t. Äiá»u chá»‰nh náº¿u cáº§n.
+    **🔒 Security Note**: Luôn đặt các instance cơ sở dữ liệu của bạn trong các private subnet.
 
-10. (TÃ¹y chá»n) ThÃªm nhÃ£n cho VPC báº±ng cÃ¡ch má»Ÿ rá»™ng **Additional tags**.
+9.  **NAT gateways**: Chọn **1 per AZ** hoặc **1 in 1 AZ** tùy thuộc vào ngân sách của bạn. Đối với workshop này, **None** hoặc **1 in 1 AZ** là đủ nếu bạn cần truy cập internet chiều đi cho các private instance (ví dụ: để cập nhật).
 
-11. Xem trÆ°á»›c cáº¥u trÃºc VPC trong báº£ng **Preview**:
-    - ÄÆ°á»ng liá»n nÃ©t thá»ƒ hiá»‡n má»‘i quan há»‡ giá»¯a cÃ¡c tÃ i nguyÃªn.
-    - ÄÆ°á»ng Ä‘á»©t Ä‘oáº¡n thá»ƒ hiá»‡n luá»“ng lÆ°u lÆ°á»£ng máº¡ng.
+    **💡 Pro Tip**: Trong môi trường sản xuất, việc triển khai NAT Gateway trong mỗi AZ đảm bảo tính sẵn sàng cao nhưng sẽ phát sinh chi phí cao hơn.
 
-12. Khi hoÃ n táº¥t cáº¥u hÃ¬nh, chá»n **Create VPC**.
+10. **VPC endpoints**: Để là **None** cho workshop này.
 
-![Create a VPC](/images/1/0004.png?featherlight=false&width=90pc)
+11. **DNS options**: Đảm bảo **Enable DNS hostnames** và **Enable DNS resolution** được chọn. Các tùy chọn này là cần thiết để RDS hoạt động chính xác với truy cập công khai (nếu cần) và để phân giải tên miền nội bộ dễ dàng hơn.
 
-![Create a VPC](/images/1/0005.png?featherlight=false&width=90pc)
+12. Xem lại bảng **Preview** để hình dung kiến trúc mạng của bạn.
 
-#### Cáº¥u hÃ¬nh Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai cho subnet
+13. Nhấn **Create VPC**.
 
-\*\*ℹ️ Information\*\*: Máº·c Ä‘á»‹nh, subnet khÃ´ng máº·c Ä‘á»‹nh cÃ³ thuá»™c tÃ­nh tá»± Ä‘á»™ng gÃ¡n Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai Ä‘Æ°á»£c Ä‘áº·t thÃ nh "false", trong khi subnet máº·c Ä‘á»‹nh cÃ³ thuá»™c tÃ­nh nÃ y Ä‘Æ°á»£c Ä‘áº·t thÃ nh "true". Subnet khÃ´ng máº·c Ä‘á»‹nh Ä‘Æ°á»£c táº¡o qua trÃ¬nh táº¡o EC2 instance sáº½ cÃ³ thuá»™c tÃ­nh nÃ y Ä‘Æ°á»£c Ä‘áº·t thÃ nh "true".
+    ![Create a VPC](/images/1/0004.png?featherlight=false&width=90pc)
 
-**Äá»ƒ thay Ä‘á»•i cÃ i Ä‘áº·t Ä‘á»‹a chá»‰ IPv4 cÃ´ng khai cá»§a subnet:**
+    ![Create a VPC](/images/1/0005.png?featherlight=false&width=90pc)
 
-1. Má»Ÿ giao diá»‡n Amazon VPC táº¡i [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
+#### Cấu hình gán IP công khai (Tùy chọn)
 
-2. Trong báº£ng Ä‘iá»u hÆ°á»›ng, chá»n **Subnets**.
+**ℹ️ Information**: Theo mặc định, các instance trong subnet không mặc định sẽ không nhận được địa chỉ IP công khai. Nếu bạn muốn các instance trong **Public Subnets** của mình tự động nhận IP công khai, hãy làm theo các bước sau:
 
-![Create a VPC](/images/1/0006.png?featherlight=false&width=90pc)
+1.  Đi tới **Subnets** trong thanh điều hướng bên trái.
+2.  Chọn một trong các **Public Subnets** của bạn.
+3.  Nhấn **Actions** > **Edit subnet settings**.
 
-3. Chá»n subnet cáº§n cáº¥u hÃ¬nh, sau Ä‘Ã³ chá»n **Actions**, **Edit subnet settings**.
+    ![Create a VPC](/images/1/0007.png?featherlight=false&width=90pc)
 
-![Create a VPC](/images/1/0007.png?featherlight=false&width=90pc)
+4.  Đánh dấu chọn **Enable auto-assign public IPv4 address**.
+5.  Nhấn **Save**.
+6.  Lặp lại cho Public Subnet còn lại của bạn.
 
-4. ÄÃ¡nh dáº¥u hoáº·c bá» Ä‘Ã¡nh dáº¥u tÃ¹y chá»n **Enable auto-assign public IPv4 address** theo nhu cáº§u, sau Ä‘Ã³ chá»n **Save**.
+    ![Create a VPC](/images/1/0008.png?featherlight=false&width=90pc)
 
-![Create a VPC](/images/1/0008.png?featherlight=false&width=90pc)
-
-\*\*⚠️ Warning\*\*: Viá»‡c thay Ä‘á»•i cÃ i Ä‘áº·t nÃ y chá»‰ áº£nh hÆ°á»Ÿng Ä‘áº¿n cÃ¡c instance má»›i Ä‘Æ°á»£c khá»Ÿi cháº¡y trong subnet. CÃ¡c instance hiá»‡n cÃ³ sáº½ khÃ´ng bá»‹ áº£nh hÆ°á»Ÿng.
-
+**⚠️ Warning**: Không bao giờ bật tự động gán IP công khai cho **Private Subnets** nơi chứa cơ sở dữ liệu của bạn.

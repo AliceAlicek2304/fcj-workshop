@@ -8,68 +8,47 @@ pre : " <b> 5.7 </b> "
 
 #### Resource Cleanup
 
-ℹ️ \*\*ℹ️ Information\*\*: After completing your lab, it's important to clean up all AWS resources to avoid ongoing charges. Follow these steps to properly remove all resources created during this workshop.
+**ℹ️ Information**: To avoid unexpected charges, it is crucial to clean up all resources created during this workshop. We will delete resources in the reverse order of their creation.
 
-#### Delete Database Resources
+#### Step 1: Delete RDS Resources
 
-1. **Delete the DB subnet group**:
-   - Navigate to the Amazon RDS console
-   - In the navigation pane, select **Subnet groups**
-   - Select the DB subnet group related to the lab
-   - Choose **Delete**, then confirm by selecting **Delete** in the confirmation window
+1.  **Delete RDS Instance**:
+    -   Go to the **Amazon RDS** console > **Databases**.
+    -   Select your database instance (e.g., `workshop-db`).
+    -   Click **Actions** > **Delete**.
+    -   Uncheck **Create final snapshot** and check **I acknowledge...**.
+    -   Type `delete me` and click **Delete**.
 
-2. **Delete DB Instance**:
-   - Access the RDS Management Console
-   - In the left navigation bar, select **Databases**
-   - Select the DB Instance related to the lab
-   - Click **Actions**, then **Delete**
-   - Uncheck **Create final snapshot?** and acknowledge that automated backups will no longer be available
-   - Enter `delete me` in the confirmation field
-   - Click **Delete**
+2.  **Delete DB Subnet Group**:
+    -   Go to **Subnet groups**.
+    -   Select your group (e.g., `rds-subnet-group`).
+    -   Click **Delete**.
 
-3. **Delete DB Snapshots**:
-   - In the RDS Management Console, select **Snapshots** from the navigation bar
-   - Select all snapshots related to the lab
-   - Click **Actions**, then **Delete snapshot**
-   - Confirm by clicking **Delete**
+#### Step 2: Terminate EC2 Instance
 
-#### Delete Network Resources
+1.  **Terminate Instance**:
+    -   Go to the **Amazon EC2** console > **Instances**.
+    -   Select your instance (e.g., `Workshop-Web-Server`).
+    -   Click **Instance state** > **Terminate instance**.
+    -   Click **Terminate**.
 
-1. **Delete security groups**:
-   - Open the Amazon VPC console
-   - Choose **Security Groups** from the navigation pane
-   - Select the security group related to the lab
-   - Choose **Actions**, select **Delete security groups**, then confirm
+#### Step 3: Delete Network Resources
 
-2. **Delete NAT gateway**:
-   - In the VPC console, select **NAT Gateways**
-   - Select the NAT Gateway related to the lab
-   - Choose **Actions**, select **Delete NAT gateway**
-   - Confirm the deletion
+1.  **Delete Security Groups**:
+    -   Go to the **VPC** console > **Security Groups**.
+    -   Select the **RDS Security Group** and delete it.
+    -   Select the **EC2 Security Group** and delete it.
 
-3. **Release Elastic IP addresses**:
-   - Open the Amazon EC2 console
-   - Select **Elastic IPs** from the navigation pane
-   - Select the Elastic IP address related to the lab
-   - From **Actions**, select **Release Elastic IP addresses**
-   - Confirm by choosing **Release**
+    **💡 Pro Tip**: You must delete the RDS Security Group first because the EC2 Security Group might reference it (or vice versa depending on your rules). If you get a dependency error, check your Inbound/Outbound rules.
 
-4. **Delete the VPC**:
-   - In the VPC console, select **Your VPCs**
-   - Select the VPC you created for this lab
-   - From **Actions**, select **Delete VPC**
-   - On the confirmation page, enter `delete` and choose **Delete**
+2.  **Delete VPC**:
+    -   Go to **Your VPCs**.
+    -   Select your workshop VPC.
+    -   Click **Actions** > **Delete VPC**.
+    -   Type `delete` and confirm.
 
-#### Delete Compute Resources
+    **ℹ️ Information**: Deleting the VPC will automatically delete associated subnets, route tables, and internet gateways.
 
-1. **Terminate EC2 instances**:
-   - Access the EC2 Management Console
-   - Select **Instances** from the navigation pane
-   - Select all EC2 Instances related to the lab
-   - Click **Instance state**, then **Terminate instance**
-   - Confirm by clicking **Terminate**
+#### Verification
 
-⚠️ \*\*⚠️ Warning\*\*: Terminating resources is permanent and cannot be undone. Ensure you have backed up any important data before proceeding with cleanup.
-
-💡 **Pro Tip**: To verify all resources have been properly deleted, check your AWS Billing dashboard or use AWS Cost Explorer to ensure no unexpected charges appear after cleanup.
-
+1.  Check your **Billing Dashboard** the next day to ensure no active resources remain.

@@ -8,46 +8,46 @@ pre : " <b> 5.2.2 </b> "
 
 #### Creating a Security Group for EC2 Instances
 
-\*\*ℹ️ Information\*\*: Security groups act as virtual firewalls for your Amazon EC2 instances to control inbound and outbound traffic. For our RDS deployment, we need to create a security group for EC2 instances that will connect to our database.
+**ℹ️ Information**: A Security Group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. In this step, we will create a security group that allows traffic to our web application.
 
-Follow these steps to create a security group with the necessary ports:
+#### Step-by-Step Guide
 
-1. Navigate to the AWS Management Console and sign in to your account.
+1.  Navigate to the **EC2 Dashboard** in the AWS Management Console.
 
-2. In the AWS Management Console, search for and select **EC2** under services.
+2.  In the left navigation pane, under **Network & Security**, select **Security Groups**.
 
-3. In the EC2 navigation pane, under **Network & Security**, select **Security Groups**.
+3.  Click **Create security group**.
 
-4. Click the **Create security group** button.
+    ![Create a Security Group](/images/1/0009.png?featherlight=false&width=90pc)
 
-![Create a Security Group](/images/1/0009.png?featherlight=false&width=90pc)
+4.  **Basic details**:
+    - **Security group name**: Enter a descriptive name (e.g., `EC2-Web-SG`).
+    - **Description**: Enter a description (e.g., `Allow Web and SSH access`).
+    - **VPC**: Select the VPC you created in the previous step.
 
-5. In the **Basic details** section:
-   - Enter a descriptive **Security group name** (e.g., "EC2-Web-App-SG")
-   - Provide a meaningful **Description** (e.g., "Security group for EC2 instances connecting to RDS")
-   - Select your VPC from the dropdown menu
+    ![Configure Security Group Details](/images/1/00010.png?featherlight=false&width=90pc)
 
-![Configure Security Group Details](/images/1/00010.png?featherlight=false&width=90pc)
+5.  **Inbound rules**: Click **Add rule** to allow the following traffic:
 
-6. In the **Inbound rules** section, click **Add rule** to configure the following access:
-   - **HTTP (80)**: Select "HTTP" from the Type dropdown (automatically sets port 80)
-   - **HTTPS (443)**: Select "HTTPS" from the Type dropdown (automatically sets port 443)
-   - **Custom TCP (5000)**: Select "Custom TCP" and enter "5000" in the Port range field
-   - **SSH (22)**: Select "SSH" from the Type dropdown (automatically sets port 22)
+    | Type | Protocol | Port Range | Source | Description |
+    | :--- | :--- | :--- | :--- | :--- |
+    | **HTTP** | TCP | 80 | 0.0.0.0/0 | Allow HTTP access from anywhere |
+    | **HTTPS** | TCP | 443 | 0.0.0.0/0 | Allow HTTPS access from anywhere |
+    | **Custom TCP** | TCP | 5000 | 0.0.0.0/0 | Allow access to application port |
+    | **SSH** | TCP | 22 | My IP | Allow SSH access only from your IP |
 
-   **🔒 Security Note**: For production environments, restrict the source IP addresses for SSH access to only trusted IP ranges rather than allowing access from anywhere (0.0.0.0/0).
+    **🔒 Security Note**: For SSH (Port 22), always select **My IP** as the source to restrict administrative access to your current location only. Never open SSH to `0.0.0.0/0` in a production environment.
 
-![Configure Inbound Rules](/images/1/00011.png?featherlight=false&width=90pc)
+    ![Configure Inbound Rules](/images/1/00011.png?featherlight=false&width=90pc)
 
-7. Review your settings and click **Create security group**.
+6.  **Outbound rules**: Leave the default rule (Allow all traffic) unchanged.
 
-![Create the Security Group](/images/1/00012.png?featherlight=false&width=90pc)
+7.  Click **Create security group**.
 
-8. Once created, the new security group appears in your security groups list. Note the Security Group ID as you'll need it when launching EC2 instances.
+    ![Create the Security Group](/images/1/00012.png?featherlight=false&width=90pc)
 
-![Security Group Created](/images/1/00013.png?featherlight=false&width=90pc)
+8.  Note the **Security Group ID** (e.g., `sg-xxxxxxxx`), as you will need it later.
 
-**💡 Pro Tip**: You can modify security group rules at any time, and the changes take effect immediately. This allows you to adjust access controls as your application requirements evolve.
+    ![Security Group Created](/images/1/00013.png?featherlight=false&width=90pc)
 
-\*\*⚠️ Warning\*\*: Security groups are stateful — if you allow inbound traffic on a specific port, the corresponding outbound response traffic is automatically allowed, regardless of outbound rules.
-
+**💡 Pro Tip**: Security Groups are **stateful**. This means if you allow an inbound request, the response is automatically allowed to flow back out, regardless of outbound rules.

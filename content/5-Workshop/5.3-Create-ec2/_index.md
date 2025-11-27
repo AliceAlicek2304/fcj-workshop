@@ -8,109 +8,96 @@ pre : " <b> 5.3 </b> "
 
 #### Creating an EC2 Instance
 
-ℹ️ \*\*ℹ️ Information\*\*: Amazon EC2 (Elastic Compute Cloud) provides scalable computing capacity in the AWS Cloud, eliminating the need to invest in hardware upfront.
+**ℹ️ Information**: Amazon EC2 (Elastic Compute Cloud) provides scalable computing capacity in the AWS Cloud. It allows you to launch virtual servers (instances) in minutes, eliminating the need to invest in upfront hardware.
 
-To create a Linux EC2 instance using the AWS Management Console, follow these instructions. This guide helps you quickly launch your first instance with essential configurations. For advanced options, refer to the [Launch Instance documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html).
+In this step, we will launch a Linux EC2 instance that will serve as our application server (or bastion host) to connect to our RDS database.
 
-#### Access the AWS Console
+#### Step-by-Step Guide
 
-1. Open a web browser and navigate to the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+1.  **Access the Console**: Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/).
 
-#### Launch Your Instance
+2.  **Launch Instance**: On the dashboard, click the orange **Launch instance** button.
 
-1. On the EC2 console dashboard, locate the **Launch instance** box, select **Launch instance**, then choose **Launch instance** from the dropdown menu.
+    ![Create a VPC](/images/3/0001.png?featherlight=false&width=90pc)
 
-   ![Create a VPC](/images/3/0001.png?featherlight=false&width=90pc)
+3.  **Name and Tags**:
+    - **Name**: Enter a descriptive name (e.g., `Workshop-Web-Server`).
 
-#### Configure Instance Details
+    ![Create a VPC](/images/3/0002.png?featherlight=false&width=90pc)
 
-1. Under the **Name and tags** section, enter a descriptive name for your instance.
+4.  **Application and OS Images (AMI)**:
+    - **Quick Start**: Select **Amazon Linux**.
+    - **AMI**: Select **Amazon Linux 2023 AMI** (Free tier eligible).
 
-   ![Create a VPC](/images/3/0002.png?featherlight=false&width=90pc)
+    **💡 Pro Tip**: Always look for the "Free tier eligible" tag to avoid unexpected costs during learning or testing.
 
-2. Under **Application and OS Images (Amazon Machine Image)**, configure the following:
-   - Select **Quick Start**, then choose **Amazon Linux**
-   - From the **Amazon Machine Image (AMI)** options, select an HVM version of **Amazon Linux 2023**
-   
-   💡 **Pro Tip**: Look for AMIs marked as **Free tier eligible** to avoid unexpected charges if you're using the AWS Free Tier.
+    ![Create a VPC](/images/3/0003.png?featherlight=false&width=90pc)
 
-   ![Create a VPC](/images/3/0003.png?featherlight=false&width=90pc)
+5.  **Instance Type**:
+    - Select **t2.micro** (or **t3.micro** if t2 is unavailable in your region).
 
-3. Under **Instance type**, select **t2.micro** (pre-selected by default).
-   
-   ℹ️ \*\*ℹ️ Information\*\*: The **t2.micro** instance type qualifies for the AWS Free Tier. In regions where **t2.micro** isn't available, you can use **t3.micro** under the Free Tier. For more details, see [AWS Free Tier](https://aws.amazon.com/free/).
+    **ℹ️ Information**: These instance types are low-cost and often covered by the AWS Free Tier.
 
-   ![Create a VPC](/images/3/0004.png?featherlight=false&width=90pc)
+    ![Create a VPC](/images/3/0004.png?featherlight=false&width=90pc)
 
-4. Under **Key pair (login)**, select the key pair you created during your AWS setup.
+6.  **Key Pair (Login)**:
+    - Select the **Key pair** you created earlier.
 
-   ⚠️ \*\*⚠️ Warning\*\*: Do not select **Proceed without a key pair (Not recommended)**. Without a key pair, you won't be able to connect to your instance.
+    **⚠️ Warning**: Do not proceed without a key pair. You will not be able to SSH into your instance without it.
 
-   ![Create a VPC](/images/3/0005.png?featherlight=false&width=90pc)
+    ![Create a VPC](/images/3/0005.png?featherlight=false&width=90pc)
 
-5. Under **Network settings**, click **Edit** and configure your security group:
-   - You can use the auto-created security group, or
-   - Select **Select existing security group** and choose a security group you created previously
+7.  **Network Settings**:
+    - Click **Edit**.
+    - **VPC**: Select your workshop VPC.
+    - **Subnet**: Select a **Public Subnet**.
+    - **Auto-assign Public IP**: Ensure this is **Enabled**.
+    - **Firewall (security groups)**: Select **Select existing security group**.
+    - Choose the **EC2 Security Group** you created in step 5.2.2.
 
-   🔒 **Security Note**: Security groups act as virtual firewalls that control inbound and outbound traffic to your instance. Ensure your security group allows SSH access (port 22) from your IP address only.
+    **🔒 Security Note**: By reusing the security group we created earlier, we ensure our instance has exactly the permissions it needs—no more, no less.
 
-   ![Create a VPC](/images/3/0006.png?featherlight=false&width=90pc)
+    ![Create a VPC](/images/3/0006.png?featherlight=false&width=90pc)
+    ![Create a VPC](/images/3/0007.png?featherlight=false&width=90pc)
 
-   ![Create a VPC](/images/3/0007.png?featherlight=false&width=90pc)
+8.  **Launch**:
+    - Review your summary.
+    - Click **Launch instance**.
 
-#### Launch and Verify Your Instance
+    ![Create a VPC](/images/3/0008.png?featherlight=false&width=90pc)
 
-1. Review the instance configuration summary in the **Summary panel**.
-2. When ready, click **Launch instance**.
+9.  **Verify**:
+    - Click **View all instances**.
+    - Wait for the **Instance state** to change to `Running` and **Status check** to pass.
 
-   ![Create a VPC](/images/3/0008.png?featherlight=false&width=90pc)
+    **💡 Pro Tip**: If you don't see the Public DNS column, click the settings gear icon and enable **Public IPv4 DNS**.
 
-3. On the confirmation page, click **View all instances** to return to the EC2 console.
-4. Monitor the instance status on the Instances screen:
-   - Initial state: **pending**
-   - Running state: **running** (with assigned public DNS name)
-   
-   💡 **Pro Tip**: If the **Public IPv4 DNS** column is hidden, click the gear icon (Settings) in the upper right corner, enable **Public IPv4 DNS**, and click **Confirm**.
+    ![Create a VPC](/images/3/0009.png?featherlight=false&width=90pc)
+    ![Create a VPC](/images/3/00010.png?featherlight=false&width=90pc)
 
-5. Wait for the instance to pass all status checks before attempting to connect.
+#### Connecting via SSH (MobaXterm)
 
-   ![Create a VPC](/images/3/0009.png?featherlight=false&width=90pc)
+**ℹ️ Information**: MobaXterm is a powerful terminal for Windows that makes SSH connections easy.
 
-   ![Create a VPC](/images/3/00010.png?featherlight=false&width=90pc)
+1.  **Download & Install**: Get MobaXterm from the [official website](https://mobaxterm.mobatek.net/download-home-edition.html).
 
-#### Connecting to Your EC2 Instance via SSH Using MobaXterm
+2.  **Create Session**:
+    - Click **Session** > **SSH**.
+    - **Remote host**: Enter your EC2 instance's **Public IPv4 DNS**.
+    - **Specify username**: Enter `ec2-user`.
+    - **Port**: `22`.
 
-ℹ️ \*\*ℹ️ Information\*\*: MobaXterm is an enhanced terminal for Windows with an X11 server, tabbed SSH client, and various network tools.
+3.  **Authentication**:
+    - Go to the **Advanced SSH settings** tab.
+    - Check **Use private key**.
+    - Browse and select your `.pem` key file.
 
-Follow these steps to connect to your EC2 instance using MobaXterm:
+    ![Create a VPC](/images/3/00011.png?featherlight=false&width=90pc)
 
-#### Install MobaXterm
+4.  **Connect**:
+    - Click **OK**.
+    - You should now be connected to your Linux server!
 
-1. Download MobaXterm from the official website: [MobaXterm Website](https://mobaxterm.mobatek.net/download-home-edition.html)
-2. Install the application on your computer
+    ![Create a VPC](/images/3/00012.png?featherlight=false&width=90pc)
 
-#### Configure SSH Connection
-
-1. Launch MobaXterm
-2. Click the **Session** icon in the upper-left corner
-3. In the configuration window, enter:
-   - **Remote Host**: Your EC2 instance's public IP address or DNS name
-   - **Port**: 22 (default SSH port)
-   - **Username**: The default user for your AMI (typically **ec2-user** for Amazon Linux)
-   - **Advanced SSH settings**: Browse and select your private key file (.pem)
-
-   ![Create a VPC](/images/3/00011.png?featherlight=false&width=90pc)
-
-#### Connect to Your Instance
-
-1. Click **OK** to save the configuration
-2. Click the connect icon to establish an SSH connection
-
-🔒 **Security Note**: Ensure your private key file (.pem) has restricted permissions. On Windows, verify the file is not accessible to other users.
-
-#### Successful Connection
-
-Once connected, you'll have terminal access to your EC2 instance and can begin managing your server.
-
-![Create a VPC](/images/3/00012.png?featherlight=false&width=90pc)
-
+**🔒 Security Note**: Keep your `.pem` key file secure. Never share it or commit it to public repositories.

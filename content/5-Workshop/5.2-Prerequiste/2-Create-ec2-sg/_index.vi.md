@@ -1,55 +1,53 @@
 ﻿---
-title : "Táº¡o EC2 Security Group"
+title : "Tạo EC2 Security Group"
 date : "2025-10-27"
 weight : 2
 chapter : false
 pre : " <b> 5.2.2 </b> "
 ---
 
-#### Táº¡o Security Group cho Amazon EC2
+#### Tạo Security Group cho Amazon EC2
 
-\*\*ℹ️ Information\*\*: Security Group hoáº¡t Ä‘á»™ng nhÆ° tÆ°á»ng lá»­a áº£o Ä‘á»ƒ kiá»ƒm soÃ¡t lÆ°u lÆ°á»£ng truy cáº­p vÃ o vÃ  ra khá»i cÃ¡c tÃ i nguyÃªn AWS cá»§a báº¡n. Má»—i Security Group chá»©a má»™t táº­p há»£p cÃ¡c quy táº¯c cho phÃ©p lÆ°u lÆ°á»£ng máº¡ng Ä‘áº¿n cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t.
+**ℹ️ Information**: Security Group hoạt động như một tường lửa ảo cho các EC2 instance của bạn để kiểm soát lưu lượng truy cập đến và đi. Trong bước này, chúng ta sẽ tạo một security group cho phép truy cập vào ứng dụng web của chúng ta.
 
-#### CÃ¡c bÆ°á»›c táº¡o Security Group cho EC2
+#### Hướng dẫn từng bước
 
-1. ÄÄƒng nháº­p vÃ o AWS Management Console.
+1.  Điều hướng đến **EC2 Dashboard** trong AWS Management Console.
 
-2. Trong menu dá»‹ch vá»¥, chá»n **EC2** trong pháº§n **Compute**.
+2.  Trong thanh điều hướng bên trái, dưới mục **Network & Security**, chọn **Security Groups**.
 
-3. Trong thanh Ä‘iá»u hÆ°á»›ng bÃªn trÃ¡i, dÆ°á»›i má»¥c **Network & Security**, chá»n **Security Groups**.
+3.  Nhấn **Create security group**.
 
-4. Nháº¥p vÃ o nÃºt **Create Security Group** Ä‘á»ƒ báº¯t Ä‘áº§u quÃ¡ trÃ¬nh táº¡o.
+    ![Create a Security Group](/images/1/0009.png?featherlight=false&width=90pc)
 
-![Create a Security Group](/images/1/0009.png?featherlight=false&width=90pc)
+4.  **Basic details**:
+    - **Security group name**: Nhập tên mô tả (ví dụ: `EC2-Web-SG`).
+    - **Description**: Nhập mô tả (ví dụ: `Allow Web and SSH access`).
+    - **VPC**: Chọn VPC bạn đã tạo ở bước trước.
 
-5. Trong pháº§n **Basic details**, nháº­p thÃ´ng tin cÆ¡ báº£n:
-   - **Security group name**: Nháº­p tÃªn mÃ´ táº£ cho Security Group
-   - **Description**: ThÃªm mÃ´ táº£ chi tiáº¿t vá» má»¥c Ä‘Ã­ch cá»§a Security Group
-   - **VPC**: Chá»n VPC nÆ¡i báº¡n muá»‘n Ã¡p dá»¥ng Security Group nÃ y
+    ![Configure Security Group Details](/images/1/00010.png?featherlight=false&width=90pc)
 
-![Configure Security Group Details](/images/1/00010.png?featherlight=false&width=90pc)
+5.  **Inbound rules**: Nhấn **Add rule** để cho phép các lưu lượng sau:
 
-6. Trong pháº§n **Inbound rules**, thÃªm cÃ¡c quy táº¯c sau Ä‘á»ƒ cho phÃ©p lÆ°u lÆ°á»£ng truy cáº­p Ä‘áº¿n:
-   - **HTTP (80)**: Cho phÃ©p lÆ°u lÆ°á»£ng web HTTP tiÃªu chuáº©n
-   - **HTTPS (443)**: Cho phÃ©p lÆ°u lÆ°á»£ng web báº£o máº­t HTTPS
-   - **Custom TCP (5000)**: Cho phÃ©p lÆ°u lÆ°á»£ng Ä‘áº¿n cá»•ng á»©ng dá»¥ng 5000
-   - **SSH (22)**: Cho phÃ©p káº¿t ná»‘i SSH Ä‘á»ƒ quáº£n trá»‹ mÃ¡y chá»§
+    | Loại | Giao thức | Dải cổng | Nguồn | Mô tả |
+    | :--- | :--- | :--- | :--- | :--- |
+    | **HTTP** | TCP | 80 | 0.0.0.0/0 | Cho phép truy cập HTTP từ mọi nơi |
+    | **HTTPS** | TCP | 443 | 0.0.0.0/0 | Cho phép truy cập HTTPS từ mọi nơi |
+    | **Custom TCP** | TCP | 5000 | 0.0.0.0/0 | Cho phép truy cập cổng ứng dụng |
+    | **SSH** | TCP | 22 | My IP | Chỉ cho phép truy cập SSH từ IP của bạn |
 
-**🔒 Security Note**: Äá»‘i vá»›i mÃ´i trÆ°á»ng sáº£n xuáº¥t, nÃªn giá»›i háº¡n quyá»n truy cáº­p SSH chá»‰ tá»« cÃ¡c Ä‘á»‹a chá»‰ IP Ä‘Ã¡ng tin cáº­y thay vÃ¬ má»Ÿ cho táº¥t cáº£ (0.0.0.0/0).
+    **🔒 Security Note**: Đối với SSH (Cổng 22), luôn chọn **My IP** làm nguồn để giới hạn quyền truy cập quản trị chỉ từ vị trí hiện tại của bạn. Không bao giờ mở SSH cho `0.0.0.0/0` trong môi trường sản xuất.
 
-![Configure Inbound Rules](/images/1/00011.png?featherlight=false&width=90pc)
+    ![Configure Inbound Rules](/images/1/00011.png?featherlight=false&width=90pc)
 
-7. (TÃ¹y chá»n) Cáº¥u hÃ¬nh **Outbound rules** náº¿u báº¡n cáº§n giá»›i háº¡n lÆ°u lÆ°á»£ng Ä‘i ra. Máº·c Ä‘á»‹nh, táº¥t cáº£ lÆ°u lÆ°á»£ng Ä‘i ra Ä‘á»u Ä‘Æ°á»£c cho phÃ©p.
+6.  **Outbound rules**: Giữ nguyên quy tắc mặc định (Cho phép tất cả lưu lượng).
 
-8. (TÃ¹y chá»n) ThÃªm tháº» Ä‘á»ƒ dá»… dÃ ng quáº£n lÃ½ vÃ  phÃ¢n loáº¡i Security Group cá»§a báº¡n.
+7.  Nhấn **Create security group**.
 
-9. Sau khi hoÃ n táº¥t cáº¥u hÃ¬nh, nháº¥p vÃ o nÃºt **Create security group**.
+    ![Create the Security Group](/images/1/00012.png?featherlight=false&width=90pc)
 
-![Create Security Group](/images/1/00012.png?featherlight=false&width=90pc)
+8.  Ghi lại **Security Group ID** (ví dụ: `sg-xxxxxxxx`), vì bạn sẽ cần nó sau này.
 
-10. Security Group má»›i Ä‘Ã£ Ä‘Æ°á»£c táº¡o vÃ  sáºµn sÃ ng Ä‘á»ƒ gÃ¡n cho cÃ¡c instance EC2 cá»§a báº¡n.
+    ![Security Group Created](/images/1/00013.png?featherlight=false&width=90pc)
 
-![Security Group Created](/images/1/00013.png?featherlight=false&width=90pc)
-
-**💡 Pro Tip**: Báº¡n cÃ³ thá»ƒ chá»‰nh sá»­a quy táº¯c Security Group báº¥t ká»³ lÃºc nÃ o vÃ  cÃ¡c thay Ä‘á»•i sáº½ Ä‘Æ°á»£c Ã¡p dá»¥ng ngay láº­p tá»©c cho táº¥t cáº£ cÃ¡c tÃ i nguyÃªn Ä‘Æ°á»£c liÃªn káº¿t vá»›i Security Group Ä‘Ã³.
-
+**💡 Pro Tip**: Security Group có tính **stateful**. Điều này có nghĩa là nếu bạn cho phép một yêu cầu đi vào (inbound), phản hồi sẽ tự động được phép đi ra (outbound), bất kể quy tắc outbound là gì.
