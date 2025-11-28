@@ -6,120 +6,54 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# TỔNG KẾT NỘI DUNG SỰ KIỆN AWS CLOUD MASTERY SERIES #1 (15/11/2025)
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+## PHẦN I: GENERATIVE AI VỚI AMAZON BEDROCK
 
-### Mục Đích Của Sự Kiện
+### 1. Foundation Model và Prompt Engineering
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Sự kiện đã đặt ra câu hỏi then chốt: **Nên học kiến thức gì để phù hợp với môi trường cloud bên ngoài?**
 
-### Danh Sách Diễn Giả
+*   **Foundation Model:** Định nghĩa mô hình nền tảng.
+*   **Prompt Engineering Techniques:** Các kỹ thuật để tối ưu hóa đầu vào cho mô hình AI.
+    *   **Few-shot Prompting:** Cung cấp vài ví dụ cụ thể để hướng dẫn mô hình.
+    *   **Chain of Thought (CoT):** Yêu cầu mô hình hiển thị các bước suy luận để đưa ra câu trả lời cuối cùng, giúp tăng độ chính xác.
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### 2. Retrieval Augmented Generation (RAG)
 
-### Nội Dung Nổi Bật
+Sự kiện đi sâu vào RAG và khái niệm Embedding.
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+*   **Embedding là gì?** (Khái niệm đã được giới thiệu).
+*   **Các công cụ hỗ trợ RAG:**
+    *   **Amazon Titan Embedding** (công cụ được giới thiệu).
+*   **RAG in Action:** Minh họa sơ đồ hoạt động của RAG, bao gồm các bước:
+    1.  **User Query**
+    2.  **Embedding Model** (chuyển câu hỏi thành vector)
+    3.  **Vector Store / Knowledge Source** (tìm kiếm thông tin liên quan)
+    4.  **Prompt Template / Prompt Alignment Model** (chèn thông tin tìm được vào prompt)
+    5.  **Large Language Model (LLM)**
+    6.  **Response** (trả lời đã được bổ sung kiến thức ngoại vi).
+*   **RetriveAndGenerate API:** Một API được giới thiệu để triển khai RAG.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+### 3. Amazon Bedrock AgentCore
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+Amazon Bedrock AgentCore là nền tảng giúp hiện thực hóa ứng dụng AI của bạn bằng cách đưa các agent AI từ giai đoạn thử nghiệm lên production.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+*   **Chức năng:** Hỗ trợ mạnh mẽ cho runtime, memory, công cụ, bảo mật, và giám sát cho các agent.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+## PHẦN II: OTHER PRETRAINED AI SERVICE (Các dịch vụ AI được train sẵn)
 
-#### Domain-Driven Design (DDD)
+Sự kiện cũng giới thiệu một loạt các dịch vụ AI chuyên biệt, đã được train sẵn của Amazon, cùng với chi phí tương ứng:
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
-
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+| Dịch vụ AI | Chức năng chính | Giá tham khảo |
+| :--- | :--- | :--- |
+| **Amazon Rekognition** | Phân tích hình ảnh, video, dán nhãn, tự động censor nội dung nhạy cảm. | $0,0013/ảnh (<1tr images) |
+| **Amazon Translate** | Nhận diện và dịch văn bản real time. | $15/1tr kí tự |
+| **Amazon Textract** | Extract texts và layouts từ tài liệu. | $0,05/page (<1tr pages) ⟹ cần cân nhắc. |
+| **Amazon Transcribe** | Biến giọng nói thành kí tự. Hỗ trợ censor từ nhạy cảm, nhận diện giọng nói, và dịch tự động. | $0,024/phút (<250k phút) |
+| **Amazon Polly** | Biến văn bản thành lời nói (text-to-speech). | 4$ mỗi 1tr kí tự (1tr đầu tiên miễn phí). |
+| **Amazon Comprehend** | Xử lý ngôn ngữ tự nhiên (NLP). Đọc hiểu văn bản, video, lọc keyword. | $0,0001/100 kí tự + $0,35/1h |
+| **Amazon Kendra** | Chức năng TÌM KIẾM (hay trả lời câu hỏi). | $30$/index/month + $0,35/1h (cực kỳ đắt) |
+| **Amazon Personalize** | Cá nhân hóa trải nghiệm người dùng (như TikTok, Shopee, Facebook). | $0,24/training hour + $0,05/GB/recommendation |
+| **Amazon Lookout Family** | Gồm Lookout for Equipment và Lookout for Vision (để giám sát và phát hiện bất thường). | (Không có giá cụ thể trong ghi chú) |
+| **Pipecat** | (Được giới thiệu, không có chi tiết chức năng). | (Không có giá cụ thể trong ghi chú) |

@@ -6,120 +6,72 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# PHẦN I: GIỚI THIỆU VỀ KIRO.DEV (AGENTIC IDE CỦA AWS)
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+Kiro.dev (phát âm “keer-oh”) là một IDE (Integrated Development Environment) hỗ trợ AI dạng agent, được phát triển bởi một nhóm nhỏ thuộc Amazon Web Services (AWS). Nó hiện đang trong giai đoạn public preview (bản thử nghiệm công khai).
 
-### Mục Đích Của Sự Kiện
+## 1. Mục Tiêu & Đặc Tính Nổi Bật
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+*   **Mục tiêu:** Lấp đầy khoảng cách giữa "vibe coding" (prototype nhanh) và phát triển phần mềm thực tế có cấu trúc, kiểm thử, tài liệu và khả năng bảo trì.
+*   **Tính năng chính:**
+    *   **TaSpec-Driven Development:** Chuyển yêu cầu thành user story, acceptance criteria, tài liệu thiết kế và danh sách tác vụ (task list).
+    *   **Agent Hooks / Tự động hóa:** Tự động kích hoạt các tác vụ như tạo tài liệu, kiểm thử, tối ưu hóa khi có sự kiện (lưu file, commit).
+    *   **Steering:** Sử dụng các tập tin Markdown để định nghĩa rõ ràng cấu trúc dự án, tiêu chuẩn và kiến trúc.
+    *   **Khả năng làm việc đa file:** Hiểu rõ mục tiêu chức năng và thực hiện các thay đổi cần thiết trên nhiều file.
 
-### Danh Sách Diễn Giả
+## 2. Ưu Điểm và Thách Thức
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+| Loại | Chi tiết |
+| :--- | :--- |
+| **Ưu điểm** | Tăng tính minh bạch & kiểm soát (kiểm tra đặc tả trước khi code), Giảm gánh nặng boilerplate, Bảo mật & quyền riêng tư (tạo mã diễn ra cục bộ), Linh hoạt (tích hợp công cụ ngoài qua Model Context Protocol). |
+| **Hạn chế** | Còn trong giai đoạn preview (tính năng chưa hoàn thiện), có thể gặp khó khăn trong việc “hiểu ngữ cảnh” với các dự án phức tạp (cần người dùng giám sát), có chi phí cho agent interaction. |
 
-### Nội Dung Nổi Bật
+## 3. Khuyến Nghị Sử Dụng
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+Kiro phù hợp nếu bạn muốn duy trì một workflow chuyên nghiệp, cấu trúc rõ ràng trong khi vẫn tận dụng AI để làm prototype nhanh, hoặc muốn AI trở thành “đồng nghiệp lập trình” chứ không chỉ là công cụ gợi ý code.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+# PHẦN II: GHI CHÚ QUAN TRỌNG VỀ SỬ DỤNG AI HIỆU QUẢ
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+Đây là những kinh nghiệm và nguyên tắc cốt lõi khi làm việc với AI trong dự án phát triển phần mềm:
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+## 1. Nguyên Tắc Kiểm Soát
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+*   **Người dùng phải là người kiểm soát:** AI chỉ là trợ lý, không nên dựa dẫm vào nó để nó kiểm soát dự án.
+*   **Tạo Plan Trước và Review Thường Xuyên:** PHẢI TẠO PLAN TRƯỚC (chẳng hạn, báo AI tạo file plan) để có khung sườn làm việc và phải thường xuyên review (đừng kỳ vọng nó làm hết).
+*   **Vai trò người quản lý code:** Giá trị của bạn nằm ở phần validation code. Bạn phải là người quản lý được code do AI tạo ra.
 
-#### Domain-Driven Design (DDD)
+## 2. Kỹ Thuật Prompt và Định Nghĩa Yêu Cầu
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+*   **Phải chỉ ra role cụ thể cho AI** (ví dụ: đề xuất dùng Amazon Q/CodeWhisperer).
+*   **Viết prompt template của bạn:** Yêu cầu AI tạo plan, sau đó bạn lọc ra và sửa chữa, yêu cầu nó xuất file để lưu trữ và chỉnh sửa trực tiếp sau này.
+*   **Define rõ ràng:**
+    *   Nên tạo section mới khi viết user story.
+    *   Define technology rõ ràng để AI follow theo.
+    *   Thay vì nói "đừng implement cái này," nên nói "implement phần này" để tăng xác suất thành công.
+*   **Hợp tác chi tiết:** Cùng AI kết hợp để tạo ra requirement rõ ràng và thông tin chi tiết trước khi nhờ AI thiết kế và trả lời tiếp.
 
-#### Event-Driven Architecture
+## 3. Quản Lý Dự Án
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+*   **Chia nhỏ Scope:** Chia scope lớn thành scope unit; mỗi unit là một project nhỏ để dễ dàng triển khai (implementing).
+*   **Hợp tác và Xác minh:** Yêu cầu AI viết user story, sau đó dựa vào đó để dự đoán thời gian dự án. Phải có team làm chung và verifile tất cả code out.
+*   **Quy trình cơ bản:** requirement $\implies$ unit $\implies$ data model $\implies$ ... $\implies$ verifile.
 
-#### Compute Evolution
+# PHẦN III: SƠ ĐỒ QUY TRÌNH PHÁT TRIỂN PHẦN MỀM (AGILE/SCRUM)
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+Quy trình phát triển phần mềm thường đi theo hướng Agile/Scrum, với sự tham gia của các vai trò như Product Owner, Developer, và Tester.
 
-#### Amazon Q Developer
+## 1. Chu Kỳ Phát Triển
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+*   Bắt đầu từ **Backlog** (danh sách yêu cầu), các yêu cầu được sắp xếp và phân vào từng **Sprint**.
+*   Trong mỗi Sprint, nhóm phát triển thực hiện các hoạt động chính: **Thiết kế (Design)**, **Lập trình (Code)**, và **Kiểm thử (Test)**.
 
-### Những Gì Học Được
+## 2. Sản Phẩm Đầu Ra và Môi Trường Triển Khai
 
-#### Tư Duy Thiết Kế
+*   **Artifacts (Sản phẩm đầu ra):** Bản thiết kế, bản đồ nội dung, giao diện dịch vụ, mã nguồn, cấu hình.
+*   **Môi trường triển khai:** Sản phẩm lần lượt được đưa qua các môi trường:
+    *   **Development (Dev)**
+    *   **Testing (QA)**
+    *   **User Acceptance Testing (UAT)**
+    *   **Production (Prod)** – môi trường chạy chính thức.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+Quy trình này đảm bảo mối quan hệ giữa vai trò, hoạt động, kết quả và môi trường triển khai, giúp kiểm soát chất lượng sản phẩm trước khi phát hành cho người dùng.
