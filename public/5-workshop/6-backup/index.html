@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/fcj-workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=fcj-workshop/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.149.1">
@@ -15,21 +15,21 @@
     <title>Backup and Restore :: Internship Report</title>
 
     
-    <link href="../../css/nucleus.css?1763531951" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/hybrid.css?1763531951" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1763531951" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1763531951" rel="stylesheet">
-    <link href="../../css/theme.css?1763531951" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1763531951" rel="stylesheet">
+    <link href="../../css/nucleus.css?1764998234" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/hybrid.css?1764998234" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1764998234" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1764998234" rel="stylesheet">
+    <link href="../../css/theme.css?1764998234" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1764998234" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1763531951" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1764998234" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1763531951"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1764998234"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1763531951"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1763531951"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1764998234"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1764998234"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/alicealicek2304.github.io\/fcj-workshop\/";
+        var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1763531951"></script>
+<script type="text/javascript" src="../../js/search.js?1764998234"></script>
  
   </div>
 
@@ -594,7 +594,7 @@
             
 <li
   data-nav-id="/5-workshop/5.2-prerequiste/"
-  title="Prerequisite Steps"
+  title="Prerequisites"
   class="dd-item 
         
         
@@ -602,7 +602,7 @@
         "
 >
   <a href="../../5-workshop/5.2-prerequiste/">
-     <b> 5.2 </b> Prerequisite Steps 
+     <b> 5.2 </b> Prerequisites 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -848,7 +848,7 @@
                        
                 <option
                   id="en"
-                  value="https://alicealicek2304.github.io/fcj-workshop/5-workshop/6-backup/"
+                  value="http://localhost:1313/fcj-workshop/5-workshop/6-backup/"
                   selected
                 >
                   English
@@ -856,7 +856,7 @@
                             
                 <option
                   id="vi"
-                  value="https://alicealicek2304.github.io/fcj-workshop/vi/5-workshop/6-backup/"
+                  value="http://localhost:1313/fcj-workshop/vi/5-workshop/6-backup/"
                 >
                   Tiếng Việt
                 </option>
@@ -1013,87 +1013,75 @@
 
 
 	<h4 id="understanding-amazon-rds-backup-and-restore">Understanding Amazon RDS Backup and Restore</h4>
-<p>ℹ️ **ℹ️\ Information**: Amazon RDS provides automated backups and allows manual snapshots to ensure your database data is protected and can be recovered when needed. These capabilities are essential for disaster recovery planning and maintaining business continuity.</p>
-<h4 id="monitoring-backup-status-in-amazon-rds">Monitoring Backup Status in Amazon RDS</h4>
+<p><strong>ℹ️ Information</strong>: Amazon RDS provides automated backups and allows manual snapshots to ensure your database data is protected and can be recovered when needed. These capabilities are essential for disaster recovery planning and maintaining business continuity.</p>
+<h4 id="monitoring-backup-status">Monitoring Backup Status</h4>
 <ol>
 <li>
-<p>To access backup monitoring in the Amazon RDS console:</p>
+<p><strong>Access Monitoring</strong>:</p>
 <ul>
-<li>Navigate to the <strong>Databases</strong> section in the AWS Management Console</li>
-<li>Select your target DB instance</li>
-<li>Click on the <strong>Monitoring</strong> tab to view performance metrics</li>
+<li>Navigate to the <strong>Databases</strong> section in the AWS Management Console.</li>
+<li>Select your target DB instance.</li>
+<li>Click on the <strong>Monitoring</strong> tab to view performance metrics.</li>
 </ul>
-<p><img src="../../images/5/00014.png?featherlight=false&amp;width=90pc" alt="AWS RDS Monitoring">
-<img src="../../images/5/00015.png?featherlight=false&amp;width=90pc" alt="AWS RDS Monitoring">
-<img src="../../images/5/00016.png?featherlight=false&amp;width=90pc" alt="AWS RDS Monitoring">
-<img src="../../images/5/00017.png?featherlight=false&amp;width=90pc" alt="AWS RDS Monitoring">
-<img src="../../images/5/00018.png?featherlight=false&amp;width=90pc" alt="AWS RDS Monitoring"></p>
+<p><img src="../../images/5/00014.png?featherlight=false&amp;width=90pc" alt="AWS RDS Monitoring"></p>
 </li>
 </ol>
-<h4 id="viewing-backup-information">Viewing Backup Information</h4>
+<h4 id="managing-backups">Managing Backups</h4>
 <ol>
 <li>
-<p>To review backup details for your Amazon RDS instance:</p>
+<p><strong>View Backup Details</strong>:</p>
 <ul>
-<li>Sign in to the AWS Management Console</li>
-<li>Select <strong>Amazon RDS</strong> from the services menu</li>
-<li>In the RDS dashboard, select your DB instance</li>
-<li>Navigate to the <strong>Maintenance &amp; backups</strong> tab</li>
-<li>Here you can view both automated and manual backup information and configure backup settings</li>
+<li>Select your DB instance.</li>
+<li>Navigate to the <strong>Maintenance &amp; backups</strong> tab.</li>
+<li>Here you can view both automated and manual backup information and configure backup settings.</li>
 </ul>
 <p><img src="../../images/5/00019.png?featherlight=false&amp;width=90pc" alt="AWS RDS Backup"></p>
 </li>
-</ol>
-<h4 id="managing-database-snapshots">Managing Database Snapshots</h4>
-<ol>
 <li>
-<p>View your available DB snapshots in the snapshots section:</p>
+<p><strong>View Snapshots</strong>:</p>
+<ul>
+<li>In the left navigation pane, click <strong>Snapshots</strong>.</li>
+<li>You will see a list of all manual and automated snapshots.</li>
+</ul>
 <p><img src="../../images/5/00020.png?featherlight=false&amp;width=90pc" alt="Snapshot Information"></p>
 </li>
 </ol>
 <h4 id="restoring-from-a-db-snapshot">Restoring from a DB Snapshot</h4>
+<p><strong>ℹ️ Information</strong>: Restoring a snapshot creates a <strong>new</strong> DB instance. It does not overwrite the existing one.</p>
 <ol>
 <li>
-<p>Select the DB snapshot you want to use as your restore point:</p>
+<p><strong>Select Snapshot</strong>:</p>
 <ul>
-<li>Under the <strong>Actions</strong> dropdown menu, select <strong>Restore snapshot</strong></li>
+<li>Choose the DB snapshot you want to restore.</li>
+<li>Click <strong>Actions</strong> &gt; <strong>Restore snapshot</strong>.</li>
 </ul>
 <p><img src="../../images/5/00021.png?featherlight=false&amp;width=90pc" alt="Restore Snapshot"></p>
 </li>
 <li>
-<p>Configure your restored database instance:</p>
+<p><strong>Configure New Instance</strong>:</p>
 <ul>
-<li>Provide a unique <strong>DB instance identifier</strong> for the new instance</li>
-<li>Select appropriate instance specifications (compute, storage, etc.)</li>
-<li>Configure network and security settings</li>
+<li><strong>DB instance identifier</strong>: Enter a unique name for the new instance (e.g., <code>workshop-db-restore</code>).</li>
+<li><strong>Instance specifications</strong>: Select the instance class (e.g., <code>db.t3.micro</code>).</li>
+<li><strong>Connectivity</strong>: Select the same VPC and Subnet Group as your original instance.</li>
+<li><strong>Security</strong>: Choose the correct Security Group.</li>
 </ul>
-<p>💡 <strong>Pro Tip</strong>: When restoring a production database, consider restoring to a smaller instance class first for testing, then scale up as needed to minimize costs during validation.</p>
-<p><img src="../../images/5/00022.png?featherlight=false&amp;width=90pc" alt="Restore Settings">
-<img src="../../images/5/00023.png?featherlight=false&amp;width=90pc" alt="Restore Settings">
-<img src="../../images/5/00024.png?featherlight=false&amp;width=90pc" alt="Restore Settings">
-<img src="../../images/5/00025.png?featherlight=false&amp;width=90pc" alt="Restore Settings">
-<img src="../../images/5/00026.png?featherlight=false&amp;width=90pc" alt="Restore Settings"></p>
+<p><strong>💡 Pro Tip</strong>: When restoring for testing, you can choose a smaller instance class to save costs.</p>
+<p><img src="../../images/5/00022.png?featherlight=false&amp;width=90pc" alt="Restore Settings"></p>
 </li>
 <li>
-<p>Initiate the restore process:</p>
+<p><strong>Initiate Restore</strong>:</p>
 <ul>
-<li>Review your configuration settings</li>
-<li>Click <strong>Restore DB instance</strong> to begin the process</li>
+<li>Click <strong>Restore DB instance</strong>.</li>
 </ul>
-<p>⚠️ **⚠️\ Warning**: The restore process creates a completely new database instance with its own endpoint. You will need to update your application connection strings to point to this new instance if you intend to use it for production.</p>
+<p><strong>⚠️ Warning</strong>: The restore process creates a completely new database instance with a new endpoint. You must update your application&rsquo;s connection string to point to this new endpoint.</p>
 <p><img src="../../images/5/00027.png?featherlight=false&amp;width=90pc" alt="Restore Complete"></p>
 </li>
-</ol>
-<h4 id="verifying-the-restored-database">Verifying the Restored Database</h4>
-<ol>
 <li>
-<p>Confirm successful restoration:</p>
+<p><strong>Verify</strong>:</p>
 <ul>
-<li>Check that the new DB instance appears in your RDS console</li>
-<li>Verify the status shows as &ldquo;Available&rdquo; when the restore completes</li>
-<li>Test connectivity and data integrity before directing production traffic to the restored instance</li>
+<li>Wait for the status to change to <strong>Available</strong>.</li>
+<li>Test connectivity to the new instance.</li>
 </ul>
-<p>🔒 <strong>Security Note</strong>: Remember to configure the same security groups and parameter groups as your original instance if you want identical access controls and database settings.</p>
 <p><img src="../../images/5/00028.png?featherlight=false&amp;width=90pc" alt="Verify Restore"></p>
 </li>
 </ol>
@@ -1783,19 +1771,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1763531951"></script>
-    <script src="../../js/jquery.sticky.js?1763531951"></script>
-    <script src="../../js/featherlight.min.js?1763531951"></script>
-    <script src="../../js/highlight.pack.js?1763531951"></script>
+    <script src="../../js/clipboard.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1764998234"></script>
+    <script src="../../js/jquery.sticky.js?1764998234"></script>
+    <script src="../../js/featherlight.min.js?1764998234"></script>
+    <script src="../../js/highlight.pack.js?1764998234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1763531951"></script>
-    <script src="../../js/learn.js?1763531951"></script>
-    <script src="../../js/hugo-learn.js?1763531951"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1764998234"></script>
+    <script src="../../js/learn.js?1764998234"></script>
+    <script src="../../js/hugo-learn.js?1764998234"></script>
 
-    <link href="../../mermaid/mermaid.css?1763531951" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1763531951"></script>
+    <link href="../../mermaid/mermaid.css?1764998234" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1764998234"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

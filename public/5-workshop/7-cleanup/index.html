@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/fcj-workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=fcj-workshop/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.149.1">
@@ -15,21 +15,21 @@
     <title>Clean up resources :: Internship Report</title>
 
     
-    <link href="../../css/nucleus.css?1763531951" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/hybrid.css?1763531951" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1763531951" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1763531951" rel="stylesheet">
-    <link href="../../css/theme.css?1763531951" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1763531951" rel="stylesheet">
+    <link href="../../css/nucleus.css?1764998234" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/hybrid.css?1764998234" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1764998234" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1764998234" rel="stylesheet">
+    <link href="../../css/theme.css?1764998234" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1764998234" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1763531951" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1764998234" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1763531951"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1764998234"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1763531951"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1763531951"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1764998234"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1764998234"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/alicealicek2304.github.io\/fcj-workshop\/";
+        var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1763531951"></script>
+<script type="text/javascript" src="../../js/search.js?1764998234"></script>
  
   </div>
 
@@ -594,7 +594,7 @@
             
 <li
   data-nav-id="/5-workshop/5.2-prerequiste/"
-  title="Prerequisite Steps"
+  title="Prerequisites"
   class="dd-item 
         
         
@@ -602,7 +602,7 @@
         "
 >
   <a href="../../5-workshop/5.2-prerequiste/">
-     <b> 5.2 </b> Prerequisite Steps 
+     <b> 5.2 </b> Prerequisites 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -848,7 +848,7 @@
                        
                 <option
                   id="en"
-                  value="https://alicealicek2304.github.io/fcj-workshop/5-workshop/7-cleanup/"
+                  value="http://localhost:1313/fcj-workshop/5-workshop/7-cleanup/"
                   selected
                 >
                   English
@@ -856,7 +856,7 @@
                             
                 <option
                   id="vi"
-                  value="https://alicealicek2304.github.io/fcj-workshop/vi/5-workshop/7-cleanup/"
+                  value="http://localhost:1313/fcj-workshop/vi/5-workshop/7-cleanup/"
                 >
                   Tiếng Việt
                 </option>
@@ -1013,94 +1013,65 @@
 
 
 	<h4 id="resource-cleanup">Resource Cleanup</h4>
-<p>ℹ️ **ℹ️\ Information**: After completing your lab, it&rsquo;s important to clean up all AWS resources to avoid ongoing charges. Follow these steps to properly remove all resources created during this workshop.</p>
-<h4 id="delete-database-resources">Delete Database Resources</h4>
+<p><strong>ℹ️ Information</strong>: To avoid unexpected charges, it is crucial to clean up all resources created during this workshop. We will delete resources in the reverse order of their creation.</p>
+<h4 id="step-1-delete-rds-resources">Step 1: Delete RDS Resources</h4>
 <ol>
 <li>
-<p><strong>Delete the DB subnet group</strong>:</p>
+<p><strong>Delete RDS Instance</strong>:</p>
 <ul>
-<li>Navigate to the Amazon RDS console</li>
-<li>In the navigation pane, select <strong>Subnet groups</strong></li>
-<li>Select the DB subnet group related to the lab</li>
-<li>Choose <strong>Delete</strong>, then confirm by selecting <strong>Delete</strong> in the confirmation window</li>
+<li>Go to the <strong>Amazon RDS</strong> console &gt; <strong>Databases</strong>.</li>
+<li>Select your database instance (e.g., <code>workshop-db</code>).</li>
+<li>Click <strong>Actions</strong> &gt; <strong>Delete</strong>.</li>
+<li>Uncheck <strong>Create final snapshot</strong> and check <strong>I acknowledge&hellip;</strong>.</li>
+<li>Type <code>delete me</code> and click <strong>Delete</strong>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Delete DB Instance</strong>:</p>
+<p><strong>Delete DB Subnet Group</strong>:</p>
 <ul>
-<li>Access the RDS Management Console</li>
-<li>In the left navigation bar, select <strong>Databases</strong></li>
-<li>Select the DB Instance related to the lab</li>
-<li>Click <strong>Actions</strong>, then <strong>Delete</strong></li>
-<li>Uncheck <strong>Create final snapshot?</strong> and acknowledge that automated backups will no longer be available</li>
-<li>Enter <code>delete me</code> in the confirmation field</li>
-<li>Click <strong>Delete</strong></li>
-</ul>
-</li>
-<li>
-<p><strong>Delete DB Snapshots</strong>:</p>
-<ul>
-<li>In the RDS Management Console, select <strong>Snapshots</strong> from the navigation bar</li>
-<li>Select all snapshots related to the lab</li>
-<li>Click <strong>Actions</strong>, then <strong>Delete snapshot</strong></li>
-<li>Confirm by clicking <strong>Delete</strong></li>
+<li>Go to <strong>Subnet groups</strong>.</li>
+<li>Select your group (e.g., <code>rds-subnet-group</code>).</li>
+<li>Click <strong>Delete</strong>.</li>
 </ul>
 </li>
 </ol>
-<h4 id="delete-network-resources">Delete Network Resources</h4>
+<h4 id="step-2-terminate-ec2-instance">Step 2: Terminate EC2 Instance</h4>
 <ol>
-<li>
-<p><strong>Delete security groups</strong>:</p>
+<li><strong>Terminate Instance</strong>:
 <ul>
-<li>Open the Amazon VPC console</li>
-<li>Choose <strong>Security Groups</strong> from the navigation pane</li>
-<li>Select the security group related to the lab</li>
-<li>Choose <strong>Actions</strong>, select <strong>Delete security groups</strong>, then confirm</li>
-</ul>
-</li>
-<li>
-<p><strong>Delete NAT gateway</strong>:</p>
-<ul>
-<li>In the VPC console, select <strong>NAT Gateways</strong></li>
-<li>Select the NAT Gateway related to the lab</li>
-<li>Choose <strong>Actions</strong>, select <strong>Delete NAT gateway</strong></li>
-<li>Confirm the deletion</li>
-</ul>
-</li>
-<li>
-<p><strong>Release Elastic IP addresses</strong>:</p>
-<ul>
-<li>Open the Amazon EC2 console</li>
-<li>Select <strong>Elastic IPs</strong> from the navigation pane</li>
-<li>Select the Elastic IP address related to the lab</li>
-<li>From <strong>Actions</strong>, select <strong>Release Elastic IP addresses</strong></li>
-<li>Confirm by choosing <strong>Release</strong></li>
-</ul>
-</li>
-<li>
-<p><strong>Delete the VPC</strong>:</p>
-<ul>
-<li>In the VPC console, select <strong>Your VPCs</strong></li>
-<li>Select the VPC you created for this lab</li>
-<li>From <strong>Actions</strong>, select <strong>Delete VPC</strong></li>
-<li>On the confirmation page, enter <code>delete</code> and choose <strong>Delete</strong></li>
+<li>Go to the <strong>Amazon EC2</strong> console &gt; <strong>Instances</strong>.</li>
+<li>Select your instance (e.g., <code>Workshop-Web-Server</code>).</li>
+<li>Click <strong>Instance state</strong> &gt; <strong>Terminate instance</strong>.</li>
+<li>Click <strong>Terminate</strong>.</li>
 </ul>
 </li>
 </ol>
-<h4 id="delete-compute-resources">Delete Compute Resources</h4>
+<h4 id="step-3-delete-network-resources">Step 3: Delete Network Resources</h4>
 <ol>
-<li><strong>Terminate EC2 instances</strong>:
+<li>
+<p><strong>Delete Security Groups</strong>:</p>
 <ul>
-<li>Access the EC2 Management Console</li>
-<li>Select <strong>Instances</strong> from the navigation pane</li>
-<li>Select all EC2 Instances related to the lab</li>
-<li>Click <strong>Instance state</strong>, then <strong>Terminate instance</strong></li>
-<li>Confirm by clicking <strong>Terminate</strong></li>
+<li>Go to the <strong>VPC</strong> console &gt; <strong>Security Groups</strong>.</li>
+<li>Select the <strong>RDS Security Group</strong> and delete it.</li>
+<li>Select the <strong>EC2 Security Group</strong> and delete it.</li>
 </ul>
+<p><strong>💡 Pro Tip</strong>: You must delete the RDS Security Group first because the EC2 Security Group might reference it (or vice versa depending on your rules). If you get a dependency error, check your Inbound/Outbound rules.</p>
+</li>
+<li>
+<p><strong>Delete VPC</strong>:</p>
+<ul>
+<li>Go to <strong>Your VPCs</strong>.</li>
+<li>Select your workshop VPC.</li>
+<li>Click <strong>Actions</strong> &gt; <strong>Delete VPC</strong>.</li>
+<li>Type <code>delete</code> and confirm.</li>
+</ul>
+<p><strong>ℹ️ Information</strong>: Deleting the VPC will automatically delete associated subnets, route tables, and internet gateways.</p>
 </li>
 </ol>
-<p>⚠️ **⚠️\ Warning**: Terminating resources is permanent and cannot be undone. Ensure you have backed up any important data before proceeding with cleanup.</p>
-<p>💡 <strong>Pro Tip</strong>: To verify all resources have been properly deleted, check your AWS Billing dashboard or use AWS Cost Explorer to ensure no unexpected charges appear after cleanup.</p>
+<h4 id="verification">Verification</h4>
+<ol>
+<li>Check your <strong>Billing Dashboard</strong> the next day to ensure no active resources remain.</li>
+</ol>
 
 
 
@@ -1787,19 +1758,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1763531951"></script>
-    <script src="../../js/jquery.sticky.js?1763531951"></script>
-    <script src="../../js/featherlight.min.js?1763531951"></script>
-    <script src="../../js/highlight.pack.js?1763531951"></script>
+    <script src="../../js/clipboard.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1764998234"></script>
+    <script src="../../js/jquery.sticky.js?1764998234"></script>
+    <script src="../../js/featherlight.min.js?1764998234"></script>
+    <script src="../../js/highlight.pack.js?1764998234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1763531951"></script>
-    <script src="../../js/learn.js?1763531951"></script>
-    <script src="../../js/hugo-learn.js?1763531951"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1764998234"></script>
+    <script src="../../js/learn.js?1764998234"></script>
+    <script src="../../js/hugo-learn.js?1764998234"></script>
 
-    <link href="../../mermaid/mermaid.css?1763531951" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1763531951"></script>
+    <link href="../../mermaid/mermaid.css?1764998234" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1764998234"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

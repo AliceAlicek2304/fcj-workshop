@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/fcj-workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=fcj-workshop/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.149.1">
@@ -15,21 +15,21 @@
     <title>Create EC2 instance :: Internship Report</title>
 
     
-    <link href="../../css/nucleus.css?1763531951" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/hybrid.css?1763531951" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1763531951" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1763531951" rel="stylesheet">
-    <link href="../../css/theme.css?1763531951" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1763531951" rel="stylesheet">
+    <link href="../../css/nucleus.css?1764998234" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/hybrid.css?1764998234" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1764998234" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1764998234" rel="stylesheet">
+    <link href="../../css/theme.css?1764998234" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1764998234" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1763531951" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1764998234" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1763531951"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1764998234"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1763531951"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1763531951"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1764998234"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1764998234"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/alicealicek2304.github.io\/fcj-workshop\/";
+        var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1763531951"></script>
+<script type="text/javascript" src="../../js/search.js?1764998234"></script>
  
   </div>
 
@@ -594,7 +594,7 @@
             
 <li
   data-nav-id="/5-workshop/5.2-prerequiste/"
-  title="Prerequisite Steps"
+  title="Prerequisites"
   class="dd-item 
         
         
@@ -602,7 +602,7 @@
         "
 >
   <a href="../../5-workshop/5.2-prerequiste/">
-     <b> 5.2 </b> Prerequisite Steps 
+     <b> 5.2 </b> Prerequisites 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -848,7 +848,7 @@
                        
                 <option
                   id="en"
-                  value="https://alicealicek2304.github.io/fcj-workshop/5-workshop/5.3-create-ec2/"
+                  value="http://localhost:1313/fcj-workshop/5-workshop/5.3-create-ec2/"
                   selected
                 >
                   English
@@ -856,7 +856,7 @@
                             
                 <option
                   id="vi"
-                  value="https://alicealicek2304.github.io/fcj-workshop/vi/5-workshop/5.3-create-ec2/"
+                  value="http://localhost:1313/fcj-workshop/vi/5-workshop/5.3-create-ec2/"
                 >
                   Tiếng Việt
                 </option>
@@ -1013,117 +1013,116 @@
 
 
 	<h4 id="creating-an-ec2-instance">Creating an EC2 Instance</h4>
-<p>â„¹ï¸ **ℹ️\ Information**: Amazon EC2 (Elastic Compute Cloud) provides scalable computing capacity in the AWS Cloud, eliminating the need to invest in hardware upfront.</p>
-<p>To create a Linux EC2 instance using the AWS Management Console, follow these instructions. This guide helps you quickly launch your first instance with essential configurations. For advanced options, refer to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">Launch Instance documentation</a>.</p>
-<h4 id="access-the-aws-console">Access the AWS Console</h4>
-<ol>
-<li>Open a web browser and navigate to the Amazon EC2 console at <a href="https://console.aws.amazon.com/ec2/">https://console.aws.amazon.com/ec2/</a>.</li>
-</ol>
-<h4 id="launch-your-instance">Launch Your Instance</h4>
+<p><strong>ℹ️ Information</strong>: Amazon EC2 (Elastic Compute Cloud) provides scalable computing capacity in the AWS Cloud. It allows you to launch virtual servers (instances) in minutes, eliminating the need to invest in upfront hardware.</p>
+<p>In this step, we will launch a Linux EC2 instance that will serve as our application server (or bastion host) to connect to our RDS database.</p>
+<h4 id="step-by-step-guide">Step-by-Step Guide</h4>
 <ol>
 <li>
-<p>On the EC2 console dashboard, locate the <strong>Launch instance</strong> box, select <strong>Launch instance</strong>, then choose <strong>Launch instance</strong> from the dropdown menu.</p>
+<p><strong>Access the Console</strong>: Open the <a href="https://console.aws.amazon.com/ec2/">Amazon EC2 console</a>.</p>
+</li>
+<li>
+<p><strong>Launch Instance</strong>: On the dashboard, click the orange <strong>Launch instance</strong> button.</p>
 <p><img src="../../images/3/0001.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
-</ol>
-<h4 id="configure-instance-details">Configure Instance Details</h4>
-<ol>
 <li>
-<p>Under the <strong>Name and tags</strong> section, enter a descriptive name for your instance.</p>
+<p><strong>Name and Tags</strong>:</p>
+<ul>
+<li><strong>Name</strong>: Enter a descriptive name (e.g., <code>Workshop-Web-Server</code>).</li>
+</ul>
 <p><img src="../../images/3/0002.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 <li>
-<p>Under <strong>Application and OS Images (Amazon Machine Image)</strong>, configure the following:</p>
+<p><strong>Application and OS Images (AMI)</strong>:</p>
 <ul>
-<li>Select <strong>Quick Start</strong>, then choose <strong>Amazon Linux</strong></li>
-<li>From the <strong>Amazon Machine Image (AMI)</strong> options, select an HVM version of <strong>Amazon Linux 2023</strong></li>
+<li><strong>Quick Start</strong>: Select <strong>Amazon Linux</strong>.</li>
+<li><strong>AMI</strong>: Select <strong>Amazon Linux 2023 AMI</strong> (Free tier eligible).</li>
 </ul>
-<p>ðŸ’¡ <strong>Pro Tip</strong>: Look for AMIs marked as <strong>Free tier eligible</strong> to avoid unexpected charges if you&rsquo;re using the AWS Free Tier.</p>
+<p><strong>💡 Pro Tip</strong>: Always look for the &ldquo;Free tier eligible&rdquo; tag to avoid unexpected costs during learning or testing.</p>
 <p><img src="../../images/3/0003.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 <li>
-<p>Under <strong>Instance type</strong>, select <strong>t2.micro</strong> (pre-selected by default).</p>
-<p>â„¹ï¸ **ℹ️\ Information**: The <strong>t2.micro</strong> instance type qualifies for the AWS Free Tier. In regions where <strong>t2.micro</strong> isn&rsquo;t available, you can use <strong>t3.micro</strong> under the Free Tier. For more details, see <a href="https://aws.amazon.com/free/">AWS Free Tier</a>.</p>
+<p><strong>Instance Type</strong>:</p>
+<ul>
+<li>Select <strong>t2.micro</strong> (or <strong>t3.micro</strong> if t2 is unavailable in your region).</li>
+</ul>
+<p><strong>ℹ️ Information</strong>: These instance types are low-cost and often covered by the AWS Free Tier.</p>
 <p><img src="../../images/3/0004.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 <li>
-<p>Under <strong>Key pair (login)</strong>, select the key pair you created during your AWS setup.</p>
-<p>âš ï¸ **⚠️\ Warning**: Do not select <strong>Proceed without a key pair (Not recommended)</strong>. Without a key pair, you won&rsquo;t be able to connect to your instance.</p>
+<p><strong>Key Pair (Login)</strong>:</p>
+<ul>
+<li>Select the <strong>Key pair</strong> you created earlier.</li>
+</ul>
+<p><strong>⚠️ Warning</strong>: Do not proceed without a key pair. You will not be able to SSH into your instance without it.</p>
 <p><img src="../../images/3/0005.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 <li>
-<p>Under <strong>Network settings</strong>, click <strong>Edit</strong> and configure your security group:</p>
+<p><strong>Network Settings</strong>:</p>
 <ul>
-<li>You can use the auto-created security group, or</li>
-<li>Select <strong>Select existing security group</strong> and choose a security group you created previously</li>
+<li>Click <strong>Edit</strong>.</li>
+<li><strong>VPC</strong>: Select your workshop VPC.</li>
+<li><strong>Subnet</strong>: Select a <strong>Public Subnet</strong>.</li>
+<li><strong>Auto-assign Public IP</strong>: Ensure this is <strong>Enabled</strong>.</li>
+<li><strong>Firewall (security groups)</strong>: Select <strong>Select existing security group</strong>.</li>
+<li>Choose the <strong>EC2 Security Group</strong> you created in step 5.2.2.</li>
 </ul>
-<p>ðŸ”’ <strong>Security Note</strong>: Security groups act as virtual firewalls that control inbound and outbound traffic to your instance. Ensure your security group allows SSH access (port 22) from your IP address only.</p>
-<p><img src="../../images/3/0006.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/3/0007.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-</li>
-</ol>
-<h4 id="launch-and-verify-your-instance">Launch and Verify Your Instance</h4>
-<ol>
-<li>
-<p>Review the instance configuration summary in the <strong>Summary panel</strong>.</p>
+<p><strong>🔒 Security Note</strong>: By reusing the security group we created earlier, we ensure our instance has exactly the permissions it needs—no more, no less.</p>
+<p><img src="../../images/3/0006.png?featherlight=false&amp;width=90pc" alt="Create a VPC">
+<img src="../../images/3/0007.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 <li>
-<p>When ready, click <strong>Launch instance</strong>.</p>
+<p><strong>Launch</strong>:</p>
+<ul>
+<li>Review your summary.</li>
+<li>Click <strong>Launch instance</strong>.</li>
+</ul>
 <p><img src="../../images/3/0008.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 <li>
-<p>On the confirmation page, click <strong>View all instances</strong> to return to the EC2 console.</p>
-</li>
-<li>
-<p>Monitor the instance status on the Instances screen:</p>
+<p><strong>Verify</strong>:</p>
 <ul>
-<li>Initial state: <strong>pending</strong></li>
-<li>Running state: <strong>running</strong> (with assigned public DNS name)</li>
+<li>Click <strong>View all instances</strong>.</li>
+<li>Wait for the <strong>Instance state</strong> to change to <code>Running</code> and <strong>Status check</strong> to pass.</li>
 </ul>
-<p>ðŸ’¡ <strong>Pro Tip</strong>: If the <strong>Public IPv4 DNS</strong> column is hidden, click the gear icon (Settings) in the upper right corner, enable <strong>Public IPv4 DNS</strong>, and click <strong>Confirm</strong>.</p>
-</li>
-<li>
-<p>Wait for the instance to pass all status checks before attempting to connect.</p>
-<p><img src="../../images/3/0009.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/3/00010.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
+<p><strong>💡 Pro Tip</strong>: If you don&rsquo;t see the Public DNS column, click the settings gear icon and enable <strong>Public IPv4 DNS</strong>.</p>
+<p><img src="../../images/3/0009.png?featherlight=false&amp;width=90pc" alt="Create a VPC">
+<img src="../../images/3/00010.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
 </ol>
-<h4 id="connecting-to-your-ec2-instance-via-ssh-using-mobaxterm">Connecting to Your EC2 Instance via SSH Using MobaXterm</h4>
-<p>â„¹ï¸ **ℹ️\ Information**: MobaXterm is an enhanced terminal for Windows with an X11 server, tabbed SSH client, and various network tools.</p>
-<p>Follow these steps to connect to your EC2 instance using MobaXterm:</p>
-<h4 id="install-mobaxterm">Install MobaXterm</h4>
-<ol>
-<li>Download MobaXterm from the official website: <a href="https://mobaxterm.mobatek.net/download-home-edition.html">MobaXterm Website</a></li>
-<li>Install the application on your computer</li>
-</ol>
-<h4 id="configure-ssh-connection">Configure SSH Connection</h4>
+<h4 id="connecting-via-ssh-mobaxterm">Connecting via SSH (MobaXterm)</h4>
+<p><strong>ℹ️ Information</strong>: MobaXterm is a powerful terminal for Windows that makes SSH connections easy.</p>
 <ol>
 <li>
-<p>Launch MobaXterm</p>
+<p><strong>Download &amp; Install</strong>: Get MobaXterm from the <a href="https://mobaxterm.mobatek.net/download-home-edition.html">official website</a>.</p>
 </li>
 <li>
-<p>Click the <strong>Session</strong> icon in the upper-left corner</p>
-</li>
-<li>
-<p>In the configuration window, enter:</p>
+<p><strong>Create Session</strong>:</p>
 <ul>
-<li><strong>Remote Host</strong>: Your EC2 instance&rsquo;s public IP address or DNS name</li>
-<li><strong>Port</strong>: 22 (default SSH port)</li>
-<li><strong>Username</strong>: The default user for your AMI (typically <strong>ec2-user</strong> for Amazon Linux)</li>
-<li><strong>Advanced SSH settings</strong>: Browse and select your private key file (.pem)</li>
+<li>Click <strong>Session</strong> &gt; <strong>SSH</strong>.</li>
+<li><strong>Remote host</strong>: Enter your EC2 instance&rsquo;s <strong>Public IPv4 DNS</strong>.</li>
+<li><strong>Specify username</strong>: Enter <code>ec2-user</code>.</li>
+<li><strong>Port</strong>: <code>22</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Authentication</strong>:</p>
+<ul>
+<li>Go to the <strong>Advanced SSH settings</strong> tab.</li>
+<li>Check <strong>Use private key</strong>.</li>
+<li>Browse and select your <code>.pem</code> key file.</li>
 </ul>
 <p><img src="../../images/3/00011.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
 </li>
-</ol>
-<h4 id="connect-to-your-instance">Connect to Your Instance</h4>
-<ol>
-<li>Click <strong>OK</strong> to save the configuration</li>
-<li>Click the connect icon to establish an SSH connection</li>
-</ol>
-<p>ðŸ”’ <strong>Security Note</strong>: Ensure your private key file (.pem) has restricted permissions. On Windows, verify the file is not accessible to other users.</p>
-<h4 id="successful-connection">Successful Connection</h4>
-<p>Once connected, you&rsquo;ll have terminal access to your EC2 instance and can begin managing your server.</p>
+<li>
+<p><strong>Connect</strong>:</p>
+<ul>
+<li>Click <strong>OK</strong>.</li>
+<li>You should now be connected to your Linux server!</li>
+</ul>
 <p><img src="../../images/3/00012.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
+</li>
+</ol>
+<p><strong>🔒 Security Note</strong>: Keep your <code>.pem</code> key file secure. Never share it or commit it to public repositories.</p>
 
 
 
@@ -1810,19 +1809,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1763531951"></script>
-    <script src="../../js/jquery.sticky.js?1763531951"></script>
-    <script src="../../js/featherlight.min.js?1763531951"></script>
-    <script src="../../js/highlight.pack.js?1763531951"></script>
+    <script src="../../js/clipboard.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1764998234"></script>
+    <script src="../../js/jquery.sticky.js?1764998234"></script>
+    <script src="../../js/featherlight.min.js?1764998234"></script>
+    <script src="../../js/highlight.pack.js?1764998234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1763531951"></script>
-    <script src="../../js/learn.js?1763531951"></script>
-    <script src="../../js/hugo-learn.js?1763531951"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1764998234"></script>
+    <script src="../../js/learn.js?1764998234"></script>
+    <script src="../../js/hugo-learn.js?1764998234"></script>
 
-    <link href="../../mermaid/mermaid.css?1763531951" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1763531951"></script>
+    <link href="../../mermaid/mermaid.css?1764998234" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1764998234"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -1,73 +1,137 @@
 ﻿---
-title : "Tạo VPC"
-date : "2025-10-27"
-weight : 1
-chapter : false
-pre : " <b> 5.2.1 </b> "
+title: "Tạo VPC & Network"
+date: "2025-10-27"
+weight: 1
+chapter: false
+pre: " <b> 5.2.1 </b> "
 ---
 
-#### Tạo VPC với Subnets và các tài nguyên liên quan
+# Tạo VPC và Hạ tầng Mạng
 
-**ℹ️ Information**: Amazon Virtual Private Cloud (Amazon VPC) là mạng riêng của bạn trên đám mây. Nó cho phép bạn khởi chạy các tài nguyên AWS vào một mạng ảo do bạn định nghĩa, mang lại cho bạn quyền kiểm soát hoàn toàn đối với môi trường mạng của mình.
+Trong bước này, chúng ta sẽ thiết lập Virtual Private Cloud (VPC), nơi chứa các tài nguyên ứng dụng. Chúng ta sẽ tạo các public subnet cho các tài nguyên hướng internet và private subnet cho các tài nguyên nội bộ (như Lambda và RDS).
 
-Chúng ta sẽ sử dụng trình hướng dẫn **VPC and more** để tạo VPC, subnets, bảng định tuyến (route tables) và cổng internet (internet gateway) trong một quy trình duy nhất.
+![VPC Architecture](/images/1/0001.png?featherlight=false&width=90pc)
 
-#### Hướng dẫn từng bước
+## 1. Tạo VPC
 
-1.  Mở bảng điều khiển Amazon VPC tại [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
+### CLI
+```bash
+aws ec2 create-vpc \
+  --cidr-block 10.10.0.0/16 \
+  --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=gametracker-vpc}]' \
+  --region ap-southeast-2
+```
 
-    ![Create a VPC](/images/1/0001.png?featherlight=false&width=90pc)
+### AWS Console
+1. Mở [VPC Dashboard](https://console.aws.amazon.com/vpc).
+2. Nhấn **Create VPC**.
+3. **VPC settings**:
+   - **Name tag**: `gametracker-vpc`
+   - **IPv4 CIDR block**: `10.10.0.0/16`
+4. Nhấn **Create VPC**.
 
-2.  Trên bảng điều khiển VPC, chọn **Create VPC**.
+---
 
-3.  Trong phần **Resources to create**, chọn **VPC and more**. Tùy chọn này sẽ tự động cung cấp các tài nguyên liên quan như subnet và bảng định tuyến.
+## 2. Tạo Subnets
 
-    ![Create a VPC](/images/1/0002.png?featherlight=false&width=90pc)
+Chúng ta sẽ tạo 2 Public Subnets và 2 Private Subnets trên hai Availability Zones (AZs) để đảm bảo tính sẵn sàng cao.
 
-4.  **Name tag auto-generation**: Nhập tên cho dự án của bạn (ví dụ: `workshop-vpc`). Tên này sẽ được sử dụng làm tiền tố cho tất cả các tài nguyên được tạo.
+### CLI
+```bash
+# Public Subnet 1 (AZ A)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.0.0/24 --availability-zone ap-southeast-2a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-public-1}]'
 
-5.  **IPv4 CIDR block**: Giữ nguyên mặc định (ví dụ: `10.0.0.0/16`) hoặc nhập dải IP bạn muốn.
+# Public Subnet 2 (AZ B)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.1.0/24 --availability-zone ap-southeast-2b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-public-2}]'
 
-6.  **Availability Zones (AZs)**: Chọn **2**. Điều này rất quan trọng cho Tính sẵn sàng cao (High Availability) và triển khai Multi-AZ.
+# Private Subnet 1 (AZ A)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.2.0/24 --availability-zone ap-southeast-2a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-private-1}]'
 
-    ![Create a VPC](/images/1/0003.png?featherlight=false&width=90pc)
+# Private Subnet 2 (AZ B)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.3.0/24 --availability-zone ap-southeast-2b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-private-2}]'
 
-7.  **Number of public subnets**: Chọn **2**. Các subnet này sẽ chứa các tài nguyên cần truy cập internet trực tiếp (như bastion host hoặc load balancer).
+# Bật Auto-assign Public IP cho Public Subnets
+aws ec2 modify-subnet-attribute --subnet-id <SUBNET_PUBLIC_1_ID> --map-public-ip-on-launch
+aws ec2 modify-subnet-attribute --subnet-id <SUBNET_PUBLIC_2_ID> --map-public-ip-on-launch
+```
 
-8.  **Number of private subnets**: Chọn **2**. Các subnet này sẽ chứa các instance cơ sở dữ liệu RDS của bạn, giữ chúng an toàn khỏi internet công cộng.
+### AWS Console
+1. Truy cập **Subnets** → **Create subnet**.
+2. Chọn `gametracker-vpc`.
+3. Tạo 4 subnets với CIDR và AZ như trên.
+4. Với các **Public Subnets**: Chọn subnet → **Actions** → **Edit subnet settings** → Enable **Auto-assign public IPv4 address**.
 
-    **🔒 Security Note**: Luôn đặt các instance cơ sở dữ liệu của bạn trong các private subnet.
+---
 
-9.  **NAT gateways**: Chọn **1 per AZ** hoặc **1 in 1 AZ** tùy thuộc vào ngân sách của bạn. Đối với workshop này, **None** hoặc **1 in 1 AZ** là đủ nếu bạn cần truy cập internet chiều đi cho các private instance (ví dụ: để cập nhật).
+## 3. Internet Gateway
 
-    **💡 Pro Tip**: Trong môi trường sản xuất, việc triển khai NAT Gateway trong mỗi AZ đảm bảo tính sẵn sàng cao nhưng sẽ phát sinh chi phí cao hơn.
+### CLI
+```bash
+# Tạo IGW
+aws ec2 create-internet-gateway --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=gametracker-igw}]'
 
-10. **VPC endpoints**: Để là **None** cho workshop này.
+# Gắn vào VPC
+aws ec2 attach-internet-gateway --internet-gateway-id <IGW_ID> --vpc-id <VPC_ID>
+```
 
-11. **DNS options**: Đảm bảo **Enable DNS hostnames** và **Enable DNS resolution** được chọn. Các tùy chọn này là cần thiết để RDS hoạt động chính xác với truy cập công khai (nếu cần) và để phân giải tên miền nội bộ dễ dàng hơn.
+### AWS Console
+1. Truy cập **Internet Gateways** → **Create internet gateway**.
+2. Name: `gametracker-igw`.
+3. Nhấn **Create**.
+4. Chọn IGW vừa tạo → **Actions** → **Attach to VPC** → Chọn `gametracker-vpc`.
 
-12. Xem lại bảng **Preview** để hình dung kiến trúc mạng của bạn.
+---
 
-13. Nhấn **Create VPC**.
+## 4. Route Tables
 
-    ![Create a VPC](/images/1/0004.png?featherlight=false&width=90pc)
+### CLI
+```bash
+# Tạo Public Route Table
+aws ec2 create-route-table --vpc-id <VPC_ID> --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=public-route-table}]'
 
-    ![Create a VPC](/images/1/0005.png?featherlight=false&width=90pc)
+# Thêm Route ra Internet
+aws ec2 create-route --route-table-id <RTB_PUBLIC_ID> --destination-cidr-block 0.0.0.0/0 --gateway-id <IGW_ID>
 
-#### Cấu hình gán IP công khai (Tùy chọn)
+# Liên kết Public Subnets
+aws ec2 associate-route-table --route-table-id <RTB_PUBLIC_ID> --subnet-id <SUBNET_PUBLIC_1_ID>
+aws ec2 associate-route-table --route-table-id <RTB_PUBLIC_ID> --subnet-id <SUBNET_PUBLIC_2_ID>
 
-**ℹ️ Information**: Theo mặc định, các instance trong subnet không mặc định sẽ không nhận được địa chỉ IP công khai. Nếu bạn muốn các instance trong **Public Subnets** của mình tự động nhận IP công khai, hãy làm theo các bước sau:
+# Tạo Private Route Table
+aws ec2 create-route-table --vpc-id <VPC_ID> --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=private-route-table-1}]'
 
-1.  Đi tới **Subnets** trong thanh điều hướng bên trái.
-2.  Chọn một trong các **Public Subnets** của bạn.
-3.  Nhấn **Actions** > **Edit subnet settings**.
+# Liên kết Private Subnets
+aws ec2 associate-route-table --route-table-id <RTB_PRIVATE_ID> --subnet-id <SUBNET_PRIVATE_1_ID>
+aws ec2 associate-route-table --route-table-id <RTB_PRIVATE_ID> --subnet-id <SUBNET_PRIVATE_2_ID>
+```
 
-    ![Create a VPC](/images/1/0007.png?featherlight=false&width=90pc)
+### AWS Console
+1. Truy cập **Route Tables** → **Create route table**.
+2. Tạo `public-route-table` và `private-route-table-1`.
+3. **Public Route Table**:
+   - **Routes** → Edit routes → Thêm `0.0.0.0/0` trỏ tới `gametracker-igw`.
+   - **Subnet associations** → Edit → Chọn cả 2 public subnet.
+4. **Private Route Table**:
+   - **Subnet associations** → Edit → Chọn cả 2 private subnet.
 
-4.  Đánh dấu chọn **Enable auto-assign public IPv4 address**.
-5.  Nhấn **Save**.
-6.  Lặp lại cho Public Subnet còn lại của bạn.
+---
 
-    ![Create a VPC](/images/1/0008.png?featherlight=false&width=90pc)
+## 5. VPC Endpoint cho S3
 
-**⚠️ Warning**: Không bao giờ bật tự động gán IP công khai cho **Private Subnets** nơi chứa cơ sở dữ liệu của bạn.
+Cần thiết để Lambda trong private subnet truy cập S3 mà không cần NAT Gateway.
+
+### CLI
+```bash
+aws ec2 create-vpc-endpoint \
+  --vpc-id <VPC_ID> \
+  --service-name com.amazonaws.ap-southeast-2.s3 \
+  --route-table-ids <RTB_PUBLIC_ID> <RTB_PRIVATE_ID>
+```
+
+### AWS Console
+1. Truy cập **Endpoints** → **Create endpoint**.
+2. Name: `gametracker-s3-endpoint`.
+3. Service category: **AWS services**.
+4. Service: `com.amazonaws.ap-southeast-2.s3` (Gateway type).
+5. VPC: `gametracker-vpc`.
+6. Route tables: Chọn cả public và private route table.
+7. Nhấn **Create endpoint**.

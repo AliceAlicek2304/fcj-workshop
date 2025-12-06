@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/fcj-workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=fcj-workshop/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.149.1">
@@ -15,21 +15,21 @@
     <title>Create RDS database instance :: Internship Report</title>
 
     
-    <link href="../../css/nucleus.css?1763531951" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/hybrid.css?1763531951" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1763531951" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1763531951" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1763531951" rel="stylesheet">
-    <link href="../../css/theme.css?1763531951" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1763531951" rel="stylesheet">
+    <link href="../../css/nucleus.css?1764998234" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/hybrid.css?1764998234" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1764998234" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1764998234" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1764998234" rel="stylesheet">
+    <link href="../../css/theme.css?1764998234" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1764998234" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1763531951" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1764998234" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1763531951"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1764998234"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1763531951"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1763531951"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1764998234"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1764998234"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/alicealicek2304.github.io\/fcj-workshop\/";
+        var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1763531951"></script>
+<script type="text/javascript" src="../../js/search.js?1764998234"></script>
  
   </div>
 
@@ -594,7 +594,7 @@
             
 <li
   data-nav-id="/5-workshop/5.2-prerequiste/"
-  title="Prerequisite Steps"
+  title="Prerequisites"
   class="dd-item 
         
         
@@ -602,7 +602,7 @@
         "
 >
   <a href="../../5-workshop/5.2-prerequiste/">
-     <b> 5.2 </b> Prerequisite Steps 
+     <b> 5.2 </b> Prerequisites 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -848,7 +848,7 @@
                        
                 <option
                   id="en"
-                  value="https://alicealicek2304.github.io/fcj-workshop/5-workshop/5.4-create-rds/"
+                  value="http://localhost:1313/fcj-workshop/5-workshop/5.4-create-rds/"
                   selected
                 >
                   English
@@ -856,7 +856,7 @@
                             
                 <option
                   id="vi"
-                  value="https://alicealicek2304.github.io/fcj-workshop/vi/5-workshop/5.4-create-rds/"
+                  value="http://localhost:1313/fcj-workshop/vi/5-workshop/5.4-create-rds/"
                 >
                   Tiếng Việt
                 </option>
@@ -1012,275 +1012,144 @@
 
 
 
-	<h4 id="install-git-on-amazon-ec2-2023">Install Git on Amazon EC2 2023</h4>
-<p>Below are instructions for installing Git on an Amazon EC2 virtual machine running Amazon Linux 2023 using basic steps.</p>
-<ol>
-<li>Update System Packages</li>
-</ol>
-<p>First, update your system packages to make sure you&rsquo;re using the latest version:</p>
-<pre tabindex="0"><code>sudo dnf update -y
-</code></pre><ol start="2">
-<li>Find Git Packages. Use the following command to find Git packages in the repository:</li>
-</ol>
-<pre tabindex="0"><code>sudo dnf search git
-</code></pre><ol start="3">
-<li>Install Git. Once you find the Git package, you can install it with the following command:</li>
-</ol>
-<pre tabindex="0"><code>sudo dnf install git -y
-</code></pre><ol start="4">
-<li>Verify Git Settings. Finally, check the Git version was successfully installed:</li>
-</ol>
-<pre tabindex="0"><code>git --version
-</code></pre><p>If you see the Git version appear, it means the installation is complete.</p>
-<p><img src="../../images/4/0001.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="5">
-<li>Install Node.js on Amazon EC2 Linux 2023</li>
-</ol>
-<ul>
-<li>Below is a Bash script to install Node.js on Amazon EC2 Linux:</li>
-</ul>
-<pre tabindex="0"><code>#!/bin/bash
-
-# Color for formatting
-GREEN=&#39;\033[0;32m&#39;
-NC=&#39;\033[0m&#39; # Colorless
-
-# Check if NVM is installed
-if ! command -v nvm &amp;&gt; /dev/null; then
-  # Step 1: Install nvm
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-  source ~/.nvm/nvm.sh
-fi
-
-# Verify nvm installation
-nvm --version
-
-# Install the LTS version of Node.js
-nvm install --lts
-
-# Use the installed LTS version
-nvm use --lts
-
-# Verify Node.js and npm installation
-node -v
-npm -v
-
-# Step 4: Create package.json file (if it doesn&#39;t exist yet)
-if [ ! -f package.json ]; then
-  npm init -y
-  echo -e **${GREEN}Created file package.json.${NC}**
-fi
-
-#Step 5: Install necessary npm packages
-echo -e **Installing required npm packages...**
-npm install express dotenv express-handlebars body-parser mysql
-
-#Step 6: Install nodemon as a development dependency
-echo -e **Installing nodemon as a development dependency...**
-npm install --save-dev nodemon
-npm install -g nodemon
-
-# Step 7: Add npm start script to package.json
-if ! grep -q &#39;**start**:&#39; package.json; then
-  npm set-script start **index.js** # Replace **your-app.js** with your entry point file
-  echo -e **${GREEN}Added npm start script to package.json.${NC}**
-fi
-
-echo -e **${GREEN}Installation completed. You can now start building and running your Node.js application using &#39;npm start&#39;.${NC}**
-</code></pre><p><img src="../../images/4/0002.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/0003.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<h4 id="creating-a-db-instance-on-aws">Creating a DB Instance on AWS</h4>
-<p>To create a DB Instance on AWS, you can use the AWS Management Console with the option of Easy create either enabled or disabled. When Easy create is enabled, you only need to specify the DB engine type, DB Instance size, and DB Instance identifier. Easy create uses default settings for other configuration options. When Easy create is disabled, you need to specify more configuration options when creating a database, including options for availability, security, backups, and maintenance.</p>
-<p><strong>Note:</strong> In the procedure below, the Standard create option is enabled, and Easy create is not. This procedure uses MySQL as an example.</p>
-<p>For an example using Easy create to guide you in creating and connecting sample DB Instances for each engine, see <strong>Getting Started with Amazon RDS.</strong></p>
-<p><strong>To create a DB Instance:</strong></p>
+	<h4 id="preparing-the-ec2-environment">Preparing the EC2 Environment</h4>
+<p><strong>ℹ️ Information</strong>: Before creating our database, let&rsquo;s prepare our EC2 instance with the necessary tools (Git and Node.js) to run our application and connect to the database.</p>
 <ol>
 <li>
-<p>Sign in to the AWS Management Console and open the Amazon RDS console at <a href="https://console.aws.amazon.com/rds/">https://console.aws.amazon.com/rds/</a>.</p>
+<p><strong>Connect to your EC2 instance</strong> via SSH (as done in the previous step).</p>
 </li>
 <li>
-<p>In the upper right corner of the Amazon RDS console, select the AWS region where you want to create the DB Instance.</p>
-</li>
+<p><strong>Install Git</strong>:
+Update your system and install Git to clone the application repository.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf update -y
+</span></span><span style="display:flex;"><span>sudo dnf install git -y
+</span></span><span style="display:flex;"><span>git --version
+</span></span></code></pre></div></li>
 <li>
-<p>In the navigation pane, choose <strong>Databases.</strong></p>
-</li>
-<li>
-<p>Choose <strong>Create database</strong>, and then select <strong>Standard create.</strong></p>
-</li>
+<p><strong>Install Node.js</strong>:
+We will use a script to install Node.js (LTS version) and necessary dependencies.</p>
+<p>Create a script file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano install_node.sh
+</span></span></code></pre></div><p>Paste the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install nvm (Node Version Manager)</span>
+</span></span><span style="display:flex;"><span>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+</span></span><span style="display:flex;"><span>. ~/.nvm/nvm.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install Node.js LTS</span>
+</span></span><span style="display:flex;"><span>nvm install --lts
+</span></span><span style="display:flex;"><span>nvm use --lts
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verify installation</span>
+</span></span><span style="display:flex;"><span>node -v
+</span></span><span style="display:flex;"><span>npm -v
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install global development tools</span>
+</span></span><span style="display:flex;"><span>npm install -g nodemon
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Node.js installation complete.&#34;</span>
+</span></span></code></pre></div><p>Save and exit (<code>Ctrl+O</code>, <code>Enter</code>, <code>Ctrl+X</code>).</p>
+<p>Run the script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash install_node.sh
+</span></span></code></pre></div></li>
 </ol>
-<p><img src="../../images/4/0004.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/0005.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="5">
-<li>
-<p>For <strong>Engine type</strong>, choose MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. In this example, we are using Microsoft SQL Server.</p>
-</li>
-<li>
-<p>For <strong>Database management type</strong>, if you are using Oracle or SQL Server, select <strong>Amazon RDS</strong> or <strong>Amazon RDS Custom.</strong></p>
-</li>
-<li>
-<p>For <strong>Edition</strong>, if you are using Oracle or SQL Server, select the version of the DB engine you want to use.</p>
-</li>
-<li>
-<p>For <strong>Version</strong>, select the engine version.</p>
-</li>
-<li>
-<p>In the <strong>Templates</strong> section, choose a template that matches your use case. If you choose <strong>Production</strong>, the following options will be pre-selected in the next step:</p>
-<ul>
-<li>Multi-AZ failover option</li>
-<li>Provisioned IOPS SSD (io1) storage option</li>
-<li>Protection against deletion option</li>
-</ul>
-<p>We recommend using these features for a production environment.</p>
-</li>
-</ol>
-<p><strong>Note:</strong> Template choices may vary by version.</p>
-<ol start="10">
-<li>
-<p>To enter your master password, follow these steps:</p>
-<ul>
-<li>In the <strong>Settings</strong> section, open <strong>Credential Settings.</strong></li>
-<li>If you want to specify a password, uncheck the <strong>Auto generate a password</strong> box if it&rsquo;s already selected.</li>
-<li>(Optional) Change the <strong>Master username</strong> value.</li>
-<li>Enter the same password in both <strong>Master password</strong> and <strong>Confirm password.</strong></li>
-<li>(Optional) Set up a connection to a compute resource for this DB Instance.</li>
-</ul>
-</li>
-</ol>
-<p><img src="../../images/4/0006.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/0007.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/0008.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="11">
-<li>
-<p>You can configure the connection between an Amazon EC2 instance and the new DB Instance during the DB Instance creation process. For more information, see <strong>Configuring Automatic Network Connectivity to an EC2 Instance.</strong></p>
-</li>
-<li>
-<p>In the <strong>Connectivity</strong> section under <strong>VPC security group (firewall)</strong>, if you choose <strong>Create new</strong>, a VPC security group with a login rule allowing your local computer&rsquo;s IP address to access the database will be created.</p>
-</li>
-</ol>
-<p><img src="../../images/4/0009.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00010.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00011.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="13">
-<li>
-<p>For the remaining sections, specify your DB Instance settings. For more information on each setting, see <strong>Settings for DB Instances.</strong></p>
-</li>
-<li>
-<p>Choose <strong>Create database.</strong></p>
-</li>
-</ol>
-<p><img src="../../images/4/00012.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00013.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="15">
-<li>
-<p>If you choose to use an automatically generated password, the <strong>View credential details</strong> button will appear on the <strong>Databases</strong> page.</p>
-</li>
-<li>
-<p>To view the master username and password for the DB Instance, select <strong>View credential details.</strong></p>
-</li>
-<li>
-<p>To connect to the DB Instance using the master username, use the displayed username and password.</p>
-</li>
-</ol>
-<p><strong>Important:</strong> You cannot review the master user password. If you don&rsquo;t record it, you may need to change it. If you need to change the master user password after the DB Instance is available, you can modify the DB Instance to do this. For more information on modifying a DB Instance, see <strong>Modifying an Amazon RDS DB Instance.</strong></p>
-<ol start="18">
-<li>Under <strong>Databases</strong>, select the name of the new DB Instance.</li>
-</ol>
-<p><img src="../../images/4/00014.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00015.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="19">
-<li>On the RDS console, information about the new DB Instance will appear. The DB Instance will have a <strong>Creating</strong> status until it is created and ready for use. Once the status changes to <strong>Available</strong>, you can connect to the DB Instance. Depending on the DB Instance class and allocated storage, it may take a few minutes for the new DB Instance to be available.</li>
-</ol>
-<p><img src="../../images/4/00016.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<ol start="20">
-<li>Check RDS</li>
-</ol>
-<ul>
-<li>In the details page of the RDS instance, you can find connection-related information such as <strong>Endpoint</strong>, <strong>Port</strong>, and <strong>Username</strong>.</li>
-<li>The Endpoint is the URL or IP address you use to connect to the RDS database.</li>
-</ul>
-<p><img src="../../images/4/00017.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00018.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<h4 id="viewing-logs-and-events-on-aws-rds">Viewing Logs and Events on AWS RDS</h4>
-<p>To monitor Logs and Events on Amazon RDS (Relational Database Service), you can follow these steps:</p>
+<h4 id="creating-the-rds-database-instance">Creating the RDS Database Instance</h4>
+<p><strong>ℹ️ Information</strong>: Now we will create a MySQL database instance using Amazon RDS.</p>
+<h4 id="step-by-step-guide">Step-by-Step Guide</h4>
 <ol>
 <li>
-<p>Sign in to the <a href="https://aws.amazon.com/console/">AWS Management Console</a>.</p>
+<p>Navigate to the <strong>Amazon RDS</strong> console.</p>
 </li>
 <li>
-<p>Choose the <strong>Amazon RDS</strong> service from the AWS dashboard.</p>
+<p>Click <strong>Create database</strong>.</p>
 </li>
 <li>
-<p>Select the RDS instance you want to view Logs and Events for.</p>
+<p><strong>Choose a database creation method</strong>: Select <strong>Standard create</strong>.</p>
+<p><img src="../../images/4/0004.png?featherlight=false&amp;width=90pc" alt="Create RDS"></p>
 </li>
 <li>
-<p>In the instance details page, you will see the following tabs:</p>
+<p><strong>Engine options</strong>:</p>
 <ul>
-<li><strong>DB instance details</strong>: Displays basic information about the instance.</li>
-<li><strong>Configuration</strong>: Allows you to view and modify the instance&rsquo;s configuration.</li>
-<li><strong>Log &amp; events</strong>: This is where you can view Logs and Events.</li>
+<li><strong>Engine type</strong>: Select <strong>MySQL</strong>.</li>
+<li><strong>Edition</strong>: Select <strong>MySQL Community</strong>.</li>
+<li><strong>Version</strong>: Select the latest available version (or <strong>MySQL 8.0.x</strong>).</li>
 </ul>
 </li>
 <li>
-<p>Click on the <strong>Log &amp; events</strong> tab. Here, you can view various logs such as:</p>
+<p><strong>Templates</strong>:</p>
 <ul>
-<li><strong>Error log</strong>: Records errors that occur on the instance.</li>
-<li><strong>General log</strong>: Records general activities on the instance.</li>
-<li><strong>Slow query log</strong>: Records slow queries.</li>
-<li><strong>Event log</strong>: Displays important events related to the instance.</li>
+<li>Select <strong>Free tier</strong> (if available and applicable) or <strong>Dev/Test</strong> for this workshop.</li>
+</ul>
+<p><strong>💡 Pro Tip</strong>: Selecting <strong>Free tier</strong> automatically hides options that would incur costs, such as Multi-AZ and Provisioned IOPS.</p>
+</li>
+<li>
+<p><strong>Settings</strong>:</p>
+<ul>
+<li><strong>DB instance identifier</strong>: Enter a name (e.g., <code>workshop-db</code>).</li>
+<li><strong>Master username</strong>: <code>admin</code> (or your preferred username).</li>
+<li><strong>Master password</strong>: Enter a strong password and confirm it.</li>
+</ul>
+<p><strong>⚠️ Warning</strong>: Do not use <strong>Auto generate a password</strong> unless you store it immediately. It&rsquo;s easier to set your own for this workshop.</p>
+<p><img src="../../images/4/0006.png?featherlight=false&amp;width=90pc" alt="Create RDS"></p>
+</li>
+<li>
+<p><strong>Instance configuration</strong>:</p>
+<ul>
+<li><strong>DB instance class</strong>: Select <strong>Burstable classes (includes t classes)</strong> -&gt; <strong>db.t3.micro</strong> (Free tier eligible).</li>
 </ul>
 </li>
 <li>
-<p>You can customize settings for viewing Logs and Events here, such as the time range you want to view logs or setting up email notifications for important events.</p>
+<p><strong>Storage</strong>:</p>
+<ul>
+<li><strong>Storage type</strong>: General Purpose SSD (gp2 or gp3).</li>
+<li><strong>Allocated storage</strong>: <code>20</code> GiB.</li>
+</ul>
+</li>
+<li>
+<p><strong>Connectivity</strong>:</p>
+<ul>
+<li><strong>Compute resource</strong>: Don&rsquo;t connect to an EC2 compute resource.</li>
+<li><strong>VPC</strong>: Select your workshop VPC.</li>
+<li><strong>DB Subnet Group</strong>: Select the group you created in step 5.2.4.</li>
+<li><strong>Public access</strong>: <strong>No</strong> (Best practice for security).</li>
+<li><strong>VPC security group</strong>: Select <strong>Choose existing</strong> and pick the <strong>RDS Security Group</strong> created in step 5.2.3. Remove the <code>default</code> security group.</li>
+</ul>
+<p><strong>🔒 Security Note</strong>: Ensuring Public access is <strong>No</strong> and using the correct Security Group prevents unauthorized internet access to your database.</p>
+<p><img src="../../images/4/0009.png?featherlight=false&amp;width=90pc" alt="Create RDS"></p>
+</li>
+<li>
+<p><strong>Additional configuration</strong>:</p>
+<ul>
+<li><strong>Initial database name</strong>: Enter <code>workshopdb</code> (This allows RDS to create the schema for you automatically).</li>
+<li>Leave other settings as default.</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Create database</strong>.</p>
+<p><img src="../../images/4/00012.png?featherlight=false&amp;width=90pc" alt="Create RDS"></p>
 </li>
 </ol>
-<p>Remember to regularly review logs and events to monitor the status of your Amazon RDS instance and detect any issues early.</p>
-<p><img src="../../images/4/00019.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00020.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00021.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<p><img src="../../images/4/00022.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<h4 id="viewing-maintenance-and-backups-on-aws-rds">Viewing Maintenance and Backups on AWS RDS</h4>
-<p>In Amazon Web Services (AWS), Amazon Relational Database Service (RDS) provides an easy-to-manage relational database with automation for various tasks, including maintenance and backups. Here&rsquo;s how you can view information about maintenance and backups in AWS RDS:</p>
-<h4 id="viewing-maintenance-information">Viewing Maintenance Information</h4>
-<p>To view information about maintenance for a DB instance in RDS, you can follow these steps:</p>
+<h4 id="verifying-the-database">Verifying the Database</h4>
 <ol>
 <li>
-<p>Sign in to the AWS Management Console.</p>
+<p>Wait for the <strong>Status</strong> to change from <code>Creating</code> to <code>Available</code>.</p>
 </li>
 <li>
-<p>Choose the <strong>Amazon RDS</strong> service from the list of services.</p>
+<p>Click on the <strong>DB identifier</strong> (<code>workshop-db</code>) to view details.</p>
 </li>
 <li>
-<p>In the RDS dashboard, select the DB instance you are interested in.</p>
-</li>
-<li>
-<p>In the DB instance management page, navigate to the <strong>Maintenance &amp; backups</strong> tab.</p>
-</li>
-<li>
-<p>Here, you will see information about the maintenance schedule, including the times when the DB instance will be automatically backed up and maintenance tasks will be performed. You can also view the history of previous maintenance events.</p>
+<p>Note the <strong>Endpoint</strong> (e.g., <code>workshop-db.xxxxxx.us-east-1.rds.amazonaws.com</code>). You will need this to connect your application.</p>
+<p><img src="../../images/4/00017.png?featherlight=false&amp;width=90pc" alt="Create RDS"></p>
 </li>
 </ol>
-<p><img src="../../images/4/00023.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<h4 id="viewing-backup-information">Viewing Backup Information</h4>
-<p>To view information about backups of a DB instance in AWS RDS, follow these steps:</p>
-<ol>
-<li>
-<p>Sign in to the AWS Management Console.</p>
-</li>
-<li>
-<p>Choose the <strong>Amazon RDS</strong> service from the list of services.</p>
-</li>
-<li>
-<p>In the RDS dashboard, select the DB instance you want to check.</p>
-</li>
-<li>
-<p>In the DB instance management page, navigate to the <strong>Maintenance &amp; backups</strong> tab.</p>
-</li>
-<li>
-<p>Here, you can view information about automatic backups and manual backups. You can also configure and manage backup settings.</p>
-</li>
-</ol>
-<p>Make sure to follow relevant rules and policies when performing any tasks on AWS RDS to ensure the security and safety of your data.</p>
-<p><img src="../../images/4/00024.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
+<h4 id="monitoring-and-maintenance">Monitoring and Maintenance</h4>
+<p><strong>ℹ️ Information</strong>: RDS provides built-in tools for monitoring and maintenance.</p>
+<ul>
+<li><strong>Logs &amp; Events</strong>: Check the <strong>Logs &amp; events</strong> tab to see error logs, slow query logs, and administrative events.</li>
+<li><strong>Maintenance &amp; backups</strong>: Check this tab to see your backup window and any pending maintenance updates.</li>
+</ul>
+<p><strong>💡 Pro Tip</strong>: Enable <strong>Enhanced Monitoring</strong> for granular, real-time metrics if you need to debug performance issues.</p>
 
 
 
@@ -1967,19 +1836,19 @@ echo -e **${GREEN}Installation completed. You can now start building and running
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1763531951"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1763531951"></script>
-    <script src="../../js/jquery.sticky.js?1763531951"></script>
-    <script src="../../js/featherlight.min.js?1763531951"></script>
-    <script src="../../js/highlight.pack.js?1763531951"></script>
+    <script src="../../js/clipboard.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1764998234"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1764998234"></script>
+    <script src="../../js/jquery.sticky.js?1764998234"></script>
+    <script src="../../js/featherlight.min.js?1764998234"></script>
+    <script src="../../js/highlight.pack.js?1764998234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1763531951"></script>
-    <script src="../../js/learn.js?1763531951"></script>
-    <script src="../../js/hugo-learn.js?1763531951"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1764998234"></script>
+    <script src="../../js/learn.js?1764998234"></script>
+    <script src="../../js/hugo-learn.js?1764998234"></script>
 
-    <link href="../../mermaid/mermaid.css?1763531951" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1763531951"></script>
+    <link href="../../mermaid/mermaid.css?1764998234" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1764998234"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

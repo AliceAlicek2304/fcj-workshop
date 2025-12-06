@@ -6,138 +6,140 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# GameTracker Platform for Game Community
-## Giải pháp AWS Serverless hợp nhất cho quản lý và chia sẻ dữ liệu game
+# 1. BỐI CẢNH VÀ ĐỘNG LỰC
 
-### 1. Tóm tắt
-GameTracker là nền tảng dành cho **người chơi và admin** để quản lý, theo dõi và chia sẻ thông tin về nhân vật, vũ khí, banner, vật phẩm và sự kiện trong game. Hệ thống hỗ trợ đăng nhập đa phương thức (email/password, Google OAuth2), quản lý tài khoản, dashboard admin, và lưu trữ file trên **AWS S3**.  
+## 1.1 TÓM TẮT ĐIỀU HÀNH
+**Bối cảnh Khách hàng**
+GameTracker là một nền tảng được thiết kế cho người chơi game và quản trị viên (admin) để **quản lý, theo dõi và chia sẻ thông tin** về nhân vật, vũ khí, banner, vật phẩm và sự kiện.
 
-Frontend là **React SPA**, phục vụ qua **S3 + CloudFront**, được bảo vệ bởi **AWS WAF** để đảm bảo bảo mật và hiệu năng. Backend sử dụng **Spring Boot serverless** trên **AWS Lambda**, kết nối với **SQL Server (RDS)**.  
+**Mục tiêu Kinh doanh và Kỹ thuật**
+- **Quản lý tập trung**: Tạo ra một hệ thống tập trung để quản lý dữ liệu game hiệu quả.
+- **Khả năng tiếp cận**: Giúp người dùng dễ dàng tiếp cận thông tin, đặc biệt là với các game ngôn ngữ tiếng Anh vốn là rào cản với nhiều người.
+- **Hiệu quả**: Giảm thời gian bảo trì thủ công và nâng cao độ tin cậy của dữ liệu cho admin.
+- **Khả năng mở rộng**: Xây dựng hệ thống có thể mở rộng cho nhiều game và tính năng cộng đồng sử dụng kiến trúc serverless.
 
-GameTracker cung cấp **công cụ trực quan**:  
-- **Tracker lịch sử gacha** của tài khoản, dễ theo dõi  
-- **Giả lập gacha** giúp dự đoán kết quả rút  
-- **Timeline banner/event** hiển thị thông tin và thời gian diễn ra sự kiện  
+**Các trường hợp sử dụng (Use Cases)**
+- **Người chơi**: Theo dõi lịch sử gacha, giả lập rút thẻ (pull), xem dòng thời gian (timeline) banner/sự kiện.
+- **Admin**: Quản lý dữ liệu game (CRUD) với phân quyền truy cập rõ ràng.
 
-Giúp người chơi quản lý dữ liệu hiệu quả, đặc biệt với **game tiếng Anh** khó tiếp cận.  
+**Dịch vụ Chuyên nghiệp của Đối tác**
+Chúng tôi sẽ cung cấp một ứng dụng web full-stack được host trên AWS, sử dụng các công nghệ serverless (Lambda, S3, RDS) để đảm bảo chi phí vận hành thấp và tính sẵn sàng cao.
 
----
+## 1.2 TIÊU CHÍ THÀNH CÔNG CỦA DỰ ÁN
+- **Ổn định hệ thống**: Hệ thống ổn định, tự động mở rộng với chi phí bảo trì thấp.
+- **Bảo mật**: API bảo mật với quản lý dữ liệu tập trung và kiểm soát truy cập theo vai trò.
+- **Trải nghiệm người dùng**: Các công cụ gacha và timeline hoạt động tốt, giúp người chơi theo dõi sự kiện thuận tiện.
+- **Khả năng mở rộng**: Kiến trúc sẵn sàng để mở rộng thêm nhiều game và tính năng mới.
 
-### 2. Vấn đề
-**Vấn đề hiện tại**  
-Người chơi gặp khó khăn khi quản lý và tra cứu dữ liệu game, đặc biệt với các game gacha phức tạp. Game tiếng Anh khiến thông tin khó tiếp cận với một số người dùng.  
+## 1.3 GIẢ ĐỊNH
+- **Điều kiện tiên quyết**: Quyền truy cập tài khoản AWS với các quyền cần thiết để triển khai.
+- **Phụ thuộc**: Dịch vụ xác thực bên thứ ba (Google OAuth2).
+- **Ràng buộc**: Ràng buộc về ngân sách yêu cầu phương pháp tiếp cận serverless chi phí thấp.
+- **Rủi ro**: Độ trễ tiềm ẩn khi khởi động lạnh (cold start) của Lambda (giảm thiểu bằng warmers), chi phí RDS (giảm thiểu bằng việc chọn instance phù hợp).
 
-**Giải pháp**  
-GameTracker cung cấp **hệ thống tập trung, dễ dùng** cho người dùng:  
-- Quản lý và cập nhật dữ liệu game  
-- Theo dõi lịch sử gacha, giả lập gacha  
-- Xem timeline banner và event  
+# 2. KIẾN TRÚC GIẢI PHÁP / SƠ ĐỒ KIẾN TRÚC
 
-Admin có thể kiểm soát nội dung với **CRUD và phân quyền rõ ràng**.  
-
-**Lợi ích và Lợi tức đầu tư (ROI)**
-- Tối ưu quản lý dữ liệu cho người dùng và admin  
-- Giảm thời gian bảo trì thủ công, nâng cao độ tin cậy dữ liệu  
-- Chi phí vận hành thấp nhờ AWS serverless & S3  
-- Dễ mở rộng cho nhiều game và tính năng cộng đồng  
-
----
-
-### 3. Kiến trúc giải pháp
-**Kiến trúc cloud hiện đại:**  
-
-- **Frontend:** React SPA, S3 + CloudFront, SPA fallback, bảo vệ bằng **AWS WAF**  
-- **Backend:** Spring Boot serverless trên Lambda, JWT, Google OAuth2, API bảo vệ bởi WAF  
-- **Database:** SQL Server (**RDS**)  
-- **File Storage:** AWS S3 (avatar, background, vũ khí, banner)  
-- **Admin Dashboard:** CRUD, phân quyền  
-- **Bảo mật:** Spring Security, CORS, AWS WAF  
+## 2.1 SƠ ĐỒ KIẾN TRÚC KỸ THUẬT
+**Kiến trúc Cấp cao Đề xuất**:
+Giải pháp áp dụng kiến trúc cloud-native hiện đại:
+- **Frontend**: React SPA được phục vụ qua S3 + CloudFront, được bảo vệ bởi AWS WAF.
+- **Backend**: Spring Boot serverless triển khai trên AWS Lambda, sử dụng JWT và Google OAuth2 để xác thực.
+- **Database**: SQL Server trên AWS RDS.
+- **Lưu trữ**: AWS S3 để lưu trữ tài sản tĩnh (avatar, background, vũ khí).
+- **Bảo mật**: AWS WAF, IAM và Spring Security.
 
 ![IoT Weather Station Architecture](/images/2-Proposal/GameTracker1.jpg)
 
-**Dịch vụ AWS sử dụng**  
-- AWS S3: lưu trữ file tĩnh và media  
-- AWS Lambda: backend serverless  
-- AWS RDS: lưu trữ dữ liệu game  
-- AWS CloudFront: phân phối SPA  
-- AWS WAF: bảo vệ frontend & API  
-- AWS SES: email xác thực, reset mật khẩu  
-- AWS IAM: quản lý quyền truy cập  
+**Các Dịch vụ AWS Sử dụng**:
+- AWS S3, AWS Lambda, AWS RDS, AWS CloudFront, AWS WAF, AWS SES, AWS IAM.
 
-**Thiết kế thành phần**  
-- **User:** đăng ký, đăng nhập, quản lý tài khoản, avatar  
-- **Admin:** quản lý dữ liệu game, CRUD, phân quyền  
-- **Game Data:** nhân vật, vũ khí, banner, echo, setecho, role, element, background  
-- **Tools:** tracker gacha, giả lập gacha, timeline banner/event  
+## 2.2 KẾ HOẠCH KỸ THUẬT
+Chúng tôi sẽ phát triển các script sử dụng **AWS CDK/CloudFormation** hoặc quy trình thiết lập thủ công được tài liệu hóa để đảm bảo khả năng lặp lại.
+- **Frontend**: React, TypeScript, Vite.
+- **Backend**: Spring Boot, Spring Security.
+- **DevOps**: Docker, CI/CD pipelines.
 
----
+Tất cả các luồng quan trọng bao gồm đăng nhập người dùng, đồng bộ dữ liệu và giả lập gacha sẽ được bao phủ bởi các bài kiểm thử (test coverage) sâu rộng.
 
-### 4. Triển khai kỹ thuật
-**Các giai đoạn triển khai**  
-1. Phân tích yêu cầu, thiết kế kiến trúc  
-2. Xây dựng backend Spring Boot serverless, JWT, Google OAuth2, kết nối RDS  
-3. Xây dựng frontend React SPA, dashboard admin, các công cụ gacha và timeline  
-4. Triển khai AWS: S3, CloudFront, SPA fallback, WAF  
-5. Kiểm thử, tối ưu bảo mật, hoàn thiện tài liệu  
+## 2.3 KẾ HOẠCH DỰ ÁN
+Dự án sẽ tuân theo phương pháp Agile trong khoảng thời gian 1 tháng.
+- **Tuần 1**: Lập kế hoạch, Phân tích yêu cầu, Thiết kế kiến trúc.
+- **Tuần 2**: Phát triển Backend (API, Auth, Database).
+- **Tuần 3**: Phát triển Frontend (UI/UX, Admin Dashboard, Công cụ).
+- **Tuần 4**: Triển khai, Kiểm thử, Tài liệu hóa và Bàn giao.
 
-**Yêu cầu kỹ thuật**  
-- Frontend: React, TypeScript, Vite, SPA fallback  
-- Backend: Spring Boot, Spring Security, JWT, Google OAuth2, Lambda serverless  
-- Database: SQL Server (RDS)  
-- Cloud: S3, CloudFront, Lambda, WAF, SES  
-- DevOps: Docker, CI/CD, AWS IAM  
+## 2.4 CÂN NHẮC VỀ BẢO MẬT
+**Các phương pháp hay nhất được triển khai**:
+- **Định danh**: Tích hợp Google OAuth2 và JWT cho xác thực stateless an toàn.
+- **Hạ tầng**: AWS WAF để bảo vệ chống lại các khai thác web phổ biến.
+- **Kiểm soát truy cập**: Kiểm soát truy cập dựa trên vai trò (RBAC) cho Admin và User.
+- **Bảo vệ dữ liệu**: Mã hóa HTTPS khi truyền tải; Mã hóa RDS khi lưu trữ.
+- **Giám sát**: AWS CloudWatch cho logs và metrics.
 
----
+# 3. HOẠT ĐỘNG VÀ BÀN GIAO
 
-### 5. Lộ trình & Mốc triển khai (1 tháng)
-| Tuần | Giai đoạn | Nhiệm vụ |
-|------|-----------|----------|
-| Tuần 1 | Lập kế hoạch & Chuẩn bị | Phân tích yêu cầu, thiết kế kiến trúc, chuẩn bị AWS (S3, RDS, Lambda, WAF, CloudFront) |
-| Tuần 2 | Phát triển Backend | Xây dựng backend, JWT, Google OAuth2, API endpoints, kết nối RDS, triển khai Lambda & WAF |
-| Tuần 3 | Phát triển Frontend | Xây dựng React SPA, dashboard admin, các công cụ gacha, timeline banner/event |
-| Tuần 4 | Triển khai & Kiểm thử | Triển khai SPA S3 + CloudFront, SPA fallback, WAF, kiểm thử, tối ưu bảo mật, hoàn thiện tài liệu |
+## 3.1 HOẠT ĐỘNG VÀ BÀN GIAO
 
----
+| Giai đoạn Dự án | Thời gian | Hoạt động | Sản phẩm bàn giao/Mốc quan trọng |
+|-----------------|-----------|-----------|----------------------------------|
+| **Đánh giá & Thiết lập** | Tuần 1 | Phân tích yêu cầu, thiết kế kiến trúc, thiết lập AWS (S3, RDS, Lambda) | Sơ đồ kiến trúc, Môi trường AWS Sẵn sàng |
+| **Triển khai Backend** | Tuần 2 | Xây dựng Lambda functions, API endpoints, tích hợp Auth, DB schema | API hoạt động, Kết nối cơ sở dữ liệu |
+| **Triển khai Frontend** | Tuần 3 | Phát triển React SPA, tạo Dashboard, logic công cụ Gacha | Giao diện Web, Dashboard quản trị |
+| **Kiểm thử & Go-live** | Tuần 4 | Kiểm thử tích hợp, tối ưu bảo mật, triển khai lên CloudFront | Ứng dụng đã triển khai, Hướng dẫn sử dụng, Tài liệu |
 
-### 6. Ước tính ngân sách
+## 3.2 NGOÀI PHẠM VI (OUT OF SCOPE)
+- Phát triển Ứng dụng Di động (Mobile App iOS/Android native).
+- Tính năng máy chủ game multiplayer thời gian thực (chỉ quản lý dữ liệu trên web).
+- Tích hợp trực tiếp với máy chủ game (dữ liệu được quản lý/nhập thủ công).
 
-- AWS Lambda — Memory: 3008 MB, ~12,000 invocations/tháng (8,640 warmer + user traffic) ~ $5-7/tháng
-- S3 Standard — 10 GB lưu trữ ~ $0.23/tháng
-- CloudFront — 100 GB egress ~ $8.50/tháng
-- RDS (SQL Server, production) ~ $60+/tháng
-- SES — Giá tham khảo: ~ $0.01/tháng
-- CloudWatch — Logs/metrics (10 GB logs) ~ $5/tháng
-- AWS WAF — Web ACL + 1M requests ~ $10/tháng
-- Route53 — 1 hosted zone + 1M queries ~ $0.90/tháng
-- NAT Gateway — ~$32/tháng (data processing $0.045/GB)
-- Tổng ≈ $121-123/tháng
+## 3.3 ĐƯỜNG ĐẾN PROD (PATH TO PRODUCTION)
+Đề xuất hiện tại phác thảo con đường đến một MVP sẵn sàng cho production.
+- **POC đến Prod**: Hệ thống được thiết kế đạt chuẩn production ngay từ đầu bằng cách sử dụng các dịch vụ managed của AWS.
+- **Khoảng trống**: Cần kiểm thử tải thêm (load testing) và tinh chỉnh các quy tắc WAF dựa trên mô hình lưu lượng truy cập thực tế.
+- **Vận hành**: Xử lý lỗi và giám sát được thực hiện thông qua CloudWatch.
 
----
+# 4. DỰ KIẾN CHI PHÍ AWS THEO DỊCH VỤ
 
-### 7. Đánh giá rủi ro 
-- AWS downtime: Ảnh hưởng trung bình, xác suất thấp  
-- Tấn công bảo mật: Ảnh hưởng cao, xác suất thấp  
-- Chi phí tăng cao: Ảnh hưởng trung bình, xác suất trung bình
-- Lỗi dữ liệu do admin nhập sai: Ảnh hưởng trung bình, xác suất thấp  
+**Ước tính Chi phí Hàng tháng**: ~$121-123/tháng
 
-**Chiến lược giảm thiểu**  
-- Dùng AWS WAF, IAM hạn chế quyền, HTTPS, JWT an toàn  
-- Theo dõi chi phí bằng CloudWatch, tối ưu truy vấn và cachiní  
-- Dùng RDS Multi-AZ, CloudFront CDN, rollback nhanh khi lỗi  
+- **AWS Lambda**: ~$5-7 (Memory: 3008 MB, ~12k invocations).
+- **S3 Standard**: ~$0.23 (10 GB lưu trữ).
+- **CloudFront**: ~$8.50 (100 GB egress).
+- **RDS (SQL Server)**: ~$60+ (db.t3.medium hoặc tương đương).
+- **AWS WAF**: ~$10 (Web ACL + requests).
+- **NAT Gateway**: ~$32 (nếu cần cho Lambda trong VPC).
+- **Khác (SES, Route53, CloudWatch)**: ~$6.
 
-**Kế hoạch dự phòng**  
-- RDS failover khi sự cố 
-- Rollback backend bằng Lambda Versioning
+*Lưu ý: Chi phí là ước tính và phụ thuộc vào mức sử dụng thực tế và khu vực (region).*
 
+# 5. ĐỘI NGŨ (TEAM)
 
----
+**Đội ngũ Dự án Đối tác**
+| Tên | Chức danh | Vai trò | Email / Thông tin liên hệ |
+|-----|-----------|---------|---------------------------|
+| [Tên] | Delivery Manager | Quản lý dự án | [Email] |
+| [Tên] | Sr. Solutions Architect | Trưởng nhóm kỹ thuật | [Email] |
 
-### 8. Kết quả kỳ vọng
-- Hệ thống ổn định, tự mở rộng, chi phí thấp
-- API bảo mật, dữ liệu tập trung và dễ quản lý
-- Dễ mở rộng thêm game và tính năng
-- Công cụ gacha và timeline giúp người chơi theo dõi thuận tiện
+**Các bên liên quan của Dự án**
+| Tên | Chức danh | Bên liên quan cho | Email / Thông tin liên hệ |
+|-----|-----------|-------------------|---------------------------|
+| [Tên] | [Chức danh] | [Vai trò] | [Email] |
 
----
+# 6. TÀI NGUYÊN & ƯỚC TÍNH CHI PHÍ
+
+| Tài nguyên | Trách nhiệm | Đơn giá (USD) / Giờ |
+|------------|-------------|---------------------|
+| Solution Architect | Thiết kế hệ thống & Dẫn dắt | - |
+| Full-stack Engineer | Triển khai thực hiện | - |
+
+**Tổng nỗ lực ước tính**: [Tổng số ngày công]
+
+# 7. CHẤP NHẬN (ACCEPTANCE)
+
+Sau khi hoàn thành một Giai đoạn, Đối tác sẽ gửi các Sản phẩm bàn giao hữu hình liên quan cho Khách hàng. Khách hàng sẽ xem xét, đánh giá và kiểm thử các Sản phẩm bàn giao trong vòng **tám (8) ngày làm việc** (“Thời gian Chấp nhận”) để xác định xem có thỏa mãn các tiêu chí chấp nhận hay không.
+
+Nếu Sản phẩm bàn giao thỏa mãn các tiêu chí chấp nhận, Khách hàng sẽ cung cấp xác nhận chấp nhận bằng văn bản. Nếu bị từ chối, Khách hàng sẽ chỉ ra lý do chi tiết và Đối tác sẽ khắc phục các lỗi. Nếu không có thông báo từ chối nào được nhận trong Thời gian Chấp nhận, các Sản phẩm bàn giao được coi là đã được chấp nhận.
+
+<br>
 
 <h3 style="font-size: 1.3em;">🔗 Website dự án: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>

@@ -1,73 +1,137 @@
 ﻿---
-title : "Create a VPC"
-date : "2025-10-27"
-weight : 1
-chapter : false
-pre : " <b> 5.2.1 </b> "
+title: "Create VPC & Network"
+date: "2025-10-27"
+weight: 1
+chapter: false
+pre: " <b> 5.2.1 </b> "
 ---
 
-#### Creating a VPC with Subnets and Associated Resources
+# Create VPC and Network Infrastructure
 
-**ℹ️ Information**: Amazon Virtual Private Cloud (Amazon VPC) is your private network in the cloud. It allows you to launch AWS resources into a virtual network that you define, giving you complete control over your network environment.
+In this step, we will set up the Virtual Private Cloud (VPC) where our application resources will reside. We will create public subnets for internet-facing resources (like load balancers or NAT gateways) and private subnets for internal resources (like Lambda and RDS).
 
-We will use the **VPC and more** wizard to create our VPC, subnets, route tables, and internet gateway in a single workflow.
+![VPC Architecture](/images/1/0001.png?featherlight=false&width=90pc)
 
-#### Step-by-Step Guide
+## 1. Create VPC
 
-1.  Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
+### CLI
+```bash
+aws ec2 create-vpc \
+  --cidr-block 10.10.0.0/16 \
+  --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=gametracker-vpc}]' \
+  --region ap-southeast-2
+```
 
-    ![Create a VPC](/images/1/0001.png?featherlight=false&width=90pc)
+### AWS Console
+1. Open the [VPC Dashboard](https://console.aws.amazon.com/vpc).
+2. Click **Create VPC**.
+3. **VPC settings**:
+   - **Name tag**: `gametracker-vpc`
+   - **IPv4 CIDR block**: `10.10.0.0/16`
+4. Click **Create VPC**.
 
-2.  On the VPC dashboard, choose **Create VPC**.
+---
 
-3.  Under **Resources to create**, select **VPC and more**. This option automatically provisions related resources like subnets and route tables.
+## 2. Create Subnets
 
-    ![Create a VPC](/images/1/0002.png?featherlight=false&width=90pc)
+We will create 2 Public Subnets and 2 Private Subnets across two Availability Zones (AZs) for high availability.
 
-4.  **Name tag auto-generation**: Enter a name for your project (e.g., `workshop-vpc`). This will be used as a prefix for all created resources.
+### CLI
+```bash
+# Public Subnet 1 (AZ A)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.0.0/24 --availability-zone ap-southeast-2a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-public-1}]'
 
-5.  **IPv4 CIDR block**: Keep the default (e.g., `10.0.0.0/16`) or enter your preferred range.
+# Public Subnet 2 (AZ B)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.1.0/24 --availability-zone ap-southeast-2b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-public-2}]'
 
-6.  **Availability Zones (AZs)**: Select **2**. This is critical for High Availability and Multi-AZ deployments.
+# Private Subnet 1 (AZ A)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.2.0/24 --availability-zone ap-southeast-2a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-private-1}]'
 
-    ![Create a VPC](/images/1/0003.png?featherlight=false&width=90pc)
+# Private Subnet 2 (AZ B)
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.10.3.0/24 --availability-zone ap-southeast-2b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=gametracker-private-2}]'
 
-7.  **Number of public subnets**: Select **2**. These will host resources that need direct internet access (like a bastion host or load balancer).
+# Enable Auto-assign Public IP for Public Subnets
+aws ec2 modify-subnet-attribute --subnet-id <SUBNET_PUBLIC_1_ID> --map-public-ip-on-launch
+aws ec2 modify-subnet-attribute --subnet-id <SUBNET_PUBLIC_2_ID> --map-public-ip-on-launch
+```
 
-8.  **Number of private subnets**: Select **2**. These will host your RDS database instances, keeping them secure from the public internet.
+### AWS Console
+1. Navigate to **Subnets** → **Create subnet**.
+2. Select your `gametracker-vpc`.
+3. Create the 4 subnets with the CIDRs and AZs listed above.
+4. For the **Public Subnets**: Select the subnet → **Actions** → **Edit subnet settings** → Enable **Auto-assign public IPv4 address**.
 
-    **🔒 Security Note**: Always place your database instances in private subnets.
+---
 
-9.  **NAT gateways**: Select **1 per AZ** or **1 in 1 AZ** depending on your cost preference. For this workshop, **None** or **1 in 1 AZ** is sufficient if you need outbound internet access for private instances (e.g., for updates).
+## 3. Internet Gateway
 
-    **💡 Pro Tip**: In a production environment, deploying a NAT Gateway in each AZ ensures high availability but incurs higher costs.
+### CLI
+```bash
+# Create IGW
+aws ec2 create-internet-gateway --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=gametracker-igw}]'
 
-10. **VPC endpoints**: Leave as **None** for this workshop.
+# Attach to VPC
+aws ec2 attach-internet-gateway --internet-gateway-id <IGW_ID> --vpc-id <VPC_ID>
+```
 
-11. **DNS options**: Ensure **Enable DNS hostnames** and **Enable DNS resolution** are checked. These are required for RDS to function correctly with public access (if needed) and for easier internal resolution.
+### AWS Console
+1. Navigate to **Internet Gateways** → **Create internet gateway**.
+2. Name: `gametracker-igw`.
+3. Click **Create**.
+4. Select the created IGW → **Actions** → **Attach to VPC** → Select `gametracker-vpc`.
 
-12. Review the **Preview** pane to visualize your network architecture.
+---
 
-13. Click **Create VPC**.
+## 4. Route Tables
 
-    ![Create a VPC](/images/1/0004.png?featherlight=false&width=90pc)
+### CLI
+```bash
+# Create Public Route Table
+aws ec2 create-route-table --vpc-id <VPC_ID> --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=public-route-table}]'
 
-    ![Create a VPC](/images/1/0005.png?featherlight=false&width=90pc)
+# Add Route to Internet
+aws ec2 create-route --route-table-id <RTB_PUBLIC_ID> --destination-cidr-block 0.0.0.0/0 --gateway-id <IGW_ID>
 
-#### Configuring Public IP Assignment (Optional)
+# Associate Public Subnets
+aws ec2 associate-route-table --route-table-id <RTB_PUBLIC_ID> --subnet-id <SUBNET_PUBLIC_1_ID>
+aws ec2 associate-route-table --route-table-id <RTB_PUBLIC_ID> --subnet-id <SUBNET_PUBLIC_2_ID>
 
-**ℹ️ Information**: By default, instances in non-default subnets do not get public IP addresses. If you want instances in your **Public Subnets** to automatically get a public IP, follow these steps:
+# Create Private Route Table
+aws ec2 create-route-table --vpc-id <VPC_ID> --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=private-route-table-1}]'
 
-1.  Go to **Subnets** in the left navigation pane.
-2.  Select one of your **Public Subnets**.
-3.  Click **Actions** > **Edit subnet settings**.
+# Associate Private Subnets
+aws ec2 associate-route-table --route-table-id <RTB_PRIVATE_ID> --subnet-id <SUBNET_PRIVATE_1_ID>
+aws ec2 associate-route-table --route-table-id <RTB_PRIVATE_ID> --subnet-id <SUBNET_PRIVATE_2_ID>
+```
 
-    ![Create a VPC](/images/1/0007.png?featherlight=false&width=90pc)
+### AWS Console
+1. Navigate to **Route Tables** → **Create route table**.
+2. Create `public-route-table` and `private-route-table-1`.
+3. **Public Route Table**:
+   - **Routes** → Edit routes → Add `0.0.0.0/0` targeting `gametracker-igw`.
+   - **Subnet associations** → Edit → Select both public subnets.
+4. **Private Route Table**:
+   - **Subnet associations** → Edit → Select both private subnets.
 
-4.  Check **Enable auto-assign public IPv4 address**.
-5.  Click **Save**.
-6.  Repeat for your other Public Subnet.
+---
 
-    ![Create a VPC](/images/1/0008.png?featherlight=false&width=90pc)
+## 5. VPC Endpoint for S3
 
-**⚠️ Warning**: Never enable auto-assign public IP for your **Private Subnets** where your database resides.
+Required for Lambda in private subnets to access S3 without NAT Gateway.
+
+### CLI
+```bash
+aws ec2 create-vpc-endpoint \
+  --vpc-id <VPC_ID> \
+  --service-name com.amazonaws.ap-southeast-2.s3 \
+  --route-table-ids <RTB_PUBLIC_ID> <RTB_PRIVATE_ID>
+```
+
+### AWS Console
+1. Navigate to **Endpoints** → **Create endpoint**.
+2. Name: `gametracker-s3-endpoint`.
+3. Service category: **AWS services**.
+4. Service: `com.amazonaws.ap-southeast-2.s3` (Gateway type).
+5. VPC: `gametracker-vpc`.
+6. Route tables: Select both public and private route tables.
+7. Click **Create endpoint**.

@@ -6,141 +6,140 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# GameTracker Platform for Game Community
-## A Unified AWS Serverless Solution for Game Data Management & Sharing
+# 1. BACKGROUND AND MOTIVATION
 
-### 1. Executive Summary
-GameTracker is a platform designed for game players and admins to **manage, track, and share information** about characters, weapons, banners, items, and events. The system supports multi-method login (email/password, Google OAuth2), account management, admin dashboard, and file storage on **AWS S3**.  
+## 1.1 EXECUTIVE SUMMARY
+**Customer Background**
+GameTracker is a platform designed for game players and admins to **manage, track, and share information** about characters, weapons, banners, items, and events.
 
-Frontend is a **React SPA** served via **S3 + CloudFront**, protected by **AWS WAF** to ensure security and performance. Backend is **Spring Boot serverless** deployed on **AWS Lambda** connected to **SQL Server (RDS)**.  
+**Business and Technical Objectives**
+- **Unified Management**: Create a centralized system for managing game data effectively.
+- **Accessibility**: Provide easy access to information for English-language games which can be a barrier for some users.
+- **Efficiency**: Reduce manual maintenance time and improve data reliability for admins.
+- **Scalability**: Build a system scalable to multiple games and community features using serverless architecture.
 
-GameTracker provides **visual tools**:  
+**Use Cases**
+- **Players**: Track gacha history, simulate pulls, view banner/event timelines.
+- **Admins**: Manage game data (CRUD) with clear access permissions.
 
-- **Gacha history tracker** for accounts, easy to view and analyze  
-- **Gacha simulator** to predict pulls  
-- **Banner/event timeline** showing event info and duration  
+**Partner Professional Services**
+We will deliver a full-stack web application hosted on AWS, utilizing serverless technologies (Lambda, S3, RDS) to ensure low operational costs and high availability.
 
-These tools help players manage game data effectively, especially for **English-language games**, which are difficult for some users to understand.  
+## 1.2 PROJECT SUCCESS CRITERIA
+- **System Stability**: Stable, auto-scaling system with low maintenance costs.
+- **Security**: Secure API with centralized data management and role-based access control.
+- **User Engagement**: Functional gacha tools and timelines that help players track game events conveniently.
+- **Scalability**: Architecture ready for easy expansion to support more games and features.
 
----
+## 1.3 ASSUMPTIONS
+- **Prerequisites**: AWS account access with necessary permissions for deployment.
+- **Dependencies**: Third-party authentication (Google OAuth2).
+- **Constraints**: Budget constraints requiring a low-cost serverless approach.
+- **Risks**: Potential cold start latency with Lambda (mitigated by warmers), RDS costs (mitigated by instance selection).
 
-### 2. Problem Statement
-**Current Problem**  
-Players face difficulty managing and accessing game data, especially in complex gacha games. Language barriers in English games make information less accessible.  
+# 2. SOLUTION ARCHITECTURE / ARCHITECTURAL DIAGRAM
 
-**Solution**  
-GameTracker offers a **centralized, user-friendly system** where users can:  
-
-- Manage and update game data  
-- Track gacha history and simulate pulls  
-- View banner and event timelines  
-
-Admins can efficiently control content with **CRUD operations and clear access permissions**.  
-
-**Benefits and ROI**  
-- Optimized data management for users and admins  
-- Reduced manual maintenance time, improved data reliability  
-- Low operational costs via AWS serverless & S3  
-- Scalable to multiple games and community features  
-
----
-
-### 3. Solution Architecture
-**Cloud-based modern architecture**:  
-
-- **Frontend:** React SPA, served via S3 + CloudFront, SPA fallback, protected by **AWS WAF**  
-- **Backend:** Spring Boot serverless on **AWS Lambda**, JWT auth, Google OAuth2, API protected by WAF  
-- **Database:** SQL Server (**AWS RDS**)  
-- **File Storage:** AWS S3 (avatars, backgrounds, weapons, banners)  
-- **Admin Dashboard:** Full CRUD, role-based access control  
-- **Security:** Spring Security, CORS, AWS WAF 
+## 2.1 TECHNICAL ARCHITECTURE DIAGRAM
+**Proposed High-Level Architecture**:
+The solution adopts a modern cloud-native architecture:
+- **Frontend**: React SPA served via S3 + CloudFront, protected by AWS WAF.
+- **Backend**: Spring Boot serverless deployed on AWS Lambda, using JWT and Google OAuth2 for auth.
+- **Database**: SQL Server on AWS RDS.
+- **Storage**: AWS S3 for storing static assets (avatars, backgrounds, weapons).
+- **Security**: AWS WAF, IAM, and Spring Security.
 
 ![IoT Weather Station Architecture](/images/2-Proposal/GameTracker1.jpg)
 
-**AWS Services Used**  
-- AWS S3: store static files and media  
-- AWS Lambda: serverless backend  
-- AWS RDS: game data storage  
-- AWS CloudFront: SPA distribution  
-- AWS WAF: protect frontend & API  
-- AWS SES: email verification and password reset  
-- AWS IAM: manage access rights  
+**AWS Services Used**:
+- AWS S3, AWS Lambda, AWS RDS, AWS CloudFront, AWS WAF, AWS SES, AWS IAM.
 
-**Component Design**  
-- **User:** register, login, manage account, avatar  
-- **Admin:** manage game data, CRUD, access control  
-- **Game Data:** characters, weapons, banners, echo, setecho, roles, elements, backgrounds  
-- **Tools:** gacha tracker, gacha simulator, banner/event timeline  
+## 2.2 TECHNICAL PLAN
+We will develop scripts using **AWS CDK/CloudFormation** or manual setup procedures documented for repeatability.
+- **Frontend**: React, TypeScript, Vite.
+- **Backend**: Spring Boot, Spring Security.
+- **DevOps**: Docker, CI/CD pipelines.
 
----
+All critical paths including user login, data synchronization, and gacha simulation will include extensive test coverage.
 
-### 4. Technical Implementation
-**Implementation Phases**  
-1. Requirements analysis and architecture design  
-2. Backend development with Spring Boot serverless, JWT, Google OAuth2, RDS integration  
-3. Frontend development with React SPA, admin dashboard, gacha tools and timeline  
-4. AWS deployment: S3, CloudFront, SPA fallback, WAF  
-5. Testing, security optimization, documentation  
+## 2.3 PROJECT PLAN
+The project will follow an Agile methodology over a 1-month timeline.
+- **Week 1**: Planning, Requirements Analysis, Architecture Design.
+- **Week 2**: Backend Development (API, Auth, Database).
+- **Week 3**: Frontend Development (UI/UX, Admin Dashboard, Tools).
+- **Week 4**: Deployment, Testing, Documentation, and Handover.
 
-**Technical Requirements**  
-- Frontend: React, TypeScript, Vite, SPA fallback  
-- Backend: Spring Boot, Spring Security, JWT, Google OAuth2, Lambda serverless  
-- Database: SQL Server (RDS)  
-- Cloud: S3, CloudFront, Lambda, WAF, SES  
-- DevOps: Docker, CI/CD, AWS IAM  
+## 2.4 SECURITY CONSIDERATIONS
+**Best Practices Implemented**:
+- **Identity**: Google OAuth2 integration and JWT for secure stateless authentication.
+- **Infrastructure**: AWS WAF to protect against common web exploits.
+- **Access Control**: Role-based access control (RBAC) for Admins vs Users.
+- **Data Protection**: HTTPS encryption in transit; RDS encryption at rest.
+- **Monitoring**: AWS CloudWatch for logs and metrics.
 
----
+# 3. ACTIVITIES AND DELIVERABLES
 
-### 5. Timeline & Milestones (1 Month)
-| Week | Phase | Tasks |
-|------|-------|-------|
-| Week 1 | Planning & Setup | Requirement analysis, architecture, AWS preparation (S3, RDS, Lambda, WAF, CloudFront) |
-| Week 2 | Backend Development | Build backend, JWT, Google OAuth2, API endpoints, connect RDS, deploy Lambda & WAF |
-| Week 3 | Frontend Development | Build React SPA, admin dashboard, gacha tools, timeline banner/event |
-| Week 4 | Deployment & Testing | Deploy SPA to S3 + CloudFront, SPA fallback, WAF, testing, optimize security, complete documentation |
+## 3.1 ACTIVITIES AND DELIVERABLES
 
----
+| Project Phase | Timeline | Activities | Deliverables/Milestones |
+|---------------|----------|------------|-------------------------|
+| **Assessment & Setup** | Week 1 | Requirement analysis, architecture design, AWS setup (S3, RDS, Lambda) | Architecture Diagram, AWS Environment Ready |
+| **Backend Implementation** | Week 2 | Build Lambda functions, API endpoints, Auth integration, DB schema | Working API, Database connectivity |
+| **Frontend Implementation** | Week 3 | React SPA development, Dashboard creation, Gacha tools logic | Functional Web UI, Admin Dashboard |
+| **Testing & Go-live** | Week 4 | Integration testing, Security optimization, Deployment to CloudFront | Deployed Application, User Guide, Documentation |
 
-### 6. Budget Estimation (summary)
+## 3.2 OUT OF SCOPE
+- Mobile Application development (iOS/Android native apps).
+- Real-time multiplayer game server features (only web-based data management).
+- Integration with game servers directly (data is manually managed/imported).
 
-- AWS Lambda — Memory: 3008 MB, ~12,000 invocations/month (8,640 warmer + user traffic) ~ $5-7/month
-- S3 Standard — 10 GB storage ~ $0.23/month
-- CloudFront — 100 GB egress ~ $8.50/month
-- RDS (SQL Server, production) ~ $60+/month
-- SES — Approx: ~ $0.01/month
-- CloudWatch — Logs/metrics (10 GB logs) ~ $5/month
-- AWS WAF — Web ACL + 1M requests ~ $10/month
-- Route53 — 1 hosted zone + 1M queries ~ $0.90/month
-- NAT Gateway — ~$32/month (data processing $0.045/GB)
-- Total ≈ $121-123/month
+## 3.3 PATH TO PRODUCTION
+The current proposal outlines the path to a production-ready MVP.
+- **POC to Prod**: The system is designed to be production-grade from the start using AWS managed services.
+- **Gaps**: Further load testing and fine-tuning of WAF rules may be needed based on actual traffic patterns.
+- **Operations**: Error handling and monitoring are implemented via CloudWatch.
 
----
+# 4. EXPECTED AWS COST BREAKDOWN BY SERVICES
 
+**Estimated Monthly Cost**: ~$121-123/month
 
-### 7. Risk Assessment
-- AWS downtime: Medium impact, low probability  
-- Security attack: High impact, low probability  
-- Increased costs: Medium impact, medium probability
-- Data errors due to admin input: Medium impact, low probability  
+- **AWS Lambda**: ~$5-7 (Memory: 3008 MB, ~12k invocations).
+- **S3 Standard**: ~$0.23 (10 GB storage).
+- **CloudFront**: ~$8.50 (100 GB egress).
+- **RDS (SQL Server)**: ~$60+ (db.t3.medium or similar).
+- **AWS WAF**: ~$10 (Web ACL + requests).
+- **NAT Gateway**: ~$32 (if required for Lambda in VPC).
+- **Others (SES, Route53, CloudWatch)**: ~$6.
 
-**Mitigation strategies**  
-- Use AWS WAF, IAM for access control, HTTPS, secure JWT  
-- Monitor costs with CloudWatch, optimize queries and caching  
-- Use RDS Multi-AZ, CloudFront CDN, fast rollback on errors  
+*Note: Costs are estimates and depend on actual usage and region.*
 
-**Contingency plan**  
-- RDS failover in case of incidents 
-- Rollback backend using Lambda Versioning
+# 5. TEAM
 
----
+**Partner Project Team**
+| Name | Title | Role | Email / Contact Info |
+|------|-------|------|----------------------|
+| [Name] | Delivery Manager | Project Manager | [Email] |
+| [Name] | Sr. Solutions Architect | Technical Lead | [Email] |
 
+**Project Stakeholders**
+| Name | Title | Stakeholder for | Email / Contact Info |
+|------|-------|-----------------|----------------------|
+| [Name] | [Title] | [Role] | [Email] |
 
-### 8. Expected Outcomes
-- Stable, auto-scaling system with low cost
-- Secure API, centralized and easy-to-manage data
-- Easy to expand for more games and features
-- Gacha tools and timeline help players track conveniently
+# 6. RESOURCES & COST ESTIMATES
 
----
+| Resource | Responsibility | Rate (USD) / Hour |
+|----------|----------------|-------------------|
+| Solution Architect | System Design & Lead | - |
+| Full-stack Engineer | Implementation | - |
+
+**Total Estimated Effort**: [Total Man-days]
+
+# 7. ACCEPTANCE
+
+Upon completion of a Phase, the Partner will submit the associated tangible Deliverables to the Customer. The Customer will review, evaluate, and test the Deliverables within **eight (8) business days** (the “Acceptance Period”) to determine satisfaction of acceptance criteria.
+
+If the Deliverable satisfies its acceptance criteria, Customer will furnish a written acceptance. If rejected, Customer will indicate detailed reasons, and Partner will correct defects. If no rejection is received within the Acceptance Period, Deliverables are deemed accepted.
+
+<br>
 
 <h3 style="font-size: 1.3em;">🔗 Project Website: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>
