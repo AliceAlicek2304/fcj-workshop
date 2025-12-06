@@ -288,17 +288,17 @@
                 href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/"
                 />
   </url><url>
-    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/2-create-ec2-sg/</loc>
+    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/2-create-iam/</loc>
     <lastmod>2025-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/2-create-ec2-sg/"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/2-create-iam/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/2-create-ec2-sg/"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/2-create-iam/"
                 />
   </url><url>
     <loc>http://localhost:1313/fcj-workshop/vi/2-proposal/</loc>
@@ -353,30 +353,30 @@
                 href="http://localhost:1313/fcj-workshop/vi/1-worklog/1.12-week12/"
                 />
   </url><url>
-    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.3-create-ec2/</loc>
+    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.3-create-rds/</loc>
     <lastmod>2025-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/fcj-workshop/5-workshop/5.3-create-ec2/"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.3-create-rds/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.3-create-ec2/"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.3-create-rds/"
                 />
   </url><url>
-    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/3-create-db-sg/</loc>
+    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/3-create-sg/</loc>
     <lastmod>2025-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/3-create-db-sg/"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/3-create-sg/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/3-create-db-sg/"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/3-create-sg/"
                 />
   </url><url>
     <loc>http://localhost:1313/fcj-workshop/vi/3-blogstranslated/</loc>
@@ -403,19 +403,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/4-create-db-subnetgroup/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/fcj-workshop/vi/5-workshop/5.4-create-rds/</loc>
-    <lastmod>2025-10-27T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/fcj-workshop/5-workshop/5.4-create-rds/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.4-create-rds/"
                 />
   </url><url>
     <loc>http://localhost:1313/fcj-workshop/vi/4-eventparticipated/</loc>
