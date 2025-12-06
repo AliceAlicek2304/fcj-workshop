@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# 1. PROJECT BACKGROUND & OBJECTIVES
+# 1. PROJECT BACKGROUND
 
 ## 1.1 EXECUTIVE SUMMARY
 **Context**
@@ -20,15 +20,19 @@ The gaming industry is rapidly growing, with players seeking deeper engagement t
 **Proposed Solution**
 Use **GameTracker**, a cloud-native web application hosted on AWS. It leverages serverless technologies to provide a cost-effective, high-availability solution for tracking game statistics and simulating gacha mechanics.
 
-## 1.2 PROJECT OBJECTIVES
--   **Centralized Data Hub**: A single source of truth for all game-related assets and statistics.
--   **Enhanced User Experience**: Feature-rich tools like Gacha Simulators and Event Timelines to increase player retention.
--   **Operational Excellence**: A serverless backend ensures the system scales automatically with traffic spikes during game events while keeping idle costs near zero.
+## 1.2 FUNCTIONAL SCOPE
 
-## 1.3 SUCCESS METRICS
--   **Performance**: API latency < 200ms for 95% of requests.
--   **Availability**: 99.9% uptime during the first month of operation.
--   **Cost Efficiency**: Monthly AWS infrastructure cost remains under $150.
+The system is designed with a core set of features ready for deployment, alongside a roadmap for advanced capabilities.
+
+### ✅ Current Features (MVP)
+1.  **Game Information Hub**: A centralized database allowing users to view detailed attributes of Characters, Weapons, and Items.
+2.  **Gacha Simulator**: A realistic simulation of the game's "wish" system, allowing users to test drop rates without spending real currency.
+3.  **Gacha History Tracker**: customized tools to import and visualize a player's actual pull history, generating statistics on luck and pity count.
+4.  **Event Timeline**: An interactive visual roadmap displaying past, current, and upcoming game events to help players plan their resources.
+
+### 🚧 In Development (Future Roadmap)
+1.  **Real-time Resource Tracking**: Direct integration to verify in-game resources (e.g., Energy/Resin, Currency) in real-time.
+2.  **Notification System**: Alerts for resin overflow or banner endings.
 
 ---
 

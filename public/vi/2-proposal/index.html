@@ -15,21 +15,21 @@
     <title>Bản đề xuất :: Báo cáo thực tập</title>
 
     
-    <link href="../../css/nucleus.css?1765003299" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1765003299" rel="stylesheet">
-    <link href="../../css/hybrid.css?1765003299" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1765003299" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1765003299" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1765003299" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1765003299" rel="stylesheet">
-    <link href="../../css/theme.css?1765003299" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1765003299" rel="stylesheet">
+    <link href="../../css/nucleus.css?1765020642" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1765020642" rel="stylesheet">
+    <link href="../../css/hybrid.css?1765020642" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1765020642" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1765020642" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1765020642" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1765020642" rel="stylesheet">
+    <link href="../../css/theme.css?1765020642" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1765020642" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1765003299" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1765020642" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1765003299"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1765020642"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1765003299"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1765003299"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1765020642"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1765020642"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1765003299"></script>
+<script type="text/javascript" src="../../js/search.js?1765020642"></script>
  
   </div>
 
@@ -1018,7 +1018,12 @@
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
     <li><a href="#11-tóm-tắt-dự-án-executive-summary">1.1 TÓM TẮT DỰ ÁN (EXECUTIVE SUMMARY)</a></li>
-    <li><a href="#12-mục-tiêu-dự-án">1.2 MỤC TIÊU DỰ ÁN</a></li>
+    <li><a href="#12-phạm-vi-chức-năng-functional-scope">1.2 PHẠM VI CHỨC NĂNG (FUNCTIONAL SCOPE)</a>
+      <ul>
+        <li><a href="#-các-tính-năng-hiện-tại-current-features">✅ Các tính năng hiện tại (Current Features)</a></li>
+        <li><a href="#-đang-phát-triển-in-development">🚧 Đang phát triển (In Development)</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
@@ -1053,7 +1058,7 @@
 
 
 
-	<h1 id="1-tổng-quan-dự-án--mục-tiêu">1. TỔNG QUAN DỰ ÁN &amp; MỤC TIÊU</h1>
+	<h1 id="1-tổng-quan-dự-án">1. TỔNG QUAN DỰ ÁN</h1>
 <h2 id="11-tóm-tắt-dự-án-executive-summary">1.1 TÓM TẮT DỰ ÁN (EXECUTIVE SUMMARY)</h2>
 <p><strong>Bối cảnh</strong>
 Thị trường game đang bùng nổ, kéo theo nhu cầu của người chơi trong việc theo dõi, phân tích dữ liệu và mô phỏng các cơ chế game. <strong>GameTracker</strong> ra đời như một giải pháp toàn diện giúp cả người chơi lẫn nhà quản trị (Admin) dễ dàng quản lý, chia sẻ và tra cứu thông tin về nhân vật, vũ khí và sự kiện.</p>
@@ -1065,12 +1070,20 @@ Thị trường game đang bùng nổ, kéo theo nhu cầu của người chơi 
 </ul>
 <p><strong>Giải pháp Đề xuất</strong>
 Xây dựng <strong>GameTracker</strong> - ứng dụng web hiện đại trên nền tảng điện toán đám mây <strong>AWS</strong>. Chúng tôi sử dụng kiến trúc <strong>Serverless</strong> để tối ưu chi phí vận hành, đồng thời đảm bảo khả năng chịu tải cao trong các đợt sự kiện game lớn.</p>
-<h2 id="12-mục-tiêu-dự-án">1.2 MỤC TIÊU DỰ ÁN</h2>
-<ul>
-<li><strong>Số hóa &amp; Tập trung hóa</strong>: Một cổng thông tin duy nhất cho mọi dữ liệu game.</li>
-<li><strong>Trải nghiệm người dùng vượt trội</strong>: Cung cấp các công cụ giá trị như Giả lập Gacha (Gacha Simulator), Lịch trình sự kiện (Event Timeline).</li>
-<li><strong>Vận hành thông minh</strong>: Hệ thống tự động mở rộng theo lưu lượng truy cập, &ldquo;dùng bao nhiêu trả bấy nhiêu&rdquo;.</li>
-</ul>
+<h2 id="12-phạm-vi-chức-năng-functional-scope">1.2 PHẠM VI CHỨC NĂNG (FUNCTIONAL SCOPE)</h2>
+<p>Hệ thống được phát triển với các tính năng cốt lõi sẵn sàng hoạt động (MVP) và lộ trình phát triển rõ ràng.</p>
+<h3 id="-các-tính-năng-hiện-tại-current-features">✅ Các tính năng hiện tại (Current Features)</h3>
+<ol>
+<li><strong>Tra cứu Thông tin Game</strong>: Cơ sở dữ liệu tập trung (Wiki) cho phép người dùng xem chi tiết chỉ số, kỹ năng của Nhân vật, Vũ khí và Vật phẩm.</li>
+<li><strong>Giả lập Gacha (Gacha Simulation)</strong>: Mô phỏng thuật toán quay thưởng (Wish/Banner) chính xác như trong game, giúp người chơi thử vận may mà không tốn phí.</li>
+<li><strong>Kiểm tra Lịch sử (Gacha History)</strong>: Công cụ cho phép người chơi nhập dữ liệu lịch sử quay thưởng cá nhân, từ đó phân tích tỷ lệ may mắn và đếm &ldquo;Bảo hiểm&rdquo; (Pity counter).</li>
+<li><strong>Lịch trình Sự kiện (Timeline Event)</strong>: Biểu đồ trực quan hiển thị các sự kiện game đã, đang và sắp diễn ra, giúp người chơi lên kế hoạch sử dụng tài nguyên.</li>
+</ol>
+<h3 id="-đang-phát-triển-in-development">🚧 Đang phát triển (In Development)</h3>
+<ol>
+<li><strong>Check Tài nguyên Thời gian thực</strong>: Tích hợp API để đồng bộ và hiển thị lượng tài nguyên (Nhựa/Energy, Nguyên thạch) trong game theo thời gian thực (Real-time).</li>
+<li><strong>Hệ thống Thông báo</strong>: Cảnh báo khi tài nguyên đầy hoặc khi có banner mới.</li>
+</ol>
 <hr>
 <h1 id="2-kiến-trúc-giải-pháp">2. KIẾN TRÚC GIẢI PHÁP</h1>
 <h2 id="21-mô-hình-kiến-trúc-high-level-architecture">2.1 MÔ HÌNH KIẾN TRÚC (HIGH-LEVEL ARCHITECTURE)</h2>
@@ -1956,19 +1969,19 @@ Xây dựng <strong>GameTracker</strong> - ứng dụng web hiện đại trên 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1765003299"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1765003299"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1765003299"></script>
-    <script src="../../js/jquery.sticky.js?1765003299"></script>
-    <script src="../../js/featherlight.min.js?1765003299"></script>
-    <script src="../../js/highlight.pack.js?1765003299"></script>
+    <script src="../../js/clipboard.min.js?1765020642"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1765020642"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1765020642"></script>
+    <script src="../../js/jquery.sticky.js?1765020642"></script>
+    <script src="../../js/featherlight.min.js?1765020642"></script>
+    <script src="../../js/highlight.pack.js?1765020642"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1765003299"></script>
-    <script src="../../js/learn.js?1765003299"></script>
-    <script src="../../js/hugo-learn.js?1765003299"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1765020642"></script>
+    <script src="../../js/learn.js?1765020642"></script>
+    <script src="../../js/hugo-learn.js?1765020642"></script>
 
-    <link href="../../mermaid/mermaid.css?1765003299" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1765003299"></script>
+    <link href="../../mermaid/mermaid.css?1765020642" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1765020642"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

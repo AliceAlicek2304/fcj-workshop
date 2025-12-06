@@ -5,40 +5,37 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+> Dưới đây là những đánh giá tổng kết của em sau quá trình tham gia chương trình thực tập First Cloud Journey (FCJ). Hy vọng những đóng góp này sẽ giúp Ban tổ chức và các anh chị Mentor hoàn thiện chương trình hơn nữa trong tương lai.
 
-### Đánh giá chung
+### Đánh giá chi tiết
 
 **1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+Em đánh giá cao sự chuyên nghiệp và cởi mở tại văn phòng. Văn hóa hỗ trợ lẫn nhau được thể hiện rõ nét, khi các anh chị luôn sẵn lòng giải đáp thắc mắc chuyên môn dù bận rộn. Không gian làm việc hiện đại, ngăn nắp giúp em duy trì sự tập trung cao độ. Em đề xuất công ty có thể tổ chức thêm các buổi chia sẻ định kỳ để tăng cường sự gắn kết giữa các bộ phận.
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+**2. Chất lượng Đào tạo & Hướng dẫn**  
+Em xin gửi lời cảm ơn đặc biệt đến Mentor hướng dẫn trực tiếp. Anh đã rất kiên nhẫn và có phương pháp sư phạm tốt: thay vì đưa ra đáp án, anh định hướng để em tự nghiên cứu và giải quyết vấn đề. Nhờ đó, tư duy lập trình và kỹ năng tự học của em đã cải thiện đáng kể. Đội ngũ Admin cũng hỗ trợ rất nhiệt tình và chuyên nghiệp trong các thủ tục hành chính.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+**3. Tính ứng dụng thực tế**  
+Kỳ thực tập này đã giúp em hệ thống hóa lại các kiến thức lý thuyết ở trường và áp dụng vào bài toán thực tế doanh nghiệp. Được trực tiếp tham gia vào quy trình phát triển và triển khai hệ thống trên Cloud là trải nghiệm vô cùng giá trị, giúp em hiểu rõ hơn về các tiêu chuẩn trong ngành công nghiệp phần mềm.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+**4. Phát triển kỹ năng**  
+Bên cạnh việc nâng cao năng lực kỹ thuật (AWS, Docker, CI/CD), em đã học hỏi được tác phong làm việc công nghiệp. Các kỹ năng mềm như báo cáo tiến độ, làm việc nhóm theo mô hình Agile/Scrum, và viết tài liệu kỹ thuật chuẩn chỉnh là hành trang quan trọng cho sự nghiệp sau này của em.
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+**5. Văn hóa Doanh nghiệp**  
+Văn hóa tôn trọng và trách nhiệm là điều em cảm nhận rõ nhất tại FCJ. Trong các giai đoạn cao điểm của dự án, tinh thần đồng đội được phát huy cao độ. Dù là thực tập sinh, em vẫn luôn được lắng nghe và tôn trọng ý kiến trong các buổi thảo luận kỹ thuật, điều này tạo động lực rất lớn cho em.
 
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+**6. Chính sách Thực tập**  
+Chế độ phụ cấp thực tập của công ty rất hợp lý và công bằng. Việc công ty linh động thời gian làm việc trong các đợt thi cử giúp em cân bằng tốt giữa việc học và thực tập. Các buổi Tech Talk nội bộ cũng rất chất lượng và mang lại nhiều kiến thức bổ ích.
 
+---
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+### Tổng kết
+-   **Điều tâm đắc nhất**: Hoàn thành việc xây dựng và triển khai hệ thống thực tế trên AWS với sự hướng dẫn sát sao từ Mentor.
+-   **Đề xuất cải thiện**: Nếu có thể, Ban tổ chức nên gửi trước lộ trình và tài liệu tham khảo sớm hơn để thực tập sinh có sự chuẩn bị tốt nhất.
+-   **Mức độ giới thiệu**: Em chắc chắn sẽ giới thiệu chương trình đến bạn bè, vì đây là môi trường lý tưởng để rèn luyện kỹ năng và thái độ làm việc chuyên nghiệp.
 
+---
 
-### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+### Lời cảm ơn
+Em xin chân thành cảm ơn Công ty và Team FCJ đã tạo điều kiện cho em có một kỳ thực tập ý nghĩa. Em hy vọng sẽ có cơ hội được tiếp tục đồng hành và cống hiến cho công ty trong tương lai.

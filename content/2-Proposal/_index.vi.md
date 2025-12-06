@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# 1. TỔNG QUAN DỰ ÁN & MỤC TIÊU
+# 1. TỔNG QUAN DỰ ÁN
 
 ## 1.1 TÓM TẮT DỰ ÁN (EXECUTIVE SUMMARY)
 **Bối cảnh**
@@ -20,10 +20,19 @@ Thị trường game đang bùng nổ, kéo theo nhu cầu của người chơi 
 **Giải pháp Đề xuất**
 Xây dựng **GameTracker** - ứng dụng web hiện đại trên nền tảng điện toán đám mây **AWS**. Chúng tôi sử dụng kiến trúc **Serverless** để tối ưu chi phí vận hành, đồng thời đảm bảo khả năng chịu tải cao trong các đợt sự kiện game lớn.
 
-## 1.2 MỤC TIÊU DỰ ÁN
--   **Số hóa & Tập trung hóa**: Một cổng thông tin duy nhất cho mọi dữ liệu game.
--   **Trải nghiệm người dùng vượt trội**: Cung cấp các công cụ giá trị như Giả lập Gacha (Gacha Simulator), Lịch trình sự kiện (Event Timeline).
--   **Vận hành thông minh**: Hệ thống tự động mở rộng theo lưu lượng truy cập, "dùng bao nhiêu trả bấy nhiêu".
+## 1.2 PHẠM VI CHỨC NĂNG (FUNCTIONAL SCOPE)
+
+Hệ thống được phát triển với các tính năng cốt lõi sẵn sàng hoạt động (MVP) và lộ trình phát triển rõ ràng.
+
+### ✅ Các tính năng hiện tại (Current Features)
+1.  **Tra cứu Thông tin Game**: Cơ sở dữ liệu tập trung (Wiki) cho phép người dùng xem chi tiết chỉ số, kỹ năng của Nhân vật, Vũ khí và Vật phẩm.
+2.  **Giả lập Gacha (Gacha Simulation)**: Mô phỏng thuật toán quay thưởng (Wish/Banner) chính xác như trong game, giúp người chơi thử vận may mà không tốn phí.
+3.  **Kiểm tra Lịch sử (Gacha History)**: Công cụ cho phép người chơi nhập dữ liệu lịch sử quay thưởng cá nhân, từ đó phân tích tỷ lệ may mắn và đếm "Bảo hiểm" (Pity counter).
+4.  **Lịch trình Sự kiện (Timeline Event)**: Biểu đồ trực quan hiển thị các sự kiện game đã, đang và sắp diễn ra, giúp người chơi lên kế hoạch sử dụng tài nguyên.
+
+### 🚧 Đang phát triển (In Development)
+1.  **Check Tài nguyên Thời gian thực**: Tích hợp API để đồng bộ và hiển thị lượng tài nguyên (Nhựa/Energy, Nguyên thạch) trong game theo thời gian thực (Real-time).
+2.  **Hệ thống Thông báo**: Cảnh báo khi tài nguyên đầy hoặc khi có banner mới.
 
 ---
 
