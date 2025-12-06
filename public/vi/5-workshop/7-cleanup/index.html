@@ -15,21 +15,21 @@
     <title>Dọn dẹp tài nguyên :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1764999826" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1764999826" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1764999826" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1764999826" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1764999826" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1764999826" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1764999826" rel="stylesheet">
-    <link href="../../../css/theme.css?1764999826" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1764999826" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765000302" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765000302" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765000302" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765000302" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765000302" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765000302" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765000302" rel="stylesheet">
+    <link href="../../../css/theme.css?1765000302" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765000302" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1764999826" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765000302" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1764999826"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765000302"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1764999826"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1764999826"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765000302"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765000302"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1764999826"></script>
+<script type="text/javascript" src="../../../js/search.js?1765000302"></script>
  
   </div>
 
@@ -680,6 +680,24 @@
   </a>
    
 </li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/5-create-nat/"
+  title="Tạo NAT Gateway"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.2-prerequiste/5-create-nat/">
+     <b> 5.2.5 </b> Tạo NAT Gateway 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
      
   </ul>
   
@@ -705,20 +723,60 @@
     
             
 <li
-  data-nav-id="/vi/5-workshop/5.5-deploy-app/"
-  title="Triển khai ứng dụng"
+  data-nav-id="/vi/5-workshop/5.4-deploy-app/"
+  title="Triển khai Ứng dụng"
   class="dd-item 
         
         
         
         "
 >
-  <a href="../../../vi/5-workshop/5.5-deploy-app/">
-     <b> 5.5 </b> Triển khai ứng dụng 
+  <a href="../../../vi/5-workshop/5.4-deploy-app/">
+     <b> 5.4 </b> Triển khai Ứng dụng 
     <i class="fas fa-check read-icon"></i>
     
   </a>
    
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-deploy-app/1-deploy-backend/"
+  title="Deploy Backend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-deploy-app/1-deploy-backend/">
+     <b> 5.4.1 </b> Deploy Backend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-deploy-app/2-deploy-frontend/"
+  title="Deploy Frontend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-deploy-app/2-deploy-frontend/">
+     <b> 5.4.2 </b> Deploy Frontend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
 </li>
     
             
@@ -965,11 +1023,10 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#1-xóa-tài-nguyên-ứng-dụng">1. Xóa Tài nguyên Ứng dụng</a></li>
+    <li><a href="#2-xóa-cơ-sở-dữ-liệu">2. Xóa Cơ sở dữ liệu</a></li>
+    <li><a href="#3-xóa-tài-nguyên-mạng">3. Xóa Tài nguyên Mạng</a></li>
+    <li><a href="#4-xác-minh">4. Xác minh</a></li>
   </ul>
 </nav></div>
 </div>
@@ -994,66 +1051,70 @@
 
 
 
-	<h4 id="dọn-dẹp-tài-nguyên">Dọn dẹp Tài nguyên</h4>
-<p><strong>ℹ️ Information</strong>: Để tránh các chi phí không mong muốn, việc dọn dẹp tất cả các tài nguyên đã tạo trong workshop này là rất quan trọng. Chúng ta sẽ xóa các tài nguyên theo thứ tự ngược lại với quy trình tạo.</p>
-<h4 id="bước-1-xóa-tài-nguyên-rds">Bước 1: Xóa Tài nguyên RDS</h4>
+	<h1 id="dọn-dẹp-tài-nguyên">Dọn dẹp tài nguyên</h1>
+<p><strong>Quan trọng</strong>: Để tránh các chi phí không mong muốn, bạn bắt buộc phải xóa tất cả các tài nguyên đã tạo trong workshop này. Hãy làm theo các bước dưới đây theo đúng thứ tự.</p>
+<h2 id="1-xóa-tài-nguyên-ứng-dụng">1. Xóa Tài nguyên Ứng dụng</h2>
 <ol>
 <li>
-<p><strong>Xóa RDS Instance</strong>:</p>
+<p><strong>Frontend (S3 &amp; CloudFront)</strong>:</p>
 <ul>
-<li>Truy cập console <strong>Amazon RDS</strong> &gt; <strong>Databases</strong>.</li>
-<li>Chọn database instance của bạn (ví dụ: <code>workshop-db</code>).</li>
-<li>Nhấp <strong>Actions</strong> &gt; <strong>Delete</strong>.</li>
-<li>Bỏ chọn <strong>Create final snapshot</strong> và đánh dấu vào ô <strong>I acknowledge&hellip;</strong>.</li>
-<li>Nhập <code>delete me</code> và nhấp <strong>Delete</strong>.</li>
+<li><strong>CloudFront</strong>: Disable (Vô hiệu hóa) distribution -&gt; Đợi nó deploy xong -&gt; Xóa nó.</li>
+<li><strong>S3 Buckets</strong>: Làm trống (Empty) các bucket <code>gametracker-frontend</code> và <code>gametracker-assets</code>, sau đó xóa chúng.</li>
 </ul>
 </li>
 <li>
-<p><strong>Xóa DB Subnet Group</strong>:</p>
+<p><strong>Backend (Lambda &amp; API Gateway &amp; ECR)</strong>:</p>
 <ul>
-<li>Đi tới <strong>Subnet groups</strong>.</li>
-<li>Chọn nhóm của bạn (ví dụ: <code>rds-subnet-group</code>).</li>
-<li>Nhấp <strong>Delete</strong>.</li>
+<li><strong>API Gateway</strong>: Xóa API <code>gametracker-api</code>.</li>
+<li><strong>Lambda</strong>: Xóa function <code>gametracker-api</code>.</li>
+<li><strong>ECR</strong>: Xóa repository <code>gametracker-backend</code>.</li>
 </ul>
 </li>
 </ol>
-<h4 id="bước-2-terminate-ec2-instance">Bước 2: Terminate EC2 Instance</h4>
+<h2 id="2-xóa-cơ-sở-dữ-liệu">2. Xóa Cơ sở dữ liệu</h2>
 <ol>
-<li><strong>Terminate Instance</strong>:
+<li><strong>RDS Instance</strong>:
 <ul>
-<li>Truy cập console <strong>Amazon EC2</strong> &gt; <strong>Instances</strong>.</li>
-<li>Chọn instance của bạn (ví dụ: <code>Workshop-Web-Server</code>).</li>
-<li>Nhấp <strong>Instance state</strong> &gt; <strong>Terminate instance</strong>.</li>
-<li>Nhấp <strong>Terminate</strong>.</li>
+<li>Truy cập <strong>Amazon RDS</strong> &gt; <strong>Databases</strong>.</li>
+<li>Chọn <code>gametracker-mssql</code>.</li>
+<li>Action &gt; <strong>Delete</strong>.</li>
+<li>Bỏ chọn <strong>Create final snapshot</strong> và xác nhận xóa.</li>
+</ul>
+</li>
+<li><strong>DB Subnet Group</strong>:
+<ul>
+<li>Vào <strong>Subnet groups</strong> -&gt; Xóa <code>gametracker-db-subnet-group</code>.</li>
 </ul>
 </li>
 </ol>
-<h4 id="bước-3-xóa-tài-nguyên-mạng">Bước 3: Xóa Tài nguyên Mạng</h4>
+<h2 id="3-xóa-tài-nguyên-mạng">3. Xóa Tài nguyên Mạng</h2>
 <ol>
-<li>
-<p><strong>Xóa Security Groups</strong>:</p>
+<li><strong>NAT Gateway</strong> (Rất tốn phí!):
 <ul>
-<li>Truy cập console <strong>VPC</strong> &gt; <strong>Security Groups</strong>.</li>
-<li>Chọn <strong>RDS Security Group</strong> và xóa nó.</li>
-<li>Chọn <strong>EC2 Security Group</strong> và xóa nó.</li>
+<li>Vào <strong>VPC</strong> &gt; <strong>NAT Gateways</strong>.</li>
+<li>Xóa <code>gametracker-nat</code>.</li>
+<li>Đợi trạng thái chuyển sang <code>Deleted</code>.</li>
 </ul>
-<p><strong>💡 Pro Tip</strong>: Bạn phải xóa RDS Security Group trước vì EC2 Security Group có thể đang tham chiếu đến nó (hoặc ngược lại tùy thuộc vào quy tắc của bạn). Nếu gặp lỗi phụ thuộc, hãy kiểm tra các quy tắc Inbound/Outbound.</p>
 </li>
-<li>
-<p><strong>Xóa VPC</strong>:</p>
+<li><strong>Elastic IP</strong>:
 <ul>
-<li>Đi tới <strong>Your VPCs</strong>.</li>
-<li>Chọn VPC workshop của bạn.</li>
-<li>Nhấp <strong>Actions</strong> &gt; <strong>Delete VPC</strong>.</li>
-<li>Nhập <code>delete</code> và xác nhận.</li>
+<li>Vào <strong>Elastic IPs</strong> -&gt; Release (Giải phóng) IP đã cấp.</li>
 </ul>
-<p><strong>ℹ️ Information</strong>: Xóa VPC sẽ tự động xóa các subnet, bảng định tuyến và internet gateway liên quan.</p>
+</li>
+<li><strong>VPC Endpoint</strong>:
+<ul>
+<li>Vào <strong>Endpoints</strong> -&gt; Xóa <code>gametracker-s3-endpoint</code>.</li>
+</ul>
+</li>
+<li><strong>VPC</strong>:
+<ul>
+<li>Vào <strong>Your VPCs</strong> -&gt; Chọn <code>gametracker-vpc</code> -&gt; Actions -&gt; <strong>Delete VPC</strong>.</li>
+<li>Việc này sẽ tự động xóa Subnets, Route Tables, Internet Gateway, và Security Groups liên quan.</li>
+</ul>
 </li>
 </ol>
-<h4 id="xác-minh">Xác minh</h4>
-<ol>
-<li>Kiểm tra <strong>Billing Dashboard</strong> của bạn vào ngày hôm sau để đảm bảo không còn tài nguyên nào đang hoạt động.</li>
-</ol>
+<h2 id="4-xác-minh">4. Xác minh</h2>
+<p>Kiểm tra <strong>Billing Dashboard</strong> của bạn vào ngày hôm sau để đảm bảo không còn tài nguyên nào đang hoạt động.</p>
 
 
 
@@ -1596,6 +1657,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1625,8 +1702,42 @@
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -1724,19 +1835,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1764999826"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1764999826"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1764999826"></script>
-    <script src="../../../js/jquery.sticky.js?1764999826"></script>
-    <script src="../../../js/featherlight.min.js?1764999826"></script>
-    <script src="../../../js/highlight.pack.js?1764999826"></script>
+    <script src="../../../js/clipboard.min.js?1765000302"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765000302"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765000302"></script>
+    <script src="../../../js/jquery.sticky.js?1765000302"></script>
+    <script src="../../../js/featherlight.min.js?1765000302"></script>
+    <script src="../../../js/highlight.pack.js?1765000302"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1764999826"></script>
-    <script src="../../../js/learn.js?1764999826"></script>
-    <script src="../../../js/hugo-learn.js?1764999826"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765000302"></script>
+    <script src="../../../js/learn.js?1765000302"></script>
+    <script src="../../../js/hugo-learn.js?1765000302"></script>
 
-    <link href="../../../mermaid/mermaid.css?1764999826" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1764999826"></script>
+    <link href="../../../mermaid/mermaid.css?1765000302" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765000302"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

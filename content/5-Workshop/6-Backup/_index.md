@@ -1,68 +1,63 @@
 ﻿---
-title : "Backup and Restore"
-date : "2025-10-27"
-weight : 6
-chapter : false
-pre : " <b> 5.6 </b> "
+title: "Backup & Restore"
+date: "2025-10-27"
+weight: 6
+chapter: false
+pre: " <b> 5.6 </b> "
 ---
 
-#### Understanding Amazon RDS Backup and Restore
+# Backup and Recovery Strategy
 
-**ℹ️ Information**: Amazon RDS provides automated backups and allows manual snapshots to ensure your database data is protected and can be recovered when needed. These capabilities are essential for disaster recovery planning and maintaining business continuity.
+For the GameTracker application, data is our most critical asset. We need to protect:
+1.  **Structured Game Data**: Stored in **Amazon RDS (SQL Server)**.
+2.  **Game Assets**: Images and files stored in **Amazon S3**.
 
-#### Monitoring Backup Status
+## 1. RDS Backup (SQL Server)
 
-1.  **Access Monitoring**:
-    -   Navigate to the **Databases** section in the AWS Management Console.
-    -   Select your target DB instance.
-    -   Click on the **Monitoring** tab to view performance metrics.
+Amazon RDS provides two different methods for backing up your DB instances:
 
-    ![AWS RDS Monitoring](/images/5/00014.png?featherlight=false&width=90pc)
+### A. Automated Backups
+When we created the RDS instance, we enabled convenient **Automated backups**.
+-   **Retention Period**: We set it to **7 days**.
+-   **Function**: AWS creates a storage volume snapshot of your DB instance, backing up the entire DB instance to S3.
+-   **Point-in-Time Recovery**: You can restore your database to any specific second during your retention period.
 
-#### Managing Backups
+### B. Manual Snapshots
+You can take a snapshot of your database at any time. Unlike automated backups, manual snapshots are kept until you explicitly delete them.
 
-1.  **View Backup Details**:
-    -   Select your DB instance.
-    -   Navigate to the **Maintenance & backups** tab.
-    -   Here you can view both automated and manual backup information and configure backup settings.
+**Steps to create a Manual Snapshot:**
+1.  Open [RDS Console](https://console.aws.amazon.com/rds).
+2.  Go to **Databases** -> Select `gametracker-mssql`.
+3.  Click **Actions** -> **Take snapshot**.
+4.  Info:
+    -   **Snapshot name**: `gametracker-manual-backup-v1`.
+5.  Click **Take snapshot**.
 
-    ![AWS RDS Backup](/images/5/00019.png?featherlight=false&width=90pc)
+![RDS Snapshot](/images/5/00019.png?featherlight=false&width=90pc)
 
-2.  **View Snapshots**:
-    -   In the left navigation pane, click **Snapshots**.
-    -   You will see a list of all manual and automated snapshots.
+---
 
-    ![Snapshot Information](/images/5/00020.png?featherlight=false&width=90pc)
+## 2. S3 Data Protection
 
-#### Restoring from a DB Snapshot
+For our `gametracker-assets` bucket, we should enable **Versioning**. This allows us to preserve, retrieve, and restore every version of every object stored in the bucket.
 
-**ℹ️ Information**: Restoring a snapshot creates a **new** DB instance. It does not overwrite the existing one.
+**Steps to enable Versioning:**
+1.  Open [S3 Console](https://console.aws.amazon.com/s3).
+2.  Select the **gametracker-assets** bucket.
+3.  Go to the **Properties** tab.
+4.  Under **Bucket Versioning**, click **Edit**.
+5.  Select **Enable**.
+6.  Click **Save changes**.
 
-1.  **Select Snapshot**:
-    -   Choose the DB snapshot you want to restore.
-    -   Click **Actions** > **Restore snapshot**.
+Now, if an admin accidentally deletes or overwrites a character image, you can easily restore the previous version.
 
-    ![Restore Snapshot](/images/5/00021.png?featherlight=false&width=90pc)
+---
 
-2.  **Configure New Instance**:
-    -   **DB instance identifier**: Enter a unique name for the new instance (e.g., `workshop-db-restore`).
-    -   **Instance specifications**: Select the instance class (e.g., `db.t3.micro`).
-    -   **Connectivity**: Select the same VPC and Subnet Group as your original instance.
-    -   **Security**: Choose the correct Security Group.
+## 3. Restore Strategy
 
-    **💡 Pro Tip**: When restoring for testing, you can choose a smaller instance class to save costs.
-
-    ![Restore Settings](/images/5/00022.png?featherlight=false&width=90pc)
-
-3.  **Initiate Restore**:
-    -   Click **Restore DB instance**.
-
-    **⚠️ Warning**: The restore process creates a completely new database instance with a new endpoint. You must update your application's connection string to point to this new endpoint.
-
-    ![Restore Complete](/images/5/00027.png?featherlight=false&width=90pc)
-
-4.  **Verify**:
-    -   Wait for the status to change to **Available**.
-    -   Test connectivity to the new instance.
-
-    ![Verify Restore](/images/5/00028.png?featherlight=false&width=90pc)
+In case of a failure (e.g., accidental data deletion in SQL Server):
+1.  Go to **RDS Console** -> **Snapshots**.
+2.  Select the latest snapshot (Automated or Manual).
+3.  Click **Actions** -> **Restore snapshot**.
+4.  **New DB Instance Identifier**: e.g., `gametracker-mssql-restore`.
+5.  Once restored and available, update your **Lambda Environment Variables** (`SPRING_DATASOURCE_URL`) to point to the new endpoint.

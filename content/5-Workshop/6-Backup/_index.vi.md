@@ -1,68 +1,63 @@
 ﻿---
-title : "Backup và Restore"
-date : "2025-10-27"
-weight : 6
-chapter : false
-pre : " <b> 5.6 </b> "
+title: "Backup & Restore"
+date: "2025-10-27"
+weight: 6
+chapter: false
+pre: " <b> 5.6 </b> "
 ---
 
-#### Hiểu về Backup và Restore trong Amazon RDS
+# Chiến lược Sao lưu và Phục hồi
 
-**ℹ️ Information**: Amazon RDS cung cấp các tính năng backup tự động và cho phép tạo snapshot thủ công để đảm bảo dữ liệu của bạn được bảo vệ và có thể khôi phục khi cần thiết. Các khả năng này là thiết yếu cho kế hoạch khôi phục sau thảm họa và duy trì tính liên tục của doanh nghiệp.
+Đối với ứng dụng GameTracker, dữ liệu là tài sản quan trọng nhất. Chúng ta cần bảo vệ:
+1.  **Dữ liệu Game có cấu trúc**: Lưu trong **Amazon RDS (SQL Server)**.
+2.  **Tài sản Game (Assets)**: Hình ảnh và file lưu trong **Amazon S3**.
 
-#### Giám sát Trạng thái Backup
+## 1. Sao lưu RDS (SQL Server)
 
-1.  **Truy cập Giám sát**:
-    -   Điều hướng đến phần **Databases** trong AWS Management Console.
-    -   Chọn DB instance mục tiêu của bạn.
-    -   Nhấp vào tab **Monitoring** để xem các chỉ số hiệu suất.
+Amazon RDS cung cấp hai phương pháp khác nhau để sao lưu DB instance của bạn:
 
-    ![AWS RDS Monitoring](/images/5/00014.png?featherlight=false&width=90pc)
+### A. Sao lưu Tự động (Automated Backups)
+Khi tạo RDS instance, chúng ta đã bật tính năng **Automated backups**.
+-   **Thời gian lưu trữ**: Chúng ta đã thiết lập là **7 ngày**.
+-   **Chức năng**: AWS tạo snapshot cho storage volume của DB instance, sao lưu toàn bộ instance lên S3.
+-   **Phục hồi theo thời điểm (Point-in-Time Recovery)**: Bạn có thể khôi phục cơ sở dữ liệu về bất kỳ giây nào trong thời gian lưu trữ.
 
-#### Quản lý Backup
+### B. Snapshot Thủ công (Manual Snapshots)
+Bạn có thể tạo snapshot cho database bất kỳ lúc nào. Khác với sao lưu tự động, snapshot thủ công được lưu trữ mãi mãi cho đến khi bạn tự tay xóa chúng.
 
-1.  **Xem Chi tiết Backup**:
-    -   Chọn DB instance của bạn.
-    -   Điều hướng đến tab **Maintenance & backups**.
-    -   Tại đây, bạn có thể xem thông tin về cả backup tự động và thủ công, cũng như cấu hình cài đặt backup.
+**Các bước tạo Snapshot Thủ công:**
+1.  Mở [RDS Console](https://console.aws.amazon.com/rds).
+2.  Vào **Databases** -> Chọn `gametracker-mssql`.
+3.  Nhấn **Actions** -> **Take snapshot**.
+4.  Thông tin:
+    -   **Snapshot name**: `gametracker-manual-backup-v1`.
+5.  Nhấn **Take snapshot**.
 
-    ![AWS RDS Backup](/images/5/00019.png?featherlight=false&width=90pc)
+![RDS Snapshot](/images/5/00019.png?featherlight=false&width=90pc)
 
-2.  **Xem Snapshots**:
-    -   Trong thanh điều hướng bên trái, nhấp vào **Snapshots**.
-    -   Bạn sẽ thấy danh sách tất cả các snapshot thủ công và tự động.
+---
 
-    ![Snapshot Information](/images/5/00020.png?featherlight=false&width=90pc)
+## 2. Bảo vệ Dữ liệu S3
 
-#### Khôi phục từ DB Snapshot
+Đối với bucket `gametracker-assets`, chúng ta nên bật tính năng **Versioning** (Phiên bản). Tính năng này cho phép lưu giữ, truy xuất và khôi phục mọi phiên bản của mọi đối tượng được lưu trong bucket.
 
-**ℹ️ Information**: Khôi phục một snapshot sẽ tạo ra một DB instance **mới**. Nó không ghi đè lên instance hiện có.
+**Các bước bật Versioning:**
+1.  Mở [S3 Console](https://console.aws.amazon.com/s3).
+2.  Chọn bucket **gametracker-assets**.
+3.  Chuyển sang tab **Properties**.
+4.  Tại mục **Bucket Versioning**, nhấn **Edit**.
+5.  Chọn **Enable**.
+6.  Nhấn **Save changes**.
 
-1.  **Chọn Snapshot**:
-    -   Chọn DB snapshot bạn muốn khôi phục.
-    -   Nhấp vào **Actions** > **Restore snapshot**.
+Giờ đây, nếu admin lỡ tay xóa hoặc ghi đè nhầm hình ảnh nhân vật, bạn có thể dễ dàng khôi phục lại phiên bản trước đó.
 
-    ![Restore Snapshot](/images/5/00021.png?featherlight=false&width=90pc)
+---
 
-2.  **Cấu hình Instance Mới**:
-    -   **DB instance identifier**: Nhập tên duy nhất cho instance mới (ví dụ: `workshop-db-restore`).
-    -   **Instance specifications**: Chọn loại instance (ví dụ: `db.t3.micro`).
-    -   **Connectivity**: Chọn cùng VPC và Subnet Group như instance gốc của bạn.
-    -   **Security**: Chọn Security Group chính xác.
+## 3. Chiến lược Khôi phục (Restore)
 
-    **💡 Pro Tip**: Khi khôi phục để thử nghiệm, bạn có thể chọn loại instance nhỏ hơn để tiết kiệm chi phí.
-
-    ![Restore Settings](/images/5/00022.png?featherlight=false&width=90pc)
-
-3.  **Bắt đầu Khôi phục**:
-    -   Nhấp vào **Restore DB instance**.
-
-    **⚠️ Warning**: Quá trình khôi phục tạo ra một database instance hoàn toàn mới với endpoint mới. Bạn phải cập nhật chuỗi kết nối của ứng dụng để trỏ đến endpoint mới này.
-
-    ![Restore Complete](/images/5/00027.png?featherlight=false&width=90pc)
-
-4.  **Xác minh**:
-    -   Đợi trạng thái chuyển sang **Available**.
-    -   Kiểm tra kết nối đến instance mới.
-
-    ![Verify Restore](/images/5/00028.png?featherlight=false&width=90pc)
+Trong trường hợp có sự cố (ví dụ: xóa nhầm dữ liệu trong SQL Server):
+1.  Vào **RDS Console** -> **Snapshots**.
+2.  Chọn snapshot mới nhất (Tự động hoặc Thủ công).
+3.  Nhấn **Actions** -> **Restore snapshot**.
+4.  **New DB Instance Identifier**: ví dụ `gametracker-mssql-restore`.
+5.  Sau khi instance mới đã sẵn sàng (Available), hãy cập nhật **Lambda Environment Variables** (`SPRING_DATASOURCE_URL`) để trỏ tới endpoint mới.

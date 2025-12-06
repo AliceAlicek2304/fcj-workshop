@@ -1,54 +1,50 @@
 ﻿---
-title : "Dọn dẹp tài nguyên"
-date : "2025-10-27"
-weight : 7
-chapter : false
-pre : " <b> 5.7 </b> "
+title: "Dọn dẹp tài nguyên"
+date: "2025-10-27"
+weight: 7
+chapter: false
+pre: " <b> 5.7 </b> "
 ---
 
-#### Dọn dẹp Tài nguyên
+# Dọn dẹp tài nguyên
 
-**ℹ️ Information**: Để tránh các chi phí không mong muốn, việc dọn dẹp tất cả các tài nguyên đã tạo trong workshop này là rất quan trọng. Chúng ta sẽ xóa các tài nguyên theo thứ tự ngược lại với quy trình tạo.
+**Quan trọng**: Để tránh các chi phí không mong muốn, bạn bắt buộc phải xóa tất cả các tài nguyên đã tạo trong workshop này. Hãy làm theo các bước dưới đây theo đúng thứ tự.
 
-#### Bước 1: Xóa Tài nguyên RDS
+## 1. Xóa Tài nguyên Ứng dụng
 
-1.  **Xóa RDS Instance**:
-    -   Truy cập console **Amazon RDS** > **Databases**.
-    -   Chọn database instance của bạn (ví dụ: `workshop-db`).
-    -   Nhấp **Actions** > **Delete**.
-    -   Bỏ chọn **Create final snapshot** và đánh dấu vào ô **I acknowledge...**.
-    -   Nhập `delete me` và nhấp **Delete**.
+1.  **Frontend (S3 & CloudFront)**:
+    -   **CloudFront**: Disable (Vô hiệu hóa) distribution -> Đợi nó deploy xong -> Xóa nó.
+    -   **S3 Buckets**: Làm trống (Empty) các bucket `gametracker-frontend` và `gametracker-assets`, sau đó xóa chúng.
 
-2.  **Xóa DB Subnet Group**:
-    -   Đi tới **Subnet groups**.
-    -   Chọn nhóm của bạn (ví dụ: `rds-subnet-group`).
-    -   Nhấp **Delete**.
+2.  **Backend (Lambda & API Gateway & ECR)**:
+    -   **API Gateway**: Xóa API `gametracker-api`.
+    -   **Lambda**: Xóa function `gametracker-api`.
+    -   **ECR**: Xóa repository `gametracker-backend`.
 
-#### Bước 2: Terminate EC2 Instance
+## 2. Xóa Cơ sở dữ liệu
 
-1.  **Terminate Instance**:
-    -   Truy cập console **Amazon EC2** > **Instances**.
-    -   Chọn instance của bạn (ví dụ: `Workshop-Web-Server`).
-    -   Nhấp **Instance state** > **Terminate instance**.
-    -   Nhấp **Terminate**.
+1.  **RDS Instance**:
+    -   Truy cập **Amazon RDS** > **Databases**.
+    -   Chọn `gametracker-mssql`.
+    -   Action > **Delete**.
+    -   Bỏ chọn **Create final snapshot** và xác nhận xóa.
+2.  **DB Subnet Group**:
+    -   Vào **Subnet groups** -> Xóa `gametracker-db-subnet-group`.
 
-#### Bước 3: Xóa Tài nguyên Mạng
+## 3. Xóa Tài nguyên Mạng
 
-1.  **Xóa Security Groups**:
-    -   Truy cập console **VPC** > **Security Groups**.
-    -   Chọn **RDS Security Group** và xóa nó.
-    -   Chọn **EC2 Security Group** và xóa nó.
+1.  **NAT Gateway** (Rất tốn phí!):
+    -   Vào **VPC** > **NAT Gateways**.
+    -   Xóa `gametracker-nat`.
+    -   Đợi trạng thái chuyển sang `Deleted`.
+2.  **Elastic IP**:
+    -   Vào **Elastic IPs** -> Release (Giải phóng) IP đã cấp.
+3.  **VPC Endpoint**:
+    -   Vào **Endpoints** -> Xóa `gametracker-s3-endpoint`.
+4.  **VPC**:
+    -   Vào **Your VPCs** -> Chọn `gametracker-vpc` -> Actions -> **Delete VPC**.
+    -   Việc này sẽ tự động xóa Subnets, Route Tables, Internet Gateway, và Security Groups liên quan.
 
-    **💡 Pro Tip**: Bạn phải xóa RDS Security Group trước vì EC2 Security Group có thể đang tham chiếu đến nó (hoặc ngược lại tùy thuộc vào quy tắc của bạn). Nếu gặp lỗi phụ thuộc, hãy kiểm tra các quy tắc Inbound/Outbound.
+## 4. Xác minh
 
-2.  **Xóa VPC**:
-    -   Đi tới **Your VPCs**.
-    -   Chọn VPC workshop của bạn.
-    -   Nhấp **Actions** > **Delete VPC**.
-    -   Nhập `delete` và xác nhận.
-
-    **ℹ️ Information**: Xóa VPC sẽ tự động xóa các subnet, bảng định tuyến và internet gateway liên quan.
-
-#### Xác minh
-
-1.  Kiểm tra **Billing Dashboard** của bạn vào ngày hôm sau để đảm bảo không còn tài nguyên nào đang hoạt động.
+Kiểm tra **Billing Dashboard** của bạn vào ngày hôm sau để đảm bảo không còn tài nguyên nào đang hoạt động.

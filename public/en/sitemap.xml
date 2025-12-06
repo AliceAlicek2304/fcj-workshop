@@ -15,6 +15,19 @@
                 href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/1-create-vpc/"
                 />
   </url><url>
+    <loc>http://localhost:1313/fcj-workshop/5-workshop/5.4-deploy-app/1-deploy-backend/</loc>
+    <lastmod>2025-10-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.4-deploy-app/1-deploy-backend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.4-deploy-app/1-deploy-backend/"
+                />
+  </url><url>
     <loc>http://localhost:1313/fcj-workshop/5-workshop/5.1-introduce/</loc>
     <lastmod>2025-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -288,6 +301,19 @@
                 href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/2-create-iam/"
                 />
   </url><url>
+    <loc>http://localhost:1313/fcj-workshop/5-workshop/5.4-deploy-app/2-deploy-frontend/</loc>
+    <lastmod>2025-10-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.4-deploy-app/2-deploy-frontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.4-deploy-app/2-deploy-frontend/"
+                />
+  </url><url>
     <loc>http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/</loc>
     <lastmod>2025-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -405,6 +431,19 @@
                 href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/4-create-db-subnetgroup/"
                 />
   </url><url>
+    <loc>http://localhost:1313/fcj-workshop/5-workshop/5.4-deploy-app/</loc>
+    <lastmod>2025-10-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.4-deploy-app/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.4-deploy-app/"
+                />
+  </url><url>
     <loc>http://localhost:1313/fcj-workshop/4-eventparticipated/</loc>
     <lastmod>2025-09-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -418,17 +457,17 @@
                 href="http://localhost:1313/fcj-workshop/4-eventparticipated/"
                 />
   </url><url>
-    <loc>http://localhost:1313/fcj-workshop/5-workshop/5.5-deploy-app/</loc>
+    <loc>http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/5-create-nat/</loc>
     <lastmod>2025-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.5-deploy-app/"
+                href="http://localhost:1313/fcj-workshop/vi/5-workshop/5.2-prerequiste/5-create-nat/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/fcj-workshop/5-workshop/5.5-deploy-app/"
+                href="http://localhost:1313/fcj-workshop/5-workshop/5.2-prerequiste/5-create-nat/"
                 />
   </url><url>
     <loc>http://localhost:1313/fcj-workshop/5-workshop/</loc>
