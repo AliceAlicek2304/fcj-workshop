@@ -12,24 +12,24 @@
 
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
-    <title>Workshop: Get Started with Amazon RDS :: Internship Report</title>
+    <title>Workshop: Deploy GameTracker on AWS :: Internship Report</title>
 
     
-    <link href="../css/nucleus.css?1765000178" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1765000178" rel="stylesheet">
-    <link href="../css/hybrid.css?1765000178" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1765000178" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1765000178" rel="stylesheet">
-    <link href="../css/auto-complete.css?1765000178" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1765000178" rel="stylesheet">
-    <link href="../css/theme.css?1765000178" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1765000178" rel="stylesheet">
+    <link href="../css/nucleus.css?1765002640" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1765002640" rel="stylesheet">
+    <link href="../css/hybrid.css?1765002640" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1765002640" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1765002640" rel="stylesheet">
+    <link href="../css/auto-complete.css?1765002640" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1765002640" rel="stylesheet">
+    <link href="../css/theme.css?1765002640" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1765002640" rel="stylesheet">
     
-    <link href="../css/theme-workshop.css?1765000178" rel="stylesheet">
+    <link href="../css/theme-workshop.css?1765002640" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1765000178"></script>
+    <script src="../js/jquery-3.3.1.min.js?1765002640"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1765000178"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1765000178"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1765002640"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1765002640"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1765000178"></script>
+<script type="text/javascript" src="../js/search.js?1765002640"></script>
  
   </div>
 
@@ -558,7 +558,7 @@
                
 <li
   data-nav-id="/5-workshop/"
-  title="Workshop: Get Started with Amazon RDS"
+  title="Workshop: Deploy GameTracker on AWS"
   class="dd-item 
         
         active
@@ -566,7 +566,7 @@
         "
 >
   <a href="../5-workshop/">
-     <b> 5. </b> Workshop: Get Started with Amazon RDS 
+     <b> 5. </b> Workshop: Deploy GameTracker on AWS 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -782,7 +782,7 @@
             
 <li
   data-nav-id="/5-workshop/6-backup/"
-  title="Backup and Restore"
+  title="Backup &amp; Restore"
   class="dd-item 
         
         
@@ -790,7 +790,7 @@
         "
 >
   <a href="../5-workshop/6-backup/">
-     <b> 5.6 </b> Backup and Restore 
+     <b> 5.6 </b> Backup &amp; Restore 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -800,7 +800,7 @@
             
 <li
   data-nav-id="/5-workshop/7-cleanup/"
-  title="Clean up resources"
+  title="Cleanup Resources"
   class="dd-item 
         
         
@@ -808,7 +808,7 @@
         "
 >
   <a href="../5-workshop/7-cleanup/">
-     <b> 5.7 </b> Clean up resources 
+     <b> 5.7 </b> Cleanup Resources 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -1005,7 +1005,7 @@
             
           
           
-            <a href='../'>Internship Report</a> > Workshop: Get Started with Amazon RDS
+            <a href='../'>Internship Report</a> > Workshop: Deploy GameTracker on AWS
           
         
           
@@ -1017,11 +1017,13 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#overview">Overview</a>
       <ul>
-        <li></li>
+        <li><a href="#what-you-will-build">What you will build</a></li>
       </ul>
     </li>
+    <li><a href="#workshop-structure">Workshop Structure</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1038,7 +1040,7 @@
           
             <h1>
               
-              Workshop: Get Started with Amazon RDS
+              Workshop: Deploy GameTracker on AWS
             </h1>
           
 
@@ -1046,72 +1048,43 @@
 
 
 
-	<h1 id="amazon-relational-database-service-amazon-rds">Amazon Relational Database Service (Amazon RDS)</h1>
-<h4 id="overview-of-amazon-rds">Overview of Amazon RDS</h4>
-<p><strong>ℹ️ Information</strong>: Amazon Relational Database Service (Amazon RDS) is a managed service that allows you to deploy and manage relational databases on AWS. Amazon RDS is designed for online transaction processing (OLTP) and is best suited for structured, relational data storage requirements.</p>
-<p>Amazon RDS provides key benefits:</p>
+	<h1 id="workshop-deploy-gametracker-on-aws">Workshop: Deploy GameTracker on AWS</h1>
+<h2 id="overview">Overview</h2>
+<p>Welcome to the <strong>GameTracker Deployment Workshop</strong>. In this hands-on session, you will learn how to deploy a complete 3-tier web application on AWS using modern cloud practices.</p>
+<p>You will move from a local development environment to a production-ready cloud architecture.</p>
+<h3 id="what-you-will-build">What you will build</h3>
+<p>You will deploy <strong>GameTracker</strong>, a web application that tracks player statistics. The architecture includes:</p>
 <ul>
-<li>Easy replacement for traditional database instances</li>
-<li>Automated backups and patching during customer-defined maintenance windows</li>
-<li>One-click scaling, replication, and availability</li>
+<li><strong>Frontend</strong>: React Single Page Application (SPA) hosted on <strong>Amazon S3</strong> and distributed via <strong>Amazon CloudFront</strong>.</li>
+<li><strong>Backend</strong>: Spring Boot REST API containerized with Docker, running on <strong>AWS Lambda</strong> (Serverless).</li>
+<li><strong>Database</strong>: <strong>Amazon RDS for SQL Server</strong> to store structured game data.</li>
+<li><strong>Network</strong>: A custom <strong>VPC</strong> with public/private subnets and security groups.</li>
 </ul>
-<p><img src="../images/1/0001.png?featherlight=false&amp;width=90pc" alt="Create a VPC"></p>
-<h4 id="supported-database-engines">Supported Database Engines</h4>
-<p>Amazon RDS supports the following database engines:</p>
+<p><img src="../images/1/0001.png?featherlight=false&amp;width=90pc" alt="Architecture"></p>
+<h2 id="workshop-structure">Workshop Structure</h2>
+<p>This workshop is divided into the following modules:</p>
+<ol>
+<li><strong><a href="../5-workshop/5.1-introduce/">Introduction</a></strong>: Overview of the project, architecture, and AWS services used.</li>
+<li><strong><a href="../5-workshop/5.2-prerequiste/">Prerequisites</a></strong>: Setting up the foundation (VPC, IAM, Security Groups, NAT Gateway).</li>
+<li><strong><a href="../5-workshop/5.3-create-rds/">Create Database</a></strong>: Provisioning the Amazon RDS SQL Server instance.</li>
+<li><strong><a href="../5-workshop/5.4-deploy-app/">Deploy Application</a></strong>:
 <ul>
-<li>Amazon Aurora</li>
-<li>MySQL</li>
-<li>MariaDB</li>
-<li>Oracle</li>
-<li>SQL Server</li>
-<li>PostgreSQL</li>
+<li>Containerizing and deploying the Backend (ECR, Lambda, API Gateway).</li>
+<li>Hosting and distributing the Frontend (S3, CloudFront).</li>
 </ul>
-<p><strong>⚠️ Warning</strong>: RDS is a managed service and you don&rsquo;t have root access to the underlying EC2 server. The exception is <strong>Amazon RDS Custom</strong>, which allows access to the underlying operating system but is only available for a limited set of DB Engines.</p>
-<h4 id="storage-options">Storage Options</h4>
+</li>
+<li><strong><a href="../5-workshop/6-backup/">Backup &amp; Restore</a></strong>: Strategies for protecting your data.</li>
+<li><strong><a href="../5-workshop/7-cleanup/">Cleanup</a></strong>: Removing resources to avoid costs.</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before starting, ensure you have:</p>
 <ul>
-<li><strong>General Purpose SSD (gp3/gp2)</strong>: Cost-effective storage providing 3 IOPS/GB baseline performance</li>
-<li><strong>Provisioned IOPS SSD (io1/io2)</strong>: High-performance storage with customizable IOPS for I/O-intensive workloads</li>
-<li><strong>Magnetic Storage</strong>: Legacy option with limited performance (not recommended for new deployments)</li>
+<li>An active <strong>AWS Account</strong>.</li>
+<li><strong>AWS CLI</strong> installed and configured.</li>
+<li><strong>Docker</strong> installed locally.</li>
+<li><strong>Java 17+</strong> and <strong>Node.js</strong> installed (for building the app).</li>
 </ul>
-<p><strong>💡 Pro Tip</strong>: Choose General Purpose SSD for most workloads, and Provisioned IOPS only when you need consistent I/O performance for database-intensive applications.</p>
-<h4 id="high-availability-and-disaster-recovery">High Availability and Disaster Recovery</h4>
-<ul>
-<li><strong>Multi-AZ Deployments</strong>: Synchronous standby replica in a different Availability Zone for automatic failover</li>
-<li><strong>Read Replicas</strong>: Asynchronous replication for read scaling and potential disaster recovery</li>
-<li><strong>Global Databases</strong>: Cross-region replication with fast local reads and disaster recovery capabilities</li>
-</ul>
-<p><strong>🔒 Security Note</strong>: Multi-AZ deployments enhance both availability and data durability, with automatic failover typically completing within 60-120 seconds.</p>
-<h4 id="security-features">Security Features</h4>
-<ul>
-<li><strong>Encryption at rest</strong>: Using AWS KMS keys (applies to DB instances, backups, snapshots, and replicas)</li>
-<li><strong>Network isolation</strong>: Using Amazon VPC for network-level isolation</li>
-<li><strong>Resource-level permissions</strong>: Using IAM policies</li>
-<li><strong>SSL/TLS encryption</strong>: For data in transit</li>
-<li><strong>Database authentication</strong>: Using database engine native authentication or IAM authentication</li>
-</ul>
-<h4 id="scalability-and-limits">Scalability and Limits</h4>
-<ul>
-<li>Storage can be scaled up (not down) without downtime</li>
-<li>Compute resources can be modified with a brief downtime during the change</li>
-<li>Maximum storage: 64 TiB for most engines (16 TiB for SQL Server)</li>
-<li>Maximum database connections: Varies by engine and instance size</li>
-</ul>
-<p><strong>💡 Pro Tip</strong>: Plan your initial storage carefully as you can only scale up. Consider using Aurora for more flexible scaling options.</p>
-<h4 id="backup-and-recovery">Backup and Recovery</h4>
-<ul>
-<li><strong>Automated backups</strong>: Point-in-time recovery for up to 35 days</li>
-<li><strong>Manual snapshots</strong>: User-initiated backups that persist until explicitly deleted</li>
-<li><strong>Snapshot export to S3</strong>: For long-term retention or analysis</li>
-</ul>
-<h4 id="when-to-use-amazon-rds">When to Use Amazon RDS</h4>
-<p>Amazon RDS is ideal for:</p>
-<ul>
-<li>Traditional relational database workloads</li>
-<li>Applications requiring SQL query capabilities</li>
-<li>Structured data with well-defined schemas</li>
-<li>OLTP workloads with predictable scaling needs</li>
-</ul>
-<p><strong>ℹ️ Information</strong>: For unstructured data, high-scale requirements, or specialized workloads, consider alternative AWS database services like DynamoDB, DocumentDB, or purpose-built databases.</p>
+<p>Let&rsquo;s get started!</p>
 
 
 
@@ -1828,19 +1801,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1765000178"></script>
-    <script src="../js/perfect-scrollbar.min.js?1765000178"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1765000178"></script>
-    <script src="../js/jquery.sticky.js?1765000178"></script>
-    <script src="../js/featherlight.min.js?1765000178"></script>
-    <script src="../js/highlight.pack.js?1765000178"></script>
+    <script src="../js/clipboard.min.js?1765002640"></script>
+    <script src="../js/perfect-scrollbar.min.js?1765002640"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1765002640"></script>
+    <script src="../js/jquery.sticky.js?1765002640"></script>
+    <script src="../js/featherlight.min.js?1765002640"></script>
+    <script src="../js/highlight.pack.js?1765002640"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1765000178"></script>
-    <script src="../js/learn.js?1765000178"></script>
-    <script src="../js/hugo-learn.js?1765000178"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1765002640"></script>
+    <script src="../js/learn.js?1765002640"></script>
+    <script src="../js/hugo-learn.js?1765002640"></script>
 
-    <link href="../mermaid/mermaid.css?1765000178" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1765000178"></script>
+    <link href="../mermaid/mermaid.css?1765002640" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1765002640"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

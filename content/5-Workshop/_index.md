@@ -1,81 +1,48 @@
 ---
-title : "Workshop: Get Started with Amazon RDS"
-date : "2025-10-27"
-weight : 5
-chapter : false
+title: "Workshop: Deploy GameTracker on AWS"
+date: "2025-10-27"
+weight: 5
+chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Amazon Relational Database Service (Amazon RDS)
+# Workshop: Deploy GameTracker on AWS
 
-#### Overview of Amazon RDS
+## Overview
 
-**ℹ️ Information**: Amazon Relational Database Service (Amazon RDS) is a managed service that allows you to deploy and manage relational databases on AWS. Amazon RDS is designed for online transaction processing (OLTP) and is best suited for structured, relational data storage requirements.
+Welcome to the **GameTracker Deployment Workshop**. In this hands-on session, you will learn how to deploy a complete 3-tier web application on AWS using modern cloud practices.
 
-Amazon RDS provides key benefits:
-- Easy replacement for traditional database instances
-- Automated backups and patching during customer-defined maintenance windows
-- One-click scaling, replication, and availability
+You will move from a local development environment to a production-ready cloud architecture.
 
-![Create a VPC](/images/1/0001.png?featherlight=false&width=90pc)
+### What you will build
 
-#### Supported Database Engines
+You will deploy **GameTracker**, a web application that tracks player statistics. The architecture includes:
+-   **Frontend**: React Single Page Application (SPA) hosted on **Amazon S3** and distributed via **Amazon CloudFront**.
+-   **Backend**: Spring Boot REST API containerized with Docker, running on **AWS Lambda** (Serverless).
+-   **Database**: **Amazon RDS for SQL Server** to store structured game data.
+-   **Network**: A custom **VPC** with public/private subnets and security groups.
 
-Amazon RDS supports the following database engines:
-- Amazon Aurora
-- MySQL
-- MariaDB
-- Oracle
-- SQL Server
-- PostgreSQL
+![Architecture](/images/1/0001.png?featherlight=false&width=90pc)
 
-**⚠️ Warning**: RDS is a managed service and you don't have root access to the underlying EC2 server. The exception is **Amazon RDS Custom**, which allows access to the underlying operating system but is only available for a limited set of DB Engines.
+## Workshop Structure
 
-#### Storage Options
+This workshop is divided into the following modules:
 
-- **General Purpose SSD (gp3/gp2)**: Cost-effective storage providing 3 IOPS/GB baseline performance
-- **Provisioned IOPS SSD (io1/io2)**: High-performance storage with customizable IOPS for I/O-intensive workloads
-- **Magnetic Storage**: Legacy option with limited performance (not recommended for new deployments)
+1.  **[Introduction](5.1-introduce/)**: Overview of the project, architecture, and AWS services used.
+2.  **[Prerequisites](5.2-prerequiste/)**: Setting up the foundation (VPC, IAM, Security Groups, NAT Gateway).
+3.  **[Create Database](5.3-create-rds/)**: Provisioning the Amazon RDS SQL Server instance.
+4.  **[Deploy Application](5.4-deploy-app/)**:
+    -   Containerizing and deploying the Backend (ECR, Lambda, API Gateway).
+    -   Hosting and distributing the Frontend (S3, CloudFront).
+5.  **[Backup & Restore](6-backup/)**: Strategies for protecting your data.
+6.  **[Cleanup](7-cleanup/)**: Removing resources to avoid costs.
 
-**💡 Pro Tip**: Choose General Purpose SSD for most workloads, and Provisioned IOPS only when you need consistent I/O performance for database-intensive applications.
+## Prerequisites
 
-#### High Availability and Disaster Recovery
+Before starting, ensure you have:
+-   An active **AWS Account**.
+-   **AWS CLI** installed and configured.
+-   **Docker** installed locally.
+-   **Java 17+** and **Node.js** installed (for building the app).
 
-- **Multi-AZ Deployments**: Synchronous standby replica in a different Availability Zone for automatic failover
-- **Read Replicas**: Asynchronous replication for read scaling and potential disaster recovery
-- **Global Databases**: Cross-region replication with fast local reads and disaster recovery capabilities
-
-**🔒 Security Note**: Multi-AZ deployments enhance both availability and data durability, with automatic failover typically completing within 60-120 seconds.
-
-#### Security Features
-
-- **Encryption at rest**: Using AWS KMS keys (applies to DB instances, backups, snapshots, and replicas)
-- **Network isolation**: Using Amazon VPC for network-level isolation
-- **Resource-level permissions**: Using IAM policies
-- **SSL/TLS encryption**: For data in transit
-- **Database authentication**: Using database engine native authentication or IAM authentication
-
-#### Scalability and Limits
-
-- Storage can be scaled up (not down) without downtime
-- Compute resources can be modified with a brief downtime during the change
-- Maximum storage: 64 TiB for most engines (16 TiB for SQL Server)
-- Maximum database connections: Varies by engine and instance size
-
-**💡 Pro Tip**: Plan your initial storage carefully as you can only scale up. Consider using Aurora for more flexible scaling options.
-
-#### Backup and Recovery
-
-- **Automated backups**: Point-in-time recovery for up to 35 days
-- **Manual snapshots**: User-initiated backups that persist until explicitly deleted
-- **Snapshot export to S3**: For long-term retention or analysis
-
-#### When to Use Amazon RDS
-
-Amazon RDS is ideal for:
-- Traditional relational database workloads
-- Applications requiring SQL query capabilities
-- Structured data with well-defined schemas
-- OLTP workloads with predictable scaling needs
-
-**ℹ️ Information**: For unstructured data, high-scale requirements, or specialized workloads, consider alternative AWS database services like DynamoDB, DocumentDB, or purpose-built databases.
+Let's get started!
