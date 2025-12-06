@@ -52,10 +52,20 @@ Workshop này được chia thành các giai đoạn logic:
 5.  **Dọn dẹp**: Hướng dẫn xóa tài nguyên để tránh phát sinh chi phí.
 
 ## 🛠️ Điều kiện tiên quyết
-- Một tài khoản AWS đang hoạt động.
-- Đã cài đặt và cấu hình AWS CLI.
-- Đã cài đặt Docker trên máy local.
-- Kiến thức cơ bản về các lệnh terminal.
+
+Trước khi bắt đầu, hãy đảm bảo bạn có:
+
+1.  **AWS Account**: Tài khoản hoạt động với quyền admin.
+2.  **Công cụ cài đặt**:
+    -   [AWS CLI](https://aws.amazon.com/cli/) (Đã cấu hình với `aws configure`).
+    -   [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+    -   [Node.js](https://nodejs.org/) và [Java 17](https://adoptium.net/).
+3.  **Mã nguồn (Source Code)**:
+    -   Clone repository của workshop:
+        ```bash
+        git clone https://github.com/your-repo/gametracker-workshop.git
+        cd gametracker-workshop
+        ```
 
 ---
 

@@ -15,21 +15,21 @@
     <title>Giới thiệu :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1765000178" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765000178" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765000178" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765000178" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765000178" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765000178" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765000178" rel="stylesheet">
-    <link href="../../../css/theme.css?1765000178" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765000178" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765002924" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765002924" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765002924" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765002924" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765002924" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765002924" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765002924" rel="stylesheet">
+    <link href="../../../css/theme.css?1765002924" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765002924" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765000178" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765002924" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765000178"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765002924"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765000178"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765000178"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765002924"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765002924"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765000178"></script>
+<script type="text/javascript" src="../../../js/search.js?1765002924"></script>
  
   </div>
 
@@ -558,7 +558,7 @@
                
 <li
   data-nav-id="/vi/5-workshop/"
-  title="Workshop: Bắt đầu với Amazon RDS"
+  title="Workshop: Triển khai GameTracker lên AWS"
   class="dd-item 
         parent
         
@@ -566,7 +566,7 @@
         "
 >
   <a href="../../../vi/5-workshop/">
-     <b> 5. </b> Workshop: Bắt đầu với Amazon RDS 
+     <b> 5. </b> Workshop: Triển khai GameTracker lên AWS 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -782,7 +782,7 @@
             
 <li
   data-nav-id="/vi/5-workshop/6-backup/"
-  title="Backup và Restore"
+  title="Backup &amp; Restore"
   class="dd-item 
         
         
@@ -790,7 +790,7 @@
         "
 >
   <a href="../../../vi/5-workshop/6-backup/">
-     <b> 5.6 </b> Backup và Restore 
+     <b> 5.6 </b> Backup &amp; Restore 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -1009,7 +1009,7 @@
             
           
           
-            <a href='../../../vi/'>Internship Report</a> > <a href='../../../vi/5-workshop/'>Workshop: Bắt đầu với Amazon RDS</a> > Giới thiệu
+            <a href='../../../vi/'>Internship Report</a> > <a href='../../../vi/5-workshop/'>Workshop: Triển khai GameTracker lên AWS</a> > Giới thiệu
           
         
           
@@ -1124,12 +1124,25 @@
 <li><strong>Dọn dẹp</strong>: Hướng dẫn xóa tài nguyên để tránh phát sinh chi phí.</li>
 </ol>
 <h2 id="-điều-kiện-tiên-quyết">🛠️ Điều kiện tiên quyết</h2>
+<p>Trước khi bắt đầu, hãy đảm bảo bạn có:</p>
+<ol>
+<li><strong>AWS Account</strong>: Tài khoản hoạt động với quyền admin.</li>
+<li><strong>Công cụ cài đặt</strong>:
 <ul>
-<li>Một tài khoản AWS đang hoạt động.</li>
-<li>Đã cài đặt và cấu hình AWS CLI.</li>
-<li>Đã cài đặt Docker trên máy local.</li>
-<li>Kiến thức cơ bản về các lệnh terminal.</li>
+<li><a href="https://aws.amazon.com/cli/">AWS CLI</a> (Đã cấu hình với <code>aws configure</code>).</li>
+<li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>.</li>
+<li><a href="https://nodejs.org/">Node.js</a> và <a href="https://adoptium.net/">Java 17</a>.</li>
 </ul>
+</li>
+<li><strong>Mã nguồn (Source Code)</strong>:
+<ul>
+<li>Clone repository của workshop:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/your-repo/gametracker-workshop.git
+</span></span><span style="display:flex;"><span>cd gametracker-workshop
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ol>
 <hr>
 <p><strong>Lưu ý</strong>: Một số tài nguyên như <strong>RDS</strong> và <strong>NAT Gateway</strong> tính phí theo giờ. Vui lòng làm theo phần <strong>Dọn dẹp (Cleanup)</strong> ngay sau khi hoàn thành workshop để tránh các khoản phí không mong muốn.</p>
 
@@ -1836,7 +1849,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../vi/5-workshop/" title="Workshop: Bắt đầu với Amazon RDS"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../vi/5-workshop/" title="Workshop: Triển khai GameTracker lên AWS"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="../../../vi/5-workshop/5.2-prerequiste/" title="Chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1849,19 +1862,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765000178"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765000178"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765000178"></script>
-    <script src="../../../js/jquery.sticky.js?1765000178"></script>
-    <script src="../../../js/featherlight.min.js?1765000178"></script>
-    <script src="../../../js/highlight.pack.js?1765000178"></script>
+    <script src="../../../js/clipboard.min.js?1765002924"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765002924"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765002924"></script>
+    <script src="../../../js/jquery.sticky.js?1765002924"></script>
+    <script src="../../../js/featherlight.min.js?1765002924"></script>
+    <script src="../../../js/highlight.pack.js?1765002924"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765000178"></script>
-    <script src="../../../js/learn.js?1765000178"></script>
-    <script src="../../../js/hugo-learn.js?1765000178"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765002924"></script>
+    <script src="../../../js/learn.js?1765002924"></script>
+    <script src="../../../js/hugo-learn.js?1765002924"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765000178" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765000178"></script>
+    <link href="../../../mermaid/mermaid.css?1765002924" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765002924"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

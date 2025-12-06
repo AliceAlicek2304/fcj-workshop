@@ -15,21 +15,21 @@
     <title>Deploy Frontend :: Báo cáo thực tập</title>
 
     
-    <link href="../../../../css/nucleus.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/fontawesome-all.min.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/hybrid.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/featherlight.min.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/perfect-scrollbar.min.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/auto-complete.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/atom-one-dark-reasonable.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/theme.css?1765000178" rel="stylesheet">
-    <link href="../../../../css/hugo-theme.css?1765000178" rel="stylesheet">
+    <link href="../../../../css/nucleus.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/fontawesome-all.min.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/hybrid.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/featherlight.min.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/perfect-scrollbar.min.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/atom-one-dark-reasonable.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/theme.css?1765002910" rel="stylesheet">
+    <link href="../../../../css/hugo-theme.css?1765002910" rel="stylesheet">
     
-    <link href="../../../../css/theme-workshop.css?1765000178" rel="stylesheet">
+    <link href="../../../../css/theme-workshop.css?1765002910" rel="stylesheet">
     
     
 
-    <script src="../../../../js/jquery-3.3.1.min.js?1765000178"></script>
+    <script src="../../../../js/jquery-3.3.1.min.js?1765002910"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../../js/lunr.min.js?1765000178"></script>
-<script type="text/javascript" src="../../../../js/auto-complete.js?1765000178"></script>
+<script type="text/javascript" src="../../../../js/lunr.min.js?1765002910"></script>
+<script type="text/javascript" src="../../../../js/auto-complete.js?1765002910"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../../js/search.js?1765000178"></script>
+<script type="text/javascript" src="../../../../js/search.js?1765002910"></script>
  
   </div>
 
@@ -558,7 +558,7 @@
                
 <li
   data-nav-id="/vi/5-workshop/"
-  title="Workshop: Bắt đầu với Amazon RDS"
+  title="Workshop: Triển khai GameTracker lên AWS"
   class="dd-item 
         parent
         
@@ -566,7 +566,7 @@
         "
 >
   <a href="../../../../vi/5-workshop/">
-     <b> 5. </b> Workshop: Bắt đầu với Amazon RDS 
+     <b> 5. </b> Workshop: Triển khai GameTracker lên AWS 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -782,7 +782,7 @@
             
 <li
   data-nav-id="/vi/5-workshop/6-backup/"
-  title="Backup và Restore"
+  title="Backup &amp; Restore"
   class="dd-item 
         
         
@@ -790,7 +790,7 @@
         "
 >
   <a href="../../../../vi/5-workshop/6-backup/">
-     <b> 5.6 </b> Backup và Restore 
+     <b> 5.6 </b> Backup &amp; Restore 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -1013,7 +1013,7 @@
             
           
           
-            <a href='../../../../vi/'>Internship Report</a> > <a href='../../../../vi/5-workshop/'>Workshop: Bắt đầu với Amazon RDS</a> > <a href='../../../../vi/5-workshop/5.4-deploy-app/'>Triển khai Ứng dụng</a> > Deploy Frontend
+            <a href='../../../../vi/'>Internship Report</a> > <a href='../../../../vi/5-workshop/'>Workshop: Triển khai GameTracker lên AWS</a> > <a href='../../../../vi/5-workshop/5.4-deploy-app/'>Triển khai Ứng dụng</a> > Deploy Frontend
           
         
           
@@ -1040,7 +1040,8 @@
         <li><a href="#aws-console-1">AWS Console</a></li>
       </ul>
     </li>
-    <li><a href="#3-build--deploy-react-app">3. Build &amp; Deploy React App</a></li>
+    <li><a href="#3-cấu-hình-và-build-react-app">3. Cấu hình và Build React App</a></li>
+    <li><a href="#4-upload-lên-s3">4. Upload lên S3</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1103,17 +1104,29 @@
 <li>Nhấn <strong>Create</strong>.</li>
 </ol>
 <hr>
-<h2 id="3-build--deploy-react-app">3. Build &amp; Deploy React App</h2>
-<p>Cập nhật API URL trong ứng dụng React của bạn để trỏ tới API Gateway Invoke URL bạn đã lấy ở bước trước.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. Build</span>
+<h2 id="3-cấu-hình-và-build-react-app">3. Cấu hình và Build React App</h2>
+<p>Trước khi build, bạn phải trỏ Frontend tới API Gateway mới tạo.</p>
+<ol>
+<li>Mở thư mục <code>frontend</code> trong trình soạn thảo code.</li>
+<li>Tìm file cấu hình (thường là <code>.env</code> hoặc <code>src/config.js</code>).</li>
+<li>Cập nhật <strong>API_URL</strong> thành <strong>API Gateway Invoke URL</strong> của bạn (lấy từ bước 5.4.1).
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Ví dụ .env
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">REACT_APP_API_URL</span><span style="color:#f92672">=</span><span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//&lt;api-id&gt;.execute-api.ap-southeast-2.amazonaws.com
+</span></span></span></code></pre></div></li>
+<li>Build ứng dụng:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install
 </span></span><span style="display:flex;"><span>npm run build
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Sync lên S3</span>
+</span></span></code></pre></div></li>
+</ol>
+<hr>
+<h2 id="4-upload-lên-s3">4. Upload lên S3</h2>
+<p>Đẩy các file đã build lên S3 bucket.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Sync thư mục build lên S3</span>
 </span></span><span style="display:flex;"><span>aws s3 sync build/ s3://gametracker-frontend
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Xóa Cache (Tùy chọn nhưng khuyến nghị)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Xóa Cache (để thấy thay đổi ngay lập tức)</span>
 </span></span><span style="display:flex;"><span>aws cloudfront create-invalidation --distribution-id &lt;DISTRIBUTION_ID&gt; --paths <span style="color:#e6db74">&#34;/*&#34;</span>
-</span></span></code></pre></div><p>Ứng dụng GameTracker của bạn hiện đã hoạt động tại tên miền CloudFront!</p>
+</span></span></code></pre></div><p><strong>🎉 Thành công!</strong> Ứng dụng GameTracker của bạn hiện đã hoạt động tại tên miền CloudFront! Hãy truy cập trình duyệt để kiểm tra.</p>
 
 
 
@@ -1828,7 +1841,7 @@
 			<a class="nav nav-prev" href="../../../../vi/5-workshop/5.4-deploy-app/1-deploy-backend/" title="Deploy Backend"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../../vi/5-workshop/6-backup/" title="Backup và Restore" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../../vi/5-workshop/6-backup/" title="Backup &amp; Restore" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1838,19 +1851,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../../js/clipboard.min.js?1765000178"></script>
-    <script src="../../../../js/perfect-scrollbar.min.js?1765000178"></script>
-    <script src="../../../../js/perfect-scrollbar.jquery.min.js?1765000178"></script>
-    <script src="../../../../js/jquery.sticky.js?1765000178"></script>
-    <script src="../../../../js/featherlight.min.js?1765000178"></script>
-    <script src="../../../../js/highlight.pack.js?1765000178"></script>
+    <script src="../../../../js/clipboard.min.js?1765002910"></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1765002910"></script>
+    <script src="../../../../js/perfect-scrollbar.jquery.min.js?1765002910"></script>
+    <script src="../../../../js/jquery.sticky.js?1765002910"></script>
+    <script src="../../../../js/featherlight.min.js?1765002910"></script>
+    <script src="../../../../js/highlight.pack.js?1765002910"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../../js/modernizr.custom-3.6.0.js?1765000178"></script>
-    <script src="../../../../js/learn.js?1765000178"></script>
-    <script src="../../../../js/hugo-learn.js?1765000178"></script>
+    <script src="../../../../js/modernizr.custom-3.6.0.js?1765002910"></script>
+    <script src="../../../../js/learn.js?1765002910"></script>
+    <script src="../../../../js/hugo-learn.js?1765002910"></script>
 
-    <link href="../../../../mermaid/mermaid.css?1765000178" rel="stylesheet" />
-    <script src="../../../../mermaid/mermaid.js?1765000178"></script>
+    <link href="../../../../mermaid/mermaid.css?1765002910" rel="stylesheet" />
+    <script src="../../../../mermaid/mermaid.js?1765002910"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

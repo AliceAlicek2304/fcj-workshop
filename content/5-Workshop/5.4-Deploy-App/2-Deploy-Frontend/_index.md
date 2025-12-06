@@ -46,19 +46,35 @@ This ensures fast delivery and HTTPS.
 
 ---
 
-## 3. Build & Deploy React App
+## 3. Configure and Build React App
 
-Update your React app's API URL to point to the API Gateway Invoke URL you obtained in the previous step.
+Before building, you must point the Frontend to your new API Gateway.
+
+1.  Open the `frontend` folder in your code editor.
+2.  Find the configuration file (usually `.env` or `src/config.js`).
+3.  Update the **API_URL** to your **API Gateway Invoke URL** (from step 5.4.1).
+    ```javascript
+    // Example .env
+    REACT_APP_API_URL=https://<api-id>.execute-api.ap-southeast-2.amazonaws.com
+    ```
+4.  Build the application:
+    ```bash
+    npm install
+    npm run build
+    ```
+
+---
+
+## 4. Deploy to S3
+
+Upload the build artifacts to your S3 bucket.
 
 ```bash
-# 1. Build
-npm run build
-
-# 2. Sync to S3
+# Sync build folder to S3
 aws s3 sync build/ s3://gametracker-frontend
 
-# 3. Invalidate Cache (Optional but recommended)
+# Invalidate Cache (to see changes immediately)
 aws cloudfront create-invalidation --distribution-id <DISTRIBUTION_ID> --paths "/*"
 ```
 
-Your GameTracker application is now live at the CloudFront Domain Name!
+**🎉 Success!** Your GameTracker application is now live at the CloudFront Domain Name! Access it via the browser to test.

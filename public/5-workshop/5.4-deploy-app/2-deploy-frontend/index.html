@@ -15,21 +15,21 @@
     <title>Deploy Frontend :: Internship Report</title>
 
     
-    <link href="../../../css/nucleus.css?1765000178" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765000178" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765000178" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765000178" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765000178" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765000178" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765000178" rel="stylesheet">
-    <link href="../../../css/theme.css?1765000178" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765000178" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765003299" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765003299" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765003299" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765003299" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765003299" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765003299" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765003299" rel="stylesheet">
+    <link href="../../../css/theme.css?1765003299" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765003299" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765000178" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765003299" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765000178"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765003299"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765000178"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765000178"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765003299"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765003299"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765000178"></script>
+<script type="text/javascript" src="../../../js/search.js?1765003299"></script>
  
   </div>
 
@@ -558,7 +558,7 @@
                
 <li
   data-nav-id="/5-workshop/"
-  title="Workshop: Get Started with Amazon RDS"
+  title="Workshop: Deploy GameTracker on AWS"
   class="dd-item 
         parent
         
@@ -566,7 +566,7 @@
         "
 >
   <a href="../../../5-workshop/">
-     <b> 5. </b> Workshop: Get Started with Amazon RDS 
+     <b> 5. </b> Workshop: Deploy GameTracker on AWS 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -782,7 +782,7 @@
             
 <li
   data-nav-id="/5-workshop/6-backup/"
-  title="Backup and Restore"
+  title="Backup &amp; Restore"
   class="dd-item 
         
         
@@ -790,7 +790,7 @@
         "
 >
   <a href="../../../5-workshop/6-backup/">
-     <b> 5.6 </b> Backup and Restore 
+     <b> 5.6 </b> Backup &amp; Restore 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -800,7 +800,7 @@
             
 <li
   data-nav-id="/5-workshop/7-cleanup/"
-  title="Clean up resources"
+  title="Cleanup Resources"
   class="dd-item 
         
         
@@ -808,7 +808,7 @@
         "
 >
   <a href="../../../5-workshop/7-cleanup/">
-     <b> 5.7 </b> Clean up resources 
+     <b> 5.7 </b> Cleanup Resources 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -1013,7 +1013,7 @@
             
           
           
-            <a href='../../../'>Internship Report</a> > <a href='../../../5-workshop/'>Workshop: Get Started with Amazon RDS</a> > <a href='../../../5-workshop/5.4-deploy-app/'>Deploy Application</a> > Deploy Frontend
+            <a href='../../../'>Internship Report</a> > <a href='../../../5-workshop/'>Workshop: Deploy GameTracker on AWS</a> > <a href='../../../5-workshop/5.4-deploy-app/'>Deploy Application</a> > Deploy Frontend
           
         
           
@@ -1040,7 +1040,8 @@
         <li><a href="#aws-console-1">AWS Console</a></li>
       </ul>
     </li>
-    <li><a href="#3-build--deploy-react-app">3. Build &amp; Deploy React App</a></li>
+    <li><a href="#3-configure-and-build-react-app">3. Configure and Build React App</a></li>
+    <li><a href="#4-deploy-to-s3">4. Deploy to S3</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1103,17 +1104,29 @@
 <li>Click <strong>Create</strong>.</li>
 </ol>
 <hr>
-<h2 id="3-build--deploy-react-app">3. Build &amp; Deploy React App</h2>
-<p>Update your React app&rsquo;s API URL to point to the API Gateway Invoke URL you obtained in the previous step.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. Build</span>
+<h2 id="3-configure-and-build-react-app">3. Configure and Build React App</h2>
+<p>Before building, you must point the Frontend to your new API Gateway.</p>
+<ol>
+<li>Open the <code>frontend</code> folder in your code editor.</li>
+<li>Find the configuration file (usually <code>.env</code> or <code>src/config.js</code>).</li>
+<li>Update the <strong>API_URL</strong> to your <strong>API Gateway Invoke URL</strong> (from step 5.4.1).
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Example .env
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">REACT_APP_API_URL</span><span style="color:#f92672">=</span><span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//&lt;api-id&gt;.execute-api.ap-southeast-2.amazonaws.com
+</span></span></span></code></pre></div></li>
+<li>Build the application:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install
 </span></span><span style="display:flex;"><span>npm run build
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Sync to S3</span>
+</span></span></code></pre></div></li>
+</ol>
+<hr>
+<h2 id="4-deploy-to-s3">4. Deploy to S3</h2>
+<p>Upload the build artifacts to your S3 bucket.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Sync build folder to S3</span>
 </span></span><span style="display:flex;"><span>aws s3 sync build/ s3://gametracker-frontend
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Invalidate Cache (Optional but recommended)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Invalidate Cache (to see changes immediately)</span>
 </span></span><span style="display:flex;"><span>aws cloudfront create-invalidation --distribution-id &lt;DISTRIBUTION_ID&gt; --paths <span style="color:#e6db74">&#34;/*&#34;</span>
-</span></span></code></pre></div><p>Your GameTracker application is now live at the CloudFront Domain Name!</p>
+</span></span></code></pre></div><p><strong>🎉 Success!</strong> Your GameTracker application is now live at the CloudFront Domain Name! Access it via the browser to test.</p>
 
 
 
@@ -1828,7 +1841,7 @@
 			<a class="nav nav-prev" href="../../../5-workshop/5.4-deploy-app/1-deploy-backend/" title="Deploy Backend"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../5-workshop/6-backup/" title="Backup and Restore" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../5-workshop/6-backup/" title="Backup &amp; Restore" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1838,19 +1851,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765000178"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765000178"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765000178"></script>
-    <script src="../../../js/jquery.sticky.js?1765000178"></script>
-    <script src="../../../js/featherlight.min.js?1765000178"></script>
-    <script src="../../../js/highlight.pack.js?1765000178"></script>
+    <script src="../../../js/clipboard.min.js?1765003299"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765003299"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765003299"></script>
+    <script src="../../../js/jquery.sticky.js?1765003299"></script>
+    <script src="../../../js/featherlight.min.js?1765003299"></script>
+    <script src="../../../js/highlight.pack.js?1765003299"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765000178"></script>
-    <script src="../../../js/learn.js?1765000178"></script>
-    <script src="../../../js/hugo-learn.js?1765000178"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765003299"></script>
+    <script src="../../../js/learn.js?1765003299"></script>
+    <script src="../../../js/hugo-learn.js?1765003299"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765000178" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765000178"></script>
+    <link href="../../../mermaid/mermaid.css?1765003299" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765003299"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

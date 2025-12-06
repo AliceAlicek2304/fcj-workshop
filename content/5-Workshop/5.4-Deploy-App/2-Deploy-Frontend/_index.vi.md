@@ -46,19 +46,35 @@ Giúp phân phối nội dung nhanh chóng và hỗ trợ HTTPS.
 
 ---
 
-## 3. Build & Deploy React App
+## 3. Cấu hình và Build React App
 
-Cập nhật API URL trong ứng dụng React của bạn để trỏ tới API Gateway Invoke URL bạn đã lấy ở bước trước.
+Trước khi build, bạn phải trỏ Frontend tới API Gateway mới tạo.
+
+1.  Mở thư mục `frontend` trong trình soạn thảo code.
+2.  Tìm file cấu hình (thường là `.env` hoặc `src/config.js`).
+3.  Cập nhật **API_URL** thành **API Gateway Invoke URL** của bạn (lấy từ bước 5.4.1).
+    ```javascript
+    // Ví dụ .env
+    REACT_APP_API_URL=https://<api-id>.execute-api.ap-southeast-2.amazonaws.com
+    ```
+4.  Build ứng dụng:
+    ```bash
+    npm install
+    npm run build
+    ```
+
+---
+
+## 4. Upload lên S3
+
+Đẩy các file đã build lên S3 bucket.
 
 ```bash
-# 1. Build
-npm run build
-
-# 2. Sync lên S3
+# Sync thư mục build lên S3
 aws s3 sync build/ s3://gametracker-frontend
 
-# 3. Xóa Cache (Tùy chọn nhưng khuyến nghị)
+# Xóa Cache (để thấy thay đổi ngay lập tức)
 aws cloudfront create-invalidation --distribution-id <DISTRIBUTION_ID> --paths "/*"
 ```
 
-Ứng dụng GameTracker của bạn hiện đã hoạt động tại tên miền CloudFront!
+**🎉 Thành công!** Ứng dụng GameTracker của bạn hiện đã hoạt động tại tên miền CloudFront! Hãy truy cập trình duyệt để kiểm tra.
