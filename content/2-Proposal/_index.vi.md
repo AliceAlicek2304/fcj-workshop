@@ -6,126 +6,122 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# 1. TỔNG QUAN DỰ ÁN
+# 1. BỐI CẢNH VÀ ĐỘNG LỰC (BACKGROUND AND MOTIVATION)
 
-## 1.1 TÓM TẮT DỰ ÁN (EXECUTIVE SUMMARY)
+## 1.1 TÓM TẮT ĐIỀU HÀNH (EXECUTIVE SUMMARY)
 **Bối cảnh**
-Thị trường game đang bùng nổ, kéo theo nhu cầu của người chơi trong việc theo dõi, phân tích dữ liệu và mô phỏng các cơ chế game. **GameTracker** ra đời như một giải pháp toàn diện giúp cả người chơi lẫn nhà quản trị (Admin) dễ dàng quản lý, chia sẻ và tra cứu thông tin về nhân vật, vũ khí và sự kiện.
+Thị trường game đang phát triển mạnh cùng nhu cầu quản lý thông tin của người chơi. **GameTracker** là ứng dụng web cloud-native giúp người chơi và admin quản lý thông tin nhân vật, vũ khí, sự kiện một cách tập trung, giải quyết vấn đề dữ liệu bị phân mảnh trên nhiều nền tảng.
 
-**Vấn đề cần giải quyết**
--   **Dữ liệu phân mảnh**: Thông tin thường nằm rải rác trên nhiều wiki, bảng tính (spreadsheets), khó tra cứu tập trung.
--   **Rào cản ngôn ngữ**: Nhiều tựa game quốc tế chưa hỗ trợ tiếng Việt đầy đủ.
--   **Quản lý thủ công**: Admin tốn nhiều thời gian cập nhật dữ liệu thủ công, dễ sai sót.
+**Phạm vi chức năng (MVP)**
+1.  **Thông tin Game**: Tra cứu chỉ số Nhân vật, Vũ khí, Vật phẩm.
+2.  **Giả lập Gacha**: Mô phỏng quay thưởng thử nghiệm tỷ lệ rơi (drop-rate).
+3.  **Lịch sử Gacha**: Công cụ import và phân tích lịch sử quay, đếm pity.
+4.  **Timeline Sự kiện**: Lịch trình trực quan các sự kiện trong game.
 
-**Giải pháp Đề xuất**
-Xây dựng **GameTracker** - ứng dụng web hiện đại trên nền tảng điện toán đám mây **AWS**. Chúng tôi sử dụng kiến trúc **Serverless** để tối ưu chi phí vận hành, đồng thời đảm bảo khả năng chịu tải cao trong các đợt sự kiện game lớn.
+**Đang phát triển**
+1.  **Check Tài nguyên Real-time**: Đồng bộ nhựa/nguyên thạch thời gian thực.
+2.  **Hệ thống thông báo**: Cảnh báo tài nguyên đầy.
 
-## 1.2 PHẠM VI CHỨC NĂNG (FUNCTIONAL SCOPE)
+## 1.2 TIÊU CHÍ THÀNH CÔNG (PROJECT SUCCESS CRITERIA)
+-   **Hiệu suất**: Độ trễ API < 200ms cho 95% request.
+-   **Độ sẵn sàng**: Uptime 99.9% trong tháng đầu tiên.
+-   **Chi phí**: Chi phí hạ tầng AWS dưới $150/tháng.
+-   **Tính năng**: Người dùng đăng nhập thành công và sử dụng được tính năng giả lập mượt mà.
 
-Hệ thống được phát triển với các tính năng cốt lõi sẵn sàng hoạt động (MVP) và lộ trình phát triển rõ ràng.
+## 1.3 GIẢ ĐỊNH (ASSUMPTIONS)
+-   **Quyền truy cập**: Team phát triển có quyền Admin vào AWS Account.
+-   **Dịch vụ bên thứ 3**: Google OAuth2 hoạt động ổn định.
+-   **Dữ liệu**: Các asset hình ảnh/thông số game được phép sử dụng cho mục đích học tập/demo.
+-   **Ngân sách**: Dự án tận dụng tối đa AWS Free Tier, chỉ trả phí cho các dịch vụ bắt buộc như NAT Gateway/RDS.
 
-### ✅ Các tính năng hiện tại (Current Features)
-1.  **Tra cứu Thông tin Game**: Cơ sở dữ liệu tập trung (Wiki) cho phép người dùng xem chi tiết chỉ số, kỹ năng của Nhân vật, Vũ khí và Vật phẩm.
-2.  **Giả lập Gacha (Gacha Simulation)**: Mô phỏng thuật toán quay thưởng (Wish/Banner) chính xác như trong game, giúp người chơi thử vận may mà không tốn phí.
-3.  **Kiểm tra Lịch sử (Gacha History)**: Công cụ cho phép người chơi nhập dữ liệu lịch sử quay thưởng cá nhân, từ đó phân tích tỷ lệ may mắn và đếm "Bảo hiểm" (Pity counter).
-4.  **Lịch trình Sự kiện (Timeline Event)**: Biểu đồ trực quan hiển thị các sự kiện game đã, đang và sắp diễn ra, giúp người chơi lên kế hoạch sử dụng tài nguyên.
+# 2. KIẾN TRÚC GIẢI PHÁP (SOLUTION ARCHITECTURE)
 
-### 🚧 Đang phát triển (In Development)
-1.  **Check Tài nguyên Thời gian thực**: Tích hợp API để đồng bộ và hiển thị lượng tài nguyên (Nhựa/Energy, Nguyên thạch) trong game theo thời gian thực (Real-time).
-2.  **Hệ thống Thông báo**: Cảnh báo khi tài nguyên đầy hoặc khi có banner mới.
-
----
-
-# 2. KIẾN TRÚC GIẢI PHÁP
-
-## 2.1 MÔ HÌNH KIẾN TRÚC (HIGH-LEVEL ARCHITECTURE)
-Hệ thống được thiết kế dựa trên các nguyên lý của **AWS Well-Architected Framework**, ưu tiên tính Tin cậy (Reliability) và Tối ưu Chi phí (Cost Optimization).
-
-**Sơ đồ Kiến trúc**:
+## 2.1 SƠ ĐỒ KIẾN TRÚC KỸ THUẬT
+Hệ thống sử dụng kiến trúc Serverless trên AWS để tối ưu chi phí và khả năng mở rộng.
 
 ![Architecture](/images/2-Proposal/GameTracker1.jpg)
 
-**Các thành phần cốt lõi**:
-1.  **Frontend (Lớp Hiển thị)**:
-    -   Xây dựng bằng **ReactJS (Vite)** cho trải nghiệm mượt mà, tốc độ cao.
-    -   Lưu trữ static content trên **Amazon S3** và phân phối toàn cầu qua CDN **Amazon CloudFront**.
-    -   Bảo vệ bởi tường lửa ứng dụng web **AWS WAF**.
+**Thành phần**:
+-   Frontend: ReactJS (Vite) trên S3 + CloudFront.
+-   Backend: Spring Boot trên Lambda + API Gateway.
+-   Database: SQL Server trên RDS.
+-   Bảo mật: WAF, IAM, Security Groups.
 
-2.  **Backend (Lớp Xử lý)**:
-    -   Viết bằng **Spring Boot (Java)**, đóng gói trong **Docker Container**.
-    -   Chạy trên nền tảng **AWS Lambda** (Serverless Compute) để loại bỏ gánh nặng quản lý máy chủ.
-    -   Giao tiếp qua **API Gateway (HTTP API)** đảm bảo bảo mật và hiệu năng.
+## 2.2 KẾ HOẠCH KỸ THUẬT (TECHNICAL PLAN)
+-   **Frontend**: Phát triển bằng React/TypeScript, deploy tự động lên S3.
+-   **Backend**: Spring Boot 3 đóng gói Docker, push lên ECR và chạy bằng Lambda.
+-   **Hạ tầng**: Quản lý bằng AWS Console và CLI script.
+-   **Testing**: Unit test cho logic backend và kiểm thử thủ công cho luồng UI.
 
-3.  **Database (Lớp dữ liệu)**:
-    -   **Amazon RDS (SQL Server Express)**: Lưu trữ các dữ liệu có cấu trúc phức tạp (Hồ sơ người dùng, Chỉ số nhân vật).
-    -   **Amazon S3**: Lưu trữ tài nguyên đa phương tiện (Ảnh nhân vật, Icon vũ khí) với độ bền dữ liệu cực cao.
+## 2.3 KẾ HOẠCH DỰ ÁN (PROJECT PLAN)
+Dự án thực hiện trong 4 tuần (Agile):
+-   **Tuần 1**: Phân tích, thiết kế DB, dựng VPC.
+-   **Tuần 2**: Code API Backend & Kết nối DB.
+-   **Tuần 3**: Code giao diện Frontend & Logic Gacha.
+-   **Tuần 4**: Tích hợp, CI/CD, Deploy và viết tài liệu.
 
-4.  **Bảo mật & Định danh**:
-    -   **Google OAuth2**: Đăng nhập nhanh chóng, không cần nhớ mật khẩu.
-    -   **AWS IAM**: Quản lý quyền truy cập chặt chẽ cho từng tài nguyên (Least Privilege).
-    -   **Security Groups**: Tường lửa ảo kiểm soát lưu lượng ra/vào hạ tầng.
+## 2.4 CÂN NHẮC VỀ BẢO MẬT (SECURITY CONSIDERATIONS)
+-   **Định danh**: Sử dụng Google OAuth2 và JWT.
+-   **Mạng**: VPC chia Public/Private subnet; Database nằm trong Private subnet.
+-   **Mã hóa**: HTTPS cho đường truyền; RDS encrypted at-rest.
+-   **Phân quyền**: IAM Roles theo nguyên tắc quyền tối thiểu (Least Privilege).
 
-## 2.2 CÔNG NGHỆ SỬ DỤNG
--   **Ngôn ngữ**: Java 17, TypeScript/JavaScript.
--   **Frameworks**: Spring Boot 3, React 18.
--   **DevOps**: Docker, AWS CLI, GitHub Actions.
--   **Cơ sở dữ liệu**: Microsoft SQL Server 2022.
+# 3. HOẠT ĐỘNG VÀ BÀN GIAO (ACTIVITIES AND DELIVERABLES)
 
----
+## 3.1 CÁC HOẠT ĐỘNG VÀ SẢN PHẨM
+| Giai đoạn | Hoạt động | Sản phẩm bàn giao |
+|-----------|-----------|-------------------|
+| **Thiết lập** | Tạo VPC, IAM, Git repo | Môi trường AWS, Tài liệu kiến trúc |
+| **Phát triển** | Code API, UI, Migration | Source Code, Docker Images |
+| **Triển khai** | Sync S3, Deploy Lambda, Config CloudFront | Website hoạt động, API Endpoint |
 
-# 3. KẾ HOẠCH TRIỂN KHAI
+## 3.2 NGOÀI PHẠM VI (OUT OF SCOPE)
+-   Ứng dụng Mobile (iOS/Android Native).
+-   Tính năng Multiplayer thời gian thực (Lobby game).
+-   Tích hợp cổng thanh toán tiền thật.
 
-## 3.1 CÁC GIAI ĐOẠN (MILESTONES)
-Dự án được thực hiện theo mô hình Agile trong 4 tuần:
+## 3.3 ĐƯỜNG ĐẾN PRODUCTION (PATH TO PRODUCTION)
+-   **Mở rộng**: Lambda auto-scaling chịu tải 10,000 users.
+-   **Giám sát**: CloudWatch Dashboard theo dõi lỗi và độ trễ.
+-   **Backup**: RDS Automated Backup và S3 Versioning.
 
-| Giai đoạn | Thời gian | Hoạt động chính | Sản phẩm bàn giao |
-|-----------|-----------|-----------------|-------------------|
-| **P1. Phân tích & Thiết kế** | Tuần 1 | Thu thập yêu cầu, Thiết kế CSDL, Dựng VPC trên AWS | Tài liệu kiến trúc, Môi trường AWS |
-| **P2. Phát triển Backend** | Tuần 2 | Viết API, Tích hợp đăng nhập (Auth), Kết nối DB | RESTful API hoàn chỉnh, Swagger Docs |
-| **P3. Phát triển Frontend** | Tuần 3 | Ghép giao diện, Xử lý logic Gacha, Dashboard Admin | Ứng dụng Web hoàn chỉnh |
-| **P4. Vận hành & Chuyển giao** | Tuần 4 | Thiết lập CI/CD, Kiểm thử, Viết tài liệu | Hướng dẫn sử dụng, Web đã online |
+# 4. ƯỚC TÍNH CHI PHÍ AWS (AWS COST BREAKDOWN)
+**Ước tính**: ~$123.00/tháng
 
-## 3.2 LỘ TRÌNH LÊN PRODUCTION
--   **Môi trường**: Phân tách rõ ràng giữa Development và Production.
--   **Khả năng mở rộng**: Thiết kế Serverless cho phép đáp ứng từ 0 đến 10.000 người dùng đồng thời mà không cần can thiệp thủ công.
--   **Giám sát**: Tích hợp **Amazon CloudWatch** để theo dõi log và cảnh báo lỗi theo thời gian thực.
+| Dịch vụ | Ước tính | Chi phí |
+|---------|----------|---------|
+| **RDS (SQL Server)** | db.t3.micro | ~$60.00 |
+| **NAT Gateway** | 1 Unit | ~$32.00 |
+| **AWS WAF** | Web ACL | ~$10.00 |
+| **CloudFront** | 100GB Data Out | ~$8.50 |
+| **AWS Lambda** | 1M Invocations | ~$5.00 |
+| **Khác** | S3, Logs | ~$7.50 |
 
----
+# 5. ĐỘI NGŨ (TEAM)
 
-# 4. ƯỚC TÍNH CHI PHÍ
-**Chi phí AWS dự kiến hàng tháng**: ~$123.00 (Khoảng 3.000.000 VNĐ)
+| Tên | Vai trò | Email | Trách nhiệm |
+|-----|---------|-------|-------------|
+| **Nguyễn Văn Cường** | Full Stack Developer | `cuongnvse183645@fpt.edu.vn` | Thực hiện toàn trình (End-to-end) |
 
-| Dịch vụ | Mức sử dụng ước tính | Chi phí (xấp xỉ) |
-|---------|----------------------|------------------|
-| **RDS (SQL Server)** | db.t3.micro (Single AZ) | ~$60.00 |
-| **NAT Gateway** | 1 Unit (nếu cần thiết) | ~$32.00 |
-| **AWS WAF** | Web ACL + Phí request | ~$10.00 |
-| **CloudFront** | 100GB Lưu lượng ra | ~$8.50 |
-| **AWS Lambda** | 1 Triệu lần gọi (Invocations) | ~$5.00 |
-| **Khác (S3, logs)** | Gói tiêu chuẩn | ~$7.50 |
+# 6. TÀI NGUYÊN & ƯỚC TÍNH NỖ LỰC (RESOURCES & ESTIMATES)
+*Chi phí nhân sự tham khảo (Ngữ cảnh Workshop/Đồ án)*
 
-*Lưu ý: Có thể tối ưu chi phí bằng cách tắt NAT Gateway và RDS khi không sử dụng (môi trường Dev).*
+| Tài nguyên | Trách nhiệm | Ước tính nỗ lực |
+|------------|-------------|-----------------|
+| Full Stack Developer | Thiết kế, Code, Deploy | ~160 Giờ (4 Tuần) |
+| Technical Mentor | Review, Hướng dẫn | ~20 Giờ |
 
----
+**Tổng nỗ lực dự kiến**: 4 Tuần/người (Man-weeks).
 
-# 5. ĐỘI NGŨ THỰC HIỆN
+# 7. NGHIỆM THU (ACCEPTANCE)
 
-Dự án được thực hiện bởi nhân sự Full Stack chuyên trách, đảm bảo tính nhất quán từ thiết kế đến vận hành.
-
-| Họ và Tên | Vai trò | Email liên hệ | Trách nhiệm chính |
-|-----------|---------|---------------|-------------------|
-| **Nguyễn Văn Cường** | Full Stack Developer | `cuongnvse183645@fpt.edu.vn` | Kiến trúc hệ thống, Lập trình Frontend/Backend, DevOps, Triển khai AWS |
-
----
-
-# 6. TIÊU CHÍ NGHIỆM THU (ACCEPTANCE)
-
-Sản phẩm được coi là hoàn thành khi đáp ứng các luồng nghiệp vụ sau:
-1.  **Đăng nhập**: Người dùng đăng nhập thành công qua Google.
-2.  **Quản lý dữ liệu**: Admin có thể Thêm/Sửa/Xóa nhân vật game thông qua Dashboard.
-3.  **Giả lập**: Tính năng Gacha trả về kết quả ngẫu nhiên dựa trên tỉ lệ được cài đặt.
-4.  **Triển khai**: Ứng dụng truy cập được từ internet thông qua domain CloudFront với HTTPS.
+Sản phẩm được nghiệm thu khi hoàn thành:
+1.  **Login**: Đăng nhập Google thành công.
+2.  **Quản lý**: Admin thêm/sửa/xóa được dữ liệu.
+3.  **Giả lập**: Gacha chạy đúng logic tỉ lệ.
+4.  **Triển khai**: Web truy cập được qua HTTPS công khai.
+5.  **Tài liệu**: Có hướng dẫn sử dụng và triển khai đầy đủ.
 
 <br>
 
-<h3 style="font-size: 1.3em;">🔗 Trải nghiệm ngay: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>
+<h3 style="font-size: 1.3em;">🔗 Website dự án: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>

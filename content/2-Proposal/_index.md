@@ -6,125 +6,122 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# 1. PROJECT BACKGROUND
+# 1. BACKGROUND AND MOTIVATION
 
 ## 1.1 EXECUTIVE SUMMARY
 **Context**
-The gaming industry is rapidly growing, with players seeking deeper engagement through data tracking and simulation tools. **GameTracker** is a comprehensive platform designed to empower players and administrators to manage, track, and share simplified information about game entities (characters, weapons, banners, events).
+The gaming industry is rapidly growing, with players seeking deeper engagement through data tracking and simulation tools. **GameTracker** is a cloud-native web application designed to empower players and administrators to manage, track, and share simplified information about game entities (characters, weapons, banners, events). The solution addresses the fragmentation of game data across wikis and spreadsheets by providing a centralized, localized platform.
 
-**Problem Statement**
--   **Fragmentation**: Game data is often scattered across wikis and spreadsheets.
--   **Accessibility**: Many global games lack localized or easy-to-access data for non-native English speakers.
--   **Inefficiency**: Manual data entry for game admins is error-prone and time-consuming.
+**Core Features (MVP)**
+1.  **Game Information Hub**: Centralized database for Character, Weapon, and Item attributes.
+2.  **Gacha Simulator**: Realistic simulation of entry/wish systems to test drop rates.
+3.  **Gacha History Tracker**: Tools to import pull history and analyze luck/pity.
+4.  **Event Timeline**: Interactive roadmap of past, current, and upcoming events.
 
-**Proposed Solution**
-Use **GameTracker**, a cloud-native web application hosted on AWS. It leverages serverless technologies to provide a cost-effective, high-availability solution for tracking game statistics and simulating gacha mechanics.
+**In Development**
+1.  **Real-time Resource Tracking**: Integration for real-time in-game currency/energy checks.
+2.  **Notification System**: Alerts for resource overflow or event endings.
 
-## 1.2 FUNCTIONAL SCOPE
+## 1.2 PROJECT SUCCESS CRITERIA
+-   **Performance**: API latency < 200ms for 95% of requests.
+-   **Availability**: 99.9% uptime during the first month of operation.
+-   **Cost Efficiency**: Monthly AWS infrastructure cost remains under $150.
+-   **Adoption**: Successful onboarding of initial user base with functional Google One-Tap login.
 
-The system is designed with a core set of features ready for deployment, alongside a roadmap for advanced capabilities.
+## 1.3 ASSUMPTIONS
+-   **Access**: Development team has full administrative access to the AWS account.
+-   **Third-Party Services**: Google OAuth2 services remain available and free of charge.
+-   **Data Availability**: Game asset data (images, stats) can be manually sourced or imported without strict copyright blockers for educational/workshop purposes.
+-   **Budget**: The project operates within the AWS Free Tier limitations where possible, with a budget cap for RDS and NAT Gateway.
 
-### ✅ Current Features (MVP)
-1.  **Game Information Hub**: A centralized database allowing users to view detailed attributes of Characters, Weapons, and Items.
-2.  **Gacha Simulator**: A realistic simulation of the game's "wish" system, allowing users to test drop rates without spending real currency.
-3.  **Gacha History Tracker**: customized tools to import and visualize a player's actual pull history, generating statistics on luck and pity count.
-4.  **Event Timeline**: An interactive visual roadmap displaying past, current, and upcoming game events to help players plan their resources.
+# 2. SOLUTION ARCHITECTURE / ARCHITECTURAL DIAGRAM
 
-### 🚧 In Development (Future Roadmap)
-1.  **Real-time Resource Tracking**: Direct integration to verify in-game resources (e.g., Energy/Resin, Currency) in real-time.
-2.  **Notification System**: Alerts for resin overflow or banner endings.
-
----
-
-# 2. SOLUTION ARCHITECTURE
-
-## 2.1 HIGH-LEVEL ARCHITECTURE
-The solution is built on the **AWS Architecture Well-Architected Framework**, focusing on Reliability and Cost Optimization.
-
-**Architecture Diagram**:
+## 2.1 TECHNICAL ARCHITECTURE DIAGRAM
+The solution utilizes a serverless-first approach on AWS to ensure scalability and low maintenance.
 
 ![Architecture](/images/2-Proposal/GameTracker1.jpg)
 
-**Core Components**:
-1.  **Frontend (Presentation Layer)**:
-    -   Built with **React (Vite)** for a responsive SPA experience.
-    -   Hosted on **Amazon S3** and delivered globally via **Amazon CloudFront** for low latency.
-    -   Protected by **AWS WAF** against common web exploits.
+**Components**:
+-   **Frontend**: React (Vite) hosted on S3 + CloudFront.
+-   **Backend**: Spring Boot on AWS Lambda + API Gateway.
+-   **Database**: SQL Server on Amazon RDS.
+-   **Security**: AWS WAF, IAM, Security Groups.
 
-2.  **Backend (Logic Layer)**:
-    -   **Spring Boot** application containerized with **Docker**.
-    -   Deployed on **AWS Lambda** (Serverless) to eliminate server management.
-    -   Exposed via **API Gateway (HTTP API)** for secure and scalable RESTful endpoints.
+## 2.2 TECHNICAL PLAN
+We will implement the solution using industry-standard DevOps practices:
+-   **Frontend**: Developed with React and TypeScript. deployed to S3/CloudFront.
+-   **Backend**: Spring Boot 3 Java application, containerized with Docker, pushed to ECR, and deployed to Lambda.
+-   **Infrastructure**: Managed via AWS Console and CLI scripts for reproducibility.
+-   **Testing**: Unit testing for backend logic and manual UAT for frontend flows.
 
-3.  **Data Persistence (Data Layer)**:
-    -   **Amazon RDS (SQL Server Express)**: Stores structured relational data (User profiles, Character stats, Gacha history).
-    -   **Amazon S3**: Stores static assets (Character avatars, Weapon icons) with high durability.
+## 2.3 PROJECT PLAN
+The project follows a 4-week Agile timeline:
+-   **Week 1**: Analysis, DB Schema Design, VPC Setup.
+-   **Week 2**: Backend API Development & Database Connectivity.
+-   **Week 3**: Frontend UI Implementation & Gacha Logic.
+-   **Week 4**: Integration, CI/CD Pipeline, Deployment, and Documentation.
 
-4.  **Security & Identity**:
-    -   **Google OAuth2**: Secure, password-less authentication for users.
-    -   **AWS IAM**: Granular permission management for all AWS resources.
-    -   **Security Groups**: Virtual firewalls controlling traffic at the instance level.
+## 2.4 SECURITY CONSIDERATIONS
+-   **Authentication**: Stateless authentication using JWT and Google OAuth2.
+-   **Network Security**: VPC with Public/Private subnets; Database in private subnet; WAF protecting CloudFront.
+-   **Encryption**: TLS 1.2+ for data in transit; RDS instances encrypted at rest.
+-   **Access Control**: Least Privilege IAM roles for Lambda functions.
 
-## 2.2 TECHNOLOGY STACK
--   **Languages**: Java 17, TypeScript/JavaScript.
--   **Frameworks**: Spring Boot 3, React 18.
--   **DevOps**: Docker, AWS CLI.
--   **Database**: Microsoft SQL Server 2022.
+# 3. ACTIVITIES AND DELIVERABLES
 
----
+## 3.1 ACTIVITIES AND DELIVERABLES
+| Phase | Activities | Deliverables |
+|-------|------------|--------------|
+| **Setup** | VPC creation, IAM setup, Git repo init | AWS Environment, Architecture Doc |
+| **Development** | Coding API endpoints, UI, DB migration | Source Code, Docker Images |
+| **Deployment** | S3 sync, Lambda deployment, CloudFront config | Live URL, API Endpoint |
 
-# 3. IMPLEMENTATION PLAN
+## 3.2 OUT OF SCOPE
+-   **Mobile App**: Native iOS/Android versions are not included.
+-   **Multiplayer**: Real-time multiplayer game servers or lobbies.
+-   **Payment Processing**: No integration with payment gateways for real money.
 
-## 3.1 MILESTONES
-The project is executed in a 4-week Agile sprint:
+## 3.3 PATH TO PRODUCTION
+-   **Scalability**: Architecture supports 0-10,000 users via Lambda auto-scaling.
+-   **Monitoring**: Amazon CloudWatch Dashboards for error rates and latency.
+-   **Backup**: Automated RDS backups and S3 versioning enabled for disaster recovery.
 
-| Phase | Timeline | Activities | Deliverables |
-|-------|----------|------------|--------------|
-| **1. Analysis & Design** | Week 1 | Requirement gathering, DB Schema design, AWS VPC setup | Architecture Blueprint, AWS Environment |
-| **2. Backend Development** | Week 2 | API Development, Auth integration, DB Connectivity | Functional REST API, Swagger Docs |
-| **3. Frontend Development** | Week 3 | UI Integration, Gacha Logic, Dashboard implementation | Complete Web Application |
-| **4. DevOps & Handoff** | Week 4 | CI/CD pipeline (GitHub Actions), Testing, Documentation | User Guide, Admin Manual, Live Site |
-
-## 3.2 PATH TO PRODUCTION
--   **Environment**: Analyzing Development vs. Production environments.
--   **Scalability**: The serverless design allows handling 0 to 10,000 concurrent users without manual intervention.
--   **Monitoring**: Integrated **Amazon CloudWatch** for real-time log monitoring and error alerting.
-
----
-
-# 4. COST ESTIMATION
-**Estimated Monthly Cost (AWS)**: ~$123.00
+# 4. EXPECTED AWS COST BREAKDOWN BY SERVICES
+**Estimated Monthly Cost**: ~$123.00
 
 | Service | Estimated Usage | Cost (Approx) |
 |---------|-----------------|---------------|
 | **RDS (SQL Server)** | db.t3.micro (Single AZ) | ~$60.00 |
 | **NAT Gateway** | 1 Unit (if required) | ~$32.00 |
 | **AWS WAF** | Web ACL + Request fees | ~$10.00 |
-| **CloudFront** | 100GB Data Transfer Out | ~$8.50 |
+| **CloudFront** | 100GB Data Out | ~$8.50 |
 | **AWS Lambda** | 1M Invocations | ~$5.00 |
-| **Other (S3, logs)** | Standard tiers | ~$7.50 |
+| **Other** | S3, logs, Route53 | ~$7.50 |
 
-*Note: Costs can be optimized further by managing NAT Gateway and RDS usage hours.*
+# 5. TEAM
 
----
+| Name | Role | Email | Responsibility |
+|------|------|-------|----------------|
+| **Nguyen Van Cuong** | Full Stack Developer | `cuongnvse183645@fpt.edu.vn` | End-to-end Implementation |
 
-# 5. PROJECT TEAM
+# 6. RESOURCES & COST ESTIMATES
+*Labor costs (Educational/Workshop context)*
 
-The project is delivered by a dedicated Full Stack Engineer responsible for the end-to-end lifecycle.
+| Resource | Responsibility | Effort Estimate |
+|----------|----------------|-----------------|
+| Full Stack Developer | Design, Code, Deploy | ~160 Hours (4 Weeks) |
+| Technical Mentor | Review, Guidance | ~20 Hours |
 
-| Name | Role | Contact Email | Responsibility |
-|------|------|---------------|----------------|
-| **Nguyen Van Cuong** | Full Stack Developer | `cuongnvse183645@fpt.edu.vn` | System Architecture, Frontend/Backend Implementation, DevOps, Deployment |
+**Total Estimated Effort**: 4 Man-weeks.
 
----
+# 7. ACCEPTANCE
 
-# 6. ACCEPTANCE CRITERIA
-
-The product will be accepted based on the successful demonstration of the following core flows:
-1.  **User Login**: Successful authentication via Google.
-2.  **Data Management**: Admin can Create/Read/Update/Delete game characters via the Dashboard.
-3.  **Simulation**: Gacha simulator produces random results based on defined probability logic.
-4.  **Deployment**: The application is accessible via the public CloudFront domain.
+The product is accepted upon demonstration of:
+1.  **User Login**: Successful Google OAuth2 login.
+2.  **Data Management**: CRUD operations for characters/weapons working.
+3.  **Simulation**: Gacha simulator functioning with correct logic.
+4.  **Deployment**: Application is publicly accessible via HTTPS.
+5.  **Documentation**: Complete User Guide and Deployment Guide provided.
 
 <br>
 
