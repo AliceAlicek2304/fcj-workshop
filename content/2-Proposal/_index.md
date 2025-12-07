@@ -30,7 +30,7 @@ The gaming industry is rapidly growing, with players seeking deeper engagement t
 
 ## 1.3 ASSUMPTIONS
 -   **Access**: Development team has full administrative access to the AWS account.
--   **Third-Party Services**: Google OAuth2 services remain available and free of charge.
+-   **Third-Party Services**: Google OAuth2 services and Game APIs remain available and stable.
 -   **Data Availability**: Game asset data (images, stats) can be manually sourced or imported without strict copyright blockers for educational/workshop purposes.
 -   **Budget**: The project operates within the AWS Free Tier limitations where possible, with a budget cap for RDS and NAT Gateway.
 

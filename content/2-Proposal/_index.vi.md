@@ -30,7 +30,7 @@ Thị trường game đang phát triển mạnh cùng nhu cầu quản lý thôn
 
 ## 1.3 GIẢ ĐỊNH (ASSUMPTIONS)
 -   **Quyền truy cập**: Team phát triển có quyền Admin vào AWS Account.
--   **Dịch vụ bên thứ 3**: Google OAuth2 hoạt động ổn định.
+-   **Dịch vụ bên thứ 3**: Các dịch vụ Google OAuth2 và API của Game hoạt động ổn định.
 -   **Dữ liệu**: Các asset hình ảnh/thông số game được phép sử dụng cho mục đích học tập/demo.
 -   **Ngân sách**: Dự án tận dụng tối đa AWS Free Tier, chỉ trả phí cho các dịch vụ bắt buộc như NAT Gateway/RDS.
 
