@@ -26,7 +26,6 @@ Thị trường game đang phát triển mạnh cùng nhu cầu quản lý thôn
 -   **Hiệu suất**: Độ trễ API < 200ms cho 95% request.
 -   **Độ sẵn sàng**: Uptime 99.9% trong tháng đầu tiên.
 -   **Chi phí**: Chi phí hạ tầng AWS dưới $150/tháng.
--   **Tính năng**: Người dùng đăng nhập thành công và sử dụng được tính năng giả lập mượt mà.
 
 ## 1.3 GIẢ ĐỊNH (ASSUMPTIONS)
 -   **Quyền truy cập**: Team phát triển có quyền Admin vào AWS Account.

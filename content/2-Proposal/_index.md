@@ -26,7 +26,6 @@ The gaming industry is rapidly growing, with players seeking deeper engagement t
 -   **Performance**: API latency < 200ms for 95% of requests.
 -   **Availability**: 99.9% uptime during the first month of operation.
 -   **Cost Efficiency**: Monthly AWS infrastructure cost remains under $150.
--   **Adoption**: Successful onboarding of initial user base with functional Google One-Tap login.
 
 ## 1.3 ASSUMPTIONS
 -   **Access**: Development team has full administrative access to the AWS account.
