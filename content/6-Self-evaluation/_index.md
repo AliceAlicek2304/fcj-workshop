@@ -7,7 +7,7 @@ pre: " <b> 6. </b> "
 ---
 
  
-During my internship at **First Cloud Journey (FCJ)** from **June 17, 2024** to **September 10, 2024**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
+During my internship at **First Cloud Journey (FCJ)** from **August 1, 2025** to **December 15, 2025**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
 I participated in the **GameTracker Platform** project, developing a serverless solution for the game community. Through this, I improved my skills in **AWS Cloud services (Lambda, S3, RDS, WAF), React frontend development, Spring Boot backend, and System Architecture design**.  
 
 In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.

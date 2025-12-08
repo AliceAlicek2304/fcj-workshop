@@ -7,6 +7,19 @@ pre: " <b> 6. </b> "
 ---
 
  
+Trong suốt thời gian thực tập tại **First Cloud Journey (FCJ)** từ **01/08/2025** đến **15/12/2025**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
+Tôi đã tham gia phát triển dự án **GameTracker Platform**, xây dựng giải pháp quản lý dữ liệu game trên nền tảng AWS Serverless. Qua đó, tôi đã cải thiện đáng kể các kỹ năng **lập trình Frontend (React), Backend (Spring Boot), và vận hành hệ thống Cloud AWS (Lambda, S3, RDS, WAF)**.  
+
+Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+
+Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+
+weight: 6
+chapter: false
+pre: " <b> 6. </b> "
+---
+
+ 
 Trong suốt thời gian thực tập tại **First Cloud Journey (FCJ)** từ **17/06/2024** đến **10/09/2024**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
 Tôi đã tham gia phát triển dự án **GameTracker Platform**, xây dựng giải pháp quản lý dữ liệu game trên nền tảng AWS Serverless. Qua đó, tôi đã cải thiện đáng kể các kỹ năng **lập trình Frontend (React), Backend (Spring Boot), và vận hành hệ thống Cloud AWS (Lambda, S3, RDS, WAF)**.  
 
