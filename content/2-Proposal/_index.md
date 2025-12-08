@@ -124,5 +124,5 @@ The product is accepted upon demonstration of:
 
 <br>
 
-<h3 style="font-size: 1.3em;">🔗 Project Website: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>
+<h3 style="font-size: 1.3em;">🔗 Project Website: <a href="https://trackerplus.site/" target="_blank">https://trackerplus.site/</a></h3>
 <h3 style="font-size: 1.3em;">📥 Download Proposal: <a href="/files/Proposal-TeamOne.docx" download>Proposal-TeamOne.docx</a></h3>
