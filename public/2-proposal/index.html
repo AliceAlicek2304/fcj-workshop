@@ -15,21 +15,21 @@
     <title>Proposal :: Internship Report</title>
 
     
-    <link href="../css/nucleus.css?1765020642" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1765020642" rel="stylesheet">
-    <link href="../css/hybrid.css?1765020642" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1765020642" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1765020642" rel="stylesheet">
-    <link href="../css/auto-complete.css?1765020642" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1765020642" rel="stylesheet">
-    <link href="../css/theme.css?1765020642" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1765020642" rel="stylesheet">
+    <link href="../css/nucleus.css?1765261306" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1765261306" rel="stylesheet">
+    <link href="../css/hybrid.css?1765261306" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1765261306" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1765261306" rel="stylesheet">
+    <link href="../css/auto-complete.css?1765261306" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1765261306" rel="stylesheet">
+    <link href="../css/theme.css?1765261306" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1765261306" rel="stylesheet">
     
-    <link href="../css/theme-workshop.css?1765020642" rel="stylesheet">
+    <link href="../css/theme-workshop.css?1765261306" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1765020642"></script>
+    <script src="../js/jquery-3.3.1.min.js?1765261306"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1765020642"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1765020642"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1765261306"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1765261306"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-workshop\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1765020642"></script>
+<script type="text/javascript" src="../js/search.js?1765261306"></script>
  
   </div>
 
@@ -1018,22 +1018,21 @@
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
     <li><a href="#11-executive-summary">1.1 EXECUTIVE SUMMARY</a></li>
-    <li><a href="#12-functional-scope">1.2 FUNCTIONAL SCOPE</a>
-      <ul>
-        <li><a href="#-current-features-mvp">✅ Current Features (MVP)</a></li>
-        <li><a href="#-in-development-future-roadmap">🚧 In Development (Future Roadmap)</a></li>
-      </ul>
-    </li>
+    <li><a href="#12-project-success-criteria">1.2 PROJECT SUCCESS CRITERIA</a></li>
+    <li><a href="#13-assumptions">1.3 ASSUMPTIONS</a></li>
   </ul>
 
   <ul>
-    <li><a href="#21-high-level-architecture">2.1 HIGH-LEVEL ARCHITECTURE</a></li>
-    <li><a href="#22-technology-stack">2.2 TECHNOLOGY STACK</a></li>
+    <li><a href="#21-technical-architecture-diagram">2.1 TECHNICAL ARCHITECTURE DIAGRAM</a></li>
+    <li><a href="#22-technical-plan">2.2 TECHNICAL PLAN</a></li>
+    <li><a href="#23-project-plan">2.3 PROJECT PLAN</a></li>
+    <li><a href="#24-security-considerations">2.4 SECURITY CONSIDERATIONS</a></li>
   </ul>
 
   <ul>
-    <li><a href="#31-milestones">3.1 MILESTONES</a></li>
-    <li><a href="#32-path-to-production">3.2 PATH TO PRODUCTION</a></li>
+    <li><a href="#31-activities-and-deliverables">3.1 ACTIVITIES AND DELIVERABLES</a></li>
+    <li><a href="#32-out-of-scope">3.2 OUT OF SCOPE</a></li>
+    <li><a href="#33-path-to-production">3.3 PATH TO PRODUCTION</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1058,128 +1057,111 @@
 
 
 
-	<h1 id="1-project-background">1. PROJECT BACKGROUND</h1>
+	<h1 id="1-background-and-motivation">1. BACKGROUND AND MOTIVATION</h1>
 <h2 id="11-executive-summary">1.1 EXECUTIVE SUMMARY</h2>
 <p><strong>Context</strong>
-The gaming industry is rapidly growing, with players seeking deeper engagement through data tracking and simulation tools. <strong>GameTracker</strong> is a comprehensive platform designed to empower players and administrators to manage, track, and share simplified information about game entities (characters, weapons, banners, events).</p>
-<p><strong>Problem Statement</strong></p>
+The gaming industry is rapidly growing, with players seeking deeper engagement through data tracking and simulation tools. <strong>GameTracker</strong> is a cloud-native web application designed to empower players and administrators to manage, track, and share simplified information about game entities (characters, weapons, banners, events). The solution addresses the fragmentation of game data across wikis and spreadsheets by providing a centralized, localized platform.</p>
+<p><strong>Core Features (MVP)</strong></p>
+<ol>
+<li><strong>Game Information Hub</strong>: Centralized database for Character, Weapon, and Item attributes.</li>
+<li><strong>Gacha Simulator</strong>: Realistic simulation of entry/wish systems to test drop rates.</li>
+<li><strong>Gacha History Tracker</strong>: Tools to import pull history and analyze luck/pity.</li>
+<li><strong>Event Timeline</strong>: Interactive roadmap of past, current, and upcoming events.</li>
+</ol>
+<p><strong>In Development</strong></p>
+<ol>
+<li><strong>Real-time Resource Tracking</strong>: Integration for real-time in-game currency/energy checks.</li>
+<li><strong>Notification System</strong>: Alerts for resource overflow or event endings.</li>
+</ol>
+<h2 id="12-project-success-criteria">1.2 PROJECT SUCCESS CRITERIA</h2>
 <ul>
-<li><strong>Fragmentation</strong>: Game data is often scattered across wikis and spreadsheets.</li>
-<li><strong>Accessibility</strong>: Many global games lack localized or easy-to-access data for non-native English speakers.</li>
-<li><strong>Inefficiency</strong>: Manual data entry for game admins is error-prone and time-consuming.</li>
+<li><strong>Performance</strong>: API latency &lt; 200ms for 95% of requests.</li>
+<li><strong>Availability</strong>: 99.9% uptime during the first month of operation.</li>
+<li><strong>Cost Efficiency</strong>: Monthly AWS infrastructure cost remains under $150.</li>
 </ul>
-<p><strong>Proposed Solution</strong>
-Use <strong>GameTracker</strong>, a cloud-native web application hosted on AWS. It leverages serverless technologies to provide a cost-effective, high-availability solution for tracking game statistics and simulating gacha mechanics.</p>
-<h2 id="12-functional-scope">1.2 FUNCTIONAL SCOPE</h2>
-<p>The system is designed with a core set of features ready for deployment, alongside a roadmap for advanced capabilities.</p>
-<h3 id="-current-features-mvp">✅ Current Features (MVP)</h3>
-<ol>
-<li><strong>Game Information Hub</strong>: A centralized database allowing users to view detailed attributes of Characters, Weapons, and Items.</li>
-<li><strong>Gacha Simulator</strong>: A realistic simulation of the game&rsquo;s &ldquo;wish&rdquo; system, allowing users to test drop rates without spending real currency.</li>
-<li><strong>Gacha History Tracker</strong>: customized tools to import and visualize a player&rsquo;s actual pull history, generating statistics on luck and pity count.</li>
-<li><strong>Event Timeline</strong>: An interactive visual roadmap displaying past, current, and upcoming game events to help players plan their resources.</li>
-</ol>
-<h3 id="-in-development-future-roadmap">🚧 In Development (Future Roadmap)</h3>
-<ol>
-<li><strong>Real-time Resource Tracking</strong>: Direct integration to verify in-game resources (e.g., Energy/Resin, Currency) in real-time.</li>
-<li><strong>Notification System</strong>: Alerts for resin overflow or banner endings.</li>
-</ol>
-<hr>
-<h1 id="2-solution-architecture">2. SOLUTION ARCHITECTURE</h1>
-<h2 id="21-high-level-architecture">2.1 HIGH-LEVEL ARCHITECTURE</h2>
-<p>The solution is built on the <strong>AWS Architecture Well-Architected Framework</strong>, focusing on Reliability and Cost Optimization.</p>
-<p><strong>Architecture Diagram</strong>:</p>
+<h2 id="13-assumptions">1.3 ASSUMPTIONS</h2>
+<ul>
+<li><strong>Access</strong>: Development team has full administrative access to the AWS account.</li>
+<li><strong>Third-Party Services</strong>: Google OAuth2 services and Game APIs remain available and stable.</li>
+<li><strong>Data Availability</strong>: Game asset data (images, stats) can be manually sourced or imported without strict copyright blockers for educational/workshop purposes.</li>
+<li><strong>Budget</strong>: The project operates within the AWS Free Tier limitations where possible, with a budget cap for RDS and NAT Gateway.</li>
+</ul>
+<h1 id="2-solution-architecture--architectural-diagram">2. SOLUTION ARCHITECTURE / ARCHITECTURAL DIAGRAM</h1>
+<h2 id="21-technical-architecture-diagram">2.1 TECHNICAL ARCHITECTURE DIAGRAM</h2>
+<p>The solution utilizes a serverless-first approach on AWS to ensure scalability and low maintenance.</p>
 <p><img src="../images/2-Proposal/GameTracker1.jpg" alt="Architecture"></p>
-<p><strong>Core Components</strong>:</p>
-<ol>
-<li>
-<p><strong>Frontend (Presentation Layer)</strong>:</p>
+<p><strong>Components</strong>:</p>
 <ul>
-<li>Built with <strong>React (Vite)</strong> for a responsive SPA experience.</li>
-<li>Hosted on <strong>Amazon S3</strong> and delivered globally via <strong>Amazon CloudFront</strong> for low latency.</li>
-<li>Protected by <strong>AWS WAF</strong> against common web exploits.</li>
+<li><strong>Frontend</strong>: React (Vite) hosted on S3 + CloudFront.</li>
+<li><strong>Backend</strong>: Spring Boot on AWS Lambda + API Gateway.</li>
+<li><strong>Database</strong>: SQL Server on Amazon RDS.</li>
+<li><strong>Security</strong>: AWS WAF, IAM, Security Groups.</li>
 </ul>
-</li>
-<li>
-<p><strong>Backend (Logic Layer)</strong>:</p>
+<h2 id="22-technical-plan">2.2 TECHNICAL PLAN</h2>
+<p>We will implement the solution using industry-standard DevOps practices:</p>
 <ul>
-<li><strong>Spring Boot</strong> application containerized with <strong>Docker</strong>.</li>
-<li>Deployed on <strong>AWS Lambda</strong> (Serverless) to eliminate server management.</li>
-<li>Exposed via <strong>API Gateway (HTTP API)</strong> for secure and scalable RESTful endpoints.</li>
+<li><strong>Frontend</strong>: Developed with React and TypeScript. deployed to S3/CloudFront.</li>
+<li><strong>Backend</strong>: Spring Boot 3 Java application, containerized with Docker, pushed to ECR, and deployed to Lambda.</li>
+<li><strong>Infrastructure</strong>: Managed via AWS Console and CLI scripts for reproducibility.</li>
+<li><strong>Testing</strong>: Unit testing for backend logic and manual UAT for frontend flows.</li>
 </ul>
-</li>
-<li>
-<p><strong>Data Persistence (Data Layer)</strong>:</p>
+<h2 id="23-project-plan">2.3 PROJECT PLAN</h2>
+<p>The project follows a 4-week Agile timeline:</p>
 <ul>
-<li><strong>Amazon RDS (SQL Server Express)</strong>: Stores structured relational data (User profiles, Character stats, Gacha history).</li>
-<li><strong>Amazon S3</strong>: Stores static assets (Character avatars, Weapon icons) with high durability.</li>
+<li><strong>Week 1</strong>: Analysis, DB Schema Design, VPC Setup.</li>
+<li><strong>Week 2</strong>: Backend API Development &amp; Database Connectivity.</li>
+<li><strong>Week 3</strong>: Frontend UI Implementation &amp; Gacha Logic.</li>
+<li><strong>Week 4</strong>: Integration, CI/CD Pipeline, Deployment, and Documentation.</li>
 </ul>
-</li>
-<li>
-<p><strong>Security &amp; Identity</strong>:</p>
+<h2 id="24-security-considerations">2.4 SECURITY CONSIDERATIONS</h2>
 <ul>
-<li><strong>Google OAuth2</strong>: Secure, password-less authentication for users.</li>
-<li><strong>AWS IAM</strong>: Granular permission management for all AWS resources.</li>
-<li><strong>Security Groups</strong>: Virtual firewalls controlling traffic at the instance level.</li>
+<li><strong>Authentication</strong>: Stateless authentication using JWT and Google OAuth2.</li>
+<li><strong>Network Security</strong>: VPC with Public/Private subnets; Database in private subnet; WAF protecting CloudFront.</li>
+<li><strong>Encryption</strong>: TLS 1.2+ for data in transit; RDS instances encrypted at rest.</li>
+<li><strong>Access Control</strong>: Least Privilege IAM roles for Lambda functions.</li>
 </ul>
-</li>
-</ol>
-<h2 id="22-technology-stack">2.2 TECHNOLOGY STACK</h2>
-<ul>
-<li><strong>Languages</strong>: Java 17, TypeScript/JavaScript.</li>
-<li><strong>Frameworks</strong>: Spring Boot 3, React 18.</li>
-<li><strong>DevOps</strong>: Docker, AWS CLI.</li>
-<li><strong>Database</strong>: Microsoft SQL Server 2022.</li>
-</ul>
-<hr>
-<h1 id="3-implementation-plan">3. IMPLEMENTATION PLAN</h1>
-<h2 id="31-milestones">3.1 MILESTONES</h2>
-<p>The project is executed in a 4-week Agile sprint:</p>
+<h1 id="3-activities-and-deliverables">3. ACTIVITIES AND DELIVERABLES</h1>
+<h2 id="31-activities-and-deliverables">3.1 ACTIVITIES AND DELIVERABLES</h2>
 <table>
   <thead>
       <tr>
           <th>Phase</th>
-          <th>Timeline</th>
           <th>Activities</th>
           <th>Deliverables</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td><strong>1. Analysis &amp; Design</strong></td>
-          <td>Week 1</td>
-          <td>Requirement gathering, DB Schema design, AWS VPC setup</td>
-          <td>Architecture Blueprint, AWS Environment</td>
+          <td><strong>Setup</strong></td>
+          <td>VPC creation, IAM setup, Git repo init</td>
+          <td>AWS Environment, Architecture Doc</td>
       </tr>
       <tr>
-          <td><strong>2. Backend Development</strong></td>
-          <td>Week 2</td>
-          <td>API Development, Auth integration, DB Connectivity</td>
-          <td>Functional REST API, Swagger Docs</td>
+          <td><strong>Development</strong></td>
+          <td>Coding API endpoints, UI, DB migration</td>
+          <td>Source Code, Docker Images</td>
       </tr>
       <tr>
-          <td><strong>3. Frontend Development</strong></td>
-          <td>Week 3</td>
-          <td>UI Integration, Gacha Logic, Dashboard implementation</td>
-          <td>Complete Web Application</td>
-      </tr>
-      <tr>
-          <td><strong>4. DevOps &amp; Handoff</strong></td>
-          <td>Week 4</td>
-          <td>CI/CD pipeline (GitHub Actions), Testing, Documentation</td>
-          <td>User Guide, Admin Manual, Live Site</td>
+          <td><strong>Deployment</strong></td>
+          <td>S3 sync, Lambda deployment, CloudFront config</td>
+          <td>Live URL, API Endpoint</td>
       </tr>
   </tbody>
 </table>
-<h2 id="32-path-to-production">3.2 PATH TO PRODUCTION</h2>
+<h2 id="32-out-of-scope">3.2 OUT OF SCOPE</h2>
 <ul>
-<li><strong>Environment</strong>: Analyzing Development vs. Production environments.</li>
-<li><strong>Scalability</strong>: The serverless design allows handling 0 to 10,000 concurrent users without manual intervention.</li>
-<li><strong>Monitoring</strong>: Integrated <strong>Amazon CloudWatch</strong> for real-time log monitoring and error alerting.</li>
+<li><strong>Mobile App</strong>: Native iOS/Android versions are not included.</li>
+<li><strong>Multiplayer</strong>: Real-time multiplayer game servers or lobbies.</li>
+<li><strong>Payment Processing</strong>: No integration with payment gateways for real money.</li>
 </ul>
-<hr>
-<h1 id="4-cost-estimation">4. COST ESTIMATION</h1>
-<p><strong>Estimated Monthly Cost (AWS)</strong>: ~$123.00</p>
+<h2 id="33-path-to-production">3.3 PATH TO PRODUCTION</h2>
+<ul>
+<li><strong>Scalability</strong>: Architecture supports 0-10,000 users via Lambda auto-scaling.</li>
+<li><strong>Monitoring</strong>: Amazon CloudWatch Dashboards for error rates and latency.</li>
+<li><strong>Backup</strong>: Automated RDS backups and S3 versioning enabled for disaster recovery.</li>
+</ul>
+<h1 id="4-expected-aws-cost-breakdown-by-services">4. EXPECTED AWS COST BREAKDOWN BY SERVICES</h1>
+<p><strong>Estimated Monthly Cost</strong>: ~$123.00</p>
 <table>
   <thead>
       <tr>
@@ -1206,7 +1188,7 @@ Use <strong>GameTracker</strong>, a cloud-native web application hosted on AWS. 
       </tr>
       <tr>
           <td><strong>CloudFront</strong></td>
-          <td>100GB Data Transfer Out</td>
+          <td>100GB Data Out</td>
           <td>~$8.50</td>
       </tr>
       <tr>
@@ -1215,22 +1197,19 @@ Use <strong>GameTracker</strong>, a cloud-native web application hosted on AWS. 
           <td>~$5.00</td>
       </tr>
       <tr>
-          <td><strong>Other (S3, logs)</strong></td>
-          <td>Standard tiers</td>
+          <td><strong>Other</strong></td>
+          <td>S3, logs, Route53</td>
           <td>~$7.50</td>
       </tr>
   </tbody>
 </table>
-<p><em>Note: Costs can be optimized further by managing NAT Gateway and RDS usage hours.</em></p>
-<hr>
-<h1 id="5-project-team">5. PROJECT TEAM</h1>
-<p>The project is delivered by a dedicated Full Stack Engineer responsible for the end-to-end lifecycle.</p>
+<h1 id="5-team">5. TEAM</h1>
 <table>
   <thead>
       <tr>
           <th>Name</th>
           <th>Role</th>
-          <th>Contact Email</th>
+          <th>Email</th>
           <th>Responsibility</th>
       </tr>
   </thead>
@@ -1239,21 +1218,46 @@ Use <strong>GameTracker</strong>, a cloud-native web application hosted on AWS. 
           <td><strong>Nguyen Van Cuong</strong></td>
           <td>Full Stack Developer</td>
           <td><code>cuongnvse183645@fpt.edu.vn</code></td>
-          <td>System Architecture, Frontend/Backend Implementation, DevOps, Deployment</td>
+          <td>End-to-end Implementation</td>
       </tr>
   </tbody>
 </table>
-<hr>
-<h1 id="6-acceptance-criteria">6. ACCEPTANCE CRITERIA</h1>
-<p>The product will be accepted based on the successful demonstration of the following core flows:</p>
+<h1 id="6-resources--cost-estimates">6. RESOURCES &amp; COST ESTIMATES</h1>
+<p><em>Labor costs (Educational/Workshop context)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th>Resource</th>
+          <th>Responsibility</th>
+          <th>Effort Estimate</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Full Stack Developer</td>
+          <td>Design, Code, Deploy</td>
+          <td>~160 Hours (4 Weeks)</td>
+      </tr>
+      <tr>
+          <td>Technical Mentor</td>
+          <td>Review, Guidance</td>
+          <td>~20 Hours</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Total Estimated Effort</strong>: 4 Man-weeks.</p>
+<h1 id="7-acceptance">7. ACCEPTANCE</h1>
+<p>The product is accepted upon demonstration of:</p>
 <ol>
-<li><strong>User Login</strong>: Successful authentication via Google.</li>
-<li><strong>Data Management</strong>: Admin can Create/Read/Update/Delete game characters via the Dashboard.</li>
-<li><strong>Simulation</strong>: Gacha simulator produces random results based on defined probability logic.</li>
-<li><strong>Deployment</strong>: The application is accessible via the public CloudFront domain.</li>
+<li><strong>User Login</strong>: Successful Google OAuth2 login.</li>
+<li><strong>Data Management</strong>: CRUD operations for characters/weapons working.</li>
+<li><strong>Simulation</strong>: Gacha simulator functioning with correct logic.</li>
+<li><strong>Deployment</strong>: Application is publicly accessible via HTTPS.</li>
+<li><strong>Documentation</strong>: Complete User Guide and Deployment Guide provided.</li>
 </ol>
 <br>
-<h3 style="font-size: 1.3em;">🔗 Project Website: <a href="https://d2eu9it59oopt8.cloudfront.net/" target="_blank">https://d2eu9it59oopt8.cloudfront.net/</a></h3>
+<h3 style="font-size: 1.3em;">🔗 Project Website: <a href="https://trackerplus.site/" target="_blank">https://trackerplus.site/</a></h3>
+<h3 style="font-size: 1.3em;">📥 Download Proposal: <a href="../files/Proposal-TeamOne.docx" download>Proposal-TeamOne.docx</a></h3>
 
 
 
@@ -1970,19 +1974,19 @@ Use <strong>GameTracker</strong>, a cloud-native web application hosted on AWS. 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1765020642"></script>
-    <script src="../js/perfect-scrollbar.min.js?1765020642"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1765020642"></script>
-    <script src="../js/jquery.sticky.js?1765020642"></script>
-    <script src="../js/featherlight.min.js?1765020642"></script>
-    <script src="../js/highlight.pack.js?1765020642"></script>
+    <script src="../js/clipboard.min.js?1765261306"></script>
+    <script src="../js/perfect-scrollbar.min.js?1765261306"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1765261306"></script>
+    <script src="../js/jquery.sticky.js?1765261306"></script>
+    <script src="../js/featherlight.min.js?1765261306"></script>
+    <script src="../js/highlight.pack.js?1765261306"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1765020642"></script>
-    <script src="../js/learn.js?1765020642"></script>
-    <script src="../js/hugo-learn.js?1765020642"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1765261306"></script>
+    <script src="../js/learn.js?1765261306"></script>
+    <script src="../js/hugo-learn.js?1765261306"></script>
 
-    <link href="../mermaid/mermaid.css?1765020642" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1765020642"></script>
+    <link href="../mermaid/mermaid.css?1765261306" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1765261306"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
